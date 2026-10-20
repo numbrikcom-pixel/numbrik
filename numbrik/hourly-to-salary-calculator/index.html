@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hourly to Salary Calculator – Wage Converter | Numbrik</title>
+<meta name="description" content="Convert an hourly wage to annual, monthly, biweekly and weekly pay, or a salary to an hourly rate. See what $20, $25 or $30 an hour is per year.">
+<link rel="canonical" href="https://numbrik.com/hourly-to-salary-calculator/">
+<meta name="theme-color" content="#2340C9">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Numbrik">
+<meta property="og:title" content="Hourly to Salary Calculator – Wage Converter | Numbrik">
+<meta property="og:description" content="Convert an hourly wage to annual, monthly, biweekly and weekly pay, or a salary to an hourly rate. See what $20, $25 or $30 an hour is per year.">
+<meta property="og:url" content="https://numbrik.com/hourly-to-salary-calculator/">
+<meta property="og:image" content="https://numbrik.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/bricolage-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=1">
+<script>try{var t=JSON.parse(localStorage.getItem('nb_theme'));if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<!-- Google AdSense: paste the AdSense <script> tag here after approval -->
+<!-- Google Analytics: paste the gtag.js snippet here -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Hourly to Salary Calculator", "url": "https://numbrik.com/hourly-to-salary-calculator/", "description": "Convert an hourly wage to annual, monthly, biweekly and weekly pay, or a salary to an hourly rate. See what $20, $25 or $30 an hour is per year.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://numbrik.com/"}, {"@type": "ListItem", "position": 2, "name": "Hourly to Salary Calculator", "item": "https://numbrik.com/hourly-to-salary-calculator/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "$20 an hour is how much a year?", "acceptedAnswer": {"@type": "Answer", "text": "$41,600 before tax, at 40 hours a week for 52 weeks. That is about $3,467 a month."}}, {"@type": "Question", "name": "How many working hours are in a year?", "acceptedAnswer": {"@type": "Answer", "text": "2,080 at 40 hours a week for 52 weeks. At 38 hours a week it is 1,976, and at 37.5 hours it is 1,950."}}, {"@type": "Question", "name": "Is the result before or after tax?", "acceptedAnswer": {"@type": "Answer", "text": "Before tax. Income tax, social security and pension contributions all reduce what you take home."}}, {"@type": "Question", "name": "How do I compare a salary job with an hourly job?", "acceptedAnswer": {"@type": "Answer", "text": "Convert both to the same unit. Remember that hourly jobs may pay overtime, while salaried roles may include paid leave and benefits that are not in the hourly rate."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Numbrik home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="var(--accent-ink)" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="var(--accent-ink)"/></svg><b>Numbrik</b></a>
+    <div class="search" role="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search calculators: overtime, GPA, mortgage…" aria-label="Search calculators" autocomplete="off">
+      <div class="qres" id="qres" hidden></div>
+    </div>
+    <label class="region">Region
+      <select id="region" aria-label="Region">
+        <option value="US">United States</option>
+        <option value="CA">Canada</option>
+        <option value="AU">Australia</option>
+        <option value="UK">United Kingdom</option>
+        <option value="NL">Netherlands</option>
+      </select>
+    </label>
+    <button type="button" class="theme" id="themeBtn" aria-label="Switch between light and dark mode">
+      <svg class="sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <span id="themeLabel">Light</span>
+    </button>
+  </div>
+</header>
+
+<nav class="wrap crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li>Work &amp; pay</li><li aria-current="page">Hourly to Salary Calculator</li></ol></nav>
+<div class="wrap main">
+  <main class="content" id="content">
+    <h1>Hourly to Salary Calculator</h1>
+    <p class="lede">Convert an hourly wage into yearly, monthly, biweekly and weekly pay, or work backwards from a salary to an hourly rate.</p>
+    <div class="panel"><div class="panel-body" id="toolBody" data-tool="salary"><p class="loading">Loading calculator…</p><noscript><p class="loading">Turn on JavaScript to use this calculator.</p></noscript></div></div>
+    <!-- Ad slot: below calculator -->
+    <article class="prose">
+      <h2>How to use the Hourly to Salary Calculator</h2>
+      <ol><li>Choose whether you know your hourly rate or your annual salary.</li><li>Enter the amount, your hours per week and your paid weeks per year.</li><li>Read the hourly, daily, weekly, biweekly, monthly and yearly figures.</li></ol>
+      <h2>How it works</h2>
+      <p>A full-time US work year is usually counted as 40 hours × 52 weeks = 2,080 paid hours. In Australia full-time is 38 hours a week, so the hours field starts at 38 when you choose Australia. Paid holidays and paid leave still count as paid weeks; lower the number only for unpaid time off.</p>
+<p>Monthly pay divides the year by 12. Multiplying weekly pay by 4 understates it, because a month averages about 4.33 weeks.</p>
+      <h3>Formula</h3>
+      <pre class="formula">Annual pay  = hourly rate × hours per week × paid weeks
+Hourly rate = annual pay ÷ (hours per week × paid weeks)</pre>
+      <h2>Example</h2>
+      <p>$25 an hour at 40 hours a week for 52 weeks is <strong>$52,000 a year</strong>, $4,333.33 a month and $2,000 every two weeks, before tax.</p>
+      <h3>Hourly wage to annual salary (40 hours, 52 weeks)</h3><div class="tbl"><table><thead><tr><th>Hourly</th><th>Yearly</th><th>Monthly</th><th>Weekly</th></tr></thead><tbody><tr><td>$15</td><td>$31,200</td><td>$2,600.00</td><td>$600.00</td></tr><tr><td>$18</td><td>$37,440</td><td>$3,120.00</td><td>$720.00</td></tr><tr><td>$20</td><td>$41,600</td><td>$3,466.67</td><td>$800.00</td></tr><tr><td>$22</td><td>$45,760</td><td>$3,813.33</td><td>$880.00</td></tr><tr><td>$25</td><td>$52,000</td><td>$4,333.33</td><td>$1,000.00</td></tr><tr><td>$30</td><td>$62,400</td><td>$5,200.00</td><td>$1,200.00</td></tr><tr><td>$35</td><td>$72,800</td><td>$6,066.67</td><td>$1,400.00</td></tr><tr><td>$40</td><td>$83,200</td><td>$6,933.33</td><td>$1,600.00</td></tr><tr><td>$50</td><td>$104,000</td><td>$8,666.67</td><td>$2,000.00</td></tr></tbody></table></div>
+      
+      <!-- Ad slot: in article -->
+      <h2>Frequently asked questions</h2>
+      <div class="faq"><details><summary>$20 an hour is how much a year?</summary><p>$41,600 before tax, at 40 hours a week for 52 weeks. That is about $3,467 a month.</p></details><details><summary>How many working hours are in a year?</summary><p>2,080 at 40 hours a week for 52 weeks. At 38 hours a week it is 1,976, and at 37.5 hours it is 1,950.</p></details><details><summary>Is the result before or after tax?</summary><p>Before tax. Income tax, social security and pension contributions all reduce what you take home.</p></details><details><summary>How do I compare a salary job with an hourly job?</summary><p>Convert both to the same unit. Remember that hourly jobs may pay overtime, while salaried roles may include paid leave and benefits that are not in the hourly rate.</p></details></div>
+      <p class="updated">Last reviewed October 20, 2026. Spotted an error? <a href="/contact/">Tell us</a>.</p>
+    </article>
+    <section class="related" aria-label="Related calculators"><h2>Related calculators</h2><div class="cards"><a class="card" href="/time-card-calculator/"><small>Work &amp; pay</small><b>Time Card Calculator</b><span>Weekly hours, overtime and gross pay.</span></a><a class="card" href="/hours-calculator/"><small>Work &amp; pay</small><b>Hours Calculator</b><span>How long between two clock times.</span></a><a class="card" href="/percentage-calculator/"><small>Money</small><b>Percentage Calculator</b><span>Percent of, percent change, and what-percent.</span></a><a class="card" href="/mortgage-calculator/"><small>Money</small><b>Mortgage &amp; Loan Calculator</b><span>Monthly payment, total interest and payoff by year.</span></a></div></section>
+  </main>
+  <aside class="rail" aria-label="All calculators"><p>All calculators</p><div class="group"><h3>Work &amp; pay</h3><ul><li><a href="/time-card-calculator/">Time card</a></li><li><a href="/hours-calculator/">Hours between times</a></li><li><a href="/hourly-to-salary-calculator/" aria-current="page">Hourly ↔ salary</a></li></ul></div><div class="group"><h3>Money</h3><ul><li><a href="/tip-calculator/">Tip &amp; split</a></li><li><a href="/percentage-calculator/">Percentage</a></li><li><a href="/mortgage-calculator/">Mortgage &amp; loan</a></li><li><a href="/auto-loan-calculator/">Auto loan</a></li></ul></div><div class="group"><h3>Health</h3><ul><li><a href="/bmi-calculator/">BMI</a></li><li><a href="/calorie-calculator/">Calorie needs</a></li><li><a href="/sleep-calculator/">Sleep time</a></li></ul></div><div class="group"><h3>Students</h3><ul><li><a href="/gpa-calculator/">GPA</a></li><li><a href="/lcm-calculator/">LCM</a></li><li><a href="/gcf-calculator/">GCF</a></li></ul></div><div class="group"><h3>Dates &amp; time</h3><ul><li><a href="/age-calculator/">Age</a></li><li><a href="/days-between-dates/">Days between dates</a></li></ul></div><div class="group"><h3>Home</h3><ul><li><a href="/square-footage-calculator/">Square footage</a></li></ul></div><div class="group"><h3>Converters</h3><ul><li><a href="/unit-converter/">Unit converter</a></li></ul></div><div class="group"><h3>Fun</h3><ul><li><a href="/dice-roller/">Dice roller</a></li></ul></div></aside>
+</div>
+<footer>
+  <div class="wrap">
+    <div><h4>Work &amp; pay</h4><ul><li><a href="/time-card-calculator/">Time Card Calculator</a></li><li><a href="/hours-calculator/">Hours Calculator</a></li><li><a href="/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li></ul></div><div><h4>Money</h4><ul><li><a href="/tip-calculator/">Tip Calculator</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/mortgage-calculator/">Mortgage &amp; Loan Calculator</a></li><li><a href="/auto-loan-calculator/">Auto Loan Calculator</a></li></ul></div><div><h4>Health</h4><ul><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/calorie-calculator/">Calorie Calculator</a></li><li><a href="/sleep-calculator/">Sleep Calculator</a></li></ul></div><div><h4>Students</h4><ul><li><a href="/gpa-calculator/">GPA Calculator</a></li><li><a href="/lcm-calculator/">LCM Calculator</a></li><li><a href="/gcf-calculator/">GCF Calculator</a></li></ul></div><div><h4>Dates &amp; time</h4><ul><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/days-between-dates/">Days Between Dates</a></li></ul></div><div><h4>Home</h4><ul><li><a href="/square-footage-calculator/">Square Footage Calculator</a></li></ul></div><div><h4>Converters</h4><ul><li><a href="/unit-converter/">Unit Converter</a></li></ul></div><div><h4>Fun</h4><ul><li><a href="/dice-roller/">Dice Roller</a></li></ul></div>
+    <div><h4>Numbrik</h4><ul><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms/">Terms of use</a></li></ul></div>
+    <p class="legal">© 2026 Numbrik. Results are estimates for planning and are not financial, medical or legal advice.</p>
+  </div>
+</footer>
+<script src="/assets/app.js?v=1" defer></script>
+</body>
+</html>

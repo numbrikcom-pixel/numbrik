@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GCF Calculator – Greatest Common Factor | Numbrik</title>
+<meta name="description" content="Find the greatest common factor (GCD or HCF) of 2 to 20 numbers with prime factorization. Use it to simplify fractions and split things into equal groups.">
+<link rel="canonical" href="https://numbrik.com/gcf-calculator/">
+<meta name="theme-color" content="#2340C9">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Numbrik">
+<meta property="og:title" content="GCF Calculator – Greatest Common Factor | Numbrik">
+<meta property="og:description" content="Find the greatest common factor (GCD or HCF) of 2 to 20 numbers with prime factorization. Use it to simplify fractions and split things into equal groups.">
+<meta property="og:url" content="https://numbrik.com/gcf-calculator/">
+<meta property="og:image" content="https://numbrik.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/bricolage-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=1">
+<script>try{var t=JSON.parse(localStorage.getItem('nb_theme'));if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<!-- Google AdSense: paste the AdSense <script> tag here after approval -->
+<!-- Google Analytics: paste the gtag.js snippet here -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "GCF Calculator", "url": "https://numbrik.com/gcf-calculator/", "description": "Find the greatest common factor (GCD or HCF) of 2 to 20 numbers with prime factorization. Use it to simplify fractions and split things into equal groups.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://numbrik.com/"}, {"@type": "ListItem", "position": 2, "name": "GCF Calculator", "item": "https://numbrik.com/gcf-calculator/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the GCF of 12 and 18?", "acceptedAnswer": {"@type": "Answer", "text": "6. The factors of 12 are 1, 2, 3, 4, 6, 12 and the factors of 18 are 1, 2, 3, 6, 9, 18; the largest shared one is 6."}}, {"@type": "Question", "name": "How do I simplify a fraction with the GCF?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the top and bottom by their GCF. For 48/180 the GCF is 12, so it simplifies to 4/15."}}, {"@type": "Question", "name": "What does it mean if the GCF is 1?", "acceptedAnswer": {"@type": "Answer", "text": "The numbers are coprime: they share no factor except 1, so a fraction made from them is already in lowest terms."}}, {"@type": "Question", "name": "Is GCF the same as GCD and HCF?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Greatest common factor, greatest common divisor and highest common factor are three names for the same thing."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Numbrik home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="var(--accent-ink)" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="var(--accent-ink)"/></svg><b>Numbrik</b></a>
+    <div class="search" role="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search calculators: overtime, GPA, mortgage…" aria-label="Search calculators" autocomplete="off">
+      <div class="qres" id="qres" hidden></div>
+    </div>
+    <label class="region">Region
+      <select id="region" aria-label="Region">
+        <option value="US">United States</option>
+        <option value="CA">Canada</option>
+        <option value="AU">Australia</option>
+        <option value="UK">United Kingdom</option>
+        <option value="NL">Netherlands</option>
+      </select>
+    </label>
+    <button type="button" class="theme" id="themeBtn" aria-label="Switch between light and dark mode">
+      <svg class="sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <span id="themeLabel">Light</span>
+    </button>
+  </div>
+</header>
+
+<nav class="wrap crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li>Students</li><li aria-current="page">GCF Calculator</li></ol></nav>
+<div class="wrap main">
+  <main class="content" id="content">
+    <h1>GCF Calculator</h1>
+    <p class="lede">Find the greatest common factor, also called the GCD or HCF, of 2 to 20 whole numbers, with each number&#x27;s prime factorization.</p>
+    <div class="panel"><div class="panel-body" id="toolBody" data-tool="gcf"><p class="loading">Loading calculator…</p><noscript><p class="loading">Turn on JavaScript to use this calculator.</p></noscript></div></div>
+    <!-- Ad slot: below calculator -->
+    <article class="prose">
+      <h2>How to use the GCF Calculator</h2>
+      <ol><li>Type your numbers separated by commas or spaces.</li><li>Read the GCF, the LCM of the same numbers and the prime factors.</li></ol>
+      <h2>How it works</h2>
+      <p>The greatest common factor is the largest number that divides every number in the list without a remainder. With prime factorization, multiply the primes the numbers share, each at its lowest power.</p>
+<p>The calculator uses Euclid's algorithm, which is fast even for large numbers: replace the larger number with the remainder after dividing by the smaller one, and repeat until the remainder is 0. The last non-zero number is the GCF.</p>
+      <h3>Formula</h3>
+      <pre class="formula">GCF(a, b) = GCF(b, a mod b), until the remainder is 0</pre>
+      <h2>Example</h2>
+      <p>48 = 2⁴ × 3, 180 = 2² × 3² × 5 and 72 = 2³ × 3². The shared primes at their lowest powers are 2² × 3 = <strong>12</strong>. With Euclid: 180 mod 48 = 36, 48 mod 36 = 12, 36 mod 12 = 0, so GCF(180, 48) = 12.</p>
+      
+      <h2>Where the GCF is used</h2><ul>
+<li><strong>Simplifying fractions:</strong> 36/60 has a GCF of 12, so it simplifies to 3/5.</li>
+<li><strong>Equal groups:</strong> with 24 apples and 36 oranges, the largest number of identical gift bags with nothing left over is GCF(24, 36) = 12, each with 2 apples and 3 oranges.</li>
+<li><strong>Tiling:</strong> the largest square tile that fits a 120 × 84 cm area exactly has a side of GCF(120, 84) = 12 cm.</li>
+<li><strong>Factoring in algebra:</strong> 18x + 24 = 6(3x + 4), because the GCF of 18 and 24 is 6.</li></ul>
+      <!-- Ad slot: in article -->
+      <h2>Frequently asked questions</h2>
+      <div class="faq"><details><summary>What is the GCF of 12 and 18?</summary><p>6. The factors of 12 are 1, 2, 3, 4, 6, 12 and the factors of 18 are 1, 2, 3, 6, 9, 18; the largest shared one is 6.</p></details><details><summary>How do I simplify a fraction with the GCF?</summary><p>Divide the top and bottom by their GCF. For 48/180 the GCF is 12, so it simplifies to 4/15.</p></details><details><summary>What does it mean if the GCF is 1?</summary><p>The numbers are coprime: they share no factor except 1, so a fraction made from them is already in lowest terms.</p></details><details><summary>Is GCF the same as GCD and HCF?</summary><p>Yes. Greatest common factor, greatest common divisor and highest common factor are three names for the same thing.</p></details></div>
+      <p class="updated">Last reviewed October 20, 2026. Spotted an error? <a href="/contact/">Tell us</a>.</p>
+    </article>
+    <section class="related" aria-label="Related calculators"><h2>Related calculators</h2><div class="cards"><a class="card" href="/lcm-calculator/"><small>Students</small><b>LCM Calculator</b><span>Least common multiple of two or more whole numbers.</span></a><a class="card" href="/percentage-calculator/"><small>Money</small><b>Percentage Calculator</b><span>Percent of, percent change, and what-percent.</span></a><a class="card" href="/gpa-calculator/"><small>Students</small><b>GPA Calculator</b><span>Semester GPA on the US 4.0 scale, plus cumulative.</span></a><a class="card" href="/dice-roller/"><small>Fun</small><b>Dice Roller</b><span>Roll any number of dice, from d4 to d100.</span></a></div></section>
+  </main>
+  <aside class="rail" aria-label="All calculators"><p>All calculators</p><div class="group"><h3>Work &amp; pay</h3><ul><li><a href="/time-card-calculator/">Time card</a></li><li><a href="/hours-calculator/">Hours between times</a></li><li><a href="/hourly-to-salary-calculator/">Hourly ↔ salary</a></li></ul></div><div class="group"><h3>Money</h3><ul><li><a href="/tip-calculator/">Tip &amp; split</a></li><li><a href="/percentage-calculator/">Percentage</a></li><li><a href="/mortgage-calculator/">Mortgage &amp; loan</a></li><li><a href="/auto-loan-calculator/">Auto loan</a></li></ul></div><div class="group"><h3>Health</h3><ul><li><a href="/bmi-calculator/">BMI</a></li><li><a href="/calorie-calculator/">Calorie needs</a></li><li><a href="/sleep-calculator/">Sleep time</a></li></ul></div><div class="group"><h3>Students</h3><ul><li><a href="/gpa-calculator/">GPA</a></li><li><a href="/lcm-calculator/">LCM</a></li><li><a href="/gcf-calculator/" aria-current="page">GCF</a></li></ul></div><div class="group"><h3>Dates &amp; time</h3><ul><li><a href="/age-calculator/">Age</a></li><li><a href="/days-between-dates/">Days between dates</a></li></ul></div><div class="group"><h3>Home</h3><ul><li><a href="/square-footage-calculator/">Square footage</a></li></ul></div><div class="group"><h3>Converters</h3><ul><li><a href="/unit-converter/">Unit converter</a></li></ul></div><div class="group"><h3>Fun</h3><ul><li><a href="/dice-roller/">Dice roller</a></li></ul></div></aside>
+</div>
+<footer>
+  <div class="wrap">
+    <div><h4>Work &amp; pay</h4><ul><li><a href="/time-card-calculator/">Time Card Calculator</a></li><li><a href="/hours-calculator/">Hours Calculator</a></li><li><a href="/hourly-to-salary-calculator/">Hourly to Salary Calculator</a></li></ul></div><div><h4>Money</h4><ul><li><a href="/tip-calculator/">Tip Calculator</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/mortgage-calculator/">Mortgage &amp; Loan Calculator</a></li><li><a href="/auto-loan-calculator/">Auto Loan Calculator</a></li></ul></div><div><h4>Health</h4><ul><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/calorie-calculator/">Calorie Calculator</a></li><li><a href="/sleep-calculator/">Sleep Calculator</a></li></ul></div><div><h4>Students</h4><ul><li><a href="/gpa-calculator/">GPA Calculator</a></li><li><a href="/lcm-calculator/">LCM Calculator</a></li><li><a href="/gcf-calculator/">GCF Calculator</a></li></ul></div><div><h4>Dates &amp; time</h4><ul><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/days-between-dates/">Days Between Dates</a></li></ul></div><div><h4>Home</h4><ul><li><a href="/square-footage-calculator/">Square Footage Calculator</a></li></ul></div><div><h4>Converters</h4><ul><li><a href="/unit-converter/">Unit Converter</a></li></ul></div><div><h4>Fun</h4><ul><li><a href="/dice-roller/">Dice Roller</a></li></ul></div>
+    <div><h4>Numbrik</h4><ul><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms/">Terms of use</a></li></ul></div>
+    <p class="legal">© 2026 Numbrik. Results are estimates for planning and are not financial, medical or legal advice.</p>
+  </div>
+</footer>
+<script src="/assets/app.js?v=1" defer></script>
+</body>
+</html>
