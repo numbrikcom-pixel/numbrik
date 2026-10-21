@@ -1,12 +1,13 @@
 import json, os, shutil, html, re
 from content import T, ORDER, BYID
+import content2
 from more import MORE
 
 DOMAIN = "https://numbrik.com"
-TODAY = "2026-10-20"; TODAY_TXT = "October 20, 2026"
+TODAY = "2026-10-21"; TODAY_TXT = "October 21, 2026"
 OUT = "dist"
 E = html.escape
-V = "1"  # asset version for cache busting
+V = "2"  # asset version for cache busting
 
 LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="var(--accent-ink)" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="var(--accent-ink)"/></svg>'
 FAVICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2340C9"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="#fff"/></svg>'
@@ -268,3 +269,6 @@ for src, dst in [("bricolage-grotesque/files/bricolage-grotesque-latin-500-norma
                  ("ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2", "plex-mono-500")]:
     shutil.copy(F + src, os.path.join(OUT, f"assets/fonts/{dst}.woff2"))
 print("built", len(urls), "pages")
+
+# Google Search Console verification file
+open(os.path.join(OUT, "google3ac709f348cc4545.html"), "w").write("google-site-verification: google3ac709f348cc4545.html")
