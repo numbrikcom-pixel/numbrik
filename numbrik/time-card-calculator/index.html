@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K5H3XBXGMP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','GB','CH']});
+  gtag('js', new Date());
+  gtag('config', 'G-K5H3XBXGMP');
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Time Card Calculator with Overtime &amp; Pay | Numbrik</title>
@@ -22,7 +31,6 @@
 <link rel="stylesheet" href="/assets/style.css?v=2">
 <script>try{var t=JSON.parse(localStorage.getItem('nb_theme'));if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <!-- Google AdSense: paste the AdSense <script> tag here after approval -->
-<!-- Google Analytics: paste the gtag.js snippet here -->
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Time Card Calculator", "url": "https://numbrik.com/time-card-calculator/", "description": "Free weekly time card calculator. Enter start and end times and breaks to get total hours, overtime and gross pay. Works for US, Canada, Australia and UK.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://numbrik.com/"}, {"@type": "ListItem", "position": 2, "name": "Time Card Calculator", "item": "https://numbrik.com/time-card-calculator/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I convert minutes to decimal hours?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the minutes by 60. 15 minutes is 0.25 hours, 30 minutes is 0.5 and 45 minutes is 0.75, so 7 hours 45 minutes is 7.75 hours. Payroll systems usually work in decimal hours, and the calculator shows both."}}, {"@type": "Question", "name": "Does it work for overnight shifts?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. When the end time is earlier than the start time, the shift is counted as running past midnight. A shift from 11:00 PM to 7:30 AM with a 30-minute break counts as 8 hours."}}, {"@type": "Question", "name": "Is the result my take-home pay?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is gross pay before income tax, Social Security, pension or other deductions, so your payslip will show a lower net amount."}}, {"@type": "Question", "name": "Are my entries private?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Everything is calculated in your browser. Your week is saved only in this browser's local storage and is never sent to our servers."}}]}]}</script>
 </head>
 <body>
