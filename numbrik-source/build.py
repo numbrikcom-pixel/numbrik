@@ -18,6 +18,15 @@ def head(title, desc, path, extra_ld=None, noindex=False):
     return f"""<!doctype html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K5H3XBXGMP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('consent', 'default', {{ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','GB','CH']}});
+  gtag('js', new Date());
+  gtag('config', 'G-K5H3XBXGMP');
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{E(title)}</title>
@@ -39,7 +48,6 @@ def head(title, desc, path, extra_ld=None, noindex=False):
 <link rel="stylesheet" href="/assets/style.css?v={V}">
 <script>try{{var t=JSON.parse(localStorage.getItem('nb_theme'));if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}</script>
 <!-- Google AdSense: paste the AdSense <script> tag here after approval -->
-<!-- Google Analytics: paste the gtag.js snippet here -->
 {ld}
 </head>
 <body>

@@ -7,7 +7,7 @@ async def main():
         for u in urls:
             pg=await b.new_page(viewport={'width':1280,'height':900}); errs=[]
             pg.on('pageerror',lambda e:errs.append(str(e))); pg.on('console',lambda m:m.type=='error' and errs.append(m.text))
-            pg.on('requestfailed',lambda r:errs.append('FAIL '+r.url))
+            pg.on('requestfailed',lambda r:('googletagmanager' not in r.url) and errs.append('FAIL '+r.url))
             await pg.goto('http://localhost:8765'+u); await pg.wait_for_timeout(250)
             big=await pg.evaluate("document.querySelector('#out .big')?.textContent||''")
             words=await pg.evaluate("document.querySelector('main').innerText.split(/\\s+/).length")
