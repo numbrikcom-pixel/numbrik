@@ -3,12 +3,13 @@ from content import T, ORDER, BYID
 import content2
 import content3
 from more import MORE
+import extra
 
 DOMAIN = "https://numbrik.com"
 TODAY = "2026-10-22"; TODAY_TXT = "October 22, 2026"
 OUT = "dist"
 E = html.escape
-V = "3"  # asset version for cache busting
+V = "4"  # asset version for cache busting
 
 LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="var(--accent-ink)" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="var(--accent-ink)"/></svg>'
 FAVICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2340C9"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="#fff"/></svg>'
@@ -87,6 +88,7 @@ def footer():
     return f"""<footer>
   <div class="wrap">
     {cols}
+    <div><h4>Quick answers</h4><ul><li><a href="/salary-conversions/">Hourly wage to salary chart</a></li><li><a href="/25-an-hour-is-how-much-a-year/">$25 an hour per year</a></li><li><a href="/50000-a-year-is-how-much-an-hour/">$50,000 a year per hour</a></li><li><a href="/countdowns/">Holiday countdowns</a></li><li><a href="/days-until-christmas/">Days until Christmas</a></li></ul></div>
     <div><h4>Numbrik</h4><ul><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms/">Terms of use</a></li></ul></div>
     <p class="legal">© 2026 Numbrik. Results are estimates for planning and are not financial, medical or legal advice.</p>
   </div>
@@ -251,7 +253,8 @@ write("/404.html", head("Page not found | Numbrik", "This page doesn't exist.", 
 <div class="cards">{"".join(card(BYID[i]) for i in ["timecard","gpa","loan","calorie"])}</div><p><a href="/">Go to the homepage</a></p></main>""" + footer())
 
 # sitemap & robots & headers
-urls = ["/"] + [f"/{t['slug']}/" for t in T] + ["/about/", "/contact/", "/privacy-policy/", "/terms/"]
+EXTRA_URLS = extra.build(globals()) + extra.build_countdowns(globals())
+urls = ["/"] + [f"/{t['slug']}/" for t in T] + EXTRA_URLS + ["/about/", "/contact/", "/privacy-policy/", "/terms/"]
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
     f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n"
 write("/sitemap.xml", sm)

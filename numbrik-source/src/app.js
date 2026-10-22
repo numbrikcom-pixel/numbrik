@@ -362,4 +362,19 @@ if(tb){tb.addEventListener('click',()=>{const t=isDark()?'light':'dark';root.set
   try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',paint)}catch(e){}}
 
 const tbody=$('#toolBody');if(tbody)open(tbody.dataset.tool);
+/* holiday countdowns */
+const HOL={christmas:[12,25],halloween:[10,31],newyear:[1,1],valentines:[2,14],july4:[7,4]};
+const nthDow=(y,m,dow,n)=>{const d=new Date(y,m-1,1);return new Date(y,m-1,1+((dow-d.getDay()+7)%7)+7*(n-1))};
+function easterDate(y){const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),x=h+l-7*m+114;return new Date(y,Math.floor(x/31)-1,x%31+1)}
+function holDate(k,y){if(HOL[k])return new Date(y,HOL[k][0]-1,HOL[k][1]);if(k==='thanksgiving')return nthDow(y,11,4,4);if(k==='blackfriday'){const t=nthDow(y,11,4,4);t.setDate(t.getDate()+1);return t}if(k==='mothers')return nthDow(y,5,0,2);if(k==='fathers')return nthDow(y,6,0,3);if(k==='easter')return easterDate(y);return null}
+function nextHol(k){const n=new Date(),t=new Date(n.getFullYear(),n.getMonth(),n.getDate());let d=holDate(k,t.getFullYear());if(d<t)d=holDate(k,t.getFullYear()+1);return{d,t,days:Math.round((d-t)/864e5)}}
+function tickCountdowns(){document.querySelectorAll('[data-countdown]').forEach(el=>{const k=el.dataset.countdown,x=nextHol(k);if(!x.d)return;
+  if(!el.classList.contains('cd')){el.textContent=x.days;return}
+  const q=s=>el.querySelector(s);q('.cd-days').textContent=x.days===0?'Today!':x.days;q('.cd-unit').textContent=x.days===0?'':x.days===1?'day':'days';
+  q('.cd-date').textContent=x.d.toLocaleDateString(R().loc,{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  {const w=Math.floor(x.days/7),r=x.days%7;q('.cd-weeks').textContent=`${w} ${w===1?'week':'weeks'}, ${r} ${r===1?'day':'days'}`}
+  let wd=0;for(let i=1;i<=x.days;i++){const dd=new Date(x.t);dd.setDate(dd.getDate()+i);const g=dd.getDay();if(g&&g<6)wd++}q('.cd-wd').textContent=wd;
+  const ms=x.d-new Date();if(x.days===0){q('.cd-live').textContent='It’s here. Enjoy the day!'}else{const s=Math.max(0,Math.floor(ms/1000));q('.cd-live').textContent=`${Math.floor(s/86400)} days, ${Math.floor(s%86400/3600)} hours, ${Math.floor(s%3600/60)} minutes, ${s%60} seconds`}})}
+if(document.querySelector('[data-countdown]')){tickCountdowns();if(document.querySelector('.cd'))setInterval(tickCountdowns,1000)}
+
 })();
