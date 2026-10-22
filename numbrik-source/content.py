@@ -238,7 +238,7 @@ tool(id="gpa", slug="gpa-calculator", cat="Students", name="GPA Calculator",
        ("How can I raise my GPA fastest?","Higher grades in courses with more credits move your GPA the most. The more credits you have already earned, the slower your cumulative GPA changes."),
        ("Does a withdrawn or pass/fail course count?","Usually not. A W or a pass grade normally carries no grade points, so leave it out. Check your school's policy."),
        ("Do Australian or UK universities use this scale?","Not usually. Most Australian universities use a 7-point GPA, and UK degrees use classifications such as First or 2:1. This calculator uses the US 4.0 scale.")],
- related=["percent","lcm","gcf","age"])
+ related=["grade","finalgrade","percent","lcm"])
 
 tool(id="lcm", slug="lcm-calculator", cat="Students", name="LCM Calculator",
  short="LCM", desc="Least common multiple of two or more whole numbers.",

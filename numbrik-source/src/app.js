@@ -288,9 +288,35 @@ const TOOLS=[
   $('#cfs').innerHTML=n>1&&n<=200?r.map(x=>`<div class="time-chip ${x==='H'?'best':''}"><b>${x}</b></div>`).join(''):'';
   $('#out').innerHTML=`<span class="label">${n===1?'Result':n+' flips'}</span><div class="big"><em>${n===1?(r[0]==='H'?'Heads':'Tails'):h+' H · '+(n-h)+' T'}</em></div>${kv([['Heads',`${h} (${num(h/n*100,1)}%)`],['Tails',`${n-h} (${num((n-h)/n*100,1)}%)`],['Longest streak',String(best)]])}${copyBtn}`;
   return n===1?(r[0]==='H'?'Heads':'Tails'):`${h} heads, ${n-h} tails`},
- after(){$('#cfgo').onclick=()=>{this.flip();update()}}}
+ after(){$('#cfgo').onclick=()=>{this.flip();update()}}},
+{id:'grade',cat:'Students',name:'Grade',kw:'grade calculator weighted grade class grade average assignments categories percentage letter grade',desc:'Weighted class grade from your assignments and categories.',
+ rows:null,
+ render(){if(!this.rows)this.rows=store.get('grade',[['Homework',92,20],['Quizzes',85,15],['Midterm exam',78,25],['Project',88,15],['Participation',100,5]]);
+  return `<div class="inputs"><div class="tc-wrap"><table><thead><tr><th>Assignment or category</th><th>Score %</th><th>Weight %</th><th></th></tr></thead><tbody id="grbody">
+  ${this.rows.map((r,i)=>`<tr><td><input id="grn${i}" value="${String(r[0]).replace(/"/g,'&quot;')}" aria-label="Name"></td><td><input id="grs${i}" type="number" min="0" step="any" value="${r[1]}" aria-label="Score percent" inputmode="decimal"></td><td><input id="grw${i}" type="number" min="0" step="any" value="${r[2]}" aria-label="Weight percent" inputmode="decimal"></td><td><button class="btn" type="button" data-gdel="${i}" aria-label="Remove row">✕</button></td></tr>`).join('')}
+  </tbody></table></div>
+  <div class="actions"><button class="btn primary" type="button" id="gradd">Add row</button></div>
+  <p class="hint">Enter scores as percentages (for 45 out of 50, enter 90). Weights don't have to add up to 100: if they add up to less, the result is your grade on the work marked so far. Rows are saved in this browser.</p></div><div class="result" id="out"></div>`},
+ calc(){let sw=0,ws=0;this.rows=this.rows.map((r,i)=>{const n=$('#grn'+i).value,s=parseFloat($('#grs'+i).value),w=parseFloat($('#grw'+i).value);if(isFinite(s)&&isFinite(w)&&w>0){sw+=s*w;ws+=w}return[n,isFinite(s)?s:'',isFinite(w)?w:'']});store.set('grade',this.rows);
+  const g=ws?sw/ws:NaN;
+  $('#out').innerHTML=`<span class="label">Current grade</span><div class="big"><em>${isFinite(g)?num(g,2)+'%':'—'}</em></div>${kv([['Letter grade',isFinite(g)?letter(g):'—'],['Weight entered',num(ws,1)+'%'],['Weight still to come',ws<100?num(100-ws,1)+'%':'None']])}${ws>0&&ws<100?`<a class="copy" href="/final-grade-calculator/">What do I need on the final?</a>`:''}${copyBtn}`;
+  return isFinite(g)?`Grade ${num(g,2)}% (${letter(g)})`:''},
+ after(){$('#gradd').onclick=()=>{this.calc();this.rows.push(['New assignment','',10]);open('grade')};document.querySelectorAll('[data-gdel]').forEach(b=>b.onclick=()=>{this.calc();this.rows.splice(+b.dataset.gdel,1);open('grade')})}},
+
+{id:'finalgrade',cat:'Students',name:'Final grade',kw:'final grade calculator final exam what do i need on my final to pass get an a b grade needed',desc:'The score you need on the final exam to reach your target grade.',
+ render(){return `<div class="inputs"><div class="row">${field('fgc','Current grade',84,{unit:'%'})}${field('fgw','Final exam weight',25,{unit:'%'})}${field('fgt','Grade you want',85,{unit:'%'})}</div>
+  <div class="actions">${[['A',90],['B',80],['C',70],['D',60]].map(([l,x])=>`<button class="btn" type="button" data-fgt="${x}">${l} (${x}%)</button>`).join('')}</div>
+  <p class="hint">Find your current grade with the <a href="/grade-calculator/">grade calculator</a>. The final exam weight is in your course syllabus.</p><div id="fgtable"></div></div><div class="result" id="out"></div>`},
+ calc(){const c=v('fgc'),w=v('fgw')/100,t=v('fgt');if(!(w>0&&w<=1)||!isFinite(c)||!isFinite(t)){$('#out').innerHTML='<span class="label">Result</span><p class="hint">Enter a final exam weight between 1 and 100%.</p>';$('#fgtable').innerHTML='';return''}
+  const need=x=>(x-c*(1-w))/w,n=need(t);
+  const msg=n>100?`Even 100% on the final gives ${num(c*(1-w)+100*w,1)}%.`:n<=0?`You already have it, even with 0% on the final.`:`Score at least ${num(n,1)}% on the final.`;
+  $('#fgtable').innerHTML=`<div class="tbl"><table><thead><tr><th>Target</th><th>You need on the final</th></tr></thead><tbody>${[['A',90],['B',80],['C',70],['D',60]].map(([l,x])=>{const r=need(x);return`<tr><td>${l} (${x}%)</td><td>${r>100?'Not reachable':r<=0?'Already secured':num(r,1)+'%'}</td></tr>`}).join('')}</tbody></table></div>`;
+  $('#out').innerHTML=`<span class="label">You need on the final</span><div class="big"><em>${n>100?'Not reachable':n<=0?'0%':num(n,1)+'%'}</em></div><p class="hint" style="color:var(--ink)">${msg}</p>${kv([['Grade if you score 100%',num(c*(1-w)+100*w,1)+'%'],['Grade if you score 70%',num(c*(1-w)+70*w,1)+'%'],['Grade if you score 0%',num(c*(1-w),1)+'%']])}${copyBtn}`;
+  return n>100?`${t}% is not reachable`:`Need ${num(Math.max(0,n),1)}% on the final`},
+ after(){document.querySelectorAll('[data-fgt]').forEach(b=>b.onclick=()=>{$('#fgt').value=b.dataset.fgt;update()})}}
 
 ];
+function letter(g){const L=[[97,'A+'],[93,'A'],[90,'A−'],[87,'B+'],[83,'B'],[80,'B−'],[77,'C+'],[73,'C'],[70,'C−'],[67,'D+'],[63,'D'],[60,'D−']];for(const[x,l]of L)if(g>=x)return l;return 'F'}
 function gcd2(a,b){while(b){[a,b]=[b,a%b]}return a}
 function factor(n){const f={};let d=2;while(n>1&&d*d<=n){while(n%d===0){f[d]=(f[d]||0)+1;n/=d}d++}if(n>1)f[n]=(f[n]||0)+1;return f}
 const fstr=f=>Object.entries(f).map(([p,e])=>e>1?`${p}<sup>${e}</sup>`:p).join(' × ')||'1';
@@ -302,7 +328,7 @@ function mathTool(kind){const raw=$('#ln').value.split(/[\s,;]+/).filter(Boolean
   return `${kind.toUpperCase()}(${ns.join(', ')}) = ${r}`}
 
 /* ---------- page shell ---------- */
-const SLUGS={timecard:'time-card-calculator',hours:'hours-calculator',salary:'hourly-to-salary-calculator',tip:'tip-calculator',percent:'percentage-calculator',loan:'mortgage-calculator',bmi:'bmi-calculator',sleep:'sleep-calculator',age:'age-calculator',days:'days-between-dates',convert:'unit-converter',calorie:'calorie-calculator',gpa:'gpa-calculator',autoloan:'auto-loan-calculator',dice:'dice-roller',lcm:'lcm-calculator',gcf:'gcf-calculator',sqft:'square-footage-calculator',concrete:'concrete-calculator',paint:'paint-calculator',fraction:'fraction-calculator',random:'random-number-generator',coin:'coin-flip'};
+const SLUGS={timecard:'time-card-calculator',hours:'hours-calculator',salary:'hourly-to-salary-calculator',tip:'tip-calculator',percent:'percentage-calculator',loan:'mortgage-calculator',bmi:'bmi-calculator',sleep:'sleep-calculator',age:'age-calculator',days:'days-between-dates',convert:'unit-converter',calorie:'calorie-calculator',gpa:'gpa-calculator',autoloan:'auto-loan-calculator',dice:'dice-roller',lcm:'lcm-calculator',gcf:'gcf-calculator',sqft:'square-footage-calculator',concrete:'concrete-calculator',paint:'paint-calculator',fraction:'fraction-calculator',random:'random-number-generator',coin:'coin-flip',grade:'grade-calculator',finalgrade:'final-grade-calculator'};
 let cur=null,lastText='';
 function update(){if(!cur)return;try{lastText=cur.calc()||''}catch(e){lastText=''}
   const c=$('#copyRes');if(c)c.onclick=()=>{const done=()=>{c.textContent='Copied';setTimeout(()=>c.textContent='Copy result',1400)};try{navigator.clipboard.writeText(lastText).then(done,()=>{c.textContent=lastText})}catch(e){c.textContent=lastText}}}
