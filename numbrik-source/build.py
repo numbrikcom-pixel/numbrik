@@ -49,7 +49,7 @@ def head(title, desc, path, extra_ld=None, noindex=False):
 <link rel="preload" href="/assets/fonts/bricolage-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/style.css?v={V}">
 <script>try{{var t=JSON.parse(localStorage.getItem('nb_theme'));if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}</script>
-<!-- Google AdSense: paste the AdSense <script> tag here after approval -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6519470736644184" crossorigin="anonymous"></script>
 {ld}
 </head>
 <body>
@@ -258,6 +258,7 @@ urls = ["/"] + [f"/{t['slug']}/" for t in T] + EXTRA_URLS + ["/about/", "/contac
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
     f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n"
 write("/sitemap.xml", sm)
+open(os.path.join(OUT, "ads.txt"), "w").write("google.com, pub-6519470736644184, DIRECT, f08c47fec0942fa0\n")
 write("/robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n")
 open(os.path.join(OUT, "_headers"), "w").write("""/assets/*
   Cache-Control: public, max-age=31536000, immutable
