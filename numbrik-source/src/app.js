@@ -366,7 +366,8 @@ const tbody=$('#toolBody');if(tbody)open(tbody.dataset.tool);
 const HOL={christmas:[12,25],halloween:[10,31],newyear:[1,1],valentines:[2,14],july4:[7,4]};
 const nthDow=(y,m,dow,n)=>{const d=new Date(y,m-1,1);return new Date(y,m-1,1+((dow-d.getDay()+7)%7)+7*(n-1))};
 function easterDate(y){const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),x=h+l-7*m+114;return new Date(y,Math.floor(x/31)-1,x%31+1)}
-function holDate(k,y){if(HOL[k])return new Date(y,HOL[k][0]-1,HOL[k][1]);if(k==='thanksgiving')return nthDow(y,11,4,4);if(k==='blackfriday'){const t=nthDow(y,11,4,4);t.setDate(t.getDate()+1);return t}if(k==='mothers')return nthDow(y,5,0,2);if(k==='fathers')return nthDow(y,6,0,3);if(k==='easter')return easterDate(y);return null}
+function holDate(k,y){if(HOL[k])return new Date(y,HOL[k][0]-1,HOL[k][1]);if(k==='thanksgiving')return nthDow(y,11,4,4);if(k==='blackfriday'){const t=nthDow(y,11,4,4);t.setDate(t.getDate()+1);return t}if(k==='mothers')return nthDow(y,5,0,2);if(k==='fathers')return nthDow(y,6,0,3);if(k==='easter')return easterDate(y);const r=HOL2[k];if(!r)return null;if(r[0]==='f')return new Date(y,r[1]-1,r[2]);if(r[0]==='n')return nthDow(y,r[1],r[2],r[3]);const d=new Date(y,r[1],0);d.setDate(d.getDate()-((d.getDay()-r[2]+7)%7));return d}
+const HOL2={christmaseve:['f',12,24],newyearseve:['f',12,31],stpatricks:['f',3,17],juneteenth:['f',6,19],veterans:['f',11,11],canadaday:['f',7,1],boxingday:['f',12,26],australiaday:['f',1,26],mlk:['n',1,1,3],presidents:['n',2,1,3],laborday:['n',9,1,1],cathanksgiving:['n',10,1,2],dstend:['n',11,0,1],dststart:['n',3,0,2],memorial:['l',5,1]};
 function nextHol(k){const n=new Date(),t=new Date(n.getFullYear(),n.getMonth(),n.getDate());let d=holDate(k,t.getFullYear());if(d<t)d=holDate(k,t.getFullYear()+1);return{d,t,days:Math.round((d-t)/864e5)}}
 function tickCountdowns(){document.querySelectorAll('[data-countdown]').forEach(el=>{const k=el.dataset.countdown,x=nextHol(k);if(!x.d)return;
   if(!el.classList.contains('cd')){el.textContent=x.days;return}
@@ -375,6 +376,16 @@ function tickCountdowns(){document.querySelectorAll('[data-countdown]').forEach(
   {const w=Math.floor(x.days/7),r=x.days%7;q('.cd-weeks').textContent=`${w} ${w===1?'week':'weeks'}, ${r} ${r===1?'day':'days'}`}
   let wd=0;for(let i=1;i<=x.days;i++){const dd=new Date(x.t);dd.setDate(dd.getDate()+i);const g=dd.getDay();if(g&&g<6)wd++}q('.cd-wd').textContent=wd;
   const ms=x.d-new Date();if(x.days===0){q('.cd-live').textContent='It’s here. Enjoy the day!'}else{const s=Math.max(0,Math.floor(ms/1000));q('.cd-live').textContent=`${Math.floor(s/86400)} days, ${Math.floor(s%86400/3600)} hours, ${Math.floor(s%3600/60)} minutes, ${s%60} seconds`}})}
+
+/* days from today */
+const longD=d=>d.toLocaleDateString(R().loc,{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+const plusDays=n=>{const t=new Date();return new Date(t.getFullYear(),t.getMonth(),t.getDate()+n)};
+const plusBiz=n=>{const d=plusDays(0);let k=Math.abs(n);const s=n<0?-1:1;while(k){d.setDate(d.getDate()+s);const g=d.getDay();if(g&&g<6)k--}return d};
+document.querySelectorAll('.afd').forEach(el=>{const n=+el.dataset.add,q=s=>el.querySelector(s),d=plusDays(n);
+  q('.afd-date').textContent=longD(d);q('.afd-from').textContent='Counting from today, '+longD(plusDays(0));
+  q('.afd-short').textContent=d.toLocaleDateString(R().loc);q('.afd-biz').textContent=longD(plusBiz(n));q('.afd-ago').textContent=longD(plusDays(-n))});
+document.querySelectorAll('.afd-mini').forEach(el=>{el.textContent=longD(plusDays(+el.dataset.add))});
+const afdN=$('#afdN');if(afdN){const run=()=>{const n=Math.round((parseFloat(afdN.value)||0)*(+$('#afdU').value));if(Math.abs(n)>100000)return;$('#afdOut').textContent=longD(plusDays(n));$('#afdBiz').textContent=longD(plusBiz(n));$('#afdAgo').textContent=longD(plusDays(-n))};afdN.addEventListener('input',run);$('#afdU').addEventListener('input',run);run()}
 if(document.querySelector('[data-countdown]')){tickCountdowns();if(document.querySelector('.cd'))setInterval(tickCountdowns,1000)}
 
 })();

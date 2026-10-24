@@ -24,7 +24,31 @@ HOLS = [  # key, slug, name, short rule text
  ("mothers", "days-until-mothers-day", "Mother's Day", "In the US, Canada and Australia, Mother's Day is the second Sunday of May. The UK's Mothering Sunday is different: three weeks before Easter Sunday."),
  ("fathers", "days-until-fathers-day", "Father's Day", "In the US, Canada and the UK, Father's Day is the third Sunday of June. Australia celebrates it on the first Sunday of September."),
  ("july4", "days-until-4th-of-july", "the 4th of July", "Independence Day in the United States is always on July 4."),
+ ("christmaseve", "days-until-christmas-eve", "Christmas Eve", "Christmas Eve is always on December 24, the day before Christmas."),
+ ("newyearseve", "days-until-new-years-eve", "New Year's Eve", "New Year's Eve is always on December 31."),
+ ("mlk", "days-until-mlk-day", "Martin Luther King Jr. Day", "Martin Luther King Jr. Day is a US federal holiday on the third Monday of January."),
+ ("presidents", "days-until-presidents-day", "Presidents' Day", "Presidents' Day, officially Washington's Birthday, is a US federal holiday on the third Monday of February."),
+ ("stpatricks", "days-until-st-patricks-day", "St. Patrick's Day", "St. Patrick's Day is always on March 17."),
+ ("memorial", "days-until-memorial-day", "Memorial Day", "Memorial Day is a US federal holiday on the last Monday of May. Many people treat the long weekend as the start of summer."),
+ ("juneteenth", "days-until-juneteenth", "Juneteenth", "Juneteenth is a US federal holiday on June 19. When it falls on a Saturday the federal day off is the Friday before, and when it falls on a Sunday it is the Monday after."),
+ ("laborday", "days-until-labor-day", "Labor Day", "In the US and Canada, Labor Day (Labour Day in Canada) is the first Monday of September."),
+ ("veterans", "days-until-veterans-day", "Veterans Day", "Veterans Day in the US is always on November 11. Canada, the UK and Australia mark Remembrance Day on the same date."),
+ ("canadaday", "days-until-canada-day", "Canada Day", "Canada Day is always on July 1. When July 1 is a Sunday, the holiday is observed on Monday, July 2."),
+ ("cathanksgiving", "days-until-canadian-thanksgiving", "Canadian Thanksgiving", "Thanksgiving in Canada is the second Monday of October, about six weeks before US Thanksgiving."),
+ ("boxingday", "days-until-boxing-day", "Boxing Day", "Boxing Day is December 26 in the UK, Canada, Australia and other Commonwealth countries. When it falls on a weekend, the public holiday moves to the next weekday."),
+ ("australiaday", "days-until-australia-day", "Australia Day", "Australia Day is on January 26. When it falls on a weekend, the public holiday moves to the following Monday."),
+ ("dstend", "days-until-daylight-saving-ends", "the end of daylight saving time", "In the US and most of Canada, daylight saving time ends at 2:00 a.m. on the first Sunday of November, when clocks go back one hour. The UK and the EU change on the last Sunday of October, and Australia's southern states on the first Sunday of April."),
+ ("dststart", "days-until-daylight-saving-starts", "the start of daylight saving time", "In the US and most of Canada, daylight saving time starts at 2:00 a.m. on the second Sunday of March, when clocks go forward one hour. The UK and the EU change on the last Sunday of March, and Australia's southern states on the first Sunday of October."),
 ]
+COUNTRY = {"thanksgiving": "US", "blackfriday": "US", "july4": "US", "mlk": "US", "presidents": "US", "memorial": "US", "juneteenth": "US", "veterans": "US", "laborday": "US · Canada",
+           "canadaday": "Canada", "cathanksgiving": "Canada", "boxingday": "UK · Canada · Australia", "australiaday": "Australia", "dstend": "US · Canada", "dststart": "US · Canada"}
+RULES = {"christmaseve": ("f", 12, 24), "newyearseve": ("f", 12, 31), "stpatricks": ("f", 3, 17), "juneteenth": ("f", 6, 19), "veterans": ("f", 11, 11),
+         "canadaday": ("f", 7, 1), "boxingday": ("f", 12, 26), "australiaday": ("f", 1, 26),
+         "mlk": ("n", 1, 0, 3), "presidents": ("n", 2, 0, 3), "laborday": ("n", 9, 0, 1), "cathanksgiving": ("n", 10, 0, 2),
+         "dstend": ("n", 11, 6, 1), "dststart": ("n", 3, 6, 2), "memorial": ("l", 5, 0)}
+def last_dow(y, m, dow):
+    d = (date(y, m + 1, 1) if m < 12 else date(y + 1, 1, 1)) - timedelta(1)
+    return d - timedelta((d.weekday() - dow) % 7)
 def nth_dow(y, m, dow, n):  # dow: Monday=0 … Sunday=6
     d = date(y, m, 1); return d + timedelta((dow - d.weekday()) % 7 + 7 * (n - 1))
 def easter(y):
@@ -39,6 +63,10 @@ def hol_date(k, y):
     if k == "mothers": return nth_dow(y, 5, 6, 2)
     if k == "fathers": return nth_dow(y, 6, 6, 3)
     if k == "easter": return easter(y)
+    r = RULES.get(k)
+    if r and r[0] == "f": return date(y, r[1], r[2])
+    if r and r[0] == "n": return nth_dow(y, r[1], r[2], r[3])
+    if r and r[0] == "l": return last_dow(y, r[1], r[2])
 def fmt(d): return f"{d:%A}, {d:%B} {d.day}, {d.year}"
 
 # links from existing tool pages
@@ -135,7 +163,11 @@ def build_countdowns(g):
         faqs = [(f"What day is {name} {nd.year}?", f"{disp} {nd.year} is on {fmt(nd)}."),
                 (f"How many weeks until {name}?", f"Divide the days by 7. The countdown at the top of this page shows the exact number of weeks and days, and updates every day."),
                 (f"How many sleeps until {name}?", f"The number of sleeps is the same as the number of days shown in the countdown, because you sleep once each night before the day arrives.")]
-        others = "".join(f'<a class="card" href="/{s}/"><b>{E(nm[0].upper()+nm[1:])}</b><span><span class="cd-mini" data-countdown="{kk}">{(hol_date(kk, today.year) if hol_date(kk, today.year) >= today else hol_date(kk, today.year+1)) .__sub__(today).days}</span> days</span></a>' for kk, s, nm, _ in HOLS if kk != k)
+        def nxt(kk):
+            d = hol_date(kk, today.year)
+            return d if d >= today else hol_date(kk, today.year + 1)
+        soon = sorted((x for x in HOLS if x[0] != k), key=lambda x: nxt(x[0]))[:6]
+        others = "".join(f'<a class="card" href="/{s}/"><small>{COUNTRY.get(kk, "")}</small><b>{E(nm[0].upper()+nm[1:])}</b><span><span class="cd-mini" data-countdown="{kk}">{(nxt(kk)-today).days}</span> days</span></a>' for kk, s, nm, _ in soon) + '<a class="card" href="/countdowns/"><b>All countdowns</b><span>{} holidays</span></a>'.format(len(HOLS))
         body = f"""<div class="answer cd" data-countdown="{k}"><span class="label">Days until {E(name)}</span><div class="big"><em class="cd-days">{n}</em> <span class="cd-unit">days</span></div>
 <p class="cd-live hint">{n} days to go</p><dl class="kv"><div><dt>Date</dt><dd class="cd-date">{fmt(nd)}</dd></div><div><dt>Weeks</dt><dd class="cd-weeks">{n//7} {"week" if n//7==1 else "weeks"}, {n%7} {"day" if n%7==1 else "days"}</dd></div><div><dt>Weekdays (Mon–Fri)</dt><dd class="cd-wd">—</dd></div></dl></div>
 <h2>When is {E(name)}?</h2><p>{E(rule)}</p>
@@ -153,8 +185,8 @@ def build_countdowns(g):
     for k, slug, name, _ in sorted(HOLS, key=lambda x: ((hol_date(x[0], today.year) if hol_date(x[0], today.year) >= today else hol_date(x[0], today.year + 1)) - today).days):
         nd = hol_date(k, today.year)
         if nd < today: nd = hol_date(k, today.year + 1)
-        cards += f'<a class="card" href="/{slug}/"><small>{nd:%b} {nd.day}</small><b>{E(name[0].upper()+name[1:])}</b><span><span class="cd-mini" data-countdown="{k}">{(nd-today).days}</span> days to go</span></a>'
-    write("/countdowns/", head("Holiday Countdowns – Days Until Christmas & More | Numbrik", "Live countdowns to Christmas, Halloween, Thanksgiving, Black Friday, New Year, Valentine's Day, Easter, Mother's Day, Father's Day and the 4th of July.", "/countdowns/") +
+        cards += f'<a class="card" href="/{slug}/"><small>{nd:%b} {nd.day}{" · " + COUNTRY[k] if k in COUNTRY else ""}</small><b>{E(name[0].upper()+name[1:])}</b><span><span class="cd-mini" data-countdown="{k}">{(nd-today).days}</span> days to go</span></a>'
+    write("/countdowns/", head("Holiday Countdowns – Days Until Christmas & More | Numbrik", "Live countdowns to Christmas, Halloween, Thanksgiving, New Year's Eve, Memorial Day, Labor Day, Canada Day, Boxing Day, Australia Day, daylight saving time and more.", "/countdowns/") +
           '<nav class="wrap crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Holiday countdowns</li></ol></nav>' +
           f'<main id="content" class="wrap page wide"><h1>Holiday countdowns</h1><p class="lede">How many days until the next big day, soonest first. Each countdown updates live.</p><div class="cards">{cards}</div></main>' + footer())
     urls.append("/countdowns/")
