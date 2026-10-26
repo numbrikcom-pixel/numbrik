@@ -177,10 +177,10 @@ const TOOLS=[
 
 {id:'autoloan',cat:'Money',name:'Auto loan',kw:'auto loan car payment vehicle finance down payment trade in sales tax',desc:'Monthly car payment with down payment, trade-in and tax.',
  render(){return `<div class="inputs"><div class="row">${field('ap','Vehicle price',34000,{unit:R().cur})}${field('ad','Down payment',4000,{unit:R().cur})}${field('at','Trade-in value',3000,{unit:R().cur})}</div>
-  <div class="row">${field('ax','Sales tax',region==='US'?7:0,{unit:'%'})}${field('ar','Interest rate',6.9,{unit:'%'})}<div class="field"><label for="am">Term</label><select id="am">${[36,48,60,72,84].map(m=>`<option value="${m}" ${m===60?'selected':''}>${m} months</option>`).join('')}</select></div></div>
-  <p class="hint">Tax is applied to the price after trade-in, which is how most US states count it. Leave tax at 0 if it is already in the price.</p></div><div class="result" id="out"></div>`},
- calc(){const price=v('ap'),dn=v('ad')||0,tr=v('at')||0,tax=Math.max(0,price-tr)*(v('ax')||0)/100;const P=Math.max(0,price-dn-tr+tax),r=v('ar')/1200,n=+$('#am').value;const pm=r?P*r/(1-Math.pow(1+r,-n)):P/n;
-  $('#out').innerHTML=`<span class="label">Monthly payment</span><div class="big"><em>${money(pm)}</em></div>${kv([['Amount financed',money(P,0)],['Sales tax',money(tax,0)],['Total interest',money(pm*n-P,0)],['Total cost of car',money(pm*n+dn+tr,0)]])}${copyBtn}`;return `${money(pm)}/month for ${n} months`}},
+  <div class="row">${field('ax','Sales tax',region==='US'?7:0,{unit:'%'})}${field('af','Fees (title, registration, dealer)',0,{unit:R().cur})}${field('ar','Interest rate',6.9,{unit:'%'})}<div class="field"><label for="am">Term</label><select id="am">${[36,48,60,72,84].map(m=>`<option value="${m}" ${m===60?'selected':''}>${m} months</option>`).join('')}</select></div></div>
+  <p class="hint">Tax is applied to the price after trade-in, which is how most US states count it. Leave tax at 0 if it is already in the price. Add fees to include them in the loan, or leave them at 0 if you'll pay them up front.</p></div><div class="result" id="out"></div>`},
+ calc(){const price=v('ap'),dn=v('ad')||0,tr=v('at')||0,tax=Math.max(0,price-tr)*(v('ax')||0)/100;const fees=Math.max(0,v('af')||0),P=Math.max(0,price-dn-tr+tax+fees),r=v('ar')/1200,n=+$('#am').value;const pm=r?P*r/(1-Math.pow(1+r,-n)):P/n;
+  $('#out').innerHTML=`<span class="label">Monthly payment</span><div class="big"><em>${money(pm)}</em></div>${kv([['Amount financed',money(P,0)],['Sales tax',money(tax,0)],['Fees added to loan',money(fees,0)],['Total interest',money(pm*n-P,0)],['Total cost of car',money(pm*n+dn+tr,0)]])}${copyBtn}`;return `${money(pm)}/month for ${n} months`}},
 
 {id:'dice',cat:'Fun',name:'Dice roller',kw:'dice roller roll d6 d20 random number dnd board game',desc:'Roll any number of dice, from d4 to d100.',
  state:{sides:6,last:null},
