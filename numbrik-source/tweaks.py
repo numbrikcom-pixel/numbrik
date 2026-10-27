@@ -41,3 +41,6 @@ sl["extra"] = """<h2>How to calculate your hourly rate from a salary</h2><ol>
 <li>Divide the salary by the hours: $60,000 ÷ 2,080 = $28.85 an hour.</li></ol>
 <p>A quick estimate: halve the salary and drop the last three zeros. $60,000 becomes about $30 an hour. This works because 2,080 hours is close to 2,000.</p>""" + sl["extra"]
 sl["faqs"] = sl["faqs"] + [("How do I work out my hourly pay from my salary?", "Divide your yearly salary by the hours you work in a year. At 40 hours a week for 52 weeks that is 2,080 hours, so $50,000 a year is about $24.04 an hour.")]
+
+# Short label shown in the menu and search
+BYID["sleep"]["short"] = "Sleep calculator"

@@ -112,7 +112,7 @@ const TOOLS=[
   $('#out').innerHTML=`<span class="label">Your BMI</span><div class="big"><em>${num(b,1)}</em></div>${kv([['Category',cat],['Healthy weight for your height',w(lo)+' – '+w(hi)]])}${copyBtn}`;return `BMI ${num(b,1)} (${cat})`},
  after(){bindSeg('bsys',s=>{this.state.sys=s;open('bmi')})}},
 
-{id:'sleep',cat:'Health',name:'Sleep time',kw:'sleep calculator bedtime wake up cycles rem',desc:'Bedtimes that line up with 90-minute sleep cycles.',
+{id:'sleep',cat:'Health',name:'Sleep calculator',kw:'sleep calculator bedtime wake up cycles rem',desc:'Bedtimes that line up with 90-minute sleep cycles.',
  state:{mode:'wake'},
  render(){return `<div class="inputs">${seg('slm',[['wake','I need to wake up at'],['now','I’m going to bed at']],this.state.mode)}<div class="row">${field('slt',this.state.mode==='wake'?'Wake-up time':'Bedtime',this.state.mode==='wake'?'06:30':'23:00',{type:'time'})}${field('slf','Time to fall asleep',15,{unit:'min'})}</div>
   <div id="sltimes"></div><p class="hint">Each cycle is about 90 minutes. Five or six cycles suit most adults. Waking at the end of a cycle usually feels easier.</p></div><div class="result" id="out"></div>`},
