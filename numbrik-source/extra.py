@@ -73,6 +73,24 @@ def fmt(d): return f"{d:%A}, {d:%B} {d.day}, {d.year}"
 MORE["salary"] = MORE.get("salary", "") + """<h2>Quick wage conversions</h2><p>See the yearly, monthly and after-tax figures for a specific wage: <a href="/20-an-hour-is-how-much-a-year/">$20 an hour</a>, <a href="/25-an-hour-is-how-much-a-year/">$25 an hour</a>, <a href="/30-an-hour-is-how-much-a-year/">$30 an hour</a>, <a href="/50000-a-year-is-how-much-an-hour/">$50,000 a year</a> or <a href="/salary-conversions/">all wage conversions</a>.</p>"""
 MORE["days"] = MORE.get("days", "") + """<h2>Holiday countdowns</h2><p>Live countdowns for <a href="/days-until-christmas/">Christmas</a>, <a href="/days-until-halloween/">Halloween</a>, <a href="/days-until-thanksgiving/">Thanksgiving</a>, <a href="/days-until-easter/">Easter</a> and <a href="/countdowns/">more holidays</a>.</p>"""
 
+
+def money_extras(y, t, h):
+    """Rent, budget and overtime figures that differ for every wage."""
+    m = t["net"] / 12; rent3 = y / 12 / 3; rent30 = y * 0.3 / 12
+    return f"""<h2>What {usd0(y)} a year covers</h2>
+<div class="tbl"><table><thead><tr><th>Measure</th><th>Amount</th><th>How it's worked out</th></tr></thead><tbody>
+<tr><td>Take-home pay per hour</td><td>{usd(t['net']/2080)}</td><td>After estimated 2026 US federal tax and FICA, over 2,080 hours</td></tr>
+<tr><td>Overtime rate (1.5×)</td><td>{usd(h*1.5)} an hour</td><td>Time and a half for hours over 40 a week</td></tr>
+<tr><td>Double time (2×)</td><td>{usd(h*2)} an hour</td><td>Paid by some employers for holidays or long shifts</td></tr>
+<tr><td>Rent landlords usually accept</td><td>up to {usd0(rent3)} a month</td><td>Many landlords ask for gross income of 3× the rent</td></tr>
+<tr><td>Rent at 30% of income</td><td>{usd0(rent30)} a month</td><td>A common affordability guideline</td></tr></tbody></table></div>
+<h3>A 50/30/20 budget on {usd(m)} a month take-home</h3>
+<div class="tbl"><table><thead><tr><th>Share</th><th>Monthly</th><th>For</th></tr></thead><tbody>
+<tr><td>50% needs</td><td>{usd0(m*0.5)}</td><td>Rent, utilities, groceries, insurance, minimum debt payments</td></tr>
+<tr><td>30% wants</td><td>{usd0(m*0.3)}</td><td>Eating out, travel, subscriptions, hobbies</td></tr>
+<tr><td>20% savings</td><td>{usd0(m*0.2)}</td><td>Emergency fund, retirement, extra debt payments</td></tr></tbody></table></div>
+<p>These are rules of thumb, not limits. In high-cost cities many people spend more than 30% on rent, and the right budget depends on your debts and goals.</p>"""
+
 def build(g):
     head, footer, write, DOMAIN, TODAY_TXT = g["head"], g["footer"], g["write"], g["DOMAIN"], g["TODAY_TXT"]
     today = date.fromisoformat(g["TODAY"])
@@ -110,6 +128,7 @@ def build(g):
 <p>A raise of $1 an hour adds $2,080 a year at full time. {amt(h)} an hour is {h/7.25:.1f} times the US federal minimum wage of $7.25. Many states and cities set a higher minimum.</p>
 <h2>{amt(h)} an hour by hours per week</h2><div class="tbl"><table><thead><tr><th>Hours a week</th><th>Weekly</th><th>Yearly</th><th>Monthly</th></tr></thead><tbody>{rows}</tbody></table></div>
 <p class="hint">Overtime isn't included. Hours over 40 a week are usually paid at 1.5× for non-exempt US workers.</p>
+{money_extras(y, t, h)}
 <h2>{amt(h)} an hour after taxes</h2><p>For a single filer in 2026 with no state income tax, {usd0(y)} a year means about {usd0(t['fed'])} in federal income tax, {usd0(t['ss'])} in Social Security and {usd0(t['med'])} in Medicare. That leaves roughly <strong>{usd0(t['net'])} a year</strong>, {usd(t['net']/12)} a month or {usd(t['net']/26)} every two weeks. Use the <a href="/take-home-pay-calculator/">take-home pay calculator</a> to add state tax and 401(k) contributions. The pre-tax figures above apply to any currency paid by the hour, such as Canadian or Australian dollars; the after-tax estimate uses US rules.</p>
 <p>To change the hours or weeks, use the <a href="/hourly-to-salary-calculator/">hourly to salary calculator</a>. To track the hours you actually work, use the <a href="/time-card-calculator/">time card calculator</a>.</p>
 <p class="pager">{nav}</p>"""
@@ -131,6 +150,7 @@ def build(g):
 <dl class="kv"><div><dt>Monthly</dt><dd>{usd(a/12)}</dd></div><div><dt>Every 2 weeks</dt><dd>{usd(a/26)}</dd></div><div><dt>Twice a month</dt><dd>{usd(a/24)}</dd></div><div><dt>Weekly</dt><dd>{usd(a/52)}</dd></div><div><dt>After US tax (estimate)</dt><dd>{usd0(t['net'])} a year</dd></div></dl></div>
 <h2>How it's calculated</h2><p>Divide the salary by the number of paid hours in a year. Full time is usually 40 hours a week for 52 weeks, or 2,080 hours, so {usd0(a)} ÷ 2,080 = {usd(h)} an hour. If you regularly work more than 40 hours on a fixed salary, your real hourly rate is lower, as the table shows.</p>
 <h2>{usd0(a)} a year by hours per week</h2><div class="tbl"><table><thead><tr><th>Hours a week</th><th>Hourly rate</th></tr></thead><tbody>{rows}</tbody></table></div>
+{money_extras(a, t, h)}
 <h2>{usd0(a)} a year after taxes</h2><p>For a single filer in 2026 with no state income tax, expect about {usd0(t['fed'])} in federal income tax, {usd0(t['ss'])} in Social Security and {usd0(t['med'])} in Medicare, leaving roughly <strong>{usd0(t['net'])} a year</strong> or {usd(t['net']/12)} a month. Add your state's tax and retirement contributions in the <a href="/take-home-pay-calculator/">take-home pay calculator</a>. The pre-tax figures apply to any currency; the after-tax estimate uses US rules.</p>
 <p>For other salaries or hours, use the <a href="/hourly-to-salary-calculator/">hourly to salary calculator</a>.</p>
 <p class="pager">{nav}</p>"""
@@ -149,6 +169,35 @@ def build(g):
 <div><h2>Yearly to hourly</h2><div class="tbl"><table><thead><tr><th>Salary</th><th>Hourly</th><th>Monthly</th></tr></thead><tbody>{arows}</tbody></table></div></div></div></main>""" + footer())
     urls.append("/salary-conversions/")
     return urls
+
+
+DAYOFF = {
+ "christmas": "Yes. Christmas Day is a public holiday in the US, Canada, the UK, Australia and the Netherlands.",
+ "christmaseve": "Not officially. Christmas Eve is not a US federal holiday, though many shops and offices close early.",
+ "newyear": "Yes. New Year's Day is a public holiday in the US, Canada, the UK, Australia and the Netherlands.",
+ "newyearseve": "Not officially. New Year's Eve is a normal working day in most places, though many workplaces close early.",
+ "halloween": "No. Halloween is not a public holiday, so schools and offices stay open.",
+ "thanksgiving": "Yes, in the US. Thanksgiving is a federal holiday, and many people also take Black Friday off.",
+ "blackfriday": "Not a federal holiday, but several US states and many employers give the day after Thanksgiving off.",
+ "valentines": "No. Valentine's Day is not a public holiday anywhere in the US, Canada, the UK or Australia.",
+ "easter": "Easter Sunday is a weekend day. Good Friday is a public holiday in Canada, the UK and Australia, and Easter Monday in most of the UK, Australia and the Netherlands. Neither is a US federal holiday.",
+ "mothers": "Mother's Day is always a Sunday, so it isn't a separate day off.",
+ "fathers": "Father's Day is always a Sunday, so it isn't a separate day off.",
+ "july4": "Yes. Independence Day is a US federal holiday. When July 4 falls on a Saturday the day off is Friday, and on a Sunday it is Monday.",
+ "mlk": "Yes. It is a US federal holiday, so federal offices, banks and most schools close.",
+ "presidents": "Yes. It is a US federal holiday, though many private employers stay open.",
+ "stpatricks": "No, except in Ireland and Northern Ireland, where it is a public holiday.",
+ "memorial": "Yes. Memorial Day is a US federal holiday, and most businesses give the day off.",
+ "juneteenth": "Yes. Juneteenth has been a US federal holiday since 2021.",
+ "laborday": "Yes. Labor Day is a federal holiday in the US and a statutory holiday in Canada.",
+ "veterans": "Yes, for federal workers. Banks and government offices close, but many businesses stay open.",
+ "canadaday": "Yes. Canada Day is a statutory holiday across Canada.",
+ "cathanksgiving": "Yes, in most provinces. It is a statutory holiday in most of Canada, but optional in the Atlantic provinces.",
+ "boxingday": "Yes in the UK and Australia, and in Ontario and federally regulated workplaces in Canada.",
+ "australiaday": "Yes. Australia Day is a national public holiday in Australia.",
+ "dstend": "No. It's not a holiday, but you get an extra hour of sleep. Phones change automatically; set wall and car clocks back one hour.",
+ "dststart": "No. It's not a holiday, and you lose an hour of sleep. Phones change automatically; set wall and car clocks forward one hour.",
+}
 
 def build_countdowns(g):
     head, footer, write, DOMAIN, TODAY_TXT = g["head"], g["footer"], g["write"], g["DOMAIN"], g["TODAY_TXT"]
@@ -171,6 +220,8 @@ def build_countdowns(g):
         body = f"""<div class="answer cd" data-countdown="{k}"><span class="label">Days until {E(name)}</span><div class="big"><em class="cd-days">{n}</em> <span class="cd-unit">days</span></div>
 <p class="cd-live hint">{n} days to go</p><dl class="kv"><div><dt>Date</dt><dd class="cd-date">{fmt(nd)}</dd></div><div><dt>Weeks</dt><dd class="cd-weeks">{n//7} {"week" if n//7==1 else "weeks"}, {n%7} {"day" if n%7==1 else "days"}</dd></div><div><dt>Weekdays (Mon–Fri)</dt><dd class="cd-wd">—</dd></div></dl></div>
 <h2>When is {E(name)}?</h2><p>{E(rule)}</p>
+<h2>Is {E(name)} a day off?</h2><p>{E(DAYOFF.get(k, ""))}</p>
+<h2>Countdown milestones for {nd.year}</h2><div class="tbl"><table><thead><tr><th>Milestone</th><th>Date</th></tr></thead><tbody>{"".join(f"<tr><td>{lbl} before {E(name)}</td><td>{fmt(nd - timedelta(x))}</td></tr>" for lbl, x in [("100 days", 100), ("50 days", 50), ("30 days", 30), ("2 weeks", 14), ("1 week", 7), ("1 day", 1)])}</tbody></table></div>
 <h2>{E(disp)} dates</h2><div class="tbl"><table><thead><tr><th>Year</th><th>Date</th></tr></thead><tbody>{yrs}</tbody></table></div>
 <p>To count the days between any two dates, use the <a href="/days-between-dates/">days between dates calculator</a>.</p>
 <h2>Other countdowns</h2><div class="cards">{others}</div>"""

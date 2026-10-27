@@ -384,6 +384,7 @@ const plusBiz=n=>{const d=plusDays(0);let k=Math.abs(n);const s=n<0?-1:1;while(k
 document.querySelectorAll('.afd').forEach(el=>{const n=+el.dataset.add,q=s=>el.querySelector(s),d=plusDays(n);
   q('.afd-date').textContent=longD(d);q('.afd-from').textContent='Counting from today, '+longD(plusDays(0));
   q('.afd-short').textContent=d.toLocaleDateString(R().loc);q('.afd-biz').textContent=longD(plusBiz(n));q('.afd-ago').textContent=longD(plusDays(-n))});
+document.querySelectorAll('.afd-hols').forEach(ul=>{const lim=plusDays(+ul.dataset.add);let any=0;const lis=[...ul.querySelectorAll('li')].map(li=>{const x=nextHol(li.dataset.hk);const ok=x.d&&x.d>x.t&&x.d<=lim;li.hidden=!ok;if(ok){any++;li.querySelector('.afd-hd').textContent=x.d.toLocaleDateString(R().loc,{month:'short',day:'numeric'})}return[x.d,li]});lis.sort((p,q)=>p[0]-q[0]).forEach(([,li])=>ul.appendChild(li));const none=ul.nextElementSibling;if(none)none.hidden=!!any});
 document.querySelectorAll('.afd-mini').forEach(el=>{el.textContent=longD(plusDays(+el.dataset.add))});
 const afdN=$('#afdN');if(afdN){const run=()=>{const n=Math.round((parseFloat(afdN.value)||0)*(+$('#afdU').value));if(Math.abs(n)>100000)return;$('#afdOut').textContent=longD(plusDays(n));$('#afdBiz').textContent=longD(plusBiz(n));$('#afdAgo').textContent=longD(plusDays(-n))};afdN.addEventListener('input',run);$('#afdU').addEventListener('input',run);run()}
 if(document.querySelector('[data-countdown]')){tickCountdowns();if(document.querySelector('.cd'))setInterval(tickCountdowns,1000)}

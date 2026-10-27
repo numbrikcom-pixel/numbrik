@@ -200,3 +200,4 @@ a.copy{text-decoration:none;color:var(--ink)}
 .twocol{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
 .twocol h2{margin-top:8px}
 .pager{display:flex;flex-wrap:wrap;gap:6px 10px;font-size:15px}
+.afd-hols{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px 16px}.afd-hols li{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--line);padding:6px 0}.afd-hd{color:var(--muted);font-family:var(--f-num);font-size:14px}

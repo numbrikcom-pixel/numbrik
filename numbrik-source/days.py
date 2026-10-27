@@ -2,6 +2,7 @@
 import html
 from datetime import date, timedelta
 from more import MORE
+from extra import HOLS, hol_date
 
 E = html.escape
 DAYS = [7, 10, 14, 15, 20, 21, 30, 45, 60, 90, 100, 120, 150, 180, 200, 365]
@@ -31,6 +32,17 @@ USES = {7: "a one-week deadline, a 7-day free trial or a short notice period",
         365: "a full year from today, an annual renewal or a one-year anniversary"}
 MORE["days"] = MORE.get("days", "") + """<h2>Days from today</h2><p>Need the date a set number of days ahead? See <a href="/30-days-from-today/">30 days from today</a>, <a href="/60-days-from-today/">60 days</a>, <a href="/90-days-from-today/">90 days</a>, <a href="/180-days-from-today/">180 days</a> or <a href="/days-from-today/">any number of days</a>.</p>"""
 
+
+def hol_list(today, target, days):
+    items = []
+    for k, slug, name, _ in HOLS:
+        nd = hol_date(k, today.year)
+        if nd <= today: nd = hol_date(k, today.year + 1)
+        inside = nd <= target
+        items.append((nd, f'<li data-hk="{k}"{"" if inside else " hidden"}><a href="/{slug}/">{E(name[0].upper()+name[1:])}</a> <span class="afd-hd">{nd:%b} {nd.day}</span></li>'))
+    items.sort()
+    return f'<h2>Holidays in the next {days} days</h2><ul class="afd-hols" data-add="{days}">' + "".join(x for _, x in items) + '</ul><p class="hint afd-none" hidden>No major holidays fall in this period.</p>'
+
 def build_days(g):
     head, footer, write, DOMAIN, TODAY_TXT = g["head"], g["footer"], g["write"], g["DOMAIN"], g["TODAY_TXT"]
     today = date.fromisoformat(g["TODAY"]); urls = []
@@ -51,6 +63,7 @@ def build_days(g):
         body = f"""<div class="answer afd" data-add="{days}"><span class="label">{E(label)} from today</span><div class="big"><em class="afd-date">{fmt(target)}</em></div>
 <p class="hint afd-from">Counting from today, {fmt(today)}</p>
 <dl class="kv"><div><dt>Short date</dt><dd class="afd-short">{target:%m/%d/%Y}</dd></div><div><dt>{days} business days from today</dt><dd class="afd-biz">{fmt(biz)}</dd></div><div><dt>{E(label)} ago</dt><dd class="afd-ago">{fmt(ago)}</dd></div><div><dt>In weeks</dt><dd>{weeks_line}</dd></div></dl></div>
+{hol_list(today, target, days)}
 <h2>How it's counted</h2><p>Today is day 0, tomorrow is day 1, and the date above is day {days}. That's how most deadlines, return windows and notice periods are counted. If a rule says to include today, take one day off the result. The business-day date skips Saturdays and Sundays but not public holidays.</p>
 <p>People look up {E(label)} from today for {E(use)}. For legal, visa or contract deadlines, check how the rule counts days, since some count calendar days and others count working days.</p>
 <p>To count between any two dates, use the <a href="/days-between-dates/">days between dates calculator</a>. For a different number of days, use the <a href="/days-from-today/">days from today calculator</a>.</p>
