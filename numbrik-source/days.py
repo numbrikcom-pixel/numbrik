@@ -6,7 +6,7 @@ from extra import HOLS, hol_date
 
 E = html.escape
 DAYS = [7, 10, 14, 15, 20, 21, 30, 45, 60, 90, 100, 120, 150, 180, 200, 365]
-WEEKS = [2, 3, 4, 6, 8, 10, 12, 16, 20, 26, 52]
+WEEKS = [2, 3, 4, 5, 6, 8, 10, 11, 12, 13, 16, 20, 21, 26, 27, 28, 30, 40, 52]
 def slug(n, unit): return f"/{n}-{'days' if unit == 'd' else 'weeks'}-from-today/"
 def fmt(d): return f"{d:%A}, {d:%B} {d.day}, {d.year}"
 def add_biz(d, n):
@@ -64,6 +64,7 @@ def build_days(g):
 <p class="hint afd-from">Counting from today, {fmt(today)}</p>
 <dl class="kv"><div><dt>Short date</dt><dd class="afd-short">{target:%m/%d/%Y}</dd></div><div><dt>{days} business days from today</dt><dd class="afd-biz">{fmt(biz)}</dd></div><div><dt>{E(label)} ago</dt><dd class="afd-ago">{fmt(ago)}</dd></div><div><dt>In weeks</dt><dd>{weeks_line}</dd></div></dl></div>
 {hol_list(today, target, days)}
+<h2>{E(label)} ago</h2><p>Counting backwards, {E(label)} ago was <strong class="afd-ago-x" data-add="{days}">{fmt(ago)}</strong>. Use this for questions like "what was the date {E(label)} ago" or "the past {days} days".</p>
 <h2>How it's counted</h2><p>Today is day 0, tomorrow is day 1, and the date above is day {days}. That's how most deadlines, return windows and notice periods are counted. If a rule says to include today, take one day off the result. The business-day date skips Saturdays and Sundays but not public holidays.</p>
 <p>People look up {E(label)} from today for {E(use)}. For legal, visa or contract deadlines, check how the rule counts days, since some count calendar days and others count working days.</p>
 <p>To count between any two dates, use the <a href="/days-between-dates/">days between dates calculator</a>. For a different number of days, use the <a href="/days-from-today/">days from today calculator</a>.</p>

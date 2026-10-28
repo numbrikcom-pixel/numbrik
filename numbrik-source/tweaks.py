@@ -44,3 +44,36 @@ sl["faqs"] = sl["faqs"] + [("How do I work out my hourly pay from my salary?", "
 
 # Short label shown in the menu and search
 BYID["sleep"]["short"] = "Sleep calculator"
+
+# ---- October 28: Search Console round 2 ----
+from more import MORE
+
+def _t(s):
+    h, m = s.split(" ")[0].split(":"); ap = s.split(" ")[1]
+    h = int(h) % 12 + (12 if ap == "PM" else 0); return h * 60 + int(m)
+def _hm(mins): return f"{mins // 60}h {mins % 60:02d}m"
+SHIFTS = [("6:00 AM", "2:00 PM"), ("6:00 AM", "6:00 PM"), ("7:00 AM", "3:30 PM"), ("7:00 AM", "4:00 PM"), ("7:00 AM", "7:00 PM"),
+          ("7:30 AM", "4:30 PM"), ("7:30 AM", "6:00 PM"), ("8:00 AM", "4:00 PM"), ("8:00 AM", "4:30 PM"), ("8:00 AM", "5:00 PM"),
+          ("8:00 AM", "6:00 PM"), ("8:00 AM", "7:00 PM"), ("8:00 AM", "8:00 PM"), ("8:30 AM", "5:00 PM"), ("9:00 AM", "2:00 PM"),
+          ("9:00 AM", "4:00 PM"), ("9:00 AM", "5:00 PM"), ("9:00 AM", "6:00 PM"), ("9:30 AM", "4:45 PM"), ("10:00 AM", "5:00 PM"),
+          ("10:00 AM", "6:00 PM"), ("11:00 AM", "7:00 PM"), ("12:00 PM", "8:00 PM"), ("2:00 PM", "10:00 PM"), ("3:00 PM", "11:00 PM"),
+          ("4:00 AM", "9:00 PM"), ("7:00 PM", "7:00 AM"), ("10:00 PM", "6:00 AM"), ("11:00 PM", "7:00 AM")]
+rows = ""
+for a, b in SHIFTS:
+    m = (_t(b) - _t(a)) % 1440
+    rows += f"<tr><td>{a} – {b}</td><td>{_hm(m)}</td><td>{m/60:.2f}</td><td>{_hm(m-30)}</td></tr>"
+MORE["hours"] = f"""<h2>How many hours is it? Common shifts</h2><p>Time between common start and end times, with the time left after a 30-minute unpaid break.</p>
+<div class="tbl"><table><thead><tr><th>From – to</th><th>Hours</th><th>Decimal</th><th>After 30-min break</th></tr></thead><tbody>{rows}</tbody></table></div>
+<p>Breaks are often unpaid, but rules vary. US federal law does not require meal breaks, though several states do. In Canada, Australia, the UK and the Netherlands workers are entitled to rest breaks after a set number of hours, so check your contract or local rules.</p>"""
+BYID["hours"]["title"] = "Hours Calculator – How Many Hours Between Two Times | Numbrik"
+
+bills = [20, 25, 30, 40, 50, 60, 75, 80, 100, 120, 150, 200]
+trows = "".join(f"<tr><td>${b}</td>" + "".join(f"<td>${b*p/100:.2f}</td>" for p in (15, 18, 20, 25)) + "</tr>" for b in bills)
+MORE["tip"] = f"""<h2>How to calculate a tip in your head</h2><ol>
+<li>Find 10% by moving the decimal point one place left: 10% of $64.00 is $6.40.</li>
+<li>For 20%, double it: $12.80.</li>
+<li>For 15%, add half of the 10% figure: $6.40 + $3.20 = $9.60.</li>
+<li>For 18%, take 20% and subtract a tenth of the 20% figure: $12.80 − $1.28 = $11.52.</li></ol>
+<h3>Tip chart for common bills</h3><div class="tbl"><table><thead><tr><th>Bill</th><th>15%</th><th>18%</th><th>20%</th><th>25%</th></tr></thead><tbody>{trows}</tbody></table></div>
+""" + MORE.get("tip", "")
+BYID["tip"]["title"] = "Tip Calculator – How to Calculate a Tip | Numbrik"
