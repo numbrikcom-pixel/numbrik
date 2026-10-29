@@ -201,3 +201,6 @@ a.copy{text-decoration:none;color:var(--ink)}
 .twocol h2{margin-top:8px}
 .pager{display:flex;flex-wrap:wrap;gap:6px 10px;font-size:15px}
 .afd-hols{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px 16px}.afd-hols li{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--line);padding:6px 0}.afd-hd{color:var(--muted);font-family:var(--f-num);font-size:14px}
+.linklist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:6px 16px}.linklist li{padding:6px 0;border-bottom:1px solid var(--line)}
+.group h3 a,.home-cats h2 a,footer h4 a{color:inherit;text-decoration:none}.group h3 a:hover,.home-cats h2 a:hover,footer h4 a:hover{color:var(--accent);text-decoration:underline}
+.guide{display:flex;flex-direction:column;gap:12px;margin:0}.guide dt{font-weight:600}.guide dd{margin:2px 0 0;color:var(--muted)}

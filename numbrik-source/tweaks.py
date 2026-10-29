@@ -77,3 +77,8 @@ MORE["tip"] = f"""<h2>How to calculate a tip in your head</h2><ol>
 <h3>Tip chart for common bills</h3><div class="tbl"><table><thead><tr><th>Bill</th><th>15%</th><th>18%</th><th>20%</th><th>25%</th></tr></thead><tbody>{trows}</tbody></table></div>
 """ + MORE.get("tip", "")
 BYID["tip"]["title"] = "Tip Calculator – How to Calculate a Tip | Numbrik"
+
+# ---- October 29: on-page SEO audit fixes (titles 60 chars or less, metas 160 or less) ----
+BYID["salary"]["title"] = "Hourly to Salary Calculator – Salary to Hourly | Numbrik"
+BYID["hours"]["title"] = "Hours Calculator – Hours Between Two Times | Numbrik"
+BYID["autoloan"]["meta"] = "Car payment calculator with sales tax, fees, down payment and trade-in. See your monthly payment, total interest and total cost from 36 to 84 months."

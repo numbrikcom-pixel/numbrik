@@ -199,6 +199,9 @@ DAYOFF = {
  "dststart": "No. It's not a holiday, and you lose an hour of sleep. Phones change automatically; set wall and car clocks forward one hour.",
 }
 
+
+SHORT = {"dststart": "Daylight Saving Time Starts", "dstend": "Daylight Saving Time Ends", "mlk": "MLK Day", "cathanksgiving": "Canadian Thanksgiving", "july4": "the 4th of July"}
+
 def build_countdowns(g):
     head, footer, write, DOMAIN, TODAY_TXT = g["head"], g["footer"], g["write"], g["DOMAIN"], g["TODAY_TXT"]
     today = date.fromisoformat(g["TODAY"]); urls = []
@@ -225,7 +228,7 @@ def build_countdowns(g):
 <h2>{E(disp)} dates</h2><div class="tbl"><table><thead><tr><th>Year</th><th>Date</th></tr></thead><tbody>{yrs}</tbody></table></div>
 <p>To count the days between any two dates, use the <a href="/days-between-dates/">days between dates calculator</a>.</p>
 <h2>Other countdowns</h2><div class="cards">{others}</div>"""
-        write(path, head(f"How Many Days Until {disp}? Live Countdown | Numbrik", f"Live countdown to {name}: how many days, weeks and hours are left, what day it falls on, and {disp} dates for the next six years.", path,
+        write(path, head(f"How Many Days Until {SHORT.get(k, disp)}? | Numbrik", f"Live countdown to {SHORT.get(k, name)}: days, weeks and hours left, the date it falls on, and dates for the next six years.", path,
               {"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": DOMAIN + "/"}, {"@type": "ListItem", "position": 2, "name": "Holiday countdowns", "item": DOMAIN + "/countdowns/"}, {"@type": "ListItem", "position": 3, "name": f"Days until {name}", "item": DOMAIN + path}]},
                {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}]}) +
               f'<nav class="wrap crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/countdowns/">Holiday countdowns</a></li><li aria-current="page">Days until {E(name)}</li></ol></nav>' +
@@ -237,8 +240,8 @@ def build_countdowns(g):
         nd = hol_date(k, today.year)
         if nd < today: nd = hol_date(k, today.year + 1)
         cards += f'<a class="card" href="/{slug}/"><small>{nd:%b} {nd.day}{" · " + COUNTRY[k] if k in COUNTRY else ""}</small><b>{E(name[0].upper()+name[1:])}</b><span><span class="cd-mini" data-countdown="{k}">{(nd-today).days}</span> days to go</span></a>'
-    write("/countdowns/", head("Holiday Countdowns – Days Until Christmas & More | Numbrik", "Live countdowns to Christmas, Halloween, Thanksgiving, New Year's Eve, Memorial Day, Labor Day, Canada Day, Boxing Day, Australia Day, daylight saving time and more.", "/countdowns/") +
+    write("/countdowns/", head("Holiday Countdowns – Days Until Christmas & More | Numbrik", "Live countdowns to Christmas, Thanksgiving, New Year, Memorial Day, Canada Day, Boxing Day, Australia Day, daylight saving time and more.", "/countdowns/") +
           '<nav class="wrap crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Holiday countdowns</li></ol></nav>' +
-          f'<main id="content" class="wrap page wide"><h1>Holiday countdowns</h1><p class="lede">How many days until the next big day, soonest first. Each countdown updates live.</p><div class="cards">{cards}</div></main>' + footer())
+          f'<main id="content" class="wrap page wide"><h1>Holiday countdowns</h1><p class="lede">How many days until the next big day, soonest first. Each countdown updates live.</p><h2>Upcoming holidays</h2><div class="cards">{cards}</div><h2>How the countdowns work</h2><p>Each countdown counts calendar days from today in your own time zone. Holidays with moving dates, such as Thanksgiving, Easter, Memorial Day and Labor Day, are worked out from their official rules, so the dates stay correct every year. Every page also shows the next six years of dates and whether the day is a public holiday.</p><p>To count to any other date, use the <a href="/days-between-dates/">days between dates calculator</a> or <a href="/days-from-today/">days from today</a>.</p></main>' + footer())
     urls.append("/countdowns/")
     return urls

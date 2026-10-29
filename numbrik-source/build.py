@@ -5,13 +5,14 @@ import content3
 import tweaks
 from more import MORE
 import extra
+import cats
 import days
 
 DOMAIN = "https://numbrik.com"
-TODAY = "2026-10-28"; TODAY_TXT = "October 28, 2026"
+TODAY = "2026-10-29"; TODAY_TXT = "October 29, 2026"
 OUT = "dist"
 E = html.escape
-V = "8"  # asset version for cache busting
+V = "9"  # asset version for cache busting
 
 LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="var(--accent-ink)" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="var(--accent-ink)"/></svg>'
 FAVICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2340C9"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="#fff"/></svg>'
@@ -86,7 +87,7 @@ def footer():
     cols = ""
     for cat in ORDER:
         items = "".join(f'<li><a href="/{t["slug"]}/">{E(t["name"])}</a></li>' for t in T if t["cat"] == cat)
-        cols += f"<div><h4>{E(cat)}</h4><ul>{items}</ul></div>"
+        cols += f"<div>{cats.cat_label(cat, 'h4')}<ul>{items}</ul></div>"
     return f"""<footer>
   <div class="wrap">
     {cols}
@@ -107,7 +108,7 @@ def rail(cur):
     out = '<aside class="rail" aria-label="All calculators"><p>All calculators</p>'
     for cat in ORDER:
         items = "".join('<li><a href="/%s/"%s>%s</a></li>' % (t["slug"], ' aria-current="page"' if t["id"] == cur else "", E(t["short"])) for t in T if t["cat"] == cat)
-        out += f'<div class="group"><h3>{E(cat)}</h3><ul>{items}</ul></div>'
+        out += f'<div class="group">{cats.cat_label(cat, "h3")}<ul>{items}</ul></div>'
     return out + "</aside>"
 
 def write(path, s):
@@ -127,13 +128,15 @@ for t in T:
          "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}},
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": DOMAIN + "/"},
-            {"@type": "ListItem", "position": 2, "name": t["name"], "item": url}]},
+            *([{"@type": "ListItem", "position": 2, "name": cats.CATS[t["cat"]][1], "item": DOMAIN + cats.cat_url(t["cat"])}] if t["cat"] in cats.CATS else []),
+            {"@type": "ListItem", "position": 3 if t["cat"] in cats.CATS else 2, "name": t["name"], "item": url}]},
+        {"@type": "WebPage", "name": t["title"], "url": url, "dateModified": TODAY, "isPartOf": {"@type": "WebSite", "name": "Numbrik", "url": DOMAIN + "/"}},
         {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in t["faqs"]]}]}
     steps = "".join(f"<li>{E(s)}</li>" for s in t["steps"])
     faqs = "".join(f"<details><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in t["faqs"])
     related = "".join(card(BYID[r]) for r in t["related"])
     page = head(t["title"], t["meta"], path, ld) + f"""
-<nav class="wrap crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li>{E(t["cat"])}</li><li aria-current="page">{E(t["name"])}</li></ol></nav>
+<nav class="wrap crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li>{cats.cat_crumb(t["cat"])}<li aria-current="page">{E(t["name"])}</li></ol></nav>
 <div class="wrap main">
   <main class="content" id="content">
     <h1>{E(t["name"])}</h1>
@@ -167,9 +170,9 @@ for t in T:
 home_ld = {"@context": "https://schema.org", "@graph": [
     {"@type": "WebSite", "name": "Numbrik", "url": DOMAIN + "/"},
     {"@type": "Organization", "name": "Numbrik", "url": DOMAIN + "/", "logo": DOMAIN + "/apple-touch-icon.png"}]}
-cats = ""
+cat_html = ""
 for cat in ORDER:
-    cats += f'<section><h2>{E(cat)}</h2><div class="cards">{"".join(card(t) for t in T if t["cat"] == cat)}</div></section>'
+    cat_html += f'<section>{cats.cat_label(cat, "h2")}<div class="cards">{"".join(card(t) for t in T if t["cat"] == cat)}</div></section>'
 pop = "".join(f'<a href="/{BYID[i]["slug"]}/">{E(BYID[i]["short"])}</a>' for i in ["timecard", "gpa", "loan", "calorie", "hours", "age"])
 home = head("Numbrik – Free Online Calculators for Work, Money & Health",
             "Fast, free calculators for everyday life: time card and overtime, hourly to salary, mortgage, GPA, BMI, calories, dates and unit conversions.", "/", home_ld) + f"""
@@ -179,7 +182,7 @@ home = head("Numbrik – Free Online Calculators for Work, Money & Health",
     <p class="lede">Hours and pay, loans, grades, health and everyday conversions. Results update live, units and currency follow your region, and nothing you enter leaves your browser.</p>
     <div class="pop"><span>Popular:</span>{pop}</div>
   </section>
-  <div class="wrap home-cats">{cats}</div>
+  <div class="wrap home-cats">{cat_html}</div>
   <section class="wrap home-cats" aria-label="Quick answers"><section><h2>Quick answers</h2><div class="cards">
 <a class="card" href="/salary-conversions/"><small>Pay</small><b>Hourly wage to salary chart</b><span>$10 to $60 an hour and $30,000 to $150,000 a year, with take-home pay.</span></a>
 <a class="card" href="/countdowns/"><small>Dates</small><b>Holiday countdowns</b><span>Live countdowns to Christmas, Thanksgiving, Memorial Day and 22 more.</span></a>
@@ -188,7 +191,7 @@ home = head("Numbrik – Free Online Calculators for Work, Money & Health",
   <section class="wrap why" aria-label="Why Numbrik">
     <div><h3>Live results</h3><p>No Calculate button. Change a number and the answer updates straight away.</p></div>
     <div><h3>Made for your region</h3><p>Choose the United States, Canada, Australia, the UK or the Netherlands to set currency, units and overtime defaults.</p></div>
-    <div><h3>Private by design</h3><p>Calculations run on your device. Saved entries, like your time card or GPA courses, stay in your own browser.</p></div>
+    <div><h3>Private by design</h3><p>Calculations run on your device. Saved entries, like your time card or GPA courses, stay in your own browser. <a href="/about/">How we build our calculators</a>.</p></div>
   </section>
 </main>
 """ + footer()
@@ -198,7 +201,7 @@ write("/", home)
 def simple(path, title, desc, h1, body, noindex=False):
     write(path, head(title, desc, path, noindex=noindex) + f'<main id="content" class="wrap page"><h1>{E(h1)}</h1>{body}</main>' + footer())
 
-simple("/about/", "About Numbrik", "Numbrik builds fast, free and accurate calculators for everyday work, money, health and school questions.", "About Numbrik", f"""
+simple("/about/", "About Numbrik – Free, Accurate Everyday Calculators", "Numbrik builds fast, free and accurate calculators for everyday work, money, health and school questions, with the method shown on every page.", "About Numbrik", f"""
 <p class="lede">Numbrik is an independent website that makes free calculators for the questions people run into every day: how many hours they worked, what a loan will cost, what their GPA is, or how many millilitres are in a cup.</p>
 <h2>What we care about</h2>
 <ul><li><strong>Accuracy.</strong> Every calculator shows its formula and a worked example, so you can check the answer yourself.</li>
@@ -211,14 +214,14 @@ simple("/about/", "About Numbrik", "Numbrik builds fast, free and accurate calcu
 <p>If you find a mistake or a rule that has changed in your country, please <a href="/contact/">contact us</a>. We review every report and update the page.</p>
 <p class="updated">Last updated {TODAY_TXT}.</p>""")
 
-simple("/contact/", "Contact Numbrik", "Contact Numbrik to report an error, suggest a calculator or ask a question.", "Contact us", f"""
+simple("/contact/", "Contact Numbrik – Report an Error or Suggest a Tool", "Contact Numbrik to report an error, suggest a new calculator or ask a question about how a result is worked out.", "Contact us", f"""
 <p class="lede">Found an error, want a new calculator, or have a question about the site? Email us and we'll reply as soon as we can.</p>
 <p class="copyline"><code id="mail">hello@numbrik.com</code><button class="btn" type="button" onclick="var b=this;navigator.clipboard&&navigator.clipboard.writeText('hello@numbrik.com').then(function(){{b.textContent='Copied'}})">Copy email</button></p>
 <h2>When reporting an error</h2>
 <ul><li>The page address, for example numbrik.com/gpa-calculator/</li><li>The numbers you entered</li><li>The result you expected and where the rule comes from</li></ul>
 <p>We don't give personal financial, medical or legal advice by email. For decisions about your own situation, please speak to a qualified professional.</p>""")
 
-simple("/privacy-policy/", "Privacy Policy | Numbrik", "How Numbrik handles data, cookies, analytics and advertising.", "Privacy policy", f"""
+simple("/privacy-policy/", "Privacy Policy – Numbrik Calculators", "How Numbrik handles your data, cookies, Google Analytics and Google AdSense advertising, and your privacy rights in the US, UK and EU.", "Privacy policy", f"""
 <p class="updated">Effective {TODAY_TXT}</p>
 <p>This policy explains what information Numbrik ("we", "us") collects when you use numbrik.com, and how it is used.</p>
 <h2>Information you enter in calculators</h2>
@@ -238,7 +241,7 @@ simple("/privacy-policy/", "Privacy Policy | Numbrik", "How Numbrik handles data
 <h2>Changes and contact</h2>
 <p>We may update this policy and will change the date above when we do. Questions: <strong>hello@numbrik.com</strong>.</p>""")
 
-simple("/terms/", "Terms of Use | Numbrik", "The terms for using Numbrik calculators.", "Terms of use", f"""
+simple("/terms/", "Terms of Use – Numbrik Calculators", "The terms for using Numbrik calculators: results are estimates for planning, not financial, medical or legal advice.", "Terms of use", f"""
 <p class="updated">Effective {TODAY_TXT}</p>
 <p>By using numbrik.com you agree to these terms.</p>
 <h2>Estimates, not advice</h2>
@@ -260,7 +263,7 @@ write("/404.html", head("Page not found | Numbrik", "This page doesn't exist.", 
 <div class="cards">{"".join(card(BYID[i]) for i in ["timecard","gpa","loan","calorie"])}</div><p><a href="/">Go to the homepage</a></p></main>""" + footer())
 
 # sitemap & robots & headers
-EXTRA_URLS = extra.build(globals()) + extra.build_countdowns(globals()) + days.build_days(globals())
+EXTRA_URLS = cats.build_cats(globals()) + extra.build(globals()) + extra.build_countdowns(globals()) + days.build_days(globals())
 urls = ["/"] + [f"/{t['slug']}/" for t in T] + EXTRA_URLS + ["/about/", "/contact/", "/privacy-policy/", "/terms/"]
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
     f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n"
