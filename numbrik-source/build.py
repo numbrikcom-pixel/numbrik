@@ -109,11 +109,17 @@ def rail(cur):
     for cat in ORDER:
         items = "".join('<li><a href="/%s/"%s>%s</a></li>' % (t["slug"], ' aria-current="page"' if t["id"] == cur else "", E(t["short"])) for t in T if t["cat"] == cat)
         out += f'<div class="group">{cats.cat_label(cat, "h3")}<ul>{items}</ul></div>'
+    quick = [("/salary-conversions/", "Wage to salary chart"), ("/days-from-today/", "Days from today"), ("/countdowns/", "Holiday countdowns")]
+    out += '<div class="group"><h3>Quick answers</h3><ul>' + "".join('<li><a href="%s"%s>%s</a></li>' % (u, ' aria-current="page"' if cur == u else "", n) for u, n in quick) + "</ul></div>"
     return out + "</aside>"
 
 def write(path, s):
     full = os.path.join(OUT, path.strip("/"), "index.html") if not path.endswith((".xml", ".txt", ".html")) else os.path.join(OUT, path.strip("/"))
     os.makedirs(os.path.dirname(full), exist_ok=True)
+    # Give every content page the same layout as calculator pages: content plus the side menu.
+    if '<main id="content" class="wrap page wide">' in s and s.count("</main>") == 1:
+        s = s.replace('<main id="content" class="wrap page wide">', '<div class="wrap main"><main id="content" class="page">')
+        s = s.replace("</main>", "</main>" + rail(path) + "</div>")
     open(full, "w").write(s)
 
 def strip_tags(s): return re.sub(r"<[^>]+>", "", s)
