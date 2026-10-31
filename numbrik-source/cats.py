@@ -23,8 +23,11 @@ CATS = {
  "Home": ("home-project-calculators", "Home Project Calculators",
    "Plan a home project before you buy materials: measure square footage for flooring or carpet, work out cubic yards and bags of concrete for a slab or post holes, and find how much paint a room needs, in feet or metres.",
    []),
+ "Math": ("math-calculators", "Math Calculators",
+   "Maths tools for homework and work: a scientific calculator with trig, logs and powers, a fraction calculator that shows the working, and a standard deviation calculator for sample and population data.",
+   [("/lcm-calculator/", "LCM calculator"), ("/gcf-calculator/", "GCF calculator"), ("/percentage-calculator/", "Percentage calculator")]),
  "Fun": ("random-and-game-tools", "Random & Game Tools",
-   "Fair random tools for games, classrooms and quick decisions: roll dice from d4 to d100, pick random numbers with or without repeats, or flip a coin up to 1,000 times. Every result comes from your browser's cryptographic random number generator.",
+   "Fair random tools for games, classrooms and quick decisions: roll dice from d4 to d100, pick random numbers with or without repeats, flip a coin up to 1,000 times, or create strong passwords. Every result comes from your browser's cryptographic random number generator.",
    []),
 }
 

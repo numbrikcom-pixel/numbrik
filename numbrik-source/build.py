@@ -2,6 +2,7 @@ import json, os, shutil, html, re
 from content import T, ORDER, BYID
 import content2
 import content3
+import content4
 import tweaks
 from more import MORE
 import extra
@@ -9,10 +10,10 @@ import cats
 import days
 
 DOMAIN = "https://numbrik.com"
-TODAY = "2026-10-29"; TODAY_TXT = "October 29, 2026"
+TODAY = "2026-10-31"; TODAY_TXT = "October 31, 2026"
 OUT = "dist"
 E = html.escape
-V = "9"  # asset version for cache busting
+V = "10"  # asset version for cache busting
 
 LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="var(--accent-ink)" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="var(--accent-ink)"/></svg>'
 FAVICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2340C9"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="#fff"/></svg>'
@@ -92,7 +93,7 @@ def footer():
   <div class="wrap">
     {cols}
     <div><h4>Quick answers</h4><ul><li><a href="/salary-conversions/">Hourly wage to salary chart</a></li><li><a href="/25-an-hour-is-how-much-a-year/">$25 an hour per year</a></li><li><a href="/50000-a-year-is-how-much-an-hour/">$50,000 a year per hour</a></li><li><a href="/countdowns/">Holiday countdowns</a></li><li><a href="/days-until-christmas/">Days until Christmas</a></li><li><a href="/days-from-today/">Days from today</a></li></ul></div>
-    <div><h4>Numbrik</h4><ul><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms/">Terms of use</a></li></ul></div>
+    <div><h4>Numbrik</h4><ul><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/sitemap/">All pages</a></li></ul></div>
     <p class="legal">© 2026 Numbrik. Results are estimates for planning and are not financial, medical or legal advice.</p>
   </div>
 </footer>
@@ -180,13 +181,15 @@ cat_html = ""
 for cat in ORDER:
     cat_html += f'<section>{cats.cat_label(cat, "h2")}<div class="cards">{"".join(card(t) for t in T if t["cat"] == cat)}</div></section>'
 pop = "".join(f'<a href="/{BYID[i]["slug"]}/">{E(BYID[i]["short"])}</a>' for i in ["timecard", "gpa", "loan", "calorie", "hours", "age"])
-home = head("Numbrik – Free Online Calculators for Work, Money & Health",
-            "Fast, free calculators for everyday life: time card and overtime, hourly to salary, mortgage, GPA, BMI, calories, dates and unit conversions.", "/", home_ld) + f"""
+home = head("Free Online Calculator & Everyday Calculators | Numbrik",
+            "Free online calculator with scientific functions, plus calculators for pay, loans, grades, health, dates and conversions. Results update as you type.", "/", home_ld) + f"""
 <main id="content">
   <section class="wrap hero">
     <h1>Free calculators that answer as you type</h1>
     <p class="lede">Hours and pay, loans, grades, health and everyday conversions. Results update live, units and currency follow your region, and nothing you enter leaves your browser.</p>
     <div class="pop"><span>Popular:</span>{pop}</div>
+    <div class="panel"><div class="panel-body" id="toolBody" data-tool="scientific"><p class="loading">Loading calculator…</p><noscript><p class="loading">Turn on JavaScript to use the calculator.</p></noscript></div></div>
+    <p class="hint">Need more? Open the full <a href="/scientific-calculator/">scientific calculator</a> page or pick a calculator below.</p>
   </section>
   <div class="wrap home-cats">{cat_html}</div>
   <section class="wrap home-cats" aria-label="Quick answers"><section><h2>Quick answers</h2><div class="cards">
@@ -271,6 +274,21 @@ write("/404.html", head("Page not found | Numbrik", "This page doesn't exist.", 
 # sitemap & robots & headers
 EXTRA_URLS = cats.build_cats(globals()) + extra.build(globals()) + extra.build_countdowns(globals()) + days.build_days(globals())
 urls = ["/"] + [f"/{t['slug']}/" for t in T] + EXTRA_URLS + ["/about/", "/contact/", "/privacy-policy/", "/terms/"]
+# ---------------- HTML site map ----------------
+def _ul(items): return '<ul class="linklist">' + "".join(f'<li><a href="{u}">{E(n)}</a></li>' for u, n in items) + "</ul>"
+smap = ""
+for cat in ORDER:
+    tl = [t for t in T if t["cat"] == cat]
+    if tl: smap += f"<h2>{E(cat)}</h2>" + _ul([(f"/{t['slug']}/", t["name"]) for t in tl])
+smap += "<h2>Categories</h2>" + _ul([(f"/{s}/", h) for s, h, _, _ in cats.CATS.values()])
+smap += "<h2>Hourly wage to salary</h2>" + _ul([(extra.hslug(h), f"${h} an hour") for h in extra.HOURLY] + [(extra.aslug(a), f"${a:,} a year") for a in extra.ANNUAL] + [("/salary-conversions/", "Wage to salary chart")])
+smap += "<h2>Holiday countdowns</h2>" + _ul([(f"/{s}/", f"Days until {n}") for _, s, n, _ in extra.HOLS] + [("/countdowns/", "All countdowns")])
+smap += "<h2>Days from today</h2>" + _ul([(days.slug(n, "d"), f"{n} days from today") for n in days.DAYS] + [(days.slug(n, "w"), f"{n} weeks from today") for n in days.WEEKS] + [("/days-from-today/", "Days from today calculator")])
+smap += "<h2>About Numbrik</h2>" + _ul([("/about/", "About"), ("/contact/", "Contact"), ("/privacy-policy/", "Privacy policy"), ("/terms/", "Terms of use")])
+write("/sitemap/", head("All Calculators & Pages – Site Map | Numbrik", "Every Numbrik page in one list: calculators by category, wage conversions, holiday countdowns and days-from-today pages.", "/sitemap/") +
+      '<nav class="wrap crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">All pages</li></ol></nav>' +
+      f'<main id="content" class="wrap page wide"><h1>All calculators and pages</h1><p class="lede">Every page on Numbrik, grouped by topic.</p>{smap}</main>' + footer())
+urls.append("/sitemap/")
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
     f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n"
 write("/sitemap.xml", sm)

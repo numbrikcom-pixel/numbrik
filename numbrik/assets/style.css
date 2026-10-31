@@ -205,3 +205,27 @@ a.copy{text-decoration:none;color:var(--ink)}
 .group h3 a,.home-cats h2 a,footer h4 a{color:inherit;text-decoration:none}.group h3 a:hover,.home-cats h2 a:hover,footer h4 a:hover{color:var(--accent);text-decoration:underline}
 .guide{display:flex;flex-direction:column;gap:12px;margin:0}.guide dt{font-weight:600}.guide dd{margin:2px 0 0;color:var(--muted)}
 .main>main.page{max-width:none;padding-block:0;min-width:0}
+/* calculator.net gap tools (Oct 31) */
+.calc{display:flex;flex-direction:column;gap:12px}
+.screen{background:var(--ink);color:var(--bg);border-radius:12px;padding:14px 16px;text-align:right;min-width:0}
+.screen .expr{font-family:var(--f-num);font-size:15px;opacity:.75;min-height:1.4em;word-break:break-all}
+.screen .val{font-family:var(--f-num);font-size:clamp(28px,6vw,40px);line-height:1.15;word-break:break-all}
+.keys{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.key{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:12px 0;font-size:16px;cursor:pointer;color:var(--ink);font-family:var(--f-body)}
+.key:hover{border-color:var(--accent)}.key:active{transform:translateY(1px)}
+.key.num{background:var(--sunk);font-family:var(--f-num);font-size:18px}
+.key.eq{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-size:20px}
+.key.clr{color:var(--bad)}.key.zero{grid-column:span 2}
+.fracrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.fracrow select{font-size:20px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.frac{display:flex;align-items:center;gap:6px}.frac input{width:72px;border:1px solid var(--line);border-radius:8px;padding:8px;background:var(--surface);text-align:center;font-family:var(--f-num)}
+.frac .nd{display:flex;flex-direction:column;gap:4px}.frac .nd input:first-child{border-bottom:2px solid var(--ink)}
+.field textarea{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 10px;font-family:var(--f-num);font-size:15px;resize:vertical}
+.field textarea:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px var(--accent-soft)}
+.chks{display:flex;flex-wrap:wrap;gap:8px 16px}.chk{display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer}
+details.more{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--surface)}
+details.more summary{cursor:pointer;font-weight:600;font-size:14px}details.more[open] summary{margin-bottom:10px}
+.sched{max-height:380px;overflow:auto}.sched table{min-width:0}
+.big.pw em{font-size:clamp(18px,3vw,24px);word-break:break-all;background:none}
+.pwl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}.pwl code{font-family:var(--f-num);font-size:14px;word-break:break-all}
+.hero .panel{max-width:760px}
