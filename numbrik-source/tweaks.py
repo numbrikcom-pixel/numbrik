@@ -76,7 +76,8 @@ MORE["tip"] = f"""<h2>How to calculate a tip in your head</h2><ol>
 <li>For 18%, take 20% and subtract a tenth of the 20% figure: $12.80 − $1.28 = $11.52.</li></ol>
 <h3>Tip chart for common bills</h3><div class="tbl"><table><thead><tr><th>Bill</th><th>15%</th><th>18%</th><th>20%</th><th>25%</th></tr></thead><tbody>{trows}</tbody></table></div>
 """ + MORE.get("tip", "")
-BYID["tip"]["title"] = "Tip Calculator – How to Calculate a Tip | Numbrik"
+BYID["tip"]["title"] = "Tip Calculator – Calculate Tip & Split the Bill | Numbrik"
+BYID["tip"]["meta"] = "Free tip calculator: enter the bill, pick 15%, 18%, 20% or 25%, and see the tip and what each person pays. Plus how to work out a tip in your head."
 
 # ---- October 29: on-page SEO audit fixes (titles 60 chars or less, metas 160 or less) ----
 BYID["salary"]["title"] = "Hourly to Salary Calculator – Salary to Hourly | Numbrik"
