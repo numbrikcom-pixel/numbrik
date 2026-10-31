@@ -229,3 +229,4 @@ details.more summary{cursor:pointer;font-weight:600;font-size:14px}details.more[
 .big.pw em{font-size:clamp(18px,3vw,24px);word-break:break-all;background:none}
 .pwl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}.pwl code{font-family:var(--f-num);font-size:14px;word-break:break-all}
 .hero .panel{max-width:760px}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13px;cursor:pointer;color:inherit}.chip:hover{border-color:var(--accent)}
