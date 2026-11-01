@@ -6,7 +6,7 @@ E = html.escape
 # category -> (slug, H1, intro, extra links)
 CATS = {
  "Work & pay": ("work-and-pay-calculators", "Work & Pay Calculators",
-   "Calculators for hourly and salaried workers in the US, Canada, Australia, the UK and the Netherlands. Add up a week of shifts with overtime, find the hours between two clock times, convert an hourly wage to a yearly salary, and estimate take-home pay after 2026 US federal tax, Social Security and Medicare.",
+   "Calculators for hourly and salaried workers in the US, Canada, Australia, the UK and the Netherlands. Add up a week of shifts with overtime, find the hours between two clock times, convert an hourly wage to a yearly salary, work out a pay raise, and estimate take-home pay after 2026 US federal tax, Social Security and Medicare.",
    [("/salary-conversions/", "Hourly wage to salary chart"), ("/25-an-hour-is-how-much-a-year/", "$25 an hour is how much a year?"), ("/60000-a-year-is-how-much-an-hour/", "$60,000 a year is how much an hour?")]),
  "Money": ("money-calculators", "Money Calculators",
    "Everyday money maths: work out a tip and split the bill, find percentages, discounts and percent change, see the monthly payment and total interest on a mortgage or loan with a yearly amortization chart, and estimate a car payment including sales tax, fees and a trade-in.",
@@ -18,10 +18,10 @@ CATS = {
    "Tools for students and teachers: semester and cumulative GPA on the 4.0 scale, weighted class grades with letter grades, the score you need on a final exam to pass or reach an A, and least common multiple and greatest common factor with prime factorization shown.",
    []),
  "Dates & time": ("date-and-time-calculators", "Date & Time Calculators",
-   "Count the days and weekdays between two dates, find your exact age, see the date any number of days or weeks from today, and follow live countdowns to holidays in the US, Canada, the UK and Australia.",
+   "Count the days and weekdays between two dates, find your exact age, see the date any number of days or weeks from today, find your half birthday, count working days in a year, convert military time, and follow live countdowns to holidays in the US, Canada, the UK and Australia.",
    [("/days-from-today/", "Days from today calculator"), ("/countdowns/", "Holiday countdowns"), ("/90-days-from-today/", "90 days from today"), ("/days-until-christmas/", "Days until Christmas")]),
  "Home": ("home-project-calculators", "Home Project Calculators",
-   "Plan a home project before you buy materials: measure square footage for flooring or carpet, work out cubic yards and bags of concrete for a slab or post holes, and find how much paint a room needs, in feet or metres.",
+   "Plan a home project before you buy materials: measure square footage for flooring or carpet, work out cubic yards and bags of concrete for a slab or post holes, find how much paint a room needs, and how much mulch, topsoil or gravel to order, in feet or metres.",
    []),
  "Math": ("math-calculators", "Math Calculators",
    "Maths tools for homework and work: a scientific calculator with trig, logs and powers, a fraction calculator that shows the working, averages and standard deviation, ratios and proportions, slope from two points, the Pythagorean theorem for right triangles and the quadratic formula.",
