@@ -5,8 +5,8 @@ from more import MORE
 from extra import HOLS, hol_date
 
 E = html.escape
-DAYS = [7, 10, 14, 15, 20, 21, 30, 45, 60, 90, 100, 120, 150, 180, 200, 365]
-WEEKS = [2, 3, 4, 5, 6, 8, 10, 11, 12, 13, 16, 20, 21, 26, 27, 28, 30, 40, 52]
+DAYS = [7, 10, 14, 20, 21, 30, 45, 60, 90, 100, 120, 180]  # trimmed Nov 1, 2026 to pages with search demand (AdSense low-value review)
+WEEKS = [2, 3, 5, 6, 8, 10, 12, 13, 16, 20, 21, 26, 40, 52]
 def slug(n, unit): return f"/{n}-{'days' if unit == 'd' else 'weeks'}-from-today/"
 def fmt(d): return f"{d:%A}, {d:%B} {d.day}, {d.year}"
 def add_biz(d, n):

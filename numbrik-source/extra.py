@@ -5,8 +5,8 @@ from content2 import takehome
 from more import MORE
 
 E = html.escape
-HOURLY = list(range(10, 36)) + [40, 45, 50, 55, 60]
-ANNUAL = list(range(30000, 100001, 5000)) + [110000, 120000, 130000, 140000, 150000]
+HOURLY = [15, 18, 20, 23, 24, 25, 28, 30]  # trimmed Nov 1, 2026 to pages with search demand
+ANNUAL = list(range(45000, 100001, 5000)) + [110000]
 def hslug(h): return f"/{h}-an-hour-is-how-much-a-year/"
 def aslug(a): return f"/{a}-a-year-is-how-much-an-hour/"
 def usd(x, d=2): return f"${x:,.{d}f}"
@@ -40,6 +40,9 @@ HOLS = [  # key, slug, name, short rule text
  ("dstend", "days-until-daylight-saving-ends", "the end of daylight saving time", "In the US and most of Canada, daylight saving time ends at 2:00 a.m. on the first Sunday of November, when clocks go back one hour. The UK and the EU change on the last Sunday of October, and Australia's southern states on the first Sunday of April."),
  ("dststart", "days-until-daylight-saving-starts", "the start of daylight saving time", "In the US and most of Canada, daylight saving time starts at 2:00 a.m. on the second Sunday of March, when clocks go forward one hour. The UK and the EU change on the last Sunday of March, and Australia's southern states on the first Sunday of October."),
 ]
+KEEP_HOLS = {"christmas", "christmaseve", "halloween", "thanksgiving", "blackfriday", "newyear", "valentines", "july4"}
+HOLS = [h for h in HOLS if h[0] in KEEP_HOLS]
+
 COUNTRY = {"thanksgiving": "US", "blackfriday": "US", "july4": "US", "mlk": "US", "presidents": "US", "memorial": "US", "juneteenth": "US", "veterans": "US", "laborday": "US · Canada",
            "canadaday": "Canada", "cathanksgiving": "Canada", "boxingday": "UK · Canada · Australia", "australiaday": "Australia", "dstend": "US · Canada", "dststart": "US · Canada"}
 RULES = {"christmaseve": ("f", 12, 24), "newyearseve": ("f", 12, 31), "stpatricks": ("f", 3, 17), "juneteenth": ("f", 6, 19), "veterans": ("f", 11, 11),
@@ -71,7 +74,7 @@ def fmt(d): return f"{d:%A}, {d:%B} {d.day}, {d.year}"
 
 # links from existing tool pages
 MORE["salary"] = MORE.get("salary", "") + """<h2>Quick wage conversions</h2><p>See the yearly, monthly and after-tax figures for a specific wage: <a href="/20-an-hour-is-how-much-a-year/">$20 an hour</a>, <a href="/25-an-hour-is-how-much-a-year/">$25 an hour</a>, <a href="/30-an-hour-is-how-much-a-year/">$30 an hour</a>, <a href="/50000-a-year-is-how-much-an-hour/">$50,000 a year</a> or <a href="/salary-conversions/">all wage conversions</a>.</p>"""
-MORE["days"] = MORE.get("days", "") + """<h2>Holiday countdowns</h2><p>Live countdowns for <a href="/days-until-christmas/">Christmas</a>, <a href="/days-until-halloween/">Halloween</a>, <a href="/days-until-thanksgiving/">Thanksgiving</a>, <a href="/days-until-easter/">Easter</a> and <a href="/countdowns/">more holidays</a>.</p>"""
+MORE["days"] = MORE.get("days", "") + """<h2>Holiday countdowns</h2><p>Live countdowns for <a href="/days-until-christmas/">Christmas</a>, <a href="/days-until-halloween/">Halloween</a>, <a href="/days-until-thanksgiving/">Thanksgiving</a>, <a href="/days-until-new-year/">New Year</a> and <a href="/countdowns/">more holidays</a>.</p>"""
 
 
 def money_extras(y, t, h):
@@ -160,13 +163,18 @@ def build(g):
              f"At 40 hours a week, {usd0(a)} a year works out to <strong>{usd(h)} an hour</strong> before tax, or {usd(a/12)} a month.", body, faqs, HUB_W)
 
     # ---------- wage hub ----------
-    hrows = "".join(f'<tr><td><a href="{hslug(h)}">{amt(h)} an hour</a></td><td>{usd0(h*2080)}</td><td>{usd(h*2080/12)}</td></tr>' for h in HOURLY)
-    arows = "".join(f'<tr><td><a href="{aslug(a)}">{usd0(a)} a year</a></td><td>{usd(a/2080)}</td><td>{usd(a/12)}</td></tr>' for a in ANNUAL)
+    lh = lambda h: f'<a href="{hslug(h)}">{amt(h)} an hour</a>' if h in HOURLY else f"{amt(h)} an hour"
+    la = lambda a: f'<a href="{aslug(a)}">{usd0(a)} a year</a>' if a in ANNUAL else f"{usd0(a)} a year"
+    hrows = "".join(f'<tr><td>{lh(h)}</td><td>{usd0(h*2080)}</td><td>{usd(h*2080/12)}</td><td>{usd0(h*1560)}</td></tr>' for h in list(range(10, 36)) + [40, 45, 50, 55, 60])
+    arows = "".join(f'<tr><td>{la(a)}</td><td>{usd(a/2080)}</td><td>{usd(a/12)}</td><td>{usd(a/26)}</td></tr>' for a in list(range(30000, 100001, 5000)) + [110000, 120000, 130000, 140000, 150000])
     write("/salary-conversions/", head("Hourly Wage to Salary Conversion Chart | Numbrik", "Chart of hourly wages from $10 to $60 an hour as yearly salaries, and salaries from $30,000 to $150,000 as hourly rates. Full time, 40 hours a week.", "/salary-conversions/", ld("/salary-conversions/", "Salary conversions", None)) +
           crumbs([("Home", "/"), ("Salary conversions", None)]) + f"""<main id="content" class="wrap page wide"><h1>Hourly wage to salary chart</h1>
 <p class="lede">Full-time figures at 40 hours a week for 52 weeks (2,080 hours), before tax. Pick a wage for monthly, biweekly and after-tax figures, or use the <a href="/hourly-to-salary-calculator/">hourly to salary calculator</a> for any amount.</p>
-<div class="twocol"><div><h2>Hourly to yearly</h2><div class="tbl"><table><thead><tr><th>Hourly</th><th>Yearly</th><th>Monthly</th></tr></thead><tbody>{hrows}</tbody></table></div></div>
-<div><h2>Yearly to hourly</h2><div class="tbl"><table><thead><tr><th>Salary</th><th>Hourly</th><th>Monthly</th></tr></thead><tbody>{arows}</tbody></table></div></div></div></main>""" + footer())
+<div class="twocol"><div><h2>Hourly to yearly</h2><div class="tbl"><table><thead><tr><th>Hourly</th><th>Yearly (40 h)</th><th>Monthly</th><th>Yearly (30 h)</th></tr></thead><tbody>{hrows}</tbody></table></div></div>
+<div><h2>Yearly to hourly</h2><div class="tbl"><table><thead><tr><th>Salary</th><th>Hourly</th><th>Monthly</th><th>Biweekly</th></tr></thead><tbody>{arows}</tbody></table></div></div></div>
+<h2>How to convert an hourly wage to a salary</h2><p>Multiply the hourly rate by the hours you work in a week, then by 52. At 40 hours a week that's 2,080 hours a year, so a quick shortcut is to double the hourly rate and add three zeros: $20 an hour is about $40,000 a year (exactly $41,600). To go the other way, divide the salary by 2,080, or halve it and drop three zeros.</p>
+<p>The 30-hour column is for part-time work. If you get paid holidays and vacation, the full 52 weeks applies. If you're paid only for the weeks you work, use the number of weeks you actually work instead, for example 50.</p>
+<h2>Before tax vs take-home pay</h2><p>Every figure in the chart is gross pay, before income tax, Social Security, Medicare, retirement contributions and health insurance. Take-home pay is usually 70–80% of gross for a single US worker. For an estimate after 2026 federal tax, use the <a href="/take-home-pay-calculator/">take-home pay calculator</a>.</p></main>""" + footer())
     urls.append("/salary-conversions/")
     return urls
 

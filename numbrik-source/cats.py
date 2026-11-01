@@ -31,6 +31,15 @@ CATS = {
    []),
 }
 
+NOTES = {
+ "Home": """<h2>Tips before you buy materials</h2><p>Measure twice and round up. Rooms are rarely perfectly square, so measure each wall and split L-shaped rooms into rectangles. Add 5–10% extra flooring for cuts and waste, or 15% for tiles laid on a diagonal. Concrete is sold by the cubic yard in the US and the cubic metre elsewhere, and suppliers usually have a minimum order, so for small jobs bags are often cheaper. For paint, one gallon covers about 350–400 square feet per coat, and most walls need two coats when you change colour.</p>
+<p>Keep your receipts and any unopened boxes or bags: most home stores take back unused materials, which makes buying a little extra the safer choice.</p>""",
+ "Dates & time": """<h2>How dates are counted</h2><p>Date maths trips people up because of where you start counting. Our calculators count today as day 0, so 30 days from today is the date 30 midnights from now. That's how most deadlines, return windows and notice periods work. If a rule says to include the first day, subtract one from the result.</p>
+<p>Business days skip Saturdays and Sundays. Public holidays differ by country and state, so they aren't removed automatically; check your holiday calendar for deadlines that matter.</p>""",
+ "Fun": """<h2>Are these tools really random?</h2><p>Yes, as far as a computer can be. Every dice roll, number, coin flip and password comes from your browser's cryptographic random number generator (crypto.getRandomValues), the same source used to make encryption keys. Nothing is sent to our server, so results can't be predicted or changed by anyone else.</p>
+<p>Each result is independent. A coin that has landed on heads five times in a row is still exactly 50/50 on the next flip, and a die has no memory of previous rolls. Over many trials the results even out, which you can see by flipping a coin 1,000 times.</p>""",
+}
+
 def cat_url(cat): return f"/{CATS[cat][0]}/" if cat in CATS else None
 def cat_crumb(cat):
     u = cat_url(cat)
@@ -59,7 +68,7 @@ def build_cats(g):
               f'<nav class="wrap crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">{E(h1)}</li></ol></nav>' +
               f'<main id="content" class="wrap page wide"><h1>{E(h1)}</h1><p class="lede">{E(intro)}</p>'
               f'<h2>All {E(h1.lower())}</h2><div class="cards">{"".join(card(t) for t in tools)}</div>'
-              f'<h2>Which one do I need?</h2><dl class="guide">{guide}</dl>{more}'
+              f'<h2>Which one do I need?</h2><dl class="guide">{guide}</dl>{NOTES.get(cat, "")}{more}'
               f'<h2>More categories</h2><ul class="linklist">{others}</ul></main>' + footer())
         urls.append(path)
     return urls
