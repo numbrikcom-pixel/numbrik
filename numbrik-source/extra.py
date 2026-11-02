@@ -211,6 +211,8 @@ DAYOFF = {
 
 SHORT = {"dststart": "Daylight Saving Time Starts", "dstend": "Daylight Saving Time Ends", "mlk": "MLK Day", "cathanksgiving": "Canadian Thanksgiving", "july4": "the 4th of July"}
 
+TURKEY = {k: '<h2>Planning the turkey?</h2><p>Use the <a href="/turkey-calculator/">turkey calculator</a> to see how big a turkey to buy for your guests, when to move it to the fridge to thaw, and what time it needs to go in the oven.</p>' for k in ("thanksgiving", "christmas", "christmaseve")}
+
 def build_countdowns(g):
     head, footer, write, DOMAIN, TODAY_TXT = g["head"], g["footer"], g["write"], g["DOMAIN"], g["TODAY_TXT"]
     today = date.fromisoformat(g["TODAY"]); urls = []
@@ -231,7 +233,7 @@ def build_countdowns(g):
         others = "".join(f'<a class="card" href="/{s}/"><small>{COUNTRY.get(kk, "")}</small><b>{E(nm[0].upper()+nm[1:])}</b><span><span class="cd-mini" data-countdown="{kk}">{(nxt(kk)-today).days}</span> days</span></a>' for kk, s, nm, _ in soon) + '<a class="card" href="/countdowns/"><b>All countdowns</b><span>{} holidays</span></a>'.format(len(HOLS))
         body = f"""<div class="answer cd" data-countdown="{k}"><span class="label">Days until {E(name)}</span><div class="big"><em class="cd-days">{n}</em> <span class="cd-unit">days</span></div>
 <p class="cd-live hint">{n} days to go</p><dl class="kv"><div><dt>Date</dt><dd class="cd-date">{fmt(nd)}</dd></div><div><dt>Weeks</dt><dd class="cd-weeks">{n//7} {"week" if n//7==1 else "weeks"}, {n%7} {"day" if n%7==1 else "days"}</dd></div><div><dt>Weekdays (Mon–Fri)</dt><dd class="cd-wd">—</dd></div></dl></div>
-<h2>When is {E(name)}?</h2><p>{E(rule)}</p>
+<h2>When is {E(name)}?</h2><p>{E(rule)}</p>{TURKEY.get(k, "")}
 <h2>Is {E(name)} a day off?</h2><p>{E(DAYOFF.get(k, ""))}</p>
 <h2>Countdown milestones for {nd.year}</h2><div class="tbl"><table><thead><tr><th>Milestone</th><th>Date</th></tr></thead><tbody>{"".join(f"<tr><td>{lbl} before {E(name)}</td><td>{fmt(nd - timedelta(x))}</td></tr>" for lbl, x in [("100 days", 100), ("50 days", 50), ("30 days", 30), ("2 weeks", 14), ("1 week", 7), ("1 day", 1)])}</tbody></table></div>
 <h2>{E(disp)} dates</h2><div class="tbl"><table><thead><tr><th>Year</th><th>Date</th></tr></thead><tbody>{yrs}</tbody></table></div>

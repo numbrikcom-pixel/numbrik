@@ -21,7 +21,7 @@ CATS = {
    "Count the days and weekdays between two dates, find your exact age, see the date any number of days or weeks from today, find your half birthday, count working days in a year, convert military time, and follow live countdowns to holidays in the US, Canada, the UK and Australia.",
    [("/days-from-today/", "Days from today calculator"), ("/countdowns/", "Holiday countdowns"), ("/90-days-from-today/", "90 days from today"), ("/days-until-christmas/", "Days until Christmas")]),
  "Home": ("home-project-calculators", "Home Project Calculators",
-   "Plan a home project before you buy materials: measure square footage for flooring or carpet, work out cubic yards and bags of concrete for a slab or post holes, find how much paint a room needs, and how much mulch, topsoil or gravel to order, in feet or metres.",
+   "Plan a home project before you buy materials: measure square footage for flooring or carpet, work out cubic yards and bags of concrete for a slab or post holes, find how much paint a room needs, how much mulch, topsoil or gravel to order, in feet or metres, and how big a turkey to buy and how long to roast it.",
    []),
  "Math": ("math-calculators", "Math Calculators",
    "Maths tools for homework and work: a scientific calculator with trig, logs and powers, a fraction calculator that shows the working, averages and standard deviation, ratios and proportions, slope from two points, the Pythagorean theorem for right triangles and the quadratic formula.",
