@@ -57,7 +57,11 @@ SHIFTS = [("6:00 AM", "2:00 PM"), ("6:00 AM", "6:00 PM"), ("7:00 AM", "3:30 PM")
           ("8:00 AM", "6:00 PM"), ("8:00 AM", "7:00 PM"), ("8:00 AM", "8:00 PM"), ("8:30 AM", "5:00 PM"), ("9:00 AM", "2:00 PM"),
           ("9:00 AM", "4:00 PM"), ("9:00 AM", "5:00 PM"), ("9:00 AM", "6:00 PM"), ("9:30 AM", "4:45 PM"), ("10:00 AM", "5:00 PM"),
           ("10:00 AM", "6:00 PM"), ("11:00 AM", "7:00 PM"), ("12:00 PM", "8:00 PM"), ("2:00 PM", "10:00 PM"), ("3:00 PM", "11:00 PM"),
-          ("4:00 AM", "9:00 PM"), ("7:00 PM", "7:00 AM"), ("10:00 PM", "6:00 AM"), ("11:00 PM", "7:00 AM")]
+          ("4:00 AM", "9:00 PM"), ("7:00 PM", "7:00 AM"), ("10:00 PM", "6:00 AM"), ("11:00 PM", "7:00 AM"),
+          ("6:30 AM", "3:30 PM"), ("7:30 AM", "12:00 PM"), ("8:00 AM", "2:00 PM"), ("8:30 AM", "12:30 PM"), ("8:30 AM", "3:00 PM"), ("9:00 AM", "10:00 PM"),
+          ("7:00 AM", "9:00 PM"), ("11:00 AM", "11:00 PM"), ("1:00 PM", "7:00 PM"), ("5:00 PM", "12:00 AM"), ("5:00 AM", "12:00 AM"), ("7:00 PM", "8:00 AM"),
+          ("9:00 PM", "7:00 AM"), ("4:00 PM", "5:00 AM"), ("9:00 AM", "3:00 AM")]
+SHIFTS.sort(key=lambda x: (_t(x[0]), (_t(x[1]) - _t(x[0])) % 1440))
 rows = ""
 for a, b in SHIFTS:
     m = (_t(b) - _t(a)) % 1440
@@ -82,4 +86,8 @@ BYID["tip"]["meta"] = "Free tip calculator: enter the bill, pick 15%, 18%, 20% o
 # ---- October 29: on-page SEO audit fixes (titles 60 chars or less, metas 160 or less) ----
 BYID["salary"]["title"] = "Hourly to Salary Calculator – Salary to Hourly | Numbrik"
 BYID["hours"]["title"] = "Hours Calculator – Hours Between Two Times | Numbrik"
+BYID["hours"]["faqs"] = BYID["hours"]["faqs"] + [
+  ("How many hours is 8 to 5?", "8:00 AM to 5:00 PM is 9 hours, or 8.5 hours after a 30-minute unpaid lunch."),
+  ("How many hours is 7 PM to 7 AM?", "7:00 PM to 7:00 AM is 12 hours. The calculator handles overnight shifts automatically."),
+  ("How many hours is 9 to 5?", "9:00 AM to 5:00 PM is 8 hours, or 7.5 hours after a 30-minute break.")]
 BYID["autoloan"]["meta"] = "Car payment calculator with sales tax, fees, down payment and trade-in. See your monthly payment, total interest and total cost from 36 to 84 months."

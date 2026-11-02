@@ -41,6 +41,7 @@ HOLS = [  # key, slug, name, short rule text
  ("dststart", "days-until-daylight-saving-starts", "the start of daylight saving time", "In the US and most of Canada, daylight saving time starts at 2:00 a.m. on the second Sunday of March, when clocks go forward one hour. The UK and the EU change on the last Sunday of March, and Australia's southern states on the first Sunday of October."),
 ]
 KEEP_HOLS = {"christmas", "christmaseve", "halloween", "thanksgiving", "blackfriday", "newyear", "valentines", "july4"}
+ALL_HOLS = list(HOLS)
 HOLS = [h for h in HOLS if h[0] in KEEP_HOLS]
 
 COUNTRY = {"thanksgiving": "US", "blackfriday": "US", "july4": "US", "mlk": "US", "presidents": "US", "memorial": "US", "juneteenth": "US", "veterans": "US", "laborday": "US · Canada",

@@ -305,6 +305,17 @@ sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps
     f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n"
 write("/sitemap.xml", sm)
 open(os.path.join(OUT, "ads.txt"), "w").write("google.com, pub-6519470736644184, DIRECT, f08c47fec0942fa0\n")
+# 301s for thin pages removed on Nov 1, 2026, so their search signals go to the closest page
+_R = []
+for h in list(range(10, 36)) + [40, 45, 50, 55, 60]:
+    if h not in extra.HOURLY: _R.append((extra.hslug(h), "/hourly-to-salary-calculator/"))
+for a in list(range(30000, 100001, 5000)) + [110000, 120000, 130000, 140000, 150000]:
+    if a not in extra.ANNUAL: _R.append((extra.aslug(a), "/salary-conversions/"))
+for n in [15, 150, 200, 365]: _R.append((days.slug(n, "d"), "/days-from-today/"))
+for n in [4, 11, 27, 28, 30]: _R.append((days.slug(n, "w"), "/days-from-today/"))
+for k, sl, *_ in extra.ALL_HOLS:
+    if k not in extra.KEEP_HOLS: _R.append((f"/{sl}/", "/countdowns/"))
+open(os.path.join(OUT, "_redirects"), "w").write("".join(f"{a} {b} 301\n{a.rstrip('/')} {b} 301\n" for a, b in _R))
 write("/robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n")
 open(os.path.join(OUT, "_headers"), "w").write("""/assets/*
   Cache-Control: public, max-age=31536000, immutable
