@@ -46,7 +46,7 @@ for p in pages:
 missing = sm - set(pages); extra = set(pages) - sm - {"/404.html"}
 if missing: issues["In sitemap but no page"] += sorted(missing)
 if extra: issues["Page not in sitemap"] += sorted(extra)
-css = os.path.getsize(f"{D}/assets/style.css"); js = os.path.getsize(f"{D}/assets/app.js")
+css = os.path.getsize(f"{D}/assets/style.css"); js = max(os.path.getsize(os.path.join(f"{D}/assets/js", x)) for x in os.listdir(f"{D}/assets/js"))
 print(f"{len(pages)} pages | CSS {css//1024} KB | JS {js//1024} KB | biggest HTML {max(len(h) for h in pages.values())//1024} KB")
 for k, v in sorted(issues.items(), key=lambda x: -len(x[1])):
     print(f"\n## {k}: {len(v)}"); [print("  ", x) for x in v[:12]]; len(v) > 12 and print("   …")

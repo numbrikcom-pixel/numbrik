@@ -16,7 +16,7 @@ DOMAIN = "https://numbrik.com"
 TODAY = "2026-10-31"; TODAY_TXT = "October 31, 2026"
 OUT = "dist"
 E = html.escape
-V = "13"  # asset version for cache busting
+V = "14"  # asset version for cache busting
 
 LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="var(--accent-ink)" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="var(--accent-ink)"/></svg>'
 FAVICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2340C9"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="#fff"/></svg>'
@@ -55,7 +55,6 @@ def head(title, desc, path, extra_ld=None, noindex=False):
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{DOMAIN}/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" href="/assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/bricolage-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/style.css?v={V}">
 <script>try{{var t=JSON.parse(localStorage.getItem('nb_theme'));if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}</script>
@@ -127,6 +126,9 @@ def write(path, s):
     if '<main id="content" class="wrap page wide">' in s and s.count("</main>") == 1:
         s = s.replace('<main id="content" class="wrap page wide">', '<div class="wrap main"><main id="content" class="page">')
         s = s.replace("</main>", "</main>" + rail(path) + "</div>")
+    # Each page loads only its own calculator's JavaScript (core + one tool), not every tool.
+    m = re.search(r'id="toolBody" data-tool="([a-z0-9]+)"', s)
+    s = s.replace(f'/assets/app.js?v={V}', f'/assets/js/{m.group(1) if m else "core"}.js?v={V}')
     open(full, "w").write(s)
 
 def strip_tags(s): return re.sub(r"<[^>]+>", "", s)
@@ -330,14 +332,10 @@ open(os.path.join(OUT, "favicon.svg"), "w").write(FAVICON)
 # assets
 os.makedirs(os.path.join(OUT, "assets/fonts"), exist_ok=True)
 shutil.copy("src/style.css", os.path.join(OUT, "assets/style.css"))
-shutil.copy("src/app.js", os.path.join(OUT, "assets/app.js"))
+import subprocess
+subprocess.run(["node", "tools/bundle.js", "src/app.js", os.path.join(OUT, "assets/js")], check=True)
 F = "fontsrc/node_modules/@fontsource/"
-for src, dst in [("bricolage-grotesque/files/bricolage-grotesque-latin-500-normal.woff2", "bricolage-500"),
-                 ("bricolage-grotesque/files/bricolage-grotesque-latin-700-normal.woff2", "bricolage-700"),
-                 ("ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2", "plex-sans-400"),
-                 ("ibm-plex-sans/files/ibm-plex-sans-latin-500-normal.woff2", "plex-sans-500"),
-                 ("ibm-plex-sans/files/ibm-plex-sans-latin-600-normal.woff2", "plex-sans-600"),
-                 ("ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2", "plex-mono-500")]:
+for src, dst in [("bricolage-grotesque/files/bricolage-grotesque-latin-700-normal.woff2", "bricolage-700")]:
     shutil.copy(F + src, os.path.join(OUT, f"assets/fonts/{dst}.woff2"))
 print("built", len(urls), "pages")
 
