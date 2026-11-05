@@ -225,3 +225,44 @@ details.more summary{cursor:pointer;font-weight:600;font-size:14px}details.more[
 .pwl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}.pwl code{font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:14px;word-break:break-all}
 .hero .panel{max-width:760px}
 .chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13px;cursor:pointer;color:inherit}.chip:hover{border-color:var(--accent)}
+/* ---- Mobile-first UX (Nov 5, 2026) ---- */
+@media (max-width:759px){
+ .bar{position:static}
+ .bar .wrap{row-gap:8px}
+ .search{order:3;flex:1 1 100%}
+ .region{font-size:0;gap:0}
+ .region select{max-width:124px;padding-left:6px;padding-right:4px}
+ .brand{gap:7px}
+ #themeLabel{display:none}
+ .theme{width:44px;height:44px;justify-content:center;padding:0}
+ .result .label{font-size:12px}
+}
+/* Touch screens: 44px tap targets, and 16px inputs so iPhones don't zoom in on focus */
+@media (pointer:coarse){
+ input,select,textarea{font-size:16px!important}
+ .seg button,.chip,.copy,.actions button,.region select,.group a{min-height:44px}
+ .seg button{padding-left:14px;padding-right:14px}
+ .tc-wrap td input,.tc-wrap td select,.tc-wrap .btn{min-height:44px;min-width:44px}
+ .pop a{min-height:44px;display:inline-flex;align-items:center}
+}
+/* Time card on phones: each day becomes a small card so Break and Hours are visible without sideways scrolling */
+@media (max-width:560px){
+ .tc-wrap table:has(#tcs0){min-width:0}
+ .tc-wrap table:has(#tcs0) thead{display:none}
+ .tc-wrap table:has(#tcs0) tr{display:grid;grid-template-columns:46px 1fr 1fr;grid-template-areas:"d s e" "d b h";align-items:end;column-gap:6px;padding:8px 6px;border-bottom:1px solid var(--line)}
+ .tc-wrap table:has(#tcs0) tr:last-child{border-bottom:0}
+ .tc-wrap table:has(#tcs0) td{display:block;border:0;padding:2px 0}
+ .tc-wrap table:has(#tcs0) td:nth-child(1){grid-area:d;align-self:center;font-weight:600}
+ .tc-wrap table:has(#tcs0) td:nth-child(2){grid-area:s}
+ .tc-wrap table:has(#tcs0) td:nth-child(3){grid-area:e}
+ .tc-wrap table:has(#tcs0) td:nth-child(4){grid-area:b}
+ .tc-wrap table:has(#tcs0) td:nth-child(5){grid-area:h;text-align:left;padding:2px 6px}
+ .tc-wrap table:has(#tcs0) td input{min-width:0}
+ .tc-wrap table:has(#tcs0) td:nth-child(n+2)::before{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding:0 6px 2px}
+ .tc-wrap table:has(#tcs0) td:nth-child(2)::before{content:"Start"}
+ .tc-wrap table:has(#tcs0) td:nth-child(3)::before{content:"End"}
+ .tc-wrap table:has(#tcs0) td:nth-child(4)::before{content:"Break (min)"}
+ .tc-wrap table:has(#tcs0) td:nth-child(5)::before{content:"Hours"}
+}
+@media (max-width:400px){.region select{max-width:104px}.bar .wrap{column-gap:8px}}
+@media (max-width:340px){.brand b{font-size:19px}.region select{max-width:92px}}
