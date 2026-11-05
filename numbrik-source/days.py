@@ -63,13 +63,15 @@ def build_days(g):
         faqs = [(f"What date is {label} from today?", f"The box at the top of this page shows the exact date and updates automatically each day. Today is not counted: day 1 is tomorrow."),
                 (f"How many {'weeks' if unit == 'd' else 'days'} is {label}?", f"{label.capitalize()} is {weeks_line}." if unit == "d" else f"{label.capitalize()} is {days} days."),
                 (f"How much is {label}?", how_much),
+                (f"What is {label} from tomorrow?", f"Add one day to the date at the top of the page. It's shown in the box as \"{label.capitalize()} from tomorrow\"."),
+                (f"What is {label} from today, including today?", f"If today counts as day 1, the date is one day earlier than the usual answer. It's shown in the box as \"Counting today as day 1\"."),
                 (f"What is {days} business days from today?", f"Counting Monday to Friday only, {days} business days from today is shown in the box above. Public holidays are not removed, so a deadline can move later if a holiday falls in between.")]
         body = f"""<div class="answer afd" data-add="{days}"><span class="label">{E(label)} from today</span><div class="big"><em class="afd-date">{fmt(target)}</em></div>
 <p class="hint afd-from">Counting from today, {fmt(today)}</p>
-<dl class="kv"><div><dt>Short date</dt><dd class="afd-short">{target:%m/%d/%Y}</dd></div><div><dt>{days} business days from today</dt><dd class="afd-biz">{fmt(biz)}</dd></div><div><dt>{E(label)} ago</dt><dd class="afd-ago">{fmt(ago)}</dd></div><div><dt>In weeks</dt><dd>{weeks_line}</dd></div><div><dt>In months</dt><dd>{months_line}</dd></div></dl></div>
+<dl class="kv"><div><dt>Short date</dt><dd class="afd-short">{target:%m/%d/%Y}</dd></div><div><dt>{days} business days from today</dt><dd class="afd-biz">{fmt(biz)}</dd></div><div><dt>{E(label)} ago</dt><dd class="afd-ago">{fmt(ago)}</dd></div><div><dt>{E(label).capitalize()} from tomorrow</dt><dd class="afd-mini" data-add="{days + 1}">{fmt(today + timedelta(days + 1))}</dd></div><div><dt>Counting today as day 1</dt><dd class="afd-mini" data-add="{days - 1}">{fmt(today + timedelta(days - 1))}</dd></div><div><dt>In weeks</dt><dd>{weeks_line}</dd></div><div><dt>In months</dt><dd>{months_line}</dd></div></dl></div>
 {hol_list(today, target, days)}
 <h2>How long is {E(label)}?</h2><p>{E(how_much)}</p>
-<h2>{E(label)} ago</h2><p>Counting backwards, {E(label)} ago was <strong class="afd-ago-x" data-add="{days}">{fmt(ago)}</strong>. Use this for questions like "what was the date {E(label)} ago" or "the past {days} days".</p>
+<h2>{E(label)} ago (today minus {days} days)</h2><p>Counting backwards, {E(label)} ago was <strong class="afd-ago-x" data-add="{days}">{fmt(ago)}</strong>. Use this for questions like "what was the date {E(label)} ago" or "the past {days} days".</p>
 <h2>How it's counted</h2><p>Today is day 0, tomorrow is day 1, and the date above is day {days}. That's how most deadlines, return windows and notice periods are counted. If a rule says to include today, take one day off the result. The business-day date skips Saturdays and Sundays but not public holidays.</p>
 <p>People look up {E(label)} from today for {E(use)}. For legal, visa or contract deadlines, check how the rule counts days, since some count calendar days and others count working days.</p>
 <p>To count between any two dates, use the <a href="/days-between-dates/">days between dates calculator</a>. For a different number of days, use the <a href="/days-from-today/">days from today calculator</a>.</p>

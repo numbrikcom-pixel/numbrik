@@ -125,6 +125,7 @@ def build(g):
         nav = " · ".join(x for x in [f'<a href="{hslug(prev)}">← {amt(prev)} an hour</a>' if prev else "", f'<a href="/salary-conversions/">All wages</a>', f'<a href="{hslug(nxt)}">{amt(nxt)} an hour →</a>' if nxt else ""] if x)
         faqs = [(f"How much is {amt(h)} an hour every two weeks?", f"{usd(h*80)} before tax, at 40 hours a week. After estimated 2026 US federal tax and FICA for a single filer with no state tax, it is about {usd(t['net']/26)}."),
                 (f"How much is {amt(h)} an hour after taxes?", f"About {usd0(t['net'])} a year, or {usd(t['net']/12)} a month, for a single filer in a state with no income tax in 2026. State and local taxes, retirement contributions and benefits lower this."),
+                (f"What is {amt(h)}/hr as a yearly salary?", f"{amt(h)} an hour × 2,080 hours = {usd0(y)} a year before tax for full-time work (40 hours a week, 52 weeks). That's {usd(y/12)} a month."),
                 (f"How much is {amt(h)} an hour part-time?", f"At 20 hours a week it is {usd(h*20)} a week, or {usd0(h*20*52)} a year before tax. At 30 hours a week it is {usd0(h*30*52)} a year.")]
         body = f"""<div class="answer"><span class="label">{amt(h)} an hour, full time (40 hours × 52 weeks)</span><div class="big"><em>{usd0(y)}</em> a year</div>
 <dl class="kv"><div><dt>Monthly</dt><dd>{usd(y/12)}</dd></div><div><dt>Every 2 weeks</dt><dd>{usd(h*80)}</dd></div><div><dt>Weekly</dt><dd>{usd(h*40)}</dd></div><div><dt>Daily (8 hours)</dt><dd>{usd(h*8)}</dd></div><div><dt>After US tax (estimate)</dt><dd>{usd0(t['net'])} a year</dd></div></dl></div>
@@ -139,7 +140,7 @@ def build(g):
         page(hslug(h), f"{amt(h)} an Hour Is How Much a Year? ({usd0(y)}) | Numbrik",
              f"{amt(h)} an hour is {usd0(y)} a year at 40 hours a week. See monthly, biweekly and weekly pay, part-time figures and take-home pay after 2026 taxes.",
              f"{amt(h)} an hour is how much a year?",
-             f"At 40 hours a week, {amt(h)} an hour is <strong>{usd0(y)} a year</strong> before tax, or {usd(y/12)} a month.", body, faqs, HUB_W)
+             f"At 40 hours a week, {amt(h)} an hour ({amt(h)}/hr) is <strong>{usd0(y)} a year</strong> before tax ({amt(h)} × 2,080 hours), or {usd(y/12)} a month and {usd(h*80)} every two weeks.", body, faqs, HUB_W)
 
     # ---------- yearly → hourly ----------
     for idx, a in enumerate(ANNUAL):
@@ -149,7 +150,9 @@ def build(g):
         nav = " · ".join(x for x in [f'<a href="{aslug(prev)}">← {usd0(prev)} a year</a>' if prev else "", f'<a href="/salary-conversions/">All wages</a>', f'<a href="{aslug(nxt)}">{usd0(nxt)} a year →</a>' if nxt else ""] if x)
         faqs = [(f"How much is {usd0(a)} a year per month?", f"{usd(a/12)} before tax. After estimated 2026 US federal tax and FICA for a single filer with no state tax, about {usd(t['net']/12)}."),
                 (f"How much is {usd0(a)} a year every two weeks?", f"{usd(a/26)} before tax, or about {usd(t['net']/26)} after estimated federal tax and FICA."),
-                (f"How much is {usd0(a)} a year after taxes?", f"About {usd0(t['net'])} for a single filer in a state with no income tax in 2026. State tax, 401(k) contributions and benefits lower this.")]
+                (f"How much is {usd0(a)} a year after taxes?", f"About {usd0(t['net'])} for a single filer in a state with no income tax in 2026. State tax, 401(k) contributions and benefits lower this."),
+                (f"What is {a // 1000}k a year hourly?", f"{a // 1000}k a year is {usd(h)} an hour at 40 hours a week: {usd0(a)} ÷ 2,080 hours = {usd(h)}. At 37.5 hours a week it is {usd(a / 1950)} an hour."),
+                (f"How much is {usd0(a)} a year weekly?", f"{usd(a / 52)} a week before tax, or about {usd(t['net'] / 52)} after estimated federal tax and FICA.")]
         body = f"""<div class="answer"><span class="label">{usd0(a)} a year, full time (40 hours × 52 weeks)</span><div class="big"><em>{usd(h)}</em> an hour</div>
 <dl class="kv"><div><dt>Monthly</dt><dd>{usd(a/12)}</dd></div><div><dt>Every 2 weeks</dt><dd>{usd(a/26)}</dd></div><div><dt>Twice a month</dt><dd>{usd(a/24)}</dd></div><div><dt>Weekly</dt><dd>{usd(a/52)}</dd></div><div><dt>After US tax (estimate)</dt><dd>{usd0(t['net'])} a year</dd></div></dl></div>
 <h2>How it's calculated</h2><p>Divide the salary by the number of paid hours in a year. Full time is usually 40 hours a week for 52 weeks, or 2,080 hours, so {usd0(a)} ÷ 2,080 = {usd(h)} an hour. If you regularly work more than 40 hours on a fixed salary, your real hourly rate is lower, as the table shows.</p>
@@ -161,7 +164,7 @@ def build(g):
         page(aslug(a), f"{usd0(a)} a Year Is How Much an Hour? ({usd(h)}) | Numbrik",
              f"{usd0(a)} a year is {usd(h)} an hour at 40 hours a week. See monthly and biweekly pay and take-home pay after 2026 taxes.",
              f"{usd0(a)} a year is how much an hour?",
-             f"At 40 hours a week, {usd0(a)} a year works out to <strong>{usd(h)} an hour</strong> before tax, or {usd(a/12)} a month.", body, faqs, HUB_W)
+             f"At 40 hours a week, {usd0(a)} a year ({a // 1000}k) works out to <strong>{usd(h)} an hour</strong> before tax ({usd0(a)} ÷ 2,080 hours), or {usd(a/12)} a month and {usd(a/26)} every two weeks.", body, faqs, HUB_W)
 
     # ---------- wage hub ----------
     lh = lambda h: f'<a href="{hslug(h)}">{amt(h)} an hour</a>' if h in HOURLY else f"{amt(h)} an hour"

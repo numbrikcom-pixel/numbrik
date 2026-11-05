@@ -88,6 +88,17 @@ BYID["salary"]["title"] = "Hourly to Salary Calculator – Salary to Hourly | Nu
 BYID["hours"]["title"] = "Hours Calculator – Hours Between Two Times | Numbrik"
 BYID["hours"]["faqs"] = BYID["hours"]["faqs"] + [
   ("How many hours is 8 to 5?", "8:00 AM to 5:00 PM is 9 hours, or 8.5 hours after a 30-minute unpaid lunch."),
-  ("How many hours is 7 PM to 7 AM?", "7:00 PM to 7:00 AM is 12 hours. The calculator handles overnight shifts automatically."),
-  ("How many hours is 9 to 5?", "9:00 AM to 5:00 PM is 8 hours, or 7.5 hours after a 30-minute break.")]
+  ("How many hours is 7 PM to 7 AM?", "7:00 PM to 7:00 AM is 12 hours. The calculator handles overnight shifts automatically.")]
 BYID["autoloan"]["meta"] = "Car payment calculator with sales tax, fees, down payment and trade-in. See your monthly payment, total interest and total cost from 36 to 84 months."
+
+# ---- Nov 5, 2026: target the queries Search Console shows for these pages ----
+hr = BYID["hours"]
+hr["lede"] = "Count the hours between two times, such as 8 AM to 5 PM or 7 PM to 8 AM, minus any unpaid break. This free hours calculator gives the answer in hours and minutes and in decimal hours, and handles overnight shifts."
+hr["faqs"] = hr["faqs"] + [("How do I convert minutes to decimal hours?", "Divide the minutes by 60. 7 hours 45 minutes is 7 + 45 ÷ 60 = 7.75 hours, which is the number most payroll systems use."),
+  ("How many hours is 7:30 to 4:30?", "7:30 AM to 4:30 PM is 9 hours, or 8.5 hours after a 30-minute unpaid lunch.")]
+tp = BYID["tip"]
+tp["lede"] = "A free tip calculator: enter the bill, pick a tip percentage, and see the tip amount, the total and what each person pays when you split the bill."
+tp["faqs"] = [("How do you calculate a tip?", "Multiply the bill by the tip percentage. For an 18% tip on $60, multiply 60 × 0.18 = $10.80, then add it to the bill for a total of $70.80."),
+  ("How do I work out a 15% or 20% tip quickly?", "For 20%, move the decimal point one place left and double it: on $45, 10% is $4.50, so 20% is $9.00. For 15%, add half of the 10% amount: $4.50 + $2.25 = $6.75.")] + tp["faqs"]
+gc = BYID["gcf"]
+gc["lede"] = "Find the greatest common factor (GCF) of 2 to 20 whole numbers. It's also called the greatest common divisor (GCD) or highest common factor (HCF). Each number's prime factorization is shown so you can check the answer."
