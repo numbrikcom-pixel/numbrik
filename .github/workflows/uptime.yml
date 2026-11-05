@@ -1,0 +1,77 @@
+# Free uptime + deploy check for numbrik.com.
+# Runs every hour, and 2 minutes after every push to main (after Cloudflare deploys).
+# If anything fails, GitHub emails the repo owner and the run shows a red X under the Actions tab.
+name: Uptime check
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Wait for Cloudflare to deploy
+        if: github.event_name == 'push'
+        run: sleep 120
+
+      - name: Check pages, files and redirects
+        shell: bash
+        run: |
+          set -u
+          SITE="https://numbrik.com"
+          fail=0
+
+          # path | expected status | text the response must contain
+          checks=(
+            "/|200|Numbrik"
+            "/tip-calculator/|200|Tip Calculator"
+            "/hours-calculator/|200|Hours Calculator"
+            "/mortgage-calculator/|200|Mortgage"
+            "/90-days-from-today/|200|90 days"
+            "/sitemap.xml|200|<urlset"
+            "/robots.txt|200|Sitemap:"
+            "/ads.txt|200|pub-6519470736644184"
+            "/assets/style.css|200|--accent"
+            "/assets/js/tip.js|200|toolBody"
+            "/this-page-should-not-exist-xyz/|404|"
+          )
+
+          get() { # $1=url -> prints "status time" and saves body
+            curl -sS -L --max-time 20 -o /tmp/body -w "%{http_code} %{time_total}" -A "numbrik-uptime-check" "$1" 2>/tmp/err || echo "000 0"
+          }
+
+          for c in "${checks[@]}"; do
+            IFS='|' read -r path want text <<<"$c"
+            ok=0
+            for try in 1 2 3; do
+              read -r code secs <<<"$(get "$SITE$path")"
+              if [[ "$code" == "$want" ]] && { [[ -z "$text" ]] || grep -qF -- "$text" /tmp/body; }; then ok=1; break; fi
+              sleep 15
+            done
+            if [[ $ok == 1 ]]; then
+              echo "OK    $code ${secs}s  $path"
+            else
+              echo "::error::FAIL  got $code (want $want${text:+, containing '$text'})  $path"; fail=1
+            fi
+          done
+
+          # http and www must redirect to https://numbrik.com/
+          for u in "http://numbrik.com/tip-calculator/" "https://www.numbrik.com/tip-calculator/"; do
+            final=$(curl -sS -L --max-time 20 -o /dev/null -w "%{url_effective}" "$u" || echo "error")
+            if [[ "$final" == "$SITE/tip-calculator/" ]]; then echo "OK    redirect $u"; else echo "::error::FAIL  $u ended at $final"; fail=1; fi
+          done
+
+          # HTTPS certificate must have at least 14 days left
+          end=$(echo | openssl s_client -servername numbrik.com -connect numbrik.com:443 2>/dev/null | openssl x509 -noout -enddate | cut -d= -f2)
+          days=$(( ( $(date -d "$end" +%s) - $(date +%s) ) / 86400 ))
+          if (( days >= 14 )); then echo "OK    certificate valid for $days more days"; else echo "::error::FAIL  certificate expires in $days days"; fail=1; fi
+
+          exit $fail
