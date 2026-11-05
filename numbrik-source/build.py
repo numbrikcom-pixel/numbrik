@@ -304,8 +304,33 @@ write("/sitemap/", head("All Calculators & Pages – Site Map | Numbrik", "Every
       '<nav class="wrap crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">All pages</li></ol></nav>' +
       f'<main id="content" class="wrap page wide"><h1>All calculators and pages</h1><p class="lede">Every page on Numbrik, grouped by topic.</p>{smap}</main>' + footer())
 urls.append("/sitemap/")
+# Real per-page lastmod: a page's date changes only when its content changes (tracked in lastmod.json).
+import hashlib, datetime
+_LM_FILE = "lastmod.json"
+_lm = json.load(open(_LM_FILE)) if os.path.exists(_LM_FILE) else {}
+_SEED = {"2026-11-01": ["/half-birthday-calculator/", "/military-time-converter/", "/pay-raise-calculator/", "/water-intake-calculator/", "/mulch-calculator/",
+                        "/working-days-calculator/", "/salary-conversions/", "/about/", "/tip-calculator/", "/days-between-dates/", "/home-project-calculators/",
+                        "/date-and-time-calculators/", "/random-and-game-tools/", "/work-and-pay-calculators/", "/health-calculators/", "/math-calculators/"],
+         "2026-11-02": ["/turkey-calculator/", "/hours-calculator/", "/days-until-thanksgiving/", "/days-until-christmas/", "/days-until-christmas-eve/"]}
+_seed = {u: d for d, us in _SEED.items() for u in us}
+def _norm(h):
+    h = re.sub(r"\?v=\d+", "", h)
+    h = re.sub(r"/assets/js/[a-z0-9]+\.js", "", h)
+    h = re.sub(r"(Last reviewed|Last updated|Effective) [A-Z][a-z]+ \d+, \d{4}", "", h)
+    h = re.sub(r'"dateModified": "[0-9-]+"', "", h)
+    return hashlib.sha1(h.encode()).hexdigest()
+_today = datetime.date.today().isoformat()
+LASTMOD = {}
+for u in urls:
+    f = os.path.join(OUT, u.strip("/"), "index.html") if u != "/" else os.path.join(OUT, "index.html")
+    hv = _norm(open(f).read())
+    if u in _lm and _lm[u][0] == hv: LASTMOD[u] = _lm[u][1]
+    elif u in _lm: LASTMOD[u] = _today
+    else: LASTMOD[u] = _seed.get(u, "2026-10-31")
+    _lm[u] = [hv, LASTMOD[u]]
+json.dump(_lm, open(_LM_FILE, "w"), indent=0, sort_keys=True)
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
-    f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{TODAY}</lastmod></url>\n" for u in urls) + "</urlset>\n"
+    f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{LASTMOD[u]}</lastmod></url>\n" for u in urls) + "</urlset>\n"
 write("/sitemap.xml", sm)
 open(os.path.join(OUT, "ads.txt"), "w").write("google.com, pub-6519470736644184, DIRECT, f08c47fec0942fa0\n")
 # 301s for thin pages removed on Nov 1, 2026, so their search signals go to the closest page
@@ -319,6 +344,8 @@ for n in [4, 11, 27, 28, 30]: _R.append((days.slug(n, "w"), "/days-from-today/")
 for k, sl, *_ in extra.ALL_HOLS:
     if k not in extra.KEEP_HOLS: _R.append((f"/{sl}/", "/countdowns/"))
 open(os.path.join(OUT, "_redirects"), "w").write("".join(f"{a} {b} 301\n{a.rstrip('/')} {b} 301\n" for a, b in _R))
+INDEXNOW_KEY = "21011c618a26c0b082cd5678d73f4698"
+open(os.path.join(OUT, INDEXNOW_KEY + ".txt"), "w").write(INDEXNOW_KEY)
 write("/robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n")
 open(os.path.join(OUT, "_headers"), "w").write("""/assets/*
   Cache-Control: public, max-age=31536000, immutable
