@@ -9,7 +9,7 @@ CATS = {
    "Calculators for hourly and salaried workers in the US, Canada, Australia, the UK and the Netherlands. Add up a week of shifts with overtime, find the hours between two clock times, convert an hourly wage to a yearly salary, work out a pay raise, and estimate take-home pay after 2026 US federal tax, Social Security and Medicare.",
    [("/salary-conversions/", "Hourly wage to salary chart"), ("/25-an-hour-is-how-much-a-year/", "$25 an hour is how much a year?"), ("/60000-a-year-is-how-much-an-hour/", "$60,000 a year is how much an hour?")]),
  "Money": ("money-calculators", "Money Calculators",
-   "Everyday money maths: work out a tip and split the bill, find percentages, discounts and percent change, see the monthly payment and total interest on a mortgage or loan with a yearly amortization chart, and estimate a car payment including sales tax, fees and a trade-in.",
+   "Everyday money maths: work out a tip and split the bill, find percentages, discounts and percent change, see the monthly payment and total interest on a mortgage or loan with a yearly amortization chart, estimate a car payment including sales tax, fees and a trade-in, and see what Florida's Save Our Homes cap saves on a homestead.",
    []),
  "Health": ("health-calculators", "Health Calculators",
    "Health and fitness calculators for adults: body mass index with the World Health Organization categories, BMR and daily calorie needs from the Mifflin-St Jeor equation, protein and macro targets, one rep max, running pace and bedtimes that line up with 90-minute sleep cycles. Each page explains its method and limits. Results are estimates, not medical advice.",
