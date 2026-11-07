@@ -146,7 +146,8 @@ for t in T:
             {"@type": "ListItem", "position": 1, "name": "Home", "item": DOMAIN + "/"},
             *([{"@type": "ListItem", "position": 2, "name": cats.CATS[t["cat"]][1], "item": DOMAIN + cats.cat_url(t["cat"])}] if t["cat"] in cats.CATS else []),
             {"@type": "ListItem", "position": 3 if t["cat"] in cats.CATS else 2, "name": t["name"], "item": url}]},
-        {"@type": "WebPage", "name": t["title"], "url": url, "dateModified": TODAY, "isPartOf": {"@type": "WebSite", "name": "Numbrik", "url": DOMAIN + "/"}},
+        {"@type": "WebPage", "name": t["title"], "url": url, "dateModified": TODAY,
+         "author": {"@type": "Organization", "name": "Numbrik team", "url": DOMAIN + "/about/"}, "isPartOf": {"@type": "WebSite", "name": "Numbrik", "url": DOMAIN + "/"}},
         {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in t["faqs"]]}]}
     steps = "".join(f"<li>{E(s)}</li>" for s in t["steps"])
     faqs = "".join(f"<details><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in t["faqs"])
@@ -156,6 +157,7 @@ for t in T:
 <div class="wrap main">
   <main class="content" id="content">
     <h1>{E(t.get("h1", t["name"]))}</h1>
+    <p class="byline">By the <a href="/about/">Numbrik team</a> · Tested against worked examples · Updated <time datetime="{TODAY}">{TODAY_TXT}</time></p>
     <p class="lede">{E(t["lede"])}</p>
     <div class="panel"><div class="panel-body" id="toolBody" data-tool="{t["id"]}"><p class="loading">Loading calculator…</p><noscript><p class="loading">Turn on JavaScript to use this calculator.</p></noscript></div></div>
     <!-- Ad slot: below calculator -->
@@ -324,6 +326,7 @@ def _norm(h):
     h = re.sub(r"/assets/js/[a-z0-9]+\.js", "", h)
     h = re.sub(r"(Last reviewed|Last updated|Effective) [A-Z][a-z]+ \d+, \d{4}", "", h)
     h = re.sub(r'"dateModified": "[0-9-]+"', "", h)
+    h = re.sub(r'<time datetime="[0-9-]+">[^<]*</time>', "", h)
     return hashlib.sha1(h.encode()).hexdigest()
 _today = datetime.date.today().isoformat()
 LASTMOD = {}
@@ -389,3 +392,13 @@ for f in _gl.glob(os.path.join(OUT, "**/*.html"), recursive=True):
     s2 = s.replace(f"/assets/style.css?v={V}", f"/assets/style.css?v={_css}")
     s2 = re.sub(r"/assets/js/([a-z0-9]+)\.js\?v=" + re.escape(V), lambda m: f"/assets/js/{m.group(1)}.js?v={_js[m.group(1)]}", s2)
     if s2 != s: open(f, "w").write(s2)
+
+# Put each page's real last-updated date into its visible byline, review note and WebPage schema
+for u in urls:
+    f = os.path.join(OUT, u.strip("/"), "index.html") if u != "/" else os.path.join(OUT, "index.html")
+    d = LASTMOD[u]; dt = datetime.date.fromisoformat(d); txt = dt.strftime("%B ") + str(dt.day) + dt.strftime(", %Y")
+    h = open(f).read()
+    h2 = re.sub(r'<time datetime="[0-9-]+">[^<]*</time>', f'<time datetime="{d}">{txt}</time>', h)
+    h2 = re.sub(r'"dateModified": "[0-9-]+"', f'"dateModified": "{d}"', h2)
+    h2 = re.sub(r"Last reviewed [A-Z][a-z]+ \d+, \d{4}\.", f"Last reviewed {txt}.", h2)
+    if h2 != h: open(f, "w").write(h2)
