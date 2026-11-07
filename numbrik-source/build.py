@@ -315,6 +315,11 @@ _SEED = {"2026-11-01": ["/half-birthday-calculator/", "/military-time-converter/
          "2026-11-02": ["/turkey-calculator/", "/hours-calculator/", "/days-until-thanksgiving/", "/days-until-christmas/", "/days-until-christmas-eve/"]}
 _seed = {u: d for d, us in _SEED.items() for u in us}
 def _norm(h):
+    # Only the page's own content counts: drop the head, side menu, header and footer, which change site-wide
+    m = re.search(r"<main.*?</main>", h, re.S)
+    h = m.group(0) if m else h
+    h = re.sub(r'<aside class="rail".*?</aside>', "", h, flags=re.S)
+    h = re.sub(r'<section class="related".*?</section>', "", h, flags=re.S)
     h = re.sub(r"\?v=\d+", "", h)
     h = re.sub(r"/assets/js/[a-z0-9]+\.js", "", h)
     h = re.sub(r"(Last reviewed|Last updated|Effective) [A-Z][a-z]+ \d+, \d{4}", "", h)
@@ -325,10 +330,12 @@ LASTMOD = {}
 for u in urls:
     f = os.path.join(OUT, u.strip("/"), "index.html") if u != "/" else os.path.join(OUT, "index.html")
     hv = _norm(open(f).read())
+    if u in _lm and len(_lm[u]) == 2:  # one-time migration to the content-only hash: keep existing dates
+        LASTMOD[u] = _lm[u][1]; _lm[u] = [hv, LASTMOD[u], 2]; continue
     if u in _lm and _lm[u][0] == hv: LASTMOD[u] = _lm[u][1]
     elif u in _lm: LASTMOD[u] = _today
     else: LASTMOD[u] = _seed.get(u, "2026-10-31")
-    _lm[u] = [hv, LASTMOD[u]]
+    _lm[u] = [hv, LASTMOD[u], 2]
 json.dump(_lm, open(_LM_FILE, "w"), indent=0, sort_keys=True)
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
     f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{LASTMOD[u]}</lastmod></url>\n" for u in urls) + "</urlset>\n"
