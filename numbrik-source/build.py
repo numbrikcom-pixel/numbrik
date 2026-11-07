@@ -155,7 +155,7 @@ for t in T:
 <nav class="wrap crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li>{cats.cat_crumb(t["cat"])}<li aria-current="page">{E(t["name"])}</li></ol></nav>
 <div class="wrap main">
   <main class="content" id="content">
-    <h1>{E(t["name"])}</h1>
+    <h1>{E(t.get("h1", t["name"]))}</h1>
     <p class="lede">{E(t["lede"])}</p>
     <div class="panel"><div class="panel-body" id="toolBody" data-tool="{t["id"]}"><p class="loading">Loading calculator…</p><noscript><p class="loading">Turn on JavaScript to use this calculator.</p></noscript></div></div>
     <!-- Ad slot: below calculator -->

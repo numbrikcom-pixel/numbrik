@@ -57,10 +57,34 @@ const TOOLS=[
  after(){ $('#tcclear').onclick=()=>{DAYS.forEach((d,i)=>{$('#tcs'+i).value='';$('#tce'+i).value='';$('#tcb'+i).value=0});update()};
   $('#tcsample').onclick=()=>{SAMPLE.forEach((r,i)=>{$('#tcs'+i).value=r[0];$('#tce'+i).value=r[1];$('#tcb'+i).value=r[2]});update()} }},
 
-{id:'hours',cat:'Work & pay',name:'Hours between times',kw:'hours calculator time duration shift length',desc:'How long between two clock times.',
- render(){return `<div class="inputs"><div class="row">${field('h1','Start time','08:45',{type:'time'})}${field('h2','End time','17:15',{type:'time'})}${field('hb','Unpaid break',30,{unit:'min'})}</div><p class="hint">End earlier than start counts as an overnight shift.</p></div><div class="result" id="out"></div>`},
- calc(){const s=toMin($('#h1').value),e=toMin($('#h2').value);let m=e-s;if(m<=0)m+=1440;m-= (v('hb')||0);const h=Math.max(0,m/60);
-  $('#out').innerHTML=`<span class="label">Time worked</span><div class="big"><em>${hm(h)}</em></div>${kv([['Decimal hours',num(h)],['Minutes',num(h*60,0)]])}${copyBtn}`;return `${hm(h)} (${num(h)} hrs)`}},
+{id:'hours',cat:'Work & pay',name:'Hours between times',kw:'hours calculator time duration shift length how many hours between two times hours counter add hours to time hours between dates',desc:'How long between two clock times.',
+ state:{mode:'times'},
+ ft(min){const d=new Date(2000,0,1,0,0);d.setMinutes(((min%1440)+1440)%1440);return d.toLocaleTimeString(R().loc,{hour:'numeric',minute:'2-digit'})},
+ hmw(m){m=Math.round(m);const h=Math.floor(m/60),r=m%60;return (h?`${h} hour${h===1?'':'s'}`:'')+(h&&r?' ':'')+(r||!h?`${r} minute${r===1?'':'s'}`:'')},
+ nowT(){const d=new Date();return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')},
+ nowDT(){const d=new Date(),p=x=>String(x).padStart(2,'0');return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}T${p(d.getHours())}:${p(d.getMinutes())}`},
+ render(){const m=this.state.mode,now='<button type="button" class="chip" data-now="%">Now</button>';
+  const top=seg('hmode',[['times','Between two times'],['dates','Between two dates'],['add','Add hours to a time']],m);
+  if(m==='dates')return `<div class="inputs">${top}<div class="row">${field('hd1','Start date and time','2026-11-06T22:00',{type:'datetime-local'})}${field('hd2','End date and time','2026-11-08T06:00',{type:'datetime-local'})}</div><div class="actions">${now.replace('%','hd1').replace('Now','Start = now')}${now.replace('%','hd2').replace('Now','End = now')}</div><div class="row">${field('hb','Unpaid break',0,{unit:'min'})}</div><p class="hint">For periods longer than a day, such as a multi-day shift or a trip.</p></div><div class="result" id="out"></div>`;
+  if(m==='add')return `<div class="inputs">${top}<div class="row">${field('ha','Start time','08:15',{type:'time'})}${field('hh','Hours to add',8,{unit:'hrs',step:0.25})}${field('hm','Minutes to add',0,{unit:'min',step:1})}</div><div class="actions">${now.replace('%','ha')}</div><p class="hint">Use a minus sign to go back in time, e.g. −3 hours.</p></div><div class="result" id="out"></div>`;
+  return `<div class="inputs">${top}<div class="row">${field('h1','Start time','08:00',{type:'time'})}${field('h2','End time','17:00',{type:'time'})}${field('hb','Unpaid break',0,{unit:'min'})}</div><div class="actions">${now.replace('%','h1').replace('Now','Start = now')}${now.replace('%','h2').replace('Now','End = now')}</div><p class="hint">End earlier than start counts as an overnight shift.</p></div><div class="result" id="out"></div>`},
+ calc(){const m=this.state.mode,brk=Math.max(0,v('hb')||0);
+  if(m==='add'){const s=toMin($('#ha').value),add=(v('hh')||0)*60+(v('hm')||0);if(!$('#ha').value){$('#out').innerHTML='<span class="label">End time</span><p class="hint">Enter a start time.</p>';return''}
+   const e=s+add,dd=Math.floor(e/1440),when=dd===0?'same day':dd===1?'next day':dd===-1?'previous day':(dd>0?`${dd} days later`:`${-dd} days earlier`);
+   const sent=`${this.hmw(Math.abs(add))} ${add<0?'before':'after'} ${this.ft(s)} is ${this.ft(e)}${dd?` (${when})`:''}.`;
+   $('#out').innerHTML=`<span class="label">End time</span><div class="big"><em>${this.ft(e)}</em></div><p class="answer">${sent}</p>${kv([['Day',when],['24-hour time',String(Math.floor(((e%1440)+1440)%1440/60)).padStart(2,'0')+':'+String(((e%60)+60)%60).padStart(2,'0')]])}${copyBtn}`;return sent}
+  let mins,sent;
+  if(m==='dates'){const a=new Date($('#hd1').value),b=new Date($('#hd2').value);if(isNaN(a)||isNaN(b)){$('#out').innerHTML='<span class="label">Hours</span><p class="hint">Enter both dates and times.</p>';return''}
+   mins=Math.round((b-a)/6e4);if(mins<0){$('#out').innerHTML='<span class="label">Hours</span><p class="hint">The end is before the start. Swap them.</p>';return''}
+   const F=x=>x.toLocaleString(R().loc,{weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
+   sent=`${F(a)} to ${F(b)} is ${this.hmw(mins)}`}
+  else{if(!$('#h1').value||!$('#h2').value){$('#out').innerHTML='<span class="label">Hours</span><p class="hint">Enter a start and end time.</p>';return''}
+   const s=toMin($('#h1').value),e=toMin($('#h2').value);mins=e-s;if(mins<=0)mins+=1440;
+   sent=`${this.ft(s)} to ${this.ft(e)}${e<=s?' (overnight)':''} is ${this.hmw(mins)}`}
+  const net=Math.max(0,mins-brk),h=net/60;
+  sent+=brk?`, or ${this.hmw(net)} after a ${brk}-minute break.`:` (${num(mins,0)} minutes, ${num(mins/60)} decimal hours).`;
+  $('#out').innerHTML=`<span class="label">${brk?'Time worked':'Total time'}</span><div class="big"><em>${hm(h)}</em></div><p class="answer">${sent}</p>${kv([['Decimal hours',num(h)],['Minutes',num(net,0)]].concat(m==='dates'&&net>=1440?[['Days and hours',`${Math.floor(net/1440)} d ${hm((net%1440)/60)}`]]:[]))}${copyBtn}`;return sent},
+ after(){bindSeg('hmode',x=>{this.state.mode=x;open('hours')});document.querySelectorAll('[data-now]').forEach(b=>b.addEventListener('click',()=>{const el=$('#'+b.dataset.now);el.value=el.type==='datetime-local'?this.nowDT():this.nowT();update()}))}},
 
 {id:'salary',cat:'Work & pay',name:'Hourly ↔ salary',kw:'hourly to salary annual wage converter how much a year per hour',desc:'Convert hourly wage to yearly, monthly and weekly pay.',
  state:{mode:'hourly'},

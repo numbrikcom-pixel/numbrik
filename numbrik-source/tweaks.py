@@ -102,3 +102,85 @@ tp["faqs"] = [("How do you calculate a tip?", "Multiply the bill by the tip perc
   ("How do I work out a 15% or 20% tip quickly?", "For 20%, move the decimal point one place left and double it: on $45, 10% is $4.50, so 20% is $9.00. For 15%, add half of the 10% amount: $4.50 + $2.25 = $6.75.")] + tp["faqs"]
 gc = BYID["gcf"]
 gc["lede"] = "Find the greatest common factor (GCF) of 2 to 20 whole numbers. It's also called the greatest common divisor (GCD) or highest common factor (HCF). Each number's prime factorization is shown so you can check the answer."
+
+# ---- Nov 7, 2026: Hours Calculator rebuilt from the page's own Search Console queries + competitor gap report ----
+hr = BYID["hours"]
+hr["title"] = "Hours Calculator: How Many Hours Between Two Times?"
+hr["meta"] = "Count the hours between two times, like 8 AM to 5 PM or 7 PM to 8 AM. Subtracts breaks and shows hours, minutes and decimal hours for timesheets."
+hr["h1"] = "Hours Calculator: How Many Hours Between Two Times"
+hr["lede"] = ("Find how many hours are between two times. Enter a start and end time, such as 8 AM and 5 PM, and the hours calculator shows the total in "
+              "hours and minutes, decimal hours and minutes, minus any unpaid break. It handles overnight shifts like 7 PM to 7 AM, counts hours between two "
+              "dates, and adds hours to a time. The charts below answer the most common shifts at a glance.")
+hr["steps"] = ["Choose Between two times, Between two dates, or Add hours to a time.",
+               "Enter the start and end times, or tap Now to use the current time. Add an unpaid break in minutes if you have one.",
+               "Read the total in hours and minutes, the sentence answer you can copy, the decimal hours for a timesheet and the total minutes."]
+hr["example"] = ("<p>From 8:00 AM to 5:00 PM is <strong>9 hours</strong> (540 minutes, 9.00 decimal hours). Take off a 30-minute unpaid lunch and the time worked is "
+                 "<strong>8 hours 30 minutes</strong>, or 8.50 decimal hours. Overnight, 7:00 PM to 7:00 AM is 12 hours.</p>")
+
+_EXTRA = [("8:00 AM", "10:00 PM"), ("7:00 PM", "11:00 PM"), ("1:30 AM", "8:00 PM"), ("6:00 PM", "8:00 AM"), ("7:00 AM", "6:00 PM"), ("6:00 AM", "9:00 PM"),
+          ("5:00 AM", "10:00 PM"), ("10:00 AM", "4:00 PM"), ("6:00 AM", "12:00 PM"), ("10:00 AM", "8:00 PM"), ("7:00 PM", "10:00 PM"), ("8:00 PM", "8:00 AM"),
+          ("10:00 AM", "10:00 PM"), ("6:00 AM", "11:00 AM"), ("8:00 PM", "12:00 AM"), ("5:00 PM", "9:00 PM"), ("8:00 AM", "3:00 PM"), ("2:00 PM", "12:00 AM"),
+          ("8:00 PM", "7:00 AM"), ("8:00 PM", "4:00 AM"), ("11:00 PM", "3:00 AM"), ("4:00 PM", "10:00 AM"), ("10:00 PM", "7:00 AM"), ("6:00 PM", "1:00 AM"),
+          ("6:00 PM", "9:00 AM"), ("5:00 PM", "9:00 AM"), ("5:00 PM", "7:00 AM"), ("9:00 AM", "4:30 PM"), ("8:30 AM", "4:30 PM"), ("7:30 AM", "3:30 PM"),
+          ("6:30 AM", "2:30 PM"), ("6:30 AM", "4:30 PM"), ("8:30 AM", "5:30 PM"), ("9:30 AM", "5:00 PM"), ("6:00 AM", "4:00 PM"), ("4:00 AM", "4:00 PM"),
+          ("3:00 AM", "9:00 AM"), ("11:00 AM", "4:00 PM"), ("10:00 AM", "2:00 PM"), ("10:00 AM", "1:00 PM"), ("1:00 PM", "5:00 PM"), ("3:00 PM", "7:00 PM"),
+          ("6:00 PM", "9:00 PM"), ("7:30 PM", "12:00 AM"), ("9:30 AM", "4:00 PM"), ("8:00 AM", "12:00 PM"), ("8:00 AM", "11:00 AM"), ("7:00 AM", "10:00 AM"),
+          ("8:30 AM", "3:30 PM"), ("8:00 AM", "3:30 PM"), ("10:00 AM", "5:00 PM"), ("6:00 PM", "6:00 AM"), ("6:00 AM", "6:00 PM"), ("4:00 PM", "5:00 AM")]
+_all = []
+for x in SHIFTS + _EXTRA:
+    if x not in _all: _all.append(x)
+def _row(a, b):
+    m = (_t(b) - _t(a)) % 1440
+    return f"<tr><td>{a} – {b}</td><td>{_hm(m)}</td><td>{m:,}</td><td>{m/60:.2f}</td><td>{_hm(max(0, m-30))}</td></tr>"
+def _tbl(rows):
+    return ('<div class="tbl"><table><thead><tr><th>From – to</th><th>Hours</th><th>Minutes</th><th>Decimal</th><th>After 30-min break</th></tr></thead><tbody>'
+            + "".join(_row(a, b) for a, b in rows) + "</tbody></table></div>")
+_key = lambda x: (_t(x[0]), (_t(x[1]) - _t(x[0])) % 1440)
+_over = sorted([x for x in _all if _t(x[1]) <= _t(x[0])], key=_key)
+_short = sorted([x for x in _all if _t(x[1]) > _t(x[0]) and _t(x[1]) - _t(x[0]) < 360], key=_key)
+_day = sorted([x for x in _all if _t(x[1]) > _t(x[0]) and _t(x[1]) - _t(x[0]) >= 360], key=_key)
+_dec = "".join(f"<tr><td>{m} min</td><td>{m/60:.2f}</td><td>{m+30} min</td><td>{(m+30)/60:.2f}</td></tr>" for m in range(0, 30, 5)) + "<tr><td>30 min</td><td>0.50</td><td>60 min</td><td>1.00</td></tr>"
+_adds = [("8:15 AM", 8 * 60), ("9:15 AM", 510), ("7:30 AM", 9 * 60), ("7:00 PM", 12 * 60), ("10:00 PM", 8 * 60), ("2:00 PM", -3 * 60)]
+def _clock(mins):
+    mins %= 1440; h, m = divmod(mins, 60)
+    return f"{h % 12 or 12}:{m:02d} {'AM' if h < 12 else 'PM'}"
+def _addrow(a, d):
+    e = _t(a) + d; day = " (next day)" if e >= 1440 else (" (previous day)" if e < 0 else "")
+    sign = f"{abs(d)//60}h {abs(d)%60:02d}m {'after' if d >= 0 else 'before'}"
+    return f"<tr><td>{sign} {a}</td><td>{_clock(e)}{day}</td></tr>"
+MORE["hours"] = f"""<h2>How many hours is it? Common work shifts</h2>
+<p>The time between common start and end times, in hours and minutes, total minutes and decimal hours, plus the time left after a 30-minute unpaid break. For any other times, use the calculator above.</p>
+<h3>Daytime shifts (6 hours or more)</h3>{_tbl(_day)}
+<h3>Overnight shifts</h3><p>When the end time is earlier than the start time, the shift runs past midnight, so 24 hours are added.</p>{_tbl(_over)}
+<h3>Short spans (under 6 hours)</h3>{_tbl(_short)}
+<p>Breaks are often unpaid, but rules vary. US federal law does not require meal breaks, though several states do. In Canada, Australia, the UK and the Netherlands workers are entitled to rest breaks after a set number of hours, so check your contract or local rules. For a whole week of shifts with overtime, use the <a href="/time-card-calculator/">time card calculator</a>.</p>
+
+<h2>How to calculate hours between two times</h2>
+<h3>Step 1: Convert both times to 24-hour time</h3><p>Add 12 to any PM hour except 12 PM: 4:30 PM becomes 16:30. 12 AM (midnight) becomes 0:00. The <a href="/military-time-converter/">military time converter</a> does this for you.</p>
+<h3>Step 2: Subtract the start time from the end time</h3><p>Subtract the hours and the minutes separately: 16:30 − 7:30 = 9 hours 0 minutes. If the minutes go negative, borrow 60 minutes from the hours. If the end time is earlier than the start, the shift crosses midnight, so add 24 hours.</p>
+<h3>Step 3: Subtract unpaid breaks</h3><p>Take off any unpaid lunch or rest break: 9 hours − 30 minutes = 8 hours 30 minutes.</p>
+<h3>Step 4: Convert the minutes to decimal hours</h3><p>Divide the minutes by 60 for a timesheet: 30 ÷ 60 = 0.5, so 8 hours 30 minutes is 8.5 hours. <strong>Worked example:</strong> 7:30 AM to 4:30 PM with a 30-minute lunch is 9 hours − 30 minutes = <strong>8.5 hours</strong>.</p>
+
+<h2>Minutes to decimal hours chart</h2>
+<p>Payroll systems usually want hours as a decimal. Divide the minutes by 60, or use this chart.</p>
+<div class="tbl"><table><thead><tr><th>Minutes</th><th>Decimal</th><th>Minutes</th><th>Decimal</th></tr></thead><tbody>{_dec}</tbody></table></div>
+<p>Many employers round to the nearest quarter hour (0.25). Under US federal rules, rounding is allowed if it averages out over time so that employees are fully paid for the time they work.</p>
+
+<h2>Add or subtract hours from a time</h2>
+<p>To find when a shift ends, add the hours to the start time. Choose <strong>Add hours to a time</strong> in the calculator, or use these examples.</p>
+<div class="tbl"><table><thead><tr><th>Calculation</th><th>Result</th></tr></thead><tbody>{"".join(_addrow(a, d) for a, d in _adds)}</tbody></table></div>
+
+<h2>How many hours are in a day, week, month and year?</h2>
+<div class="tbl"><table><thead><tr><th>Period</th><th>Hours</th></tr></thead><tbody>
+<tr><td>Day</td><td>24</td></tr><tr><td>Week</td><td>168</td></tr><tr><td>2 weeks</td><td>336</td></tr>
+<tr><td>Month (28 / 30 / 31 days)</td><td>672 / 720 / 744</td></tr><tr><td>Average month</td><td>730.5</td></tr>
+<tr><td>Year (365 / 366 days)</td><td>8,760 / 8,784</td></tr>
+<tr><td>Full-time work year (40 hours × 52 weeks)</td><td>2,080</td></tr></tbody></table></div>
+<p>To count the working days in a particular year, use the <a href="/working-days-calculator/">working days calculator</a>. To turn hours into pay, use the <a href="/hourly-to-salary-calculator/">hourly to salary calculator</a>.</p>
+
+<h2>AM, PM, noon and midnight</h2>
+<h3>Is 12 PM noon or midnight?</h3><p>12 PM is noon and 12 AM is midnight, the start of the day. So 12 AM to 8 AM is 8 hours, and 8 PM to 12 AM is 4 hours. If you mean the very end of a day, enter 12:00 AM; the calculator treats it as the following midnight.</p>
+<h3>12-hour vs 24-hour (military) time</h3><p>The 24-hour clock numbers the hours from 0 to 23, so there's no AM or PM: 2:00 PM is 14:00 and 11:30 PM is 23:30. It's used by the military, hospitals and most countries outside the US. The <a href="/military-time-converter/">military time converter</a> switches between the two.</p>"""
+hr["faqs"] = hr["faqs"] + [
+  ("How many hours is a full-time shift?", "There's no legal definition of full-time in US federal law, according to the U.S. Department of Labor, so employers set their own. A common full-time day is 8 hours, such as 9 AM to 5 PM, or 8 AM to 4:30 PM with a 30-minute unpaid lunch: 40 hours over a 5-day week."),
+  ("How many hours is 8 AM to 4:30 PM with a 30-minute lunch?", "8 hours. 8:00 AM to 4:30 PM is 8 hours 30 minutes, and taking off the 30-minute lunch leaves 8 hours, or 8.00 decimal hours.")]
