@@ -370,3 +370,15 @@ print("built", len(urls), "pages")
 
 # Google Search Console verification file
 open(os.path.join(OUT, "google3ac709f348cc4545.html"), "w").write("google-site-verification: google3ac709f348cc4545.html")
+
+# Cache-busting by content: every page points at ?v=<hash of the exact file>, so browsers fetch a new
+# bundle the moment it changes (assets are cached for a year as immutable).
+import hashlib as _hl, glob as _gl
+def _h(p): return _hl.sha1(open(p, "rb").read()).hexdigest()[:10]
+_css = _h(os.path.join(OUT, "assets/style.css"))
+_js = {os.path.basename(p)[:-3]: _h(p) for p in _gl.glob(os.path.join(OUT, "assets/js/*.js"))}
+for f in _gl.glob(os.path.join(OUT, "**/*.html"), recursive=True):
+    s = open(f).read()
+    s2 = s.replace(f"/assets/style.css?v={V}", f"/assets/style.css?v={_css}")
+    s2 = re.sub(r"/assets/js/([a-z0-9]+)\.js\?v=" + re.escape(V), lambda m: f"/assets/js/{m.group(1)}.js?v={_js[m.group(1)]}", s2)
+    if s2 != s: open(f, "w").write(s2)
