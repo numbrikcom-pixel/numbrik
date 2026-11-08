@@ -274,3 +274,4 @@ body.embed .panel{margin:0}
 .embed-credit{font-size:12px;color:var(--muted);text-align:right;margin:6px 4px 0}
 .embed-credit a{color:inherit}
 .embed-code{width:100%;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:inherit;resize:vertical}
+#tztab table,#pdtab table,#bmtab table{min-width:0}

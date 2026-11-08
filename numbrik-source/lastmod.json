@@ -1,6 +1,6 @@
 {
 "/": [
-"e2cf0580c896722af3e5622fbf14066a05fd1e55",
+"8b91df79036ce8feb2811bda1479c670eebdaf69",
 "2026-11-08",
 2
 ],
@@ -310,8 +310,8 @@
 2
 ],
 "/date-and-time-calculators/": [
-"0c67331211393229dbb6d90b8a8c06ae4ae840cf",
-"2026-11-01",
+"bed30a3a20d3429aec51840bbb2ad7fafb26a806",
+"2026-11-08",
 2
 ],
 "/days-between-dates/": [
@@ -409,18 +409,23 @@
 "2026-11-08",
 2
 ],
+"/gravel-calculator/": [
+"35d1e6d981b4688444761c4b71c64e32e282bed3",
+"2026-11-08",
+2
+],
 "/half-birthday-calculator/": [
 "158500bd9478912805bf63287730a008a0ae9936",
 "2026-11-08",
 2
 ],
 "/health-calculators/": [
-"1e1ba37b11cc2b490c79ffdabc7c974fee14d946",
+"e9d7737a8051dc3b65bd0a78f55db187dfc63808",
 "2026-11-08",
 2
 ],
 "/home-project-calculators/": [
-"8def815a1b50201abad4640fdebb49d2f6743472",
+"e69121eaab5658f931970efc34689789dc587200",
 "2026-11-08",
 2
 ],
@@ -449,6 +454,11 @@
 "2026-11-08",
 2
 ],
+"/love-calculator/": [
+"4cb911260f23324320563cf3952c4e92514f930d",
+"2026-11-08",
+2
+],
 "/macro-calculator/": [
 "90b3ba26382188d8ead9f2b8ae5b60837093fcff",
 "2026-11-08",
@@ -460,7 +470,7 @@
 2
 ],
 "/math-calculators/": [
-"73881016a32b898f3ab119284d9ee58a6ec62f69",
+"1921d6cadbf74d075b08a56e4062d98b4521650d",
 "2026-11-08",
 2
 ],
@@ -470,7 +480,7 @@
 2
 ],
 "/money-calculators/": [
-"6e5f2993aa728b23bb2b2c124e7860e9dffa253e",
+"3d9a7d64af47f0bedea170cbc6699f06af2882aa",
 "2026-11-08",
 2
 ],
@@ -514,6 +524,11 @@
 "2026-11-08",
 2
 ],
+"/period-calculator/": [
+"5fbb3dde3f404ae23786cdc79a38f32830c005e9",
+"2026-11-08",
+2
+],
 "/privacy-policy/": [
 "5b30eefe9a86b361b2c1ce427f3d93ab1ec84d38",
 "2026-10-31",
@@ -530,8 +545,8 @@
 2
 ],
 "/random-and-game-tools/": [
-"738500fef9520f21d40bf51752c3130e974ba71b",
-"2026-11-01",
+"45b8135bcc4803cb75f290a2bd33f7e236959e51",
+"2026-11-08",
 2
 ],
 "/random-number-generator/": [
@@ -549,8 +564,18 @@
 "2026-11-08",
 2
 ],
+"/rmd-calculator/": [
+"b4d473c6402c52c7c60a57d0d8b59b9de12d8227",
+"2026-11-08",
+2
+],
 "/roman-numeral-converter/": [
 "09132993b9c401d747401441adf956e48a77b9bb",
+"2026-11-08",
+2
+],
+"/rounding-calculator/": [
+"bba39921299095e869a3bf1557e64e878e2c40ca",
 "2026-11-08",
 2
 ],
@@ -585,7 +610,7 @@
 2
 ],
 "/sitemap/": [
-"f75b6102f47501c5f197942ceee71b0f8c054f55",
+"1fda4ca6e8fe2dbb8f48cebdeeafde03f48eec81",
 "2026-11-08",
 2
 ],
@@ -601,6 +626,11 @@
 ],
 "/square-footage-calculator/": [
 "a8a229fcd0f0fe50f5d89e7281d0f1274b932cf8",
+"2026-11-08",
+2
+],
+"/stair-calculator/": [
+"5984217b33bbf045db9d41ecbadffa14087ee581",
 "2026-11-08",
 2
 ],
@@ -636,6 +666,11 @@
 ],
 "/time-card-calculator/": [
 "915d540508373e3ea552d88f9f4c17d1dbb4c56c",
+"2026-11-08",
+2
+],
+"/time-zone-converter/": [
+"8f58272415e526619b5daca6fac70ff7e9cbab1f",
 "2026-11-08",
 2
 ],
