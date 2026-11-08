@@ -40,6 +40,17 @@ NOTES = {
 <p>Each result is independent. A coin that has landed on heads five times in a row is still exactly 50/50 on the next flip, and a die has no memory of previous rolls. Over many trials the results even out, which you can see by flipping a coin 1,000 times.</p>""",
 }
 
+TITLES = {
+ "Work & pay": "Work & Pay Calculators – Hours, Salary & Paycheck | Numbrik",
+ "Money": "Money Calculators – Mortgage, Loan, Tip & Interest | Numbrik",
+ "Health": "Health Calculators – BMI, Calories, BMR & Protein | Numbrik",
+ "Students": "Student Calculators – GPA, Grades & Final Exam | Numbrik",
+ "Dates & time": "Date & Time Calculators – Days, Age & Countdowns | Numbrik",
+ "Home": "Home Project Calculators – Concrete, Paint & Mulch | Numbrik",
+ "Math": "Math Calculators – Scientific, Fractions & More | Numbrik",
+ "Fun": "Random Tools – Dice, Coin Flip & Number Generator | Numbrik",
+}
+
 def cat_url(cat): return f"/{CATS[cat][0]}/" if cat in CATS else None
 def cat_crumb(cat):
     u = cat_url(cat)
@@ -64,7 +75,7 @@ def build_cats(g):
              "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": t["name"], "url": f"{DOMAIN}/{t['slug']}/"} for i, t in enumerate(tools)]}},
             {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": DOMAIN + "/"}, {"@type": "ListItem", "position": 2, "name": h1, "item": DOMAIN + path}]}]}
         desc = (intro[:150].rsplit(" ", 1)[0] + "…") if len(intro) > 155 else intro
-        write(path, head(f"{h1} – Free Online Tools | Numbrik", desc, path, ld) +
+        write(path, head(TITLES.get(cat, f"{h1} – Free Online Tools | Numbrik"), desc, path, ld) +
               f'<nav class="wrap crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">{E(h1)}</li></ol></nav>' +
               f'<main id="content" class="wrap page wide"><h1>{E(h1)}</h1><p class="lede">{E(intro)}</p>'
               f'<h2>All {E(h1.lower())}</h2><div class="cards">{"".join(card(t) for t in tools)}</div>'

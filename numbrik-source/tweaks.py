@@ -184,3 +184,33 @@ MORE["hours"] = f"""<h2>How many hours is it? Common work shifts</h2>
 hr["faqs"] = hr["faqs"] + [
   ("How many hours is a full-time shift?", "There's no legal definition of full-time in US federal law, according to the U.S. Department of Labor, so employers set their own. A common full-time day is 8 hours, such as 9 AM to 5 PM, or 8 AM to 4:30 PM with a 30-minute unpaid lunch: 40 hours over a 5-day week."),
   ("How many hours is 8 AM to 4:30 PM with a 30-minute lunch?", "8 hours. 8:00 AM to 4:30 PM is 8 hours 30 minutes, and taking off the 30-minute lunch leaves 8 hours, or 8.00 decimal hours.")]
+
+# ---- Nov 8, 2026: stronger title tags (keyword first, a clear benefit, year where freshness matters) ----
+import datetime as _dt
+_Y = _dt.date.today().year
+_TT = {
+ "bmi": "BMI Calculator – Check Your Body Mass Index | Numbrik",
+ "bmr": "BMR Calculator – Calories You Burn at Rest | Numbrik",
+ "bodyfat": "Body Fat Calculator – US Navy Tape Method | Numbrik",
+ "cd": "CD Calculator – How Much Will My CD Earn? | Numbrik",
+ "coin": "Flip a Coin – Heads or Tails Online, Free | Numbrik",
+ "days": "Days Between Dates Calculator – Count Days | Numbrik",
+ "gcf": "GCF Calculator – Greatest Common Factor (GCD) | Numbrik",
+ "gpa": "GPA Calculator – Semester & Cumulative (4.0 Scale) | Numbrik",
+ "grade": "Grade Calculator – Weighted Grade & Letter | Numbrik",
+ "lcm": "LCM Calculator – Least Common Multiple, Steps | Numbrik",
+ "military": "Military Time Converter & 24-Hour Clock Chart | Numbrik",
+ "raise": "Pay Raise Calculator – New Salary After a Raise | Numbrik",
+ "percent": "Percentage Calculator – Percent Of, Off & Change | Numbrik",
+ "random": "Random Number Generator (RNG) – 1 to 100 & More | Numbrik",
+ "sqft": "Square Footage Calculator – Room Area & Flooring | Numbrik",
+ "stdev": "Standard Deviation Calculator with Steps | Numbrik",
+ "workdays": f"Working Days Calculator – Work Days in {_Y} & {_Y+1} | Numbrik",
+ "turkey": f"Turkey Calculator {_Y} – Size, Thaw & Cooking Time | Numbrik",
+ "soh": f"Save Our Homes Calculator {_Y} – Florida Tax Savings",
+ "salary": "Hourly to Salary Calculator (and Salary to Hourly) | Numbrik",
+ "paycheck": f"Take-Home Pay Calculator {_Y} – US Paycheck | Numbrik",
+}
+for _k, _v in _TT.items():
+    assert len(_v) <= 60, (_k, len(_v))
+    BYID[_k]["title"] = _v

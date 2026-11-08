@@ -242,7 +242,11 @@ def build_countdowns(g):
 <h2>{E(disp)} dates</h2><div class="tbl"><table><thead><tr><th>Year</th><th>Date</th></tr></thead><tbody>{yrs}</tbody></table></div>
 <p>To count the days between any two dates, use the <a href="/days-between-dates/">days between dates calculator</a>.</p>
 <h2>Other countdowns</h2><div class="cards">{others}</div>"""
-        write(path, head(f"How Many Days Until {SHORT.get(k, disp)}? | Numbrik", f"Live countdown to {SHORT.get(k, name)}: days, weeks and hours left, the date it falls on, and dates for the next six years.", path,
+        _real = __import__("datetime").date.today()
+        _ny = hol_date(k, _real.year) if hol_date(k, _real.year) >= _real else hol_date(k, _real.year + 1)
+        _tt = f"How Many Days Until {SHORT.get(k, disp)} {_ny.year}? Countdown | Numbrik"
+        if len(_tt) > 60: _tt = f"How Many Days Until {SHORT.get(k, disp)} {_ny.year}? | Numbrik"
+        write(path, head(_tt, f"Live countdown to {SHORT.get(k, name)}: days, weeks and hours left, the date it falls on, and dates for the next six years.", path,
               {"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": DOMAIN + "/"}, {"@type": "ListItem", "position": 2, "name": "Holiday countdowns", "item": DOMAIN + "/countdowns/"}, {"@type": "ListItem", "position": 3, "name": f"Days until {name}", "item": DOMAIN + path}]},
                {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}]}) +
               f'<nav class="wrap crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/countdowns/">Holiday countdowns</a></li><li aria-current="page">Days until {E(name)}</li></ol></nav>' +

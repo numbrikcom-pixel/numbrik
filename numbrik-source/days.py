@@ -76,7 +76,7 @@ def build_days(g):
 <p>People look up {E(label)} from today for {E(use)}. For legal, visa or contract deadlines, check how the rule counts days, since some count calendar days and others count working days.</p>
 <p>To count between any two dates, use the <a href="/days-between-dates/">days between dates calculator</a>. For a different number of days, use the <a href="/days-from-today/">days from today calculator</a>.</p>
 <p class="pager">{nav}</p>"""
-        title = f"What Date Is {label.title()} From Today? | Numbrik"
+        title = f"{label.title()} From Today: What Date Will It Be? | Numbrik"
         meta = f"Find the date {label} from today, updated daily. Also shows {days} business days from today and the date {label} ago."
         ld = {"@context": "https://schema.org", "@graph": [
             {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": DOMAIN + "/"}, {"@type": "ListItem", "position": 2, "name": "Days from today", "item": DOMAIN + "/days-from-today/"}, {"@type": "ListItem", "position": 3, "name": f"{label} from today", "item": DOMAIN + path}]},
