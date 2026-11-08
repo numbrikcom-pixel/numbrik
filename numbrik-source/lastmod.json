@@ -1,6 +1,6 @@
 {
 "/": [
-"543d3232d1290dcf5cd03454c2c542ff6ab8bc15",
+"e2cf0580c896722af3e5622fbf14066a05fd1e55",
 "2026-11-08",
 2
 ],
@@ -369,6 +369,11 @@
 "2026-11-08",
 2
 ],
+"/discount-calculator/": [
+"c8522346f17f03cb90def0eb2682a75da0fd6df8",
+"2026-11-08",
+2
+],
 "/due-date-calculator/": [
 "aabf425995981a8ec506db5e36a8d9590f9387c5",
 "2026-11-08",
@@ -382,6 +387,11 @@
 "/fraction-calculator/": [
 "830df7f30adc2ba1aceeb9dff1b4c77bf997abd1",
 "2026-11-08",
+2
+],
+"/gas-cost-calculator/": [
+"c1def4f19757f16773e05682e91243413eea6fe3",
+"2026-10-31",
 2
 ],
 "/gcf-calculator/": [
@@ -405,13 +415,13 @@
 2
 ],
 "/health-calculators/": [
-"8bf9df206eccfaf91b240b9200150acbd7f8f057",
-"2026-11-01",
+"1e1ba37b11cc2b490c79ffdabc7c974fee14d946",
+"2026-11-08",
 2
 ],
 "/home-project-calculators/": [
-"cfc3b089d58d79cc0b3f95a787e8b4d4e7f148ea",
-"2026-11-01",
+"8def815a1b50201abad4640fdebb49d2f6743472",
+"2026-11-08",
 2
 ],
 "/hourly-to-salary-calculator/": [
@@ -424,8 +434,18 @@
 "2026-11-08",
 2
 ],
+"/ideal-weight-calculator/": [
+"6fd1cc5e914a9e111d0f108e7d9f9ba94ae35ca9",
+"2026-11-08",
+2
+],
 "/lcm-calculator/": [
 "501ba673f2d3d471547b518f47dac194d6506e9b",
+"2026-11-08",
+2
+],
+"/long-division-calculator/": [
+"f1b3783f72dc89682af600bcb4c2b60e137f70df",
 "2026-11-08",
 2
 ],
@@ -434,9 +454,14 @@
 "2026-11-08",
 2
 ],
+"/margin-calculator/": [
+"2dc5ac722fd80a3bb970e76770b58bf80698a962",
+"2026-11-08",
+2
+],
 "/math-calculators/": [
-"ce7a9d1bc81c47ad1f10eaa894ee2daba72766ff",
-"2026-11-01",
+"73881016a32b898f3ab119284d9ee58a6ec62f69",
+"2026-11-08",
 2
 ],
 "/military-time-converter/": [
@@ -445,8 +470,8 @@
 2
 ],
 "/money-calculators/": [
-"b74c17aaa412a80acb5187ea5cb8e3dfdea19dd2",
-"2026-11-06",
+"6e5f2993aa728b23bb2b2c124e7860e9dffa253e",
+"2026-11-08",
 2
 ],
 "/mortgage-calculator/": [
@@ -524,6 +549,11 @@
 "2026-11-08",
 2
 ],
+"/roman-numeral-converter/": [
+"09132993b9c401d747401441adf956e48a77b9bb",
+"2026-11-08",
+2
+],
 "/salary-conversions/": [
 "9e64aa245c663e4dad47e8bbade37a99b0c3db15",
 "2026-11-01",
@@ -549,8 +579,13 @@
 "2026-11-08",
 2
 ],
+"/simple-interest-calculator/": [
+"30098df6401553c39425852946512027f7c981dc",
+"2026-11-08",
+2
+],
 "/sitemap/": [
-"5df666c4af215a1879824945aca3b21757cbe1c1",
+"f75b6102f47501c5f197942ceee71b0f8c054f55",
 "2026-11-08",
 2
 ],
@@ -584,9 +619,19 @@
 "2026-11-08",
 2
 ],
+"/tdee-calculator/": [
+"df4436d4dfdbee10d84131dfa47e8ed2e0935bb6",
+"2026-11-08",
+2
+],
 "/terms/": [
 "83cadc18dcd7028b447ec004ac083a2b2ac1e024",
 "2026-10-31",
+2
+],
+"/tile-calculator/": [
+"27df17074debbcdbe3ea741788aa53a75afef945",
+"2026-11-08",
 2
 ],
 "/time-card-calculator/": [
@@ -621,6 +666,11 @@
 ],
 "/working-days-calculator/": [
 "39ecd7d12bd7204f4eaa4f3d3619eeb803a64fa7",
+"2026-11-08",
+2
+],
+"/z-score-calculator/": [
+"b3906bc0c14451105e373544fa9d402de3474a57",
 "2026-11-08",
 2
 ]
