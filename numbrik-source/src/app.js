@@ -803,6 +803,8 @@ if(tb){tb.addEventListener('click',()=>{const t=isDark()?'light':'dark';root.set
   try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',paint)}catch(e){}}
 
 const tbody=$('#toolBody');if(tbody)open(tbody.dataset.tool);
+/* copy embed code */
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{const t=document.getElementById(b.dataset.copy);if(!t)return;t.select();const done=()=>{const o=b.textContent;b.textContent='Copied!';setTimeout(()=>b.textContent=o,1600)};if(navigator.clipboard)navigator.clipboard.writeText(t.value).then(done,()=>{document.execCommand('copy');done()});else{document.execCommand('copy');done()}}));
 /* holiday countdowns */
 const HOL={christmas:[12,25],halloween:[10,31],newyear:[1,1],valentines:[2,14],july4:[7,4]};
 const nthDow=(y,m,dow,n)=>{const d=new Date(y,m-1,1);return new Date(y,m-1,1+((dow-d.getDay()+7)%7)+7*(n-1))};

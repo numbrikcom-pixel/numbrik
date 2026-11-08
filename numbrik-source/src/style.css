@@ -268,3 +268,9 @@ details.more summary{cursor:pointer;font-weight:600;font-size:14px}details.more[
 @media (max-width:340px){.brand b{font-size:19px}.region select{max-width:92px}}
 .result .answer{font-size:15px;line-height:1.45;margin:6px 0 10px}
 .byline{font-size:13px;color:var(--muted);margin:-4px 0 12px}.byline a{color:inherit;text-decoration:underline}
+/* Embeddable widget */
+body.embed{margin:0;padding:10px;background:var(--bg)}
+body.embed .panel{margin:0}
+.embed-credit{font-size:12px;color:var(--muted);text-align:right;margin:6px 4px 0}
+.embed-credit a{color:inherit}
+.embed-code{width:100%;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:inherit;resize:vertical}

@@ -5,6 +5,7 @@ for root, _, files in os.walk(D):
     for f in files:
         if f == "index.html":
             p = "/" + os.path.relpath(root, D).replace(".", "").strip("/") + "/"
+            if "/embed/" in "/" + os.path.relpath(root, D) + "/": continue
             pages[p.replace("//", "/")] = open(os.path.join(root, f)).read()
 sm = set(re.findall(r"<loc>https://numbrik.com(.*?)</loc>", open(f"{D}/sitemap.xml").read()))
 issues = collections.defaultdict(list)

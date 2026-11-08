@@ -136,6 +136,19 @@ def write(path, s):
 def strip_tags(s): return re.sub(r"<[^>]+>", "", s)
 
 # ---------------- tool pages ----------------
+
+EMBED_H = json.load(open("embed_heights.json")) if os.path.exists("embed_heights.json") else {}
+def embed_code(t):
+    h = EMBED_H.get(t["id"], 620)
+    return (f'<iframe src="{DOMAIN}/embed/{t["slug"]}/" title="{E(t["name"])}" width="100%" height="{h}" loading="lazy" '
+            f'style="border:1px solid #d9dee6;border-radius:12px;max-width:680px"></iframe>\n'
+            f'<p style="font-size:13px;margin:4px 0 0"><a href="{DOMAIN}/{t["slug"]}/">{E(t["name"])}</a> by Numbrik</p>')
+def embed_box(t):
+    return (f'<h2>Add this calculator to your website</h2><p>Free for blogs, schools and businesses. Copy the code and paste it into your page '
+            f'(in WordPress, use a Custom HTML block). Please keep the credit link.</p>'
+            f'<textarea class="embed-code" id="embedCode" readonly rows="4" aria-label="Embed code">{E(embed_code(t))}</textarea>'
+            f'<p><button type="button" class="chip" data-copy="embedCode">Copy embed code</button></p>')
+
 for t in T:
     path = f"/{t['slug']}/"
     url = DOMAIN + path
@@ -177,6 +190,7 @@ for t in T:
       <h2>Frequently asked questions</h2>
       <div class="faq">{faqs}</div>
       <p class="updated">Last reviewed {TODAY_TXT}. Spotted an error? <a href="/contact/">Tell us</a>.</p>
+      {embed_box(t)}
     </article>
     <section class="related" aria-label="Related calculators"><h2>Related calculators</h2><div class="cards">{related}</div></section>
   </main>
@@ -184,6 +198,17 @@ for t in T:
 </div>
 """ + footer()
     write(path, page)
+
+
+# ---------------- embeddable widgets (noindex; their credit link points back to the full page) ----------------
+for t in T:
+    pg = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{E(t["name"])} | Numbrik</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="{DOMAIN}/{t["slug"]}/">
+<link rel="stylesheet" href="/assets/style.css?v={V}"><script>try{{var th=localStorage.getItem('nb_theme');if(th)document.documentElement.setAttribute('data-theme',JSON.parse(th))}}catch(e){{}}</script></head>
+<body class="embed"><div class="panel"><div class="panel-body" id="toolBody" data-tool="{t["id"]}"><p class="loading">Loading calculator…</p></div></div>
+<p class="embed-credit"><a href="{DOMAIN}/{t["slug"]}/" target="_blank" rel="noopener">{E(t["name"])}</a> by <a href="{DOMAIN}/" target="_blank" rel="noopener">Numbrik</a></p>
+<script src="/assets/app.js?v={V}" defer></script></body></html>"""
+    write(f"/embed/{t['slug']}/", pg)
 
 # ---------------- home ----------------
 home_ld = {"@context": "https://schema.org", "@graph": [
@@ -366,6 +391,9 @@ open(os.path.join(OUT, "_headers"), "w").write("""/assets/*
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
+/embed/*
+  ! X-Frame-Options
+  Content-Security-Policy: frame-ancestors *
 """)
 open(os.path.join(OUT, "favicon.svg"), "w").write(FAVICON)
 
