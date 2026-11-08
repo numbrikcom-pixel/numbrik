@@ -1,6 +1,6 @@
 {
 "/": [
-"8b91df79036ce8feb2811bda1479c670eebdaf69",
+"2d13060fc24c4c806ec1a1e58596bba3364d3355",
 "2026-11-08",
 2
 ],
@@ -259,6 +259,11 @@
 "2026-11-08",
 2
 ],
+"/bac-calculator/": [
+"01a00c8bbe789f1190119e3a5264410ae525bd21",
+"2026-11-08",
+2
+],
 "/bmi-calculator/": [
 "4db37dc692610e912508bf1ec2a0a822347c76d3",
 "2026-11-08",
@@ -274,8 +279,18 @@
 "2026-11-08",
 2
 ],
+"/bra-size-calculator/": [
+"12ea340928f6d4efc7fadd38696855b7d8db031c",
+"2026-11-08",
+2
+],
 "/calorie-calculator/": [
 "3e85b78d2f1348b9863d3ccfe7d1627df3ffd707",
+"2026-11-08",
+2
+],
+"/calorie-deficit-calculator/": [
+"6d049a7393d08fd4cd89377af3a1fa799ffe1b99",
 "2026-11-08",
 2
 ],
@@ -310,7 +325,12 @@
 2
 ],
 "/date-and-time-calculators/": [
-"bed30a3a20d3429aec51840bbb2ad7fafb26a806",
+"1e00d2a0a85fc2932cab58034303584e3c0e414f",
+"2026-11-08",
+2
+],
+"/date-calculator/": [
+"06b4b69a2c4af2e05c722b6748c5c03fd033c581",
 "2026-11-08",
 2
 ],
@@ -420,7 +440,12 @@
 2
 ],
 "/health-calculators/": [
-"e9d7737a8051dc3b65bd0a78f55db187dfc63808",
+"9870e0413c8b742b299086447c16d301918e8ac2",
+"2026-11-08",
+2
+],
+"/height-calculator/": [
+"888fd097d531c631888169cdfdf5db238902d503",
 "2026-11-08",
 2
 ],
@@ -446,6 +471,16 @@
 ],
 "/lcm-calculator/": [
 "501ba673f2d3d471547b518f47dac194d6506e9b",
+"2026-11-08",
+2
+],
+"/life-path-number-calculator/": [
+"f1d49c21ffc5357fac6c8eac723f3247d64e64b5",
+"2026-11-08",
+2
+],
+"/loan-calculator/": [
+"b2aee9ca5b2b209464a5d0c035604427ba9593ab",
 "2026-11-08",
 2
 ],
@@ -480,7 +515,7 @@
 2
 ],
 "/money-calculators/": [
-"3d9a7d64af47f0bedea170cbc6699f06af2882aa",
+"79ab9fd10b8a40f36a3000932d475b7f82e55d75",
 "2026-11-08",
 2
 ],
@@ -545,7 +580,7 @@
 2
 ],
 "/random-and-game-tools/": [
-"45b8135bcc4803cb75f290a2bd33f7e236959e51",
+"1784db918f35460cb04f319c96b7ded51b47932c",
 "2026-11-08",
 2
 ],
@@ -610,7 +645,7 @@
 2
 ],
 "/sitemap/": [
-"1fda4ca6e8fe2dbb8f48cebdeeafde03f48eec81",
+"249d550757aaf844ab577ed9e3d8b32c8831db8d",
 "2026-11-08",
 2
 ],
