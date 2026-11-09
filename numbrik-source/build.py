@@ -12,6 +12,7 @@ import content10
 import content11
 import content12
 import tweaks
+import qa
 import content13
 from more import MORE
 import extra
@@ -153,9 +154,12 @@ def embed_box(t):
             f'<textarea class="embed-code" id="embedCode" readonly rows="4" aria-label="Embed code">{E(embed_code(t))}</textarea>'
             f'<p><button type="button" class="chip" data-copy="embedCode">Copy embed code</button></p>')
 
+PUBLISHER = {"@type": "Organization", "name": "Numbrik", "url": DOMAIN + "/", "logo": {"@type": "ImageObject", "url": DOMAIN + "/apple-touch-icon.png"},
+             "sameAs": ["https://github.com/numbrikcom-pixel/numbrik"]}
 for t in T:
     path = f"/{t['slug']}/"
     url = DOMAIN + path
+    qq, qa_a = qa.answer(t)
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "WebApplication", "name": t["name"], "url": url, "description": t["meta"],
          "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript",
@@ -164,11 +168,15 @@ for t in T:
             {"@type": "ListItem", "position": 1, "name": "Home", "item": DOMAIN + "/"},
             *([{"@type": "ListItem", "position": 2, "name": cats.CATS[t["cat"]][1], "item": DOMAIN + cats.cat_url(t["cat"])}] if t["cat"] in cats.CATS else []),
             {"@type": "ListItem", "position": 3 if t["cat"] in cats.CATS else 2, "name": t["name"], "item": url}]},
-        {"@type": "WebPage", "name": t["title"], "url": url, "dateModified": TODAY,
-         "author": {"@type": "Organization", "name": "Numbrik team", "url": DOMAIN + "/about/"}, "isPartOf": {"@type": "WebSite", "name": "Numbrik", "url": DOMAIN + "/"}},
-        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in t["faqs"]]}]}
+        {"@type": "WebPage", "@id": url + "#webpage", "name": t["title"], "url": url, "description": t["meta"], "inLanguage": "en-US", "dateModified": TODAY,
+         "author": {"@type": "Organization", "name": "Numbrik team", "url": DOMAIN + "/about/"}, "publisher": PUBLISHER,
+         "isPartOf": {"@type": "WebSite", "name": "Numbrik", "url": DOMAIN + "/"},
+         "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".quick-answer p", ".lede"]}},
+        {"@type": "HowTo", "name": f"How to use the {t['name']}", "step": [{"@type": "HowToStep", "position": i + 1, "text": s_} for i, s_ in enumerate(t["steps"])]},
+        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in ([(qq, qa_a)] if qq else []) + t["faqs"]]}]}
     steps = "".join(f"<li>{E(s)}</li>" for s in t["steps"])
-    faqs = "".join(f"<details><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in t["faqs"])
+    faqs = "".join(f'<div class="qa"><h3>{E(q)}</h3><p>{E(a)}</p></div>' for q, a in t["faqs"])
+    quick = f'<section class="quick-answer" aria-label="Quick answer"><h2>{E(qq)}</h2><p>{E(qa_a)}</p></section>' if qq else ""
     related = "".join(card(BYID[r]) for r in t["related"])
     page = head(t["title"], t["meta"], path, ld) + f"""
 <nav class="wrap crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li>{cats.cat_crumb(t["cat"])}<li aria-current="page">{E(t["name"])}</li></ol></nav>
@@ -178,6 +186,7 @@ for t in T:
     <p class="byline">By the <a href="/about/">Numbrik team</a> · Tested against worked examples · Updated <time datetime="{TODAY}">{TODAY_TXT}</time></p>
     <p class="lede">{E(t["lede"])}</p>
     <div class="panel"><div class="panel-body" id="toolBody" data-tool="{t["id"]}"><p class="loading">Loading calculator…</p><noscript><p class="loading">Turn on JavaScript to use this calculator.</p></noscript></div></div>
+    {quick}
     <!-- Ad slot: below calculator -->
     <article class="prose">
       <h2>How to use the {E(t["name"])}</h2>
@@ -387,7 +396,29 @@ for k, sl, *_ in extra.ALL_HOLS:
 open(os.path.join(OUT, "_redirects"), "w").write("".join(f"{a} {b} 301\n{a.rstrip('/')} {b} 301\n" for a, b in _R))
 INDEXNOW_KEY = "21011c618a26c0b082cd5678d73f4698"
 open(os.path.join(OUT, INDEXNOW_KEY + ".txt"), "w").write(INDEXNOW_KEY)
-write("/robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n")
+AI_BOTS = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User",
+           "Google-Extended", "Applebot-Extended", "Bingbot", "CCBot", "Meta-ExternalAgent", "Amazonbot", "DuckAssistBot", "MistralAI-User"]
+write("/robots.txt", "User-agent: *\nAllow: /\n\n# AI search and answer engines are welcome to read and cite Numbrik.\n"
+      + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in AI_BOTS) + f"Sitemap: {DOMAIN}/sitemap.xml\n")
+# llms.txt: a plain map of the site for AI answer engines (llmstxt.org format); llms-full.txt adds formula, example and quick answer.
+import re as _re, html as _html
+_plain = lambda h: _re.sub(r"\s+", " ", _html.unescape(_re.sub("<[^>]+>", "", h))).strip()
+_groups = {}
+for t in T: _groups.setdefault(t["cat"], []).append(t)
+_l = ["# Numbrik", "", "> Numbrik (https://numbrik.com) is a free set of online calculators for money, health, math, dates and home projects. "
+      "No sign-up. Every calculator page explains its formula, shows a worked example and answers common questions. Maintained by the Numbrik team; methods follow published standards (for example Mifflin-St Jeor for calories, WHO categories for BMI, the standard amortization formula for loans, IRS tables for RMDs).", "",
+      "Cite a calculator by its page URL. Results are estimates for general information, not financial, medical or legal advice.", ""]
+_f = list(_l)
+for c in sorted(_groups, key=lambda c: -len(_groups[c])):
+    _l += [f"## {c}", ""]; _f += [f"## {c}", ""]
+    for t in sorted(_groups[c], key=lambda t: t["name"]):
+        _l.append(f"- [{t['name']}]({DOMAIN}/{t['slug']}/): {t['desc']}")
+        q_, a_ = qa.answer(t)
+        _f += [f"### {t['name']}", f"URL: {DOMAIN}/{t['slug']}/", "", _plain(t["lede"]), ""] + ([f"Q: {q_}", f"A: {a_}", ""] if q_ else []) + \
+              ["Formula:", "```", t["formula"], "```", "", "Example: " + _plain(t["example"]), ""]
+    _l.append(""); 
+_l += ["## About", "", f"- [About Numbrik]({DOMAIN}/about/): who maintains the site and how calculators are tested", f"- [Sitemap]({DOMAIN}/sitemap.xml)", ""]
+open("dist/llms.txt", "w").write("\n".join(_l)); open("dist/llms-full.txt", "w").write("\n".join(_f))
 open(os.path.join(OUT, "_headers"), "w").write("""/assets/*
   Cache-Control: public, max-age=31536000, immutable
 /*

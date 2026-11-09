@@ -1,0 +1,115 @@
+# Numbrik
+
+> Numbrik (https://numbrik.com) is a free set of online calculators for money, health, math, dates and home projects. No sign-up. Every calculator page explains its formula, shows a worked example and answers common questions. Maintained by the Numbrik team; methods follow published standards (for example Mifflin-St Jeor for calories, WHO categories for BMI, the standard amortization formula for loans, IRS tables for RMDs).
+
+Cite a calculator by its page URL. Results are estimates for general information, not financial, medical or legal advice.
+
+## Health
+
+- [BAC Calculator](https://numbrik.com/bac-calculator/): Estimated blood alcohol content and time to sober up.
+- [BMI Calculator](https://numbrik.com/bmi-calculator/): Body mass index with the WHO category.
+- [BMR Calculator](https://numbrik.com/bmr-calculator/): Calories your body burns at rest each day.
+- [Body Fat Calculator](https://numbrik.com/body-fat-calculator/): Body fat percentage with the US Navy tape method.
+- [Calorie Calculator](https://numbrik.com/calorie-calculator/): Daily calories to maintain, lose or gain weight.
+- [Calorie Deficit Calculator](https://numbrik.com/calorie-deficit-calculator/): Daily calories to reach a goal weight by a date.
+- [Due Date Calculator](https://numbrik.com/due-date-calculator/): Estimated due date, how many weeks pregnant, and trimester dates.
+- [Height Calculator](https://numbrik.com/height-calculator/): Predict a child’s adult height from the parents’ heights.
+- [Ideal Weight Calculator](https://numbrik.com/ideal-weight-calculator/): Ideal body weight for your height, four formulas.
+- [Macro Calculator](https://numbrik.com/macro-calculator/): Split daily calories into carbs, protein and fat.
+- [One Rep Max Calculator](https://numbrik.com/one-rep-max-calculator/): Estimate your 1RM from a set of reps.
+- [Pace Calculator](https://numbrik.com/pace-calculator/): Running pace per mile or km, speed and finish times.
+- [Period & Ovulation Calculator](https://numbrik.com/period-calculator/): Next period, ovulation day and fertile window.
+- [Protein Calculator](https://numbrik.com/protein-calculator/): How much protein you need a day.
+- [Sleep Calculator](https://numbrik.com/sleep-calculator/): Bedtimes that line up with 90-minute sleep cycles.
+- [TDEE Calculator](https://numbrik.com/tdee-calculator/): Maintenance calories from your activity level.
+- [Water Intake Calculator](https://numbrik.com/water-intake-calculator/): How much water to drink a day.
+
+## Money
+
+- [Auto Loan Calculator](https://numbrik.com/auto-loan-calculator/): Monthly car payment with down payment, trade-in and tax.
+- [CD Calculator](https://numbrik.com/cd-calculator/): Interest earned on a certificate of deposit.
+- [Compound Interest Calculator](https://numbrik.com/compound-interest-calculator/): How savings grow with compound interest and monthly deposits.
+- [Discount Calculator](https://numbrik.com/discount-calculator/): Sale price and savings after a percent off.
+- [Gas Cost Calculator](https://numbrik.com/gas-cost-calculator/): Fuel cost of a trip from distance and mileage.
+- [House Affordability Calculator](https://numbrik.com/house-affordability-calculator/): How much house you can afford on your income.
+- [Loan Calculator](https://numbrik.com/loan-calculator/): Monthly payment, total interest and payoff schedule.
+- [Margin Calculator](https://numbrik.com/margin-calculator/): Profit margin, markup and selling price.
+- [Mortgage & Loan Calculator](https://numbrik.com/mortgage-calculator/): Monthly payment, total interest and payoff by year.
+- [Percentage Calculator](https://numbrik.com/percentage-calculator/): Percent of, percent change, and what-percent.
+- [RMD Calculator](https://numbrik.com/rmd-calculator/): Required minimum distribution from an IRA or 401(k).
+- [Sales Tax Calculator](https://numbrik.com/sales-tax-calculator/): Add or remove sales tax, VAT or GST from a price.
+- [Save Our Homes Calculator](https://numbrik.com/save-our-homes-calculator/): Florida homestead assessment cap and tax savings.
+- [Simple Interest Calculator](https://numbrik.com/simple-interest-calculator/): Interest and total with I = P × r × t.
+- [Tip Calculator](https://numbrik.com/tip-calculator/): Tip amount and each person’s share.
+
+## Math
+
+- [Average Calculator](https://numbrik.com/average-calculator/): Mean, median, mode and range of a list of numbers.
+- [Fraction Calculator](https://numbrik.com/fraction-calculator/): Add, subtract, multiply and divide fractions and mixed numbers.
+- [Long Division Calculator](https://numbrik.com/long-division-calculator/): Quotient and remainder with every step shown.
+- [Quadratic Formula Calculator](https://numbrik.com/quadratic-formula-calculator/): Solve ax² + bx + c = 0 with steps.
+- [Ratio Calculator](https://numbrik.com/ratio-calculator/): Solve proportions and simplify ratios.
+- [Right Triangle Calculator](https://numbrik.com/right-triangle-calculator/): Hypotenuse, sides, angles and area of a right triangle.
+- [Rounding Calculator](https://numbrik.com/rounding-calculator/): Round a number to any place, any method.
+- [Scientific Calculator](https://numbrik.com/scientific-calculator/): An online calculator with trig, logs, powers and roots.
+- [Slope Calculator](https://numbrik.com/slope-calculator/): Slope, equation and distance from two points.
+- [Standard Deviation Calculator](https://numbrik.com/standard-deviation-calculator/): Standard deviation, variance, mean and median of a data set.
+- [Z-Score Calculator](https://numbrik.com/z-score-calculator/): Z-score, percentile and probability from a raw score.
+
+## Home
+
+- [Concrete Calculator](https://numbrik.com/concrete-calculator/): Cubic yards or m³ and bags for slabs and post holes.
+- [Gravel Calculator](https://numbrik.com/gravel-calculator/): Cubic yards and tons of gravel, stone or sand.
+- [Mulch Calculator](https://numbrik.com/mulch-calculator/): Cubic yards and bags of mulch, soil or gravel.
+- [Paint Calculator](https://numbrik.com/paint-calculator/): How much paint a room needs, in gallons or litres.
+- [Square Footage Calculator](https://numbrik.com/square-footage-calculator/): Area of rooms and shapes, with material cost.
+- [Stair Calculator](https://numbrik.com/stair-calculator/): Number of steps, riser height, run and stringer length.
+- [Tile Calculator](https://numbrik.com/tile-calculator/): Number of tiles and boxes for a floor or wall.
+- [Turkey Calculator](https://numbrik.com/turkey-calculator/): Turkey size, thawing and roasting time.
+
+## Dates & time
+
+- [Age Calculator](https://numbrik.com/age-calculator/): Exact age and days until your next birthday.
+- [Date Calculator](https://numbrik.com/date-calculator/): Add or subtract days, weeks, months or years from a date.
+- [Days Between Dates](https://numbrik.com/days-between-dates/): Calendar days and weekdays between two dates.
+- [Half Birthday Calculator](https://numbrik.com/half-birthday-calculator/): Find your half birthday and days until it.
+- [Military Time Converter](https://numbrik.com/military-time-converter/): Convert 24-hour military time to AM/PM and back.
+- [Time Zone Converter](https://numbrik.com/time-zone-converter/): Convert a time between US and world time zones.
+- [Working Days in a Year](https://numbrik.com/working-days-calculator/): Work days in any year and month, minus holidays.
+
+## Fun
+
+- [Coin Flip](https://numbrik.com/coin-flip/): Flip a coin once or up to 1,000 times.
+- [Dice Roller](https://numbrik.com/dice-roller/): Roll any number of dice, from d4 to d100.
+- [Life Path Number Calculator](https://numbrik.com/life-path-number-calculator/): Your numerology life path and birthday numbers.
+- [Love Calculator](https://numbrik.com/love-calculator/): A just-for-fun love percentage from two names.
+- [Password Generator](https://numbrik.com/password-generator/): Strong random passwords, made in your browser.
+- [Random Number Generator](https://numbrik.com/random-number-generator/): Random whole numbers in any range, with or without repeats.
+
+## Work & pay
+
+- [Hourly to Salary Calculator](https://numbrik.com/hourly-to-salary-calculator/): Convert hourly wage to yearly, monthly and weekly pay.
+- [Hours Calculator](https://numbrik.com/hours-calculator/): How long between two clock times.
+- [Pay Raise Calculator](https://numbrik.com/pay-raise-calculator/): New pay after a raise, or the raise percentage.
+- [Take-Home Pay Calculator](https://numbrik.com/take-home-pay-calculator/): 2026 US paycheck after federal tax, FICA and state tax.
+- [Time Card Calculator](https://numbrik.com/time-card-calculator/): Weekly hours, overtime and gross pay.
+
+## Students
+
+- [Final Grade Calculator](https://numbrik.com/final-grade-calculator/): The score you need on the final exam to reach your target grade.
+- [GCF Calculator](https://numbrik.com/gcf-calculator/): Greatest common factor of two or more whole numbers.
+- [GPA Calculator](https://numbrik.com/gpa-calculator/): Semester GPA on the US 4.0 scale, plus cumulative.
+- [Grade Calculator](https://numbrik.com/grade-calculator/): Weighted class grade from your assignments and categories.
+- [LCM Calculator](https://numbrik.com/lcm-calculator/): Least common multiple of two or more whole numbers.
+
+## Converters
+
+- [Bra Size Calculator](https://numbrik.com/bra-size-calculator/): Band and cup size from two measurements.
+- [Roman Numeral Converter](https://numbrik.com/roman-numeral-converter/): Numbers to Roman numerals and back.
+- [Shoe Size Converter](https://numbrik.com/shoe-size-converter/): Convert shoe sizes between US, UK and EU.
+- [Unit Converter](https://numbrik.com/unit-converter/): Kitchen, length, weight and temperature.
+
+## About
+
+- [About Numbrik](https://numbrik.com/about/): who maintains the site and how calculators are tested
+- [Sitemap](https://numbrik.com/sitemap.xml)
