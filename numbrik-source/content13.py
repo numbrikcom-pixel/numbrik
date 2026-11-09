@@ -71,3 +71,46 @@ tool(id="afford", slug="house-affordability-calculator", cat="Money", name="Hous
  related=["loan", "gloan", "salary", "compound"])
 
 BYID.update({t["id"]: t for t in T})
+
+# ---------------- Average calculator: "Crawled - currently not indexed" (GSC, Nov 9, 2026) → deepen the page ----------------
+import statistics as _st
+a = BYID["average"]
+a["title"] = "Average Calculator – Mean, Median & Mode With Steps | Numbrik"
+a["lede"] = ("Paste or type a list of numbers to find the average (mean), median, mode, range, sum, count and geometric mean, with the working shown. "
+             "Below you'll also find how to do a weighted average, average percentages, and the Excel and Google Sheets formulas.")
+_sets = [[90, 85, 77, 92, 88], [12, 15, 15, 18, 40], [3.5, 4, 4.5, 4, 5, 3], [120, 135, 150, 128, 142, 160, 131], [1, 2, 2, 3, 3, 3, 100]]
+def _mode(x):
+    m = _st.multimode(x); return "None" if len(m) == len(set(x)) else ", ".join(f"{v:g}" for v in m)
+a["extra"] += ("<h3>Worked examples</h3>" + tbl(["Numbers", "Mean", "Median", "Mode", "Range"],
+    [(", ".join(f"{v:g}" for v in s), f"{_st.mean(s):.2f}".rstrip("0").rstrip("."), f"{_st.median(s):g}", _mode(s), f"{max(s) - min(s):g}") for s in _sets]) +
+  "<p>The last row shows why the median matters: one extreme value (100) pulls the mean up to about 16.3, while the median, 3, still describes a typical value.</p>"
+  "<h3>How to calculate a weighted average</h3><p>When some values count more than others, multiply each value by its weight, add those up, and divide by the total of the weights. "
+  "If tests are worth 60% and homework 40%, and you scored 82 on tests and 95 on homework, the weighted average is (82 × 0.6 + 95 × 0.4) ÷ 1 = <strong>87.2</strong>, not the simple average of 88.5.</p>"
+  + tbl(["Item", "Score", "Weight", "Score × weight"], [("Tests", "82", "60%", "49.2"), ("Homework", "95", "40%", "38.0"), ("<strong>Total</strong>", "", "100%", "<strong>87.2</strong>")]) +
+  "<h3>How to average percentages</h3><p>You can only average percentages directly when they're based on the same total. If a student scored 80% on a 50-question test and 90% on a 10-question quiz, "
+  "the overall score is (40 + 9) ÷ 60 = <strong>81.7%</strong>, not 85%. Convert each percentage back to counts, add, and divide by the combined total. The same goes for averaging averages from groups of different sizes.</p>"
+  "<h3>Average formulas in Excel and Google Sheets</h3>" + tbl(["What you want", "Formula"],
+    [("Mean (average)", "<code>=AVERAGE(A1:A10)</code>"), ("Median", "<code>=MEDIAN(A1:A10)</code>"), ("Mode", "<code>=MODE.SNGL(A1:A10)</code> (Excel) or <code>=MODE(A1:A10)</code>"),
+     ("Weighted average", "<code>=SUMPRODUCT(A1:A5,B1:B5)/SUM(B1:B5)</code>"), ("Average ignoring zeros", "<code>=AVERAGEIF(A1:A10,\"&lt;&gt;0\")</code>"), ("Range", "<code>=MAX(A1:A10)-MIN(A1:A10)</code>")]))
+a["faqs"] = a["faqs"] + [
+  ("What's the difference between mean and average?", "In everyday use they're the same thing: the sum divided by the count. Statisticians call it the arithmetic mean, and sometimes use “average” loosely for the median or mode too."),
+  ("How do I find the average of percentages?", "If the percentages come from different-sized groups, convert them to counts, add them, and divide by the combined total. Only average them directly when every group is the same size."),
+  ("How do I calculate a weighted average?", "Multiply each value by its weight, add the results, and divide by the sum of the weights. In a spreadsheet, use SUMPRODUCT(values, weights) / SUM(weights).")]
+a["related"] = ["grade", "stdev", "percent", "gpa"]
+
+# ---------------- Sleep calculator: "Discovered - currently not indexed" → add genuinely useful tables ----------------
+from datetime import datetime as _dt, timedelta as _td
+sl = BYID["sleep"]
+def _bt(wake, cyc):
+    t = _dt(2026, 1, 2, *wake) - _td(minutes=cyc * 90 + 15); return t.strftime("%-I:%M %p")
+sl["extra"] = sl.get("extra", "") + ("<h3>Bedtime chart by wake-up time</h3><p>Assumes 15 minutes to fall asleep. Five or six 90-minute cycles suit most adults.</p>" +
+  tbl(["Wake up at", "6 cycles (9 h)", "5 cycles (7.5 h)", "4 cycles (6 h)"],
+      [(_dt(2026, 1, 1, h, m).strftime("%-I:%M %p"), _bt((h, m), 6), _bt((h, m), 5), _bt((h, m), 4)) for h, m in ((5, 0), (5, 30), (6, 0), (6, 30), (7, 0), (7, 30), (8, 0), (8, 30), (9, 0))]) +
+  "<h3>How much sleep do you need by age?</h3><p>Recommendations from the American Academy of Sleep Medicine and the CDC, per 24 hours including naps for young children.</p>" +
+  tbl(["Age", "Recommended sleep"], [("Infant, 4–12 months", "12–16 hours"), ("Toddler, 1–2 years", "11–14 hours"), ("Preschool, 3–5 years", "10–13 hours"),
+      ("School age, 6–12 years", "9–12 hours"), ("Teen, 13–18 years", "8–10 hours"), ("Adult, 18–60 years", "7 or more hours"), ("Adult, 61–64 years", "7–9 hours"), ("Adult, 65 and older", "7–8 hours")]) +
+  "<h3>Tips for falling asleep faster</h3><ul><li>Keep the same wake-up time every day, including weekends.</li><li>Get daylight in the morning and dim the lights in the evening.</li>"
+  "<li>Stop caffeine about 8 hours before bed.</li><li>Keep the bedroom cool, dark and quiet.</li><li>If you can't sleep after about 20 minutes, get up and do something calm until you feel sleepy.</li></ul>")
+sl["faqs"] = sl["faqs"] + [
+  ("What time should I go to bed if I wake up at 6 AM?", f"For five 90-minute cycles plus 15 minutes to fall asleep, go to bed at {_bt((6, 0), 5)}. For six cycles, {_bt((6, 0), 6)}."),
+  ("Is 6 hours of sleep enough?", "For most adults, no. Health bodies recommend at least 7 hours. Regularly sleeping 6 hours or less is linked with poorer concentration, mood and long-term health.")]
