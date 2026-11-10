@@ -114,3 +114,15 @@ sl["extra"] = sl.get("extra", "") + ("<h3>Bedtime chart by wake-up time</h3><p>A
 sl["faqs"] = sl["faqs"] + [
   ("What time should I go to bed if I wake up at 6 AM?", f"For five 90-minute cycles plus 15 minutes to fall asleep, go to bed at {_bt((6, 0), 5)}. For six cycles, {_bt((6, 0), 6)}."),
   ("Is 6 hours of sleep enough?", "For most adults, no. Health bodies recommend at least 7 hours. Regularly sleeping 6 hours or less is linked with poorer concentration, mood and long-term health.")]
+
+# ---------------- Snippet-length fixes (Nov 10, 2026): keep every meta under ~155 chars and titles under 60 ----------------
+_FIX = {
+ "bac": "Estimate your blood alcohol content (BAC) from drinks, weight and time, and how long until you're at 0.00%. Never use it to decide whether to drive.",
+ "calorie": "Free calorie calculator: how many calories you need a day to maintain, lose or gain weight, from your age, sex, height, weight and activity.",
+ "height": "How tall will your child be? Predict adult height from both parents' heights or from toddler height, with charts for boys and girls.",
+ "afford": "How much house can you afford? Enter income, debts, down payment and rate to get a home price using the 28/36 rule, with taxes, insurance and PMI.",
+ "numerology": "Find your numerology life path number from your birth date, with the working shown, master numbers 11, 22 and 33, and name numbers.",
+}
+for _k, _m in _FIX.items():
+    assert len(_m) <= 155, (_k, len(_m)); BYID[_k]["meta"] = _m
+BYID["average"]["title"] = "Average Calculator – Mean, Median & Mode | Numbrik"
