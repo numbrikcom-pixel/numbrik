@@ -418,6 +418,7 @@ for c in sorted(_groups, key=lambda c: -len(_groups[c])):
               ["Formula:", "```", t["formula"], "```", "", "Example: " + _plain(t["example"]), ""]
     _l.append(""); 
 _l += ["## About", "", f"- [About Numbrik]({DOMAIN}/about/): who maintains the site and how calculators are tested", f"- [Sitemap]({DOMAIN}/sitemap.xml)", ""]
+import shutil as _sh; _sh.copy("BingSiteAuth.xml", "dist/BingSiteAuth.xml")  # Bing Webmaster Tools verification (Nov 10, 2026)
 open("dist/llms.txt", "w").write("\n".join(_l)); open("dist/llms-full.txt", "w").write("\n".join(_f))
 open(os.path.join(OUT, "_headers"), "w").write("""/assets/*
   Cache-Control: public, max-age=31536000, immutable
