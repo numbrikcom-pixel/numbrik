@@ -30,6 +30,7 @@ V = "15"  # asset version for cache busting
 LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="var(--accent-ink)" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="var(--accent-ink)"/></svg>'
 FAVICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2340C9"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="#fff"/></svg>'
 
+OGIMG = {}  # path -> per-page social image, filled before tool pages are written
 def head(title, desc, path, extra_ld=None, noindex=False):
     url = DOMAIN + path
     if not extra_ld and not noindex:
@@ -62,7 +63,10 @@ def head(title, desc, path, extra_ld=None, noindex=False):
 <meta property="og:title" content="{E(title)}">
 <meta property="og:description" content="{E(desc)}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{DOMAIN}/og.png">
+<meta property="og:image" content="{DOMAIN}{OGIMG.get(path, "/og.png")}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{E(title)}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/assets/fonts/bricolage-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/style.css?v={V}">
@@ -156,6 +160,8 @@ def embed_box(t):
             f'<textarea class="embed-code" id="embedCode" readonly rows="4" aria-label="Embed code">{E(embed_code(t))}</textarea>'
             f'<p><button type="button" class="chip" data-copy="embedCode">Copy embed code</button></p>')
 
+OGIMG.update({f"/{t['slug']}/": f"/og/{t['slug']}.png" for t in T})
+json.dump([{"slug": t["slug"], "name": t["name"], "desc": t["desc"], "cat": t["cat"]} for t in T], open("og_list.json", "w"))
 PUBLISHER = {"@type": "Organization", "name": "Numbrik", "url": DOMAIN + "/", "logo": {"@type": "ImageObject", "url": DOMAIN + "/apple-touch-icon.png"},
              "sameAs": ["https://github.com/numbrikcom-pixel/numbrik"]}
 for t in T:
