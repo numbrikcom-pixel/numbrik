@@ -4,6 +4,350 @@
 
 Cite a calculator by its page URL. Results are estimates for general information, not financial, medical or legal advice.
 
+## Money
+
+### Auto Loan Calculator
+URL: https://numbrik.com/auto-loan-calculator/
+
+Estimate your monthly car payment with the vehicle price, down payment, trade-in, sales tax and loan term all included.
+
+Q: How do you calculate a car payment?
+A: Work out the amount financed: price minus down payment and trade-in, plus sales tax and fees. Then apply the loan formula: payment = amount × r ÷ (1 − (1 + r)^−n), with r the monthly rate and n the number of months.
+
+Formula:
+```
+Amount financed = price − down payment − trade-in + sales tax + fees
+Monthly payment = A × r(1 + r)ⁿ ÷ ((1 + r)ⁿ − 1)
+```
+
+Example: A $34,000 car with $4,000 down, a $3,000 trade-in and 7% sales tax ($2,170) leaves $29,170 to finance. At 6.9% for 60 months the payment is $576.23. Over 48 months it is $697.16 with $4,294 interest; over 72 months it is $495.92 with $6,536 interest.
+
+### CD Calculator
+URL: https://numbrik.com/cd-calculator/
+
+See how much a certificate of deposit (CD) will earn. Enter the deposit, the APY and the term to get the interest earned and the balance at maturity, plus the same deposit over other common terms.
+
+Q: How do you calculate CD interest?
+A: Banks quote CD rates as an annual percentage yield (APY), which already includes the effect of compounding. That makes the maths simple: the balance grows by the APY each year, so after t years it is deposit × (1 + APY)ᵗ, whether the bank compounds daily or monthly.
+
+Formula:
+```
+Balance = deposit × (1 + APY)^(months ÷ 12)
+Interest = balance − deposit
+```
+
+Example: $10,000 in a 1-year CD at 4.50% APY earns $450. In an 18-month CD at the same APY it earns about $682.54.
+
+### Car Lease Calculator
+URL: https://numbrik.com/car-lease-calculator/
+
+Work out a monthly car lease payment the way dealers do: from the negotiated price, residual value, money factor, down payment, fees and sales tax. It shows each part of the payment so you can check a dealer's quote.
+
+Q: How is a car lease payment calculated?
+A: Add the depreciation fee, (net capitalized cost − residual value) ÷ months, to the rent charge, (net capitalized cost + residual) × money factor, then add sales tax. The money factor × 2,400 equals the APR.
+
+Formula:
+```
+Net cap cost = price + fees − down payment − trade-in
+Residual = MSRP × residual %
+Depreciation = (net cap cost − residual) ÷ months
+Rent charge = (net cap cost + residual) × money factor
+Money factor = APR ÷ 2,400
+```
+
+Example: A car with a $40,000 MSRP negotiated to $37,500, $995 in fees and $3,000 down, on a 36-month lease with a 58% residual and 6% APR (money factor 0.0025): depreciation is $341.53 and the rent charge $146.74, so the payment is $488.27, or $522.44 with 7% sales tax.
+
+### Compound Interest Calculator
+URL: https://numbrik.com/compound-interest-calculator/
+
+See how a starting amount and regular monthly deposits grow with compound interest, with a year-by-year table of deposits, interest and balance.
+
+Q: How do you calculate compound interest?
+A: Use A = P × (1 + r/n)^(n × t), where P is the starting amount, r the annual rate as a decimal, n the compounding periods per year and t the years. $10,000 at 5% compounded yearly for 10 years grows to $16,289.
+
+Formula:
+```
+Without deposits:  A = P × (1 + r/k)^(k×t)
+P = starting amount, r = yearly rate, k = compounding periods per year, t = years
+```
+
+Example: $10,000 at 7% compounded monthly, plus $200 a month for 10 years, grows to about $54,714. You put in $34,000, so about $20,714 is interest.
+
+### Discount Calculator
+URL: https://numbrik.com/discount-calculator/
+
+Enter the original price and the percent off to see the sale price and how much you save. Add an extra discount for stacked deals like “25% off plus an extra 10%”, and sales tax for the total at the register.
+
+Q: How do you calculate a discount?
+A: The sale price is the original price multiplied by (1 − discount ÷ 100). A $80 item at 25% off costs $80 × 0.75 = $60, so you save $20.
+
+Formula:
+```
+Sale price = price × (1 − discount ÷ 100)
+Stacked: price × (1 − d1 ÷ 100) × (1 − d2 ÷ 100)
+You save = price − sale price
+```
+
+Example: A jacket tagged $80 is 25% off, with an extra 10% off at checkout. First discount: $80 × 0.75 = $60. Extra discount: $60 × 0.90 = $54. You save $26, which is 32.5% off.
+
+### Gas Cost Calculator
+URL: https://numbrik.com/gas-cost-calculator/
+
+Estimate how much gas a road trip will cost. Enter the distance, your car's fuel economy and the price per gallon, choose one way or round trip, and split the cost between passengers.
+
+Q: How do you calculate gas cost for a trip?
+A: Fuel used is the distance divided by your miles per gallon. Multiply that by the price per gallon to get the cost.
+
+Formula:
+```
+Gallons = miles ÷ MPG
+Cost = gallons × price per gallon
+Metric: litres = km × L/100 km ÷ 100
+```
+
+Example: A 300-mile trip in a car that gets 28 MPG, with gas at $3.10 a gallon: 300 ÷ 28 = 10.7 gallons × $3.10 = $33.21 one way, or $66.43 for the round trip. Split between 3 people, that's $22.14 each.
+
+### House Affordability Calculator
+URL: https://numbrik.com/house-affordability-calculator/
+
+Find a realistic home price for your budget. Enter your income, monthly debts, down payment and mortgage rate, and the calculator applies the debt-to-income rules lenders use, including property tax, insurance, HOA fees and PMI.
+
+Q: How much house can I afford?
+A: Under the 28/36 rule, total housing costs should be no more than 28% of gross monthly income, and all debts no more than 36%. On a $100,000 salary that's about $2,333 a month, or roughly a $320,000 home with $40,000 down at 6.5%.
+
+Formula:
+```
+Max housing payment = lower of
+  28% × monthly income
+  36% × monthly income − other debts
+Home price = down payment + loan the payment supports
+(after property tax, insurance, HOA and PMI)
+```
+
+Example: A household earning $100,000 a year with $500 of monthly debts and $40,000 down, at a 6.5% 30-year rate: 28% of $8,333 is $2,333 and 36% minus debts is $2,500, so the limit is $2,333 a month. After taxes, insurance and PMI that supports a home of about $320,000.
+
+### Loan Calculator
+URL: https://numbrik.com/loan-calculator/
+
+Work out the monthly payment on a personal loan, debt consolidation loan or any fixed-rate loan. Enter the amount, APR and term to get the payment, the total interest, a year-by-year schedule, and how much you'd save by paying extra.
+
+Q: How do you calculate a loan payment?
+A: Use payment = P × r ÷ (1 − (1 + r)^−n), where P is the amount borrowed, r the monthly rate (APR ÷ 12) and n the number of months. A $20,000 loan at 9.5% APR for 5 years costs about $420 a month.
+
+Formula:
+```
+Payment = P × r ÷ (1 − (1 + r)^−n)
+r = APR ÷ 12 ÷ 100,  n = number of monthly payments
+Total interest = payment × n − P
+```
+
+Example: A $20,000 loan at 9.5% APR over 5 years (60 payments) costs $420.04 a month. You'd pay $5,202 in interest, $25,202 in total.
+
+### Margin Calculator
+URL: https://numbrik.com/margin-calculator/
+
+Enter your cost and selling price to see the profit, gross margin and markup. Or enter the cost and the margin (or markup) you want, and get the price to charge.
+
+Q: How do you calculate profit margin?
+A: Gross margin = (price − cost) ÷ price × 100. Selling for $60 something that cost $40 is a 33.3% margin. Markup uses cost instead: (price − cost) ÷ cost × 100 = 50%.
+
+Formula:
+```
+Profit = price − cost
+Margin = profit ÷ price × 100
+Markup = profit ÷ cost × 100
+Price for a target margin = cost ÷ (1 − margin)
+```
+
+Example: A product costs $40 and you want a 30% margin. Price = 40 ÷ (1 − 0.30) = $57.14. Profit is $17.14, which is a 42.9% markup.
+
+### Mortgage & Loan Calculator
+URL: https://numbrik.com/mortgage-calculator/
+
+Find the monthly payment for a mortgage or any fixed-rate loan, with optional property tax, home insurance, PMI, HOA fees and extra payments. See the payoff date, the interest you'll pay and a yearly or monthly amortization schedule.
+
+Q: How do you calculate a monthly mortgage payment?
+A: Use the amortization formula: payment = P × r ÷ (1 − (1 + r)^−n), where P is the loan amount, r the monthly rate (annual rate ÷ 12) and n the number of payments. Then add property tax, insurance and any HOA or PMI for the full monthly cost.
+
+Formula:
+```
+M = P × r(1 + r)ⁿ ÷ ((1 + r)ⁿ − 1)
+P = loan amount   r = yearly rate ÷ 12   n = number of monthly payments
+```
+
+Example: A $350,000 loan at 6.5% over 30 years costs $2,212.24 a month. Over 360 payments you pay $796,406, of which $446,406 is interest. The same loan over 15 years costs $3,048.88 a month but only $198,798 in interest.
+
+### Percentage Calculator
+URL: https://numbrik.com/percentage-calculator/
+
+Three percentage calculators in one: find X% of a number, what percent one number is of another, and the percentage change between two values.
+
+Q: How do you calculate a percentage of a number?
+A: Multiply the number by the percentage and divide by 100. 20% of 150 is 150 × 20 ÷ 100 = 30. To find what percent X is of Y, divide X by Y and multiply by 100.
+
+Formula:
+```
+X% of Y          = X ÷ 100 × Y
+X as % of Y      = X ÷ Y × 100
+Percent change   = (new − old) ÷ |old| × 100
+```
+
+Example: 15% of 240 is 36. 45 is 25% of 180. A price that moves from 80 to 100 has risen by +25%.
+
+### RMD Calculator
+URL: https://numbrik.com/rmd-calculator/
+
+Work out how much you must withdraw from a traditional IRA, 401(k) or 403(b) this year. Enter your birth year and last year's December 31 balance to get your RMD, using the IRS Uniform Lifetime Table, and a 10-year projection.
+
+Q: How do you calculate your RMD?
+A: Your RMD is last year's December 31 balance divided by the distribution period for your age at the end of this year, from the IRS Uniform Lifetime Table.
+
+Formula:
+```
+RMD = balance on Dec 31 of the prior year ÷ distribution period
+Distribution period: IRS Uniform Lifetime Table, by age at year end
+```
+
+Example: You were born in 1952, so you turn 74 in 2026. Your IRA held $500,000 on December 31, 2025. The factor for age 74 is 25.5, so your 2026 RMD is 500,000 ÷ 25.5 = $19,608, due by December 31, 2026.
+
+### Rent vs Buy Calculator
+URL: https://numbrik.com/rent-vs-buy-calculator/
+
+Compare the true cost of buying a home with renting over the years you expect to stay. The calculator counts the mortgage, property tax, insurance, upkeep, closing and selling costs, home value growth, rent increases and the return your down payment could have earned.
+
+Q: Is it better to rent or buy a home?
+A: Buying usually beats renting only if you stay five years or more, because buying and selling costs around 9% of the price. Compare the total cost of owning, minus your equity at sale, with the total rent you'd pay.
+
+Formula:
+```
+Net cost of buying = down payment + closing costs + mortgage payments + tax, insurance and upkeep
+  − (sale price − 6% selling costs − remaining loan)
+  + investment return lost on the down payment and closing costs
+Cost of renting = total rent paid
+```
+
+Example: A $400,000 home with 20% down at 6.5%, versus renting a similar home for $2,200 a month, over 7 years with 3% yearly growth in prices and rents: buying costs about $207,000 net and renting about $202,000, so renting comes out roughly $5,000 ahead. Stay longer, or find a higher rent, and buying wins.
+
+### Retirement Calculator
+URL: https://numbrik.com/retirement-calculator/
+
+See how much you could have when you retire, from what you've saved so far, what you add each month and your expected return. The calculator shows the balance in future dollars and in today's money, plus the yearly income it could support.
+
+Q: How much do I need to retire?
+A: A common rule of thumb is 25 times the yearly income you want from savings, based on the 4% rule. To draw $40,000 a year on top of Social Security, aim for about $1,000,000.
+
+Formula:
+```
+Each month: balance = balance × (1 + monthly return) + contribution
+Monthly return = (1 + annual return)^(1/12) − 1
+Today's money = future balance ÷ (1 + inflation)^years
+Income = balance × withdrawal rate
+```
+
+Example: A 35-year-old with $50,000 saved who invests $800 a month (raised 2% a year) at a 6% return could have about $1,449,000 at 67. With 2.5% inflation that's about $658,000 in today's money, supporting roughly $26,300 a year at 4%.
+
+### Sales Tax Calculator
+URL: https://numbrik.com/sales-tax-calculator/
+
+Add sales tax to a price, or remove it from a total to find the price before tax. Works for US sales tax, UK and Dutch VAT, Canadian GST and HST, and Australian GST.
+
+Q: How do you calculate sales tax?
+A: To add tax, multiply the price by the rate and add it on. To remove tax from a total, divide by 1 plus the rate.
+
+Formula:
+```
+Total = price × (1 + rate)
+Price before tax = total ÷ (1 + rate)
+Tax = total − price before tax
+```
+
+Example: A $100 item with 7% sales tax costs $107. Going the other way, a £120 total with 20% VAT has a price before tax of £100 and £20 of VAT.
+
+### Save Our Homes Calculator
+URL: https://numbrik.com/save-our-homes-calculator/
+
+Florida's Save Our Homes cap limits how much the assessed value of a homestead can rise each year, to 3% or the inflation rate, whichever is lower. Enter the year you got your homestead exemption, its value then and its market value now to see your capped assessed value, how much tax the cap saves you, and how much benefit you could carry to a new home.
+
+Q: How does Florida's Save Our Homes cap work?
+A: When you first qualify for a homestead exemption, your assessed value equals the market value. From the next January 1, the assessed value can rise by no more than 3% or the change in the Consumer Price Index, whichever is lower, and never above market value.
+
+Formula:
+```
+Assessed(year) = min(market value, assessed(last year) × (1 + cap))
+cap = lower of 3% or CPI change (2.7% for 2026)
+Save Our Homes benefit = market value − assessed value
+Tax = (assessed − exemptions) × millage ÷ 1,000
+```
+
+Example: A home that got its homestead exemption in 2015 at a value of $250,000 and is worth $450,000 in 2026 has a capped assessed value of about $320,336, so $129,664 of value isn't taxed. At 6 school mills and 11.5 other mills, the 2026 tax is about $4,865 instead of $7,134: a saving of $2,269 this year and about $12,928 since 2015.
+
+### Savings Calculator
+URL: https://numbrik.com/savings-calculator/
+
+Find out how much your savings will grow with regular deposits and interest, or flip it around and see how much you need to save each month to reach a goal, such as an emergency fund, a down payment or a car.
+
+Q: How much will my savings grow?
+A: Each month the balance earns interest at the monthly equivalent of the APY and your deposit is added. $5,000 plus $300 a month at 4.25% APY grows to about $26,100 in 5 years, including about $3,100 of interest.
+
+Formula:
+```
+Monthly rate r = (1 + APY)^(1/12) − 1
+Future value = P(1 + r)^n + d × ((1 + r)^n − 1) ÷ r
+Deposit for a goal d = (goal − P(1 + r)^n) × r ÷ ((1 + r)^n − 1)
+```
+
+Example: Starting with $5,000 and adding $300 a month at 4.25% APY for 5 years gives about $26,132. You deposit $23,000, so about $3,132 is interest.
+
+### Simple Interest Calculator
+URL: https://numbrik.com/simple-interest-calculator/
+
+Work out simple interest on a loan or savings with the formula I = P × r × t. Enter the principal, annual rate and time to get the interest, the total amount, and how it compares with compound interest.
+
+Q: How do you calculate simple interest?
+A: Use I = P × r × t: principal times the annual rate as a decimal times the time in years. $10,000 at 5% for 3 years earns 10,000 × 0.05 × 3 = $1,500 in interest.
+
+Formula:
+```
+I = P × r × t
+Total (A) = P × (1 + r × t)
+r = annual rate ÷ 100,  t = years
+```
+
+Example: $10,000 at 5% for 3 years: I = 10,000 × 0.05 × 3 = $1,500. The total is $11,500. Compounded yearly, the same deposit would earn $1,576.25.
+
+### Student Loan Calculator
+URL: https://numbrik.com/student-loan-calculator/
+
+Work out your monthly student loan payment and the total interest you'll pay, compare the 10-year standard plan with 20- and 25-year terms, and see how much an extra payment each month saves.
+
+Q: How do you calculate a student loan payment?
+A: Use payment = P × r ÷ (1 − (1 + r)^−n), with r the monthly rate and n the months. $30,000 at 6.5% on the 10-year standard plan is about $341 a month and $10,900 of interest.
+
+Formula:
+```
+Payment = P × r ÷ (1 − (1 + r)^−n)
+r = annual rate ÷ 12,  n = months
+Total interest = payment × n − P
+```
+
+Example: A $30,000 balance at 6.5% on the 10-year standard plan costs $340.64 a month and $10,877 in interest. Stretching it to 25 years drops the payment to $202.56 but the interest rises to $30,769.
+
+### Tip Calculator
+URL: https://numbrik.com/tip-calculator/
+
+A free tip calculator: enter the bill, pick a tip percentage, and see the tip amount, the total and what each person pays when you split the bill.
+
+Q: How do you calculate a tip?
+A: The tip is the bill multiplied by the tip percentage. Add it to the bill and divide by the number of people to get each share.
+
+Formula:
+```
+Tip = bill × tip % ÷ 100
+Each person = (bill + tip) ÷ people
+```
+
+Example: A $86.40 bill with an 18% tip is $15.55 in tip and $101.95 in total. Split three ways, each person pays $33.98.
+
 ## Health
 
 ### BAC Calculator
@@ -293,261 +637,6 @@ Hot weather: + 16 oz
 ```
 
 Example: A 160 lb person who exercises for 30 minutes a day needs about 160 × 0.5 + 12 = 92 ounces, which is 11.5 cups or 2.7 litres a day.
-
-## Money
-
-### Auto Loan Calculator
-URL: https://numbrik.com/auto-loan-calculator/
-
-Estimate your monthly car payment with the vehicle price, down payment, trade-in, sales tax and loan term all included.
-
-Q: How do you calculate a car payment?
-A: Work out the amount financed: price minus down payment and trade-in, plus sales tax and fees. Then apply the loan formula: payment = amount × r ÷ (1 − (1 + r)^−n), with r the monthly rate and n the number of months.
-
-Formula:
-```
-Amount financed = price − down payment − trade-in + sales tax + fees
-Monthly payment = A × r(1 + r)ⁿ ÷ ((1 + r)ⁿ − 1)
-```
-
-Example: A $34,000 car with $4,000 down, a $3,000 trade-in and 7% sales tax ($2,170) leaves $29,170 to finance. At 6.9% for 60 months the payment is $576.23. Over 48 months it is $697.16 with $4,294 interest; over 72 months it is $495.92 with $6,536 interest.
-
-### CD Calculator
-URL: https://numbrik.com/cd-calculator/
-
-See how much a certificate of deposit (CD) will earn. Enter the deposit, the APY and the term to get the interest earned and the balance at maturity, plus the same deposit over other common terms.
-
-Q: How do you calculate CD interest?
-A: Banks quote CD rates as an annual percentage yield (APY), which already includes the effect of compounding. That makes the maths simple: the balance grows by the APY each year, so after t years it is deposit × (1 + APY)ᵗ, whether the bank compounds daily or monthly.
-
-Formula:
-```
-Balance = deposit × (1 + APY)^(months ÷ 12)
-Interest = balance − deposit
-```
-
-Example: $10,000 in a 1-year CD at 4.50% APY earns $450. In an 18-month CD at the same APY it earns about $682.54.
-
-### Compound Interest Calculator
-URL: https://numbrik.com/compound-interest-calculator/
-
-See how a starting amount and regular monthly deposits grow with compound interest, with a year-by-year table of deposits, interest and balance.
-
-Q: How do you calculate compound interest?
-A: Use A = P × (1 + r/n)^(n × t), where P is the starting amount, r the annual rate as a decimal, n the compounding periods per year and t the years. $10,000 at 5% compounded yearly for 10 years grows to $16,289.
-
-Formula:
-```
-Without deposits:  A = P × (1 + r/k)^(k×t)
-P = starting amount, r = yearly rate, k = compounding periods per year, t = years
-```
-
-Example: $10,000 at 7% compounded monthly, plus $200 a month for 10 years, grows to about $54,714. You put in $34,000, so about $20,714 is interest.
-
-### Discount Calculator
-URL: https://numbrik.com/discount-calculator/
-
-Enter the original price and the percent off to see the sale price and how much you save. Add an extra discount for stacked deals like “25% off plus an extra 10%”, and sales tax for the total at the register.
-
-Q: How do you calculate a discount?
-A: The sale price is the original price multiplied by (1 − discount ÷ 100). A $80 item at 25% off costs $80 × 0.75 = $60, so you save $20.
-
-Formula:
-```
-Sale price = price × (1 − discount ÷ 100)
-Stacked: price × (1 − d1 ÷ 100) × (1 − d2 ÷ 100)
-You save = price − sale price
-```
-
-Example: A jacket tagged $80 is 25% off, with an extra 10% off at checkout. First discount: $80 × 0.75 = $60. Extra discount: $60 × 0.90 = $54. You save $26, which is 32.5% off.
-
-### Gas Cost Calculator
-URL: https://numbrik.com/gas-cost-calculator/
-
-Estimate how much gas a road trip will cost. Enter the distance, your car's fuel economy and the price per gallon, choose one way or round trip, and split the cost between passengers.
-
-Q: How do you calculate gas cost for a trip?
-A: Fuel used is the distance divided by your miles per gallon. Multiply that by the price per gallon to get the cost.
-
-Formula:
-```
-Gallons = miles ÷ MPG
-Cost = gallons × price per gallon
-Metric: litres = km × L/100 km ÷ 100
-```
-
-Example: A 300-mile trip in a car that gets 28 MPG, with gas at $3.10 a gallon: 300 ÷ 28 = 10.7 gallons × $3.10 = $33.21 one way, or $66.43 for the round trip. Split between 3 people, that's $22.14 each.
-
-### House Affordability Calculator
-URL: https://numbrik.com/house-affordability-calculator/
-
-Find a realistic home price for your budget. Enter your income, monthly debts, down payment and mortgage rate, and the calculator applies the debt-to-income rules lenders use, including property tax, insurance, HOA fees and PMI.
-
-Q: How much house can I afford?
-A: Under the 28/36 rule, total housing costs should be no more than 28% of gross monthly income, and all debts no more than 36%. On a $100,000 salary that's about $2,333 a month, or roughly a $320,000 home with $40,000 down at 6.5%.
-
-Formula:
-```
-Max housing payment = lower of
-  28% × monthly income
-  36% × monthly income − other debts
-Home price = down payment + loan the payment supports
-(after property tax, insurance, HOA and PMI)
-```
-
-Example: A household earning $100,000 a year with $500 of monthly debts and $40,000 down, at a 6.5% 30-year rate: 28% of $8,333 is $2,333 and 36% minus debts is $2,500, so the limit is $2,333 a month. After taxes, insurance and PMI that supports a home of about $320,000.
-
-### Loan Calculator
-URL: https://numbrik.com/loan-calculator/
-
-Work out the monthly payment on a personal loan, debt consolidation loan or any fixed-rate loan. Enter the amount, APR and term to get the payment, the total interest, a year-by-year schedule, and how much you'd save by paying extra.
-
-Q: How do you calculate a loan payment?
-A: Use payment = P × r ÷ (1 − (1 + r)^−n), where P is the amount borrowed, r the monthly rate (APR ÷ 12) and n the number of months. A $20,000 loan at 9.5% APR for 5 years costs about $420 a month.
-
-Formula:
-```
-Payment = P × r ÷ (1 − (1 + r)^−n)
-r = APR ÷ 12 ÷ 100,  n = number of monthly payments
-Total interest = payment × n − P
-```
-
-Example: A $20,000 loan at 9.5% APR over 5 years (60 payments) costs $420.04 a month. You'd pay $5,202 in interest, $25,202 in total.
-
-### Margin Calculator
-URL: https://numbrik.com/margin-calculator/
-
-Enter your cost and selling price to see the profit, gross margin and markup. Or enter the cost and the margin (or markup) you want, and get the price to charge.
-
-Q: How do you calculate profit margin?
-A: Gross margin = (price − cost) ÷ price × 100. Selling for $60 something that cost $40 is a 33.3% margin. Markup uses cost instead: (price − cost) ÷ cost × 100 = 50%.
-
-Formula:
-```
-Profit = price − cost
-Margin = profit ÷ price × 100
-Markup = profit ÷ cost × 100
-Price for a target margin = cost ÷ (1 − margin)
-```
-
-Example: A product costs $40 and you want a 30% margin. Price = 40 ÷ (1 − 0.30) = $57.14. Profit is $17.14, which is a 42.9% markup.
-
-### Mortgage & Loan Calculator
-URL: https://numbrik.com/mortgage-calculator/
-
-Find the monthly payment for a mortgage or any fixed-rate loan, with optional property tax, home insurance, PMI, HOA fees and extra payments. See the payoff date, the interest you'll pay and a yearly or monthly amortization schedule.
-
-Q: How do you calculate a monthly mortgage payment?
-A: Use the amortization formula: payment = P × r ÷ (1 − (1 + r)^−n), where P is the loan amount, r the monthly rate (annual rate ÷ 12) and n the number of payments. Then add property tax, insurance and any HOA or PMI for the full monthly cost.
-
-Formula:
-```
-M = P × r(1 + r)ⁿ ÷ ((1 + r)ⁿ − 1)
-P = loan amount   r = yearly rate ÷ 12   n = number of monthly payments
-```
-
-Example: A $350,000 loan at 6.5% over 30 years costs $2,212.24 a month. Over 360 payments you pay $796,406, of which $446,406 is interest. The same loan over 15 years costs $3,048.88 a month but only $198,798 in interest.
-
-### Percentage Calculator
-URL: https://numbrik.com/percentage-calculator/
-
-Three percentage calculators in one: find X% of a number, what percent one number is of another, and the percentage change between two values.
-
-Q: How do you calculate a percentage of a number?
-A: Multiply the number by the percentage and divide by 100. 20% of 150 is 150 × 20 ÷ 100 = 30. To find what percent X is of Y, divide X by Y and multiply by 100.
-
-Formula:
-```
-X% of Y          = X ÷ 100 × Y
-X as % of Y      = X ÷ Y × 100
-Percent change   = (new − old) ÷ |old| × 100
-```
-
-Example: 15% of 240 is 36. 45 is 25% of 180. A price that moves from 80 to 100 has risen by +25%.
-
-### RMD Calculator
-URL: https://numbrik.com/rmd-calculator/
-
-Work out how much you must withdraw from a traditional IRA, 401(k) or 403(b) this year. Enter your birth year and last year's December 31 balance to get your RMD, using the IRS Uniform Lifetime Table, and a 10-year projection.
-
-Q: How do you calculate your RMD?
-A: Your RMD is last year's December 31 balance divided by the distribution period for your age at the end of this year, from the IRS Uniform Lifetime Table.
-
-Formula:
-```
-RMD = balance on Dec 31 of the prior year ÷ distribution period
-Distribution period: IRS Uniform Lifetime Table, by age at year end
-```
-
-Example: You were born in 1952, so you turn 74 in 2026. Your IRA held $500,000 on December 31, 2025. The factor for age 74 is 25.5, so your 2026 RMD is 500,000 ÷ 25.5 = $19,608, due by December 31, 2026.
-
-### Sales Tax Calculator
-URL: https://numbrik.com/sales-tax-calculator/
-
-Add sales tax to a price, or remove it from a total to find the price before tax. Works for US sales tax, UK and Dutch VAT, Canadian GST and HST, and Australian GST.
-
-Q: How do you calculate sales tax?
-A: To add tax, multiply the price by the rate and add it on. To remove tax from a total, divide by 1 plus the rate.
-
-Formula:
-```
-Total = price × (1 + rate)
-Price before tax = total ÷ (1 + rate)
-Tax = total − price before tax
-```
-
-Example: A $100 item with 7% sales tax costs $107. Going the other way, a £120 total with 20% VAT has a price before tax of £100 and £20 of VAT.
-
-### Save Our Homes Calculator
-URL: https://numbrik.com/save-our-homes-calculator/
-
-Florida's Save Our Homes cap limits how much the assessed value of a homestead can rise each year, to 3% or the inflation rate, whichever is lower. Enter the year you got your homestead exemption, its value then and its market value now to see your capped assessed value, how much tax the cap saves you, and how much benefit you could carry to a new home.
-
-Q: How does Florida's Save Our Homes cap work?
-A: When you first qualify for a homestead exemption, your assessed value equals the market value. From the next January 1, the assessed value can rise by no more than 3% or the change in the Consumer Price Index, whichever is lower, and never above market value.
-
-Formula:
-```
-Assessed(year) = min(market value, assessed(last year) × (1 + cap))
-cap = lower of 3% or CPI change (2.7% for 2026)
-Save Our Homes benefit = market value − assessed value
-Tax = (assessed − exemptions) × millage ÷ 1,000
-```
-
-Example: A home that got its homestead exemption in 2015 at a value of $250,000 and is worth $450,000 in 2026 has a capped assessed value of about $320,336, so $129,664 of value isn't taxed. At 6 school mills and 11.5 other mills, the 2026 tax is about $4,865 instead of $7,134: a saving of $2,269 this year and about $12,928 since 2015.
-
-### Simple Interest Calculator
-URL: https://numbrik.com/simple-interest-calculator/
-
-Work out simple interest on a loan or savings with the formula I = P × r × t. Enter the principal, annual rate and time to get the interest, the total amount, and how it compares with compound interest.
-
-Q: How do you calculate simple interest?
-A: Use I = P × r × t: principal times the annual rate as a decimal times the time in years. $10,000 at 5% for 3 years earns 10,000 × 0.05 × 3 = $1,500 in interest.
-
-Formula:
-```
-I = P × r × t
-Total (A) = P × (1 + r × t)
-r = annual rate ÷ 100,  t = years
-```
-
-Example: $10,000 at 5% for 3 years: I = 10,000 × 0.05 × 3 = $1,500. The total is $11,500. Compounded yearly, the same deposit would earn $1,576.25.
-
-### Tip Calculator
-URL: https://numbrik.com/tip-calculator/
-
-A free tip calculator: enter the bill, pick a tip percentage, and see the tip amount, the total and what each person pays when you split the bill.
-
-Q: How do you calculate a tip?
-A: The tip is the bill multiplied by the tip percentage. Add it to the bill and divide by the number of people to get each share.
-
-Formula:
-```
-Tip = bill × tip % ÷ 100
-Each person = (bill + tip) ÷ people
-```
-
-Example: A $86.40 bill with an 18% tip is $15.55 in tip and $101.95 in total. Split three ways, each person pays $33.98.
 
 ## Math
 

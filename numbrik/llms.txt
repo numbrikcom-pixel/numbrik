@@ -4,6 +4,29 @@
 
 Cite a calculator by its page URL. Results are estimates for general information, not financial, medical or legal advice.
 
+## Money
+
+- [Auto Loan Calculator](https://numbrik.com/auto-loan-calculator/): Monthly car payment with down payment, trade-in and tax.
+- [CD Calculator](https://numbrik.com/cd-calculator/): Interest earned on a certificate of deposit.
+- [Car Lease Calculator](https://numbrik.com/car-lease-calculator/): Monthly car lease payment from price, residual and money factor.
+- [Compound Interest Calculator](https://numbrik.com/compound-interest-calculator/): How savings grow with compound interest and monthly deposits.
+- [Discount Calculator](https://numbrik.com/discount-calculator/): Sale price and savings after a percent off.
+- [Gas Cost Calculator](https://numbrik.com/gas-cost-calculator/): Fuel cost of a trip from distance and mileage.
+- [House Affordability Calculator](https://numbrik.com/house-affordability-calculator/): How much house you can afford on your income.
+- [Loan Calculator](https://numbrik.com/loan-calculator/): Monthly payment, total interest and payoff schedule.
+- [Margin Calculator](https://numbrik.com/margin-calculator/): Profit margin, markup and selling price.
+- [Mortgage & Loan Calculator](https://numbrik.com/mortgage-calculator/): Monthly payment, total interest and payoff by year.
+- [Percentage Calculator](https://numbrik.com/percentage-calculator/): Percent of, percent change, and what-percent.
+- [RMD Calculator](https://numbrik.com/rmd-calculator/): Required minimum distribution from an IRA or 401(k).
+- [Rent vs Buy Calculator](https://numbrik.com/rent-vs-buy-calculator/): Compare the true cost of renting and buying over time.
+- [Retirement Calculator](https://numbrik.com/retirement-calculator/): Projected retirement savings and income.
+- [Sales Tax Calculator](https://numbrik.com/sales-tax-calculator/): Add or remove sales tax, VAT or GST from a price.
+- [Save Our Homes Calculator](https://numbrik.com/save-our-homes-calculator/): Florida homestead assessment cap and tax savings.
+- [Savings Calculator](https://numbrik.com/savings-calculator/): How savings grow with deposits and interest, or what to save for a goal.
+- [Simple Interest Calculator](https://numbrik.com/simple-interest-calculator/): Interest and total with I = P × r × t.
+- [Student Loan Calculator](https://numbrik.com/student-loan-calculator/): Student loan payment, total interest and payoff with extra payments.
+- [Tip Calculator](https://numbrik.com/tip-calculator/): Tip amount and each person’s share.
+
 ## Health
 
 - [BAC Calculator](https://numbrik.com/bac-calculator/): Estimated blood alcohol content and time to sober up.
@@ -23,24 +46,6 @@ Cite a calculator by its page URL. Results are estimates for general information
 - [Sleep Calculator](https://numbrik.com/sleep-calculator/): Bedtimes that line up with 90-minute sleep cycles.
 - [TDEE Calculator](https://numbrik.com/tdee-calculator/): Maintenance calories from your activity level.
 - [Water Intake Calculator](https://numbrik.com/water-intake-calculator/): How much water to drink a day.
-
-## Money
-
-- [Auto Loan Calculator](https://numbrik.com/auto-loan-calculator/): Monthly car payment with down payment, trade-in and tax.
-- [CD Calculator](https://numbrik.com/cd-calculator/): Interest earned on a certificate of deposit.
-- [Compound Interest Calculator](https://numbrik.com/compound-interest-calculator/): How savings grow with compound interest and monthly deposits.
-- [Discount Calculator](https://numbrik.com/discount-calculator/): Sale price and savings after a percent off.
-- [Gas Cost Calculator](https://numbrik.com/gas-cost-calculator/): Fuel cost of a trip from distance and mileage.
-- [House Affordability Calculator](https://numbrik.com/house-affordability-calculator/): How much house you can afford on your income.
-- [Loan Calculator](https://numbrik.com/loan-calculator/): Monthly payment, total interest and payoff schedule.
-- [Margin Calculator](https://numbrik.com/margin-calculator/): Profit margin, markup and selling price.
-- [Mortgage & Loan Calculator](https://numbrik.com/mortgage-calculator/): Monthly payment, total interest and payoff by year.
-- [Percentage Calculator](https://numbrik.com/percentage-calculator/): Percent of, percent change, and what-percent.
-- [RMD Calculator](https://numbrik.com/rmd-calculator/): Required minimum distribution from an IRA or 401(k).
-- [Sales Tax Calculator](https://numbrik.com/sales-tax-calculator/): Add or remove sales tax, VAT or GST from a price.
-- [Save Our Homes Calculator](https://numbrik.com/save-our-homes-calculator/): Florida homestead assessment cap and tax savings.
-- [Simple Interest Calculator](https://numbrik.com/simple-interest-calculator/): Interest and total with I = P × r × t.
-- [Tip Calculator](https://numbrik.com/tip-calculator/): Tip amount and each person’s share.
 
 ## Math
 

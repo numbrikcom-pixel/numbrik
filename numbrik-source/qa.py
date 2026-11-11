@@ -86,6 +86,11 @@ QA = {
  "charcount": ("Do spaces count as characters?", "Yes. Letters, numbers, spaces, punctuation and line breaks all count as characters, and limits like X's 280 or an SMS's 160 include spaces. The “without spaces” count leaves out spaces, tabs and line breaks."),
  "timedec": ("How do you convert minutes to decimal hours?", "Divide the minutes by 60 and add them to the hours. 7 hours 45 minutes is 7 + 45 ÷ 60 = 7.75 hours. To go back, multiply the decimal part by 60: 0.3 hours is 18 minutes."),
  "pctchange": ("How do you calculate percent change?", "Subtract the old value from the new value, divide by the old value and multiply by 100. From 80 to 100 is (100 − 80) ÷ 80 × 100 = 25%; a negative result is a percentage decrease."),
+ "lease": ("How is a car lease payment calculated?", "Add the depreciation fee, (net capitalized cost − residual value) ÷ months, to the rent charge, (net capitalized cost + residual) × money factor, then add sales tax. The money factor × 2,400 equals the APR."),
+ "retire": ("How much do I need to retire?", "A common rule of thumb is 25 times the yearly income you want from savings, based on the 4% rule. To draw $40,000 a year on top of Social Security, aim for about $1,000,000."),
+ "savings": ("How much will my savings grow?", "Each month the balance earns interest at the monthly equivalent of the APY and your deposit is added. $5,000 plus $300 a month at 4.25% APY grows to about $26,100 in 5 years, including about $3,100 of interest."),
+ "studentloan": ("How do you calculate a student loan payment?", "Use payment = P × r ÷ (1 − (1 + r)^−n), with r the monthly rate and n the months. $30,000 at 6.5% on the 10-year standard plan is about $341 a month and $10,900 of interest."),
+ "rentbuy": ("Is it better to rent or buy a home?", "Buying usually beats renting only if you stay five years or more, because buying and selling costs around 9% of the price. Compare the total cost of owning, minus your equity at sale, with the total rent you'd pay."),
 }
 
 def _txt(h): return re.sub(r"\s+", " ", html.unescape(re.sub("<[^>]+>", "", h))).strip()
