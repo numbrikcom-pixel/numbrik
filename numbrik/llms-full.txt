@@ -602,6 +602,23 @@ Dividend = divisor × quotient + remainder
 
 Example: 1,764 ÷ 13: 17 ÷ 13 = 1, remainder 4. Bring down 6: 46 ÷ 13 = 3, remainder 7. Bring down 4: 74 ÷ 13 = 5, remainder 9. The answer is 135 R 9, or 135 9/13 ≈ 135.692. Check: 13 × 135 + 9 = 1,764.
 
+### Percent Change Calculator
+URL: https://numbrik.com/percent-change-calculator/
+
+Work out the percentage change between an old value and a new one, for prices, salaries, grades, sales or stock prices. You can also increase or decrease a number by a percentage, and see what it takes to get back to the start.
+
+Q: How do you calculate percent change?
+A: Subtract the old value from the new value, divide by the old value and multiply by 100. From 80 to 100 is (100 − 80) ÷ 80 × 100 = 25%; a negative result is a percentage decrease.
+
+Formula:
+```
+Percent change = (new − old) ÷ |old| × 100
+Increase by p% = value × (1 + p ÷ 100)
+Decrease by p% = value × (1 − p ÷ 100)
+```
+
+Example: A stock goes from $80 to $100: (100 − 80) ÷ 80 × 100 = +25%. If it then falls back to $80, that's (80 − 100) ÷ 100 × 100 = −20%, not −25%.
+
 ### Quadratic Formula Calculator
 URL: https://numbrik.com/quadratic-formula-calculator/
 
@@ -881,6 +898,119 @@ Done at 165°F (74°C) · rest 20–30 min
 
 Example: For 12 guests with leftovers, buy a turkey of about 12 × 1.5 = 18 lb. Thawing it in the fridge takes 4 to 5 days, so for Thursday dinner put it in the fridge by Saturday or Sunday. Unstuffed, an 18 lb turkey roasts for about 4¼ to 4½ hours at 325°F, so for dinner at 5:00 PM it goes in the oven at about 12:00 PM.
 
+## Students
+
+### Character Counter
+URL: https://numbrik.com/character-counter/
+
+Type or paste text to count characters with and without spaces, letters and words. Bars show how much room you have left for X posts, text messages, Instagram captions, YouTube titles and Google titles and descriptions.
+
+Q: Do spaces count as characters?
+A: Yes. Letters, numbers, spaces, punctuation and line breaks all count as characters, and limits like X's 280 or an SMS's 160 include spaces. The “without spaces” count leaves out spaces, tabs and line breaks.
+
+Formula:
+```
+Characters = every letter, digit, space and symbol
+Without spaces = characters − spaces, tabs and line breaks
+```
+
+Example: “Hello, world!” has 13 characters, 12 without the space, 10 letters and 2 words.
+
+### Final Grade Calculator
+URL: https://numbrik.com/final-grade-calculator/
+
+Find out what score you need on your final exam to reach the grade you want, whether that's keeping an A or making sure you pass.
+
+Q: What do I need on my final exam?
+A: Required score = (target grade − current grade × (1 − final weight)) ÷ final weight. With an 85% average, a final worth 25% and a 90% target, you need (90 − 85 × 0.75) ÷ 0.25 = 105%, so a 90 isn't reachable.
+
+Formula:
+```
+Needed on final = (target − current × (1 − final weight)) ÷ final weight
+```
+
+Example: With a current grade of 84% and a final worth 25%, you need 88% on the final to finish with 85%. To get a 90% (an A), you would need 108%, which isn't possible without extra credit.
+
+### GCF Calculator
+URL: https://numbrik.com/gcf-calculator/
+
+Find the greatest common factor (GCF) of 2 to 20 whole numbers. It's also called the greatest common divisor (GCD) or highest common factor (HCF). Each number's prime factorization is shown so you can check the answer.
+
+Q: How do you find the greatest common factor?
+A: The greatest common factor is the largest number that divides every number in the list without a remainder. With prime factorization, multiply the primes the numbers share, each at its lowest power.
+
+Formula:
+```
+GCF(a, b) = GCF(b, a mod b), until the remainder is 0
+```
+
+Example: 48 = 2⁴ × 3, 180 = 2² × 3² × 5 and 72 = 2³ × 3². The shared primes at their lowest powers are 2² × 3 = 12. With Euclid: 180 mod 48 = 36, 48 mod 36 = 12, 36 mod 12 = 0, so GCF(180, 48) = 12.
+
+### GPA Calculator
+URL: https://numbrik.com/gpa-calculator/
+
+Add your courses, letter grades and credits to get your semester GPA on the 4.0 scale. Add your current GPA and credits to see your new cumulative GPA.
+
+Q: How do you calculate GPA?
+A: Each letter grade has a grade-point value. The calculator multiplies each grade's points by the course credits, adds them up and divides by the total credits, so a 4-credit course counts more than a 1-credit lab.
+
+Formula:
+```
+GPA = Σ(grade points × credits) ÷ Σ credits
+Cumulative = (current GPA × earned credits + new grade points) ÷ (earned + new credits)
+```
+
+Example: The example term has five courses worth 14 credits and 50.4 grade points, a semester GPA of 3.60. A student who already had a 3.40 GPA over 45 credits would move to a cumulative 3.45.
+
+### Grade Calculator
+URL: https://numbrik.com/grade-calculator/
+
+Work out your current grade in a class from weighted assignments and categories, such as homework, quizzes, exams and projects. See your percentage and letter grade straight away.
+
+Q: How do you calculate a weighted grade?
+A: Most classes give each category a weight, such as homework 20% and exams 50%. Your grade is a weighted average: each score is multiplied by its weight, the results are added up, and the total is divided by the sum of the weights.
+
+Formula:
+```
+Grade = Σ(score × weight) ÷ Σ weight
+Score % = points earned ÷ points possible × 100
+```
+
+Example: The example class has homework at 92% (weight 20), quizzes at 85% (15), a midterm at 78% (25), a project at 88% (15) and participation at 100% (5). That adds up to 6,885 weighted points over 80 weight, a current grade of 86.1%, which is a B. The final exam, worth the remaining 20%, is still to come.
+
+### LCM Calculator
+URL: https://numbrik.com/lcm-calculator/
+
+Find the least common multiple of 2 to 20 whole numbers, with the prime factorization of each number shown.
+
+Q: How do you find the least common multiple?
+A: The least common multiple is the smallest positive number that every number in your list divides into evenly. One way to find it is prime factorization: write each number as a product of primes and multiply together the highest power of every prime that appears.
+
+Formula:
+```
+LCM(a, b) = a × b ÷ GCF(a, b)
+LCM(a, b, c) = LCM(LCM(a, b), c)
+```
+
+Example: 12 = 2² × 3, 18 = 2 × 3² and 30 = 2 × 3 × 5. Taking the highest power of each prime gives 2² × 3² × 5 = 180.
+
+### Word Counter
+URL: https://numbrik.com/word-counter/
+
+Paste or type your text to count words, characters, sentences and paragraphs instantly. You also get the reading time, speaking time and most-used keywords, which helps with essays, blog posts, speeches and word limits.
+
+Q: How do you count the words in a text?
+A: Paste the text into a word counter: every run of letters or numbers between spaces counts as one word, so “don't” and “2026” are one word each. At an average reading speed of 238 words a minute, 1,000 words takes about 4 minutes to read.
+
+Formula:
+```
+Reading time = words ÷ 238 per minute
+Speaking time = words ÷ 140 per minute
+Average word length = letters ÷ words
+```
+
+Example: A 1,500-word blog post takes about 6 minutes 18 seconds to read (1,500 ÷ 238) and about 10 minutes 43 seconds to read aloud (1,500 ÷ 140).
+
 ## Dates & time
 
 ### Age Calculator
@@ -996,6 +1126,109 @@ Work hours = working days × 8
 
 Example: 2026 has 261 weekdays. All 11 federal holidays fall on or are observed on a weekday, leaving 250 working days, or 2,000 hours at 8 hours a day. With 15 days of vacation you'd work 235 days. In 2027, New Year's Day 2028 falls on a Saturday and is observed on Friday, December 31, 2027, so 2027 has 249 working days.
 
+## Work & pay
+
+### Hourly to Salary Calculator
+URL: https://numbrik.com/hourly-to-salary-calculator/
+
+Convert an hourly wage into yearly, monthly, biweekly and weekly pay, or work backwards from a salary to an hourly rate.
+
+Q: How do you convert an hourly wage to a yearly salary?
+A: Multiply the hourly rate by the hours you work each week, then by 52 weeks. A full-time US year is 40 × 52 = 2,080 hours, so $25 an hour is about $52,000 a year before tax. Divide a salary by 2,080 to go the other way.
+
+Formula:
+```
+Annual pay  = hourly rate × hours per week × paid weeks
+Hourly rate = annual pay ÷ (hours per week × paid weeks)
+```
+
+Example: $25 an hour at 40 hours a week for 52 weeks is $52,000 a year, $4,333.33 a month and $2,000 every two weeks, before tax.
+
+### Hours Calculator
+URL: https://numbrik.com/hours-calculator/
+
+Find how many hours are between two times. Enter a start and end time, such as 8 AM and 5 PM, and the hours calculator shows the total in hours and minutes, decimal hours and minutes, minus any unpaid break. It handles overnight shifts like 7 PM to 7 AM, counts hours between two dates, and adds hours to a time. The charts below answer the most common shifts at a glance.
+
+Q: How do you calculate hours between two times?
+A: Convert both times to minutes after midnight, subtract the start from the end, and take off any break. If the end time is earlier than the start, the period crosses midnight, so add 24 hours. Divide the minutes by 60 for decimal hours.
+
+Formula:
+```
+Minutes = end − start − break   (add 1,440 if end is before start)
+Decimal hours = minutes ÷ 60
+```
+
+Example: From 8:00 AM to 5:00 PM is 9 hours (540 minutes, 9.00 decimal hours). Take off a 30-minute unpaid lunch and the time worked is 8 hours 30 minutes, or 8.50 decimal hours. Overnight, 7:00 PM to 7:00 AM is 12 hours.
+
+### Pay Raise Calculator
+URL: https://numbrik.com/pay-raise-calculator/
+
+See your new pay after a raise. Enter your current hourly wage or salary and the raise as a percentage or an amount, or enter your old and new pay to find the raise percentage.
+
+Q: How do you calculate a pay raise?
+A: A percentage raise multiplies your pay by one plus the percentage: a 4% raise on $50,000 is $50,000 × 1.04 = $52,000.
+
+Formula:
+```
+New pay = old pay × (1 + raise% ÷ 100)
+Raise % = (new pay − old pay) ÷ old pay × 100
+Yearly = hourly × 2,080
+```
+
+Example: A 5% raise on $24.00 an hour gives $25.20 an hour, which is $52,416 a year, or $2,496 more than before. Going from $50,000 to $53,000 is a raise of 3,000 ÷ 50,000 = 6%.
+
+### Take-Home Pay Calculator
+URL: https://numbrik.com/take-home-pay-calculator/
+
+Estimate your take-home pay per paycheck in the United States for 2026, after federal income tax, Social Security, Medicare, an estimated state tax and pre-tax deductions such as a 401(k).
+
+Q: How do you calculate take-home pay?
+A: Start with gross pay, subtract pre-tax deductions such as 401(k) contributions, then subtract federal income tax, Social Security (6.2%), Medicare (1.45%) and any state income tax. What's left is your net pay.
+
+Formula:
+```
+Taxable income = salary − pre-tax deductions − standard deduction
+Federal tax    = sum of each bracket slice × its rate
+Social Security = 6.2% × min(salary, $184,500)
+Medicare       = 1.45% × salary (+0.9% above $200,000 single / $250,000 joint)
+Take-home      = salary − pre-tax − federal − Social Security − Medicare − state
+```
+
+Example: A single filer earning $65,000 with no pre-tax deductions in a state with no income tax pays about $5,620 in federal income tax, $4,030 in Social Security and $942 in Medicare. Take-home pay is about $54,408 a year, or $2,092.60 every two weeks. A married couple earning $100,000 together, putting $6,000 into a 401(k) and paying an estimated 5% state tax, takes home about $74,730 a year.
+
+### Time Card Calculator
+URL: https://numbrik.com/time-card-calculator/
+
+Enter start and end times for each day, take off unpaid breaks, and get total hours, overtime and gross pay for the week. Overtime rules follow the region you pick at the top of the page.
+
+Q: How do you calculate hours on a time card?
+A: For each day, subtract the clock-in time from the clock-out time, then subtract unpaid breaks. Add the days together for the weekly total. Under the US federal rule, hours over 40 in a workweek are overtime, paid at 1.5 times the regular rate.
+
+Formula:
+```
+Daily hours   = (end − start − break minutes) ÷ 60
+Overtime      = max(0, weekly hours − threshold)
+Gross pay     = regular hours × rate + overtime × rate × multiplier
+```
+
+Example: The calculator opens with an example week: five weekday shifts and a short Saturday, totalling 43.25 hours. At $22.50 an hour with overtime after 40 hours at 1.5×, that is 40 regular hours ($900.00) plus 3.25 overtime hours at $33.75 ($109.69), for gross pay of $1,009.69.
+
+### Time to Decimal Calculator
+URL: https://numbrik.com/time-to-decimal-calculator/
+
+Convert time in hours and minutes to decimal hours for payroll, invoices and timesheets, or turn decimal hours back into hours and minutes. A chart of every minute from 1 to 59 is below.
+
+Q: How do you convert minutes to decimal hours?
+A: Divide the minutes by 60 and add them to the hours. 7 hours 45 minutes is 7 + 45 ÷ 60 = 7.75 hours. To go back, multiply the decimal part by 60: 0.3 hours is 18 minutes.
+
+Formula:
+```
+Decimal hours = hours + minutes ÷ 60 + seconds ÷ 3,600
+Minutes = (decimal hours − whole hours) × 60
+```
+
+Example: A shift of 8 hours 20 minutes is 8 + 20 ÷ 60 = 8.33 hours (8.333…). At $22 an hour that's 8.333 × $22 = $183.33.
+
 ## Fun
 
 ### Coin Flip
@@ -1093,173 +1326,6 @@ Ways to draw k of n without repeats = n! ÷ (k! × (n − k)!)
 ```
 
 Example: Picking one number from 1 to 100 gives each number a 1% chance. Drawing 6 numbers from 1 to 49 with no repeats can produce 13,983,816 different sets, so the chance of matching all six is 1 in 13,983,816.
-
-## Work & pay
-
-### Hourly to Salary Calculator
-URL: https://numbrik.com/hourly-to-salary-calculator/
-
-Convert an hourly wage into yearly, monthly, biweekly and weekly pay, or work backwards from a salary to an hourly rate.
-
-Q: How do you convert an hourly wage to a yearly salary?
-A: Multiply the hourly rate by the hours you work each week, then by 52 weeks. A full-time US year is 40 × 52 = 2,080 hours, so $25 an hour is about $52,000 a year before tax. Divide a salary by 2,080 to go the other way.
-
-Formula:
-```
-Annual pay  = hourly rate × hours per week × paid weeks
-Hourly rate = annual pay ÷ (hours per week × paid weeks)
-```
-
-Example: $25 an hour at 40 hours a week for 52 weeks is $52,000 a year, $4,333.33 a month and $2,000 every two weeks, before tax.
-
-### Hours Calculator
-URL: https://numbrik.com/hours-calculator/
-
-Find how many hours are between two times. Enter a start and end time, such as 8 AM and 5 PM, and the hours calculator shows the total in hours and minutes, decimal hours and minutes, minus any unpaid break. It handles overnight shifts like 7 PM to 7 AM, counts hours between two dates, and adds hours to a time. The charts below answer the most common shifts at a glance.
-
-Q: How do you calculate hours between two times?
-A: Convert both times to minutes after midnight, subtract the start from the end, and take off any break. If the end time is earlier than the start, the period crosses midnight, so add 24 hours. Divide the minutes by 60 for decimal hours.
-
-Formula:
-```
-Minutes = end − start − break   (add 1,440 if end is before start)
-Decimal hours = minutes ÷ 60
-```
-
-Example: From 8:00 AM to 5:00 PM is 9 hours (540 minutes, 9.00 decimal hours). Take off a 30-minute unpaid lunch and the time worked is 8 hours 30 minutes, or 8.50 decimal hours. Overnight, 7:00 PM to 7:00 AM is 12 hours.
-
-### Pay Raise Calculator
-URL: https://numbrik.com/pay-raise-calculator/
-
-See your new pay after a raise. Enter your current hourly wage or salary and the raise as a percentage or an amount, or enter your old and new pay to find the raise percentage.
-
-Q: How do you calculate a pay raise?
-A: A percentage raise multiplies your pay by one plus the percentage: a 4% raise on $50,000 is $50,000 × 1.04 = $52,000.
-
-Formula:
-```
-New pay = old pay × (1 + raise% ÷ 100)
-Raise % = (new pay − old pay) ÷ old pay × 100
-Yearly = hourly × 2,080
-```
-
-Example: A 5% raise on $24.00 an hour gives $25.20 an hour, which is $52,416 a year, or $2,496 more than before. Going from $50,000 to $53,000 is a raise of 3,000 ÷ 50,000 = 6%.
-
-### Take-Home Pay Calculator
-URL: https://numbrik.com/take-home-pay-calculator/
-
-Estimate your take-home pay per paycheck in the United States for 2026, after federal income tax, Social Security, Medicare, an estimated state tax and pre-tax deductions such as a 401(k).
-
-Q: How do you calculate take-home pay?
-A: Start with gross pay, subtract pre-tax deductions such as 401(k) contributions, then subtract federal income tax, Social Security (6.2%), Medicare (1.45%) and any state income tax. What's left is your net pay.
-
-Formula:
-```
-Taxable income = salary − pre-tax deductions − standard deduction
-Federal tax    = sum of each bracket slice × its rate
-Social Security = 6.2% × min(salary, $184,500)
-Medicare       = 1.45% × salary (+0.9% above $200,000 single / $250,000 joint)
-Take-home      = salary − pre-tax − federal − Social Security − Medicare − state
-```
-
-Example: A single filer earning $65,000 with no pre-tax deductions in a state with no income tax pays about $5,620 in federal income tax, $4,030 in Social Security and $942 in Medicare. Take-home pay is about $54,408 a year, or $2,092.60 every two weeks. A married couple earning $100,000 together, putting $6,000 into a 401(k) and paying an estimated 5% state tax, takes home about $74,730 a year.
-
-### Time Card Calculator
-URL: https://numbrik.com/time-card-calculator/
-
-Enter start and end times for each day, take off unpaid breaks, and get total hours, overtime and gross pay for the week. Overtime rules follow the region you pick at the top of the page.
-
-Q: How do you calculate hours on a time card?
-A: For each day, subtract the clock-in time from the clock-out time, then subtract unpaid breaks. Add the days together for the weekly total. Under the US federal rule, hours over 40 in a workweek are overtime, paid at 1.5 times the regular rate.
-
-Formula:
-```
-Daily hours   = (end − start − break minutes) ÷ 60
-Overtime      = max(0, weekly hours − threshold)
-Gross pay     = regular hours × rate + overtime × rate × multiplier
-```
-
-Example: The calculator opens with an example week: five weekday shifts and a short Saturday, totalling 43.25 hours. At $22.50 an hour with overtime after 40 hours at 1.5×, that is 40 regular hours ($900.00) plus 3.25 overtime hours at $33.75 ($109.69), for gross pay of $1,009.69.
-
-## Students
-
-### Final Grade Calculator
-URL: https://numbrik.com/final-grade-calculator/
-
-Find out what score you need on your final exam to reach the grade you want, whether that's keeping an A or making sure you pass.
-
-Q: What do I need on my final exam?
-A: Required score = (target grade − current grade × (1 − final weight)) ÷ final weight. With an 85% average, a final worth 25% and a 90% target, you need (90 − 85 × 0.75) ÷ 0.25 = 105%, so a 90 isn't reachable.
-
-Formula:
-```
-Needed on final = (target − current × (1 − final weight)) ÷ final weight
-```
-
-Example: With a current grade of 84% and a final worth 25%, you need 88% on the final to finish with 85%. To get a 90% (an A), you would need 108%, which isn't possible without extra credit.
-
-### GCF Calculator
-URL: https://numbrik.com/gcf-calculator/
-
-Find the greatest common factor (GCF) of 2 to 20 whole numbers. It's also called the greatest common divisor (GCD) or highest common factor (HCF). Each number's prime factorization is shown so you can check the answer.
-
-Q: How do you find the greatest common factor?
-A: The greatest common factor is the largest number that divides every number in the list without a remainder. With prime factorization, multiply the primes the numbers share, each at its lowest power.
-
-Formula:
-```
-GCF(a, b) = GCF(b, a mod b), until the remainder is 0
-```
-
-Example: 48 = 2⁴ × 3, 180 = 2² × 3² × 5 and 72 = 2³ × 3². The shared primes at their lowest powers are 2² × 3 = 12. With Euclid: 180 mod 48 = 36, 48 mod 36 = 12, 36 mod 12 = 0, so GCF(180, 48) = 12.
-
-### GPA Calculator
-URL: https://numbrik.com/gpa-calculator/
-
-Add your courses, letter grades and credits to get your semester GPA on the 4.0 scale. Add your current GPA and credits to see your new cumulative GPA.
-
-Q: How do you calculate GPA?
-A: Each letter grade has a grade-point value. The calculator multiplies each grade's points by the course credits, adds them up and divides by the total credits, so a 4-credit course counts more than a 1-credit lab.
-
-Formula:
-```
-GPA = Σ(grade points × credits) ÷ Σ credits
-Cumulative = (current GPA × earned credits + new grade points) ÷ (earned + new credits)
-```
-
-Example: The example term has five courses worth 14 credits and 50.4 grade points, a semester GPA of 3.60. A student who already had a 3.40 GPA over 45 credits would move to a cumulative 3.45.
-
-### Grade Calculator
-URL: https://numbrik.com/grade-calculator/
-
-Work out your current grade in a class from weighted assignments and categories, such as homework, quizzes, exams and projects. See your percentage and letter grade straight away.
-
-Q: How do you calculate a weighted grade?
-A: Most classes give each category a weight, such as homework 20% and exams 50%. Your grade is a weighted average: each score is multiplied by its weight, the results are added up, and the total is divided by the sum of the weights.
-
-Formula:
-```
-Grade = Σ(score × weight) ÷ Σ weight
-Score % = points earned ÷ points possible × 100
-```
-
-Example: The example class has homework at 92% (weight 20), quizzes at 85% (15), a midterm at 78% (25), a project at 88% (15) and participation at 100% (5). That adds up to 6,885 weighted points over 80 weight, a current grade of 86.1%, which is a B. The final exam, worth the remaining 20%, is still to come.
-
-### LCM Calculator
-URL: https://numbrik.com/lcm-calculator/
-
-Find the least common multiple of 2 to 20 whole numbers, with the prime factorization of each number shown.
-
-Q: How do you find the least common multiple?
-A: The least common multiple is the smallest positive number that every number in your list divides into evenly. One way to find it is prime factorization: write each number as a product of primes and multiply together the highest power of every prime that appears.
-
-Formula:
-```
-LCM(a, b) = a × b ÷ GCF(a, b)
-LCM(a, b, c) = LCM(LCM(a, b), c)
-```
-
-Example: 12 = 2² × 3, 18 = 2 × 3² and 30 = 2 × 3 × 5. Taking the highest power of each prime gives 2² × 3² × 5 = 180.
 
 ## Converters
 

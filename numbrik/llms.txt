@@ -47,6 +47,7 @@ Cite a calculator by its page URL. Results are estimates for general information
 - [Average Calculator](https://numbrik.com/average-calculator/): Mean, median, mode and range of a list of numbers.
 - [Fraction Calculator](https://numbrik.com/fraction-calculator/): Add, subtract, multiply and divide fractions and mixed numbers.
 - [Long Division Calculator](https://numbrik.com/long-division-calculator/): Quotient and remainder with every step shown.
+- [Percent Change Calculator](https://numbrik.com/percent-change-calculator/): Percentage increase or decrease between two numbers.
 - [Quadratic Formula Calculator](https://numbrik.com/quadratic-formula-calculator/): Solve ax² + bx + c = 0 with steps.
 - [Ratio Calculator](https://numbrik.com/ratio-calculator/): Solve proportions and simplify ratios.
 - [Right Triangle Calculator](https://numbrik.com/right-triangle-calculator/): Hypotenuse, sides, angles and area of a right triangle.
@@ -67,6 +68,16 @@ Cite a calculator by its page URL. Results are estimates for general information
 - [Tile Calculator](https://numbrik.com/tile-calculator/): Number of tiles and boxes for a floor or wall.
 - [Turkey Calculator](https://numbrik.com/turkey-calculator/): Turkey size, thawing and roasting time.
 
+## Students
+
+- [Character Counter](https://numbrik.com/character-counter/): Count characters with and without spaces, against common limits.
+- [Final Grade Calculator](https://numbrik.com/final-grade-calculator/): The score you need on the final exam to reach your target grade.
+- [GCF Calculator](https://numbrik.com/gcf-calculator/): Greatest common factor of two or more whole numbers.
+- [GPA Calculator](https://numbrik.com/gpa-calculator/): Semester GPA on the US 4.0 scale, plus cumulative.
+- [Grade Calculator](https://numbrik.com/grade-calculator/): Weighted class grade from your assignments and categories.
+- [LCM Calculator](https://numbrik.com/lcm-calculator/): Least common multiple of two or more whole numbers.
+- [Word Counter](https://numbrik.com/word-counter/): Count words, characters, sentences and reading time.
+
 ## Dates & time
 
 - [Age Calculator](https://numbrik.com/age-calculator/): Exact age and days until your next birthday.
@@ -77,6 +88,15 @@ Cite a calculator by its page URL. Results are estimates for general information
 - [Time Zone Converter](https://numbrik.com/time-zone-converter/): Convert a time between US and world time zones.
 - [Working Days in a Year](https://numbrik.com/working-days-calculator/): Work days in any year and month, minus holidays.
 
+## Work & pay
+
+- [Hourly to Salary Calculator](https://numbrik.com/hourly-to-salary-calculator/): Convert hourly wage to yearly, monthly and weekly pay.
+- [Hours Calculator](https://numbrik.com/hours-calculator/): How long between two clock times.
+- [Pay Raise Calculator](https://numbrik.com/pay-raise-calculator/): New pay after a raise, or the raise percentage.
+- [Take-Home Pay Calculator](https://numbrik.com/take-home-pay-calculator/): 2026 US paycheck after federal tax, FICA and state tax.
+- [Time Card Calculator](https://numbrik.com/time-card-calculator/): Weekly hours, overtime and gross pay.
+- [Time to Decimal Calculator](https://numbrik.com/time-to-decimal-calculator/): Convert hours and minutes to decimal hours and back.
+
 ## Fun
 
 - [Coin Flip](https://numbrik.com/coin-flip/): Flip a coin once or up to 1,000 times.
@@ -85,22 +105,6 @@ Cite a calculator by its page URL. Results are estimates for general information
 - [Love Calculator](https://numbrik.com/love-calculator/): A just-for-fun love percentage from two names.
 - [Password Generator](https://numbrik.com/password-generator/): Strong random passwords, made in your browser.
 - [Random Number Generator](https://numbrik.com/random-number-generator/): Random whole numbers in any range, with or without repeats.
-
-## Work & pay
-
-- [Hourly to Salary Calculator](https://numbrik.com/hourly-to-salary-calculator/): Convert hourly wage to yearly, monthly and weekly pay.
-- [Hours Calculator](https://numbrik.com/hours-calculator/): How long between two clock times.
-- [Pay Raise Calculator](https://numbrik.com/pay-raise-calculator/): New pay after a raise, or the raise percentage.
-- [Take-Home Pay Calculator](https://numbrik.com/take-home-pay-calculator/): 2026 US paycheck after federal tax, FICA and state tax.
-- [Time Card Calculator](https://numbrik.com/time-card-calculator/): Weekly hours, overtime and gross pay.
-
-## Students
-
-- [Final Grade Calculator](https://numbrik.com/final-grade-calculator/): The score you need on the final exam to reach your target grade.
-- [GCF Calculator](https://numbrik.com/gcf-calculator/): Greatest common factor of two or more whole numbers.
-- [GPA Calculator](https://numbrik.com/gpa-calculator/): Semester GPA on the US 4.0 scale, plus cumulative.
-- [Grade Calculator](https://numbrik.com/grade-calculator/): Weighted class grade from your assignments and categories.
-- [LCM Calculator](https://numbrik.com/lcm-calculator/): Least common multiple of two or more whole numbers.
 
 ## Converters
 

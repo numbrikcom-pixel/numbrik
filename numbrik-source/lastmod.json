@@ -1,7 +1,7 @@
 {
 "/": [
-"9ebc28dad3fe4aa78f67f9f0ccccd396a496de6e",
-"2026-11-08",
+"f84105dc0d787fed122e7b721f41033619ecc3dc",
+"2026-11-11",
 2
 ],
 "/10-days-from-today/": [
@@ -299,6 +299,11 @@
 "2026-11-09",
 2
 ],
+"/character-counter/": [
+"879c2df704f2dc31549d98097167c00a95f96a09",
+"2026-11-11",
+2
+],
 "/coin-flip/": [
 "f39c618b120af5e79d2d685793125793fe23ae7e",
 "2026-11-09",
@@ -510,8 +515,8 @@
 2
 ],
 "/math-calculators/": [
-"599bff09c676439301921dfdd2963fdc387ffc80",
-"2026-11-09",
+"584a2e892a40d303987dd54a1bc8d34e4a599bb7",
+"2026-11-11",
 2
 ],
 "/military-time-converter/": [
@@ -557,6 +562,11 @@
 "/pay-raise-calculator/": [
 "4e6b0157cac173cb19b4b717e2069927732230bb",
 "2026-11-09",
+2
+],
+"/percent-change-calculator/": [
+"5724fbd16f2261f7281bddfed1197323e2836153",
+"2026-11-11",
 2
 ],
 "/percentage-calculator/": [
@@ -625,8 +635,8 @@
 2
 ],
 "/sales-tax-calculator/": [
-"952d7534c9429fc93d504169745208e5684b87c8",
-"2026-11-09",
+"403bf11a407495bd9e1c5fbdc14f8a5586a750c7",
+"2026-11-11",
 2
 ],
 "/save-our-homes-calculator/": [
@@ -650,8 +660,8 @@
 2
 ],
 "/sitemap/": [
-"0f2870be23e3740032765baa19301066801329ea",
-"2026-11-08",
+"61c685d3eeba5b3527107c53006b6e017fd16e41",
+"2026-11-11",
 2
 ],
 "/sleep-calculator/": [
@@ -680,8 +690,8 @@
 2
 ],
 "/student-calculators/": [
-"07209199822a9686d254447c070039e6b3b31ced",
-"2026-11-05",
+"3765ce5f7b4250e18578cf4b4557cd2b29fe5004",
+"2026-11-11",
 2
 ],
 "/take-home-pay-calculator/": [
@@ -709,6 +719,11 @@
 "2026-11-09",
 2
 ],
+"/time-to-decimal-calculator/": [
+"99153f8184e1b9271d6ed1d052d51eeec840b6cc",
+"2026-11-11",
+2
+],
 "/time-zone-converter/": [
 "f458b6329fac0f04bcf623685ccf1ccf8ec9d983",
 "2026-11-09",
@@ -734,9 +749,14 @@
 "2026-11-09",
 2
 ],
+"/word-counter/": [
+"1efd4212d7bd6937a0c406d7f61be1a7a74d6fd2",
+"2026-11-11",
+2
+],
 "/work-and-pay-calculators/": [
-"1c71d6ca88397dec5eab316f183394ae922c78de",
-"2026-11-07",
+"8514fc6653f96f34f492c703e8f15bf2a4499aae",
+"2026-11-11",
 2
 ],
 "/working-days-calculator/": [

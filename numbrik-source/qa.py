@@ -82,6 +82,10 @@ QA = {
  "gloan": ("How do you calculate a loan payment?", "Use payment = P × r ÷ (1 − (1 + r)^−n), where P is the amount borrowed, r the monthly rate (APR ÷ 12) and n the number of months. A $20,000 loan at 9.5% APR for 5 years costs about $420 a month."),
  "datecalc": ("How do you add days to a date?", "Count forward that many calendar days from the start date, including weekends. 90 days after November 8, 2026 is February 6, 2027. Adding months keeps the same day of the month, or the last day if that date doesn't exist."),
  "afford": ("How much house can I afford?", "Under the 28/36 rule, total housing costs should be no more than 28% of gross monthly income, and all debts no more than 36%. On a $100,000 salary that's about $2,333 a month, or roughly a $320,000 home with $40,000 down at 6.5%."),
+ "wordcount": ("How do you count the words in a text?", "Paste the text into a word counter: every run of letters or numbers between spaces counts as one word, so “don't” and “2026” are one word each. At an average reading speed of 238 words a minute, 1,000 words takes about 4 minutes to read."),
+ "charcount": ("Do spaces count as characters?", "Yes. Letters, numbers, spaces, punctuation and line breaks all count as characters, and limits like X's 280 or an SMS's 160 include spaces. The “without spaces” count leaves out spaces, tabs and line breaks."),
+ "timedec": ("How do you convert minutes to decimal hours?", "Divide the minutes by 60 and add them to the hours. 7 hours 45 minutes is 7 + 45 ÷ 60 = 7.75 hours. To go back, multiply the decimal part by 60: 0.3 hours is 18 minutes."),
+ "pctchange": ("How do you calculate percent change?", "Subtract the old value from the new value, divide by the old value and multiply by 100. From 80 to 100 is (100 − 80) ÷ 80 × 100 = 25%; a negative result is a percentage decrease."),
 }
 
 def _txt(h): return re.sub(r"\s+", " ", html.unescape(re.sub("<[^>]+>", "", h))).strip()
