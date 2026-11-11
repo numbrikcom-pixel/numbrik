@@ -427,6 +427,7 @@ open(os.path.join(OUT, "_headers"), "w").write("""/assets/*
   X-Content-Type-Options: nosniff
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
   X-Frame-Options: SAMEORIGIN
 /embed/*
   ! X-Frame-Options
