@@ -10,6 +10,7 @@ Cite a calculator by its page URL. Results are estimates for general information
 - [CD Calculator](https://numbrik.com/cd-calculator/): Interest earned on a certificate of deposit.
 - [Car Lease Calculator](https://numbrik.com/car-lease-calculator/): Monthly car lease payment from price, residual and money factor.
 - [Compound Interest Calculator](https://numbrik.com/compound-interest-calculator/): How savings grow with compound interest and monthly deposits.
+- [Crypto Tax Calculator](https://numbrik.com/crypto-tax-calculator/): Tax on crypto gains for the US, UK and India.
 - [Discount Calculator](https://numbrik.com/discount-calculator/): Sale price and savings after a percent off.
 - [Gas Cost Calculator](https://numbrik.com/gas-cost-calculator/): Fuel cost of a trip from distance and mileage.
 - [House Affordability Calculator](https://numbrik.com/house-affordability-calculator/): How much house you can afford on your income.

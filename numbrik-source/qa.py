@@ -91,6 +91,7 @@ QA = {
  "savings": ("How much will my savings grow?", "Each month the balance earns interest at the monthly equivalent of the APY and your deposit is added. $5,000 plus $300 a month at 4.25% APY grows to about $26,100 in 5 years, including about $3,100 of interest."),
  "studentloan": ("How do you calculate a student loan payment?", "Use payment = P × r ÷ (1 − (1 + r)^−n), with r the monthly rate and n the months. $30,000 at 6.5% on the 10-year standard plan is about $341 a month and $10,900 of interest."),
  "rentbuy": ("Is it better to rent or buy a home?", "Buying usually beats renting only if you stay five years or more, because buying and selling costs around 9% of the price. Compare the total cost of owning, minus your equity at sale, with the total rent you'd pay."),
+ "cryptotax": ("How much tax do you pay on crypto gains?", "In the US, crypto held a year or less is taxed as ordinary income (10–37%) and longer holdings at 0%, 15% or 20% for 2026, plus 3.8% NIIT for high earners. The UK charges 18% or 24% above a £3,000 allowance; India charges a flat 31.2% with 1% TDS."),
 }
 
 def _txt(h): return re.sub(r"\s+", " ", html.unescape(re.sub("<[^>]+>", "", h))).strip()

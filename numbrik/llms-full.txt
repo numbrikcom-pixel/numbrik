@@ -73,6 +73,25 @@ P = starting amount, r = yearly rate, k = compounding periods per year, t = year
 
 Example: $10,000 at 7% compounded monthly, plus $200 a month for 10 years, grows to about $54,714. You put in $34,000, so about $20,714 is interest.
 
+### Crypto Tax Calculator
+URL: https://numbrik.com/crypto-tax-calculator/
+
+Estimate the tax on a crypto sale or trade. Pick your country, enter what you paid and what you sold for, and see the tax, the rate on your gain and what you keep. It covers US federal capital gains for 2026, UK Capital Gains Tax and India's 30% tax on virtual digital assets.
+
+Q: How much tax do you pay on crypto gains?
+A: In the US, crypto held a year or less is taxed as ordinary income (10–37%) and longer holdings at 0%, 15% or 20% for 2026, plus 3.8% NIIT for high earners. The UK charges 18% or 24% above a £3,000 allowance; India charges a flat 31.2% with 1% TDS.
+
+Formula:
+```
+Gain = sale value − cost (including fees)
+US short-term: tax at your ordinary income brackets
+US long-term: 0% / 15% / 20% by taxable income (+3.8% NIIT for high incomes)
+UK: (gain − £3,000) × 18% or 24%
+India: gain × 30% × 1.04 = 31.2%
+```
+
+Example: A single filer earning $75,000 sells Bitcoin bought for $5,000 for $8,000, a $3,000 gain. Held over a year, the gain is taxed at 15%: about $450. Sold within a year, it's taxed as ordinary income in the 22% bracket: about $660. Holding for one more day past the one-year mark saves $210.
+
 ### Discount Calculator
 URL: https://numbrik.com/discount-calculator/
 
