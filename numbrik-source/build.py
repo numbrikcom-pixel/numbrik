@@ -63,6 +63,7 @@ def head(title, desc, path, extra_ld=None, noindex=False):
 <meta property="og:title" content="{E(title)}">
 <meta property="og:description" content="{E(desc)}">
 <meta property="og:url" content="{url}">
+<meta name="p:domain_verify" content="bdbcdb1eef06ada639138c860f695933">
 <meta property="og:image" content="{DOMAIN}{OGIMG.get(path, "/og.png")}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
