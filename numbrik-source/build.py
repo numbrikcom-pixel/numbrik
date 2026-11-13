@@ -179,7 +179,7 @@ for t in T:
             *([{"@type": "ListItem", "position": 2, "name": cats.CATS[t["cat"]][1], "item": DOMAIN + cats.cat_url(t["cat"])}] if t["cat"] in cats.CATS else []),
             {"@type": "ListItem", "position": 3 if t["cat"] in cats.CATS else 2, "name": t["name"], "item": url}]},
         {"@type": "WebPage", "@id": url + "#webpage", "name": t["title"], "url": url, "description": t["meta"], "inLanguage": "en-US", "dateModified": TODAY,
-         "author": {"@type": "Organization", "name": "Numbrik team", "url": DOMAIN + "/about/"}, "publisher": PUBLISHER,
+         "author": {"@type": "Organization", "name": "Numbrik team", "url": DOMAIN + "/about/"}, "publisher": PUBLISHER, **({"citation": [{"@type": "CreativeWork", "name": n, "url": u} for n, u in t["cite"]]} if t.get("cite") else {}), **({"about": [{"@type": "Thing", "name": n, "sameAs": u} for n, u in t["about"]]} if t.get("about") else {}),
          "isPartOf": {"@type": "WebSite", "name": "Numbrik", "url": DOMAIN + "/"},
          "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".quick-answer p", ".lede"]}},
         {"@type": "HowTo", "name": f"How to use the {t['name']}", "step": [{"@type": "HowToStep", "position": i + 1, "text": s_} for i, s_ in enumerate(t["steps"])]},
@@ -199,6 +199,7 @@ for t in T:
     {quick}
     <!-- Ad slot: below calculator -->
     <article class="prose">
+      {('<nav class="toc" aria-label="On this page"><strong>On this page</strong><ol>' + "".join(f'<li><a href="#{i}">{E(x)}</a></li>' for i, x in t["toc"]) + '</ol></nav>') if t.get("toc") else ""}
       <h2>How to use the {E(t["name"])}</h2>
       <ol>{steps}</ol>
       <h2>How it works</h2>

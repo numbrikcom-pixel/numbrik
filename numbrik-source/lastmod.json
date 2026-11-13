@@ -245,83 +245,83 @@
 2
 ],
 "/age-calculator/": [
-"8fa24d3b4e0b6b253e71c8c5fd506d7ed3b8aa72",
-"2026-11-09",
+"f6809a45ba23d4af4c0d729842a07bb5a84cc5d1",
+"2026-11-13",
 2
 ],
 "/auto-loan-calculator/": [
-"1e0800e72f1800ba4de180c40aea1752d647f644",
-"2026-11-09",
+"bd4551df4daecb537b487cedc63284f053f8ec78",
+"2026-11-13",
 2
 ],
 "/average-calculator/": [
-"4b5ba2c6b831d360a4cccbb6413a19cf88a28e2f",
-"2026-11-09",
+"50326a82620ee35a33b50a7e08a74f5d4e3df242",
+"2026-11-13",
 2
 ],
 "/bac-calculator/": [
-"9428a83ed6d745ec7f211254c29229d0eea002e4",
-"2026-11-09",
+"494ae48eaf4b4bd4bbe10c6cf83d4308268ea52c",
+"2026-11-13",
 2
 ],
 "/bmi-calculator/": [
-"2de66ec58b113822dde7d58bd6bed8b1fb7a0751",
-"2026-11-09",
+"048e8ed1558fb19d199dfe57b717fdc851e33b42",
+"2026-11-13",
 2
 ],
 "/bmr-calculator/": [
-"67520bea6aaa4794c58fbe45d7b6a43207b4a5bd",
-"2026-11-09",
+"88e309214348d7f62f682cb5550f022e19d7441d",
+"2026-11-13",
 2
 ],
 "/body-fat-calculator/": [
-"f19e6b24f95c66aed5a1bb792e61b8207ef644b8",
-"2026-11-09",
+"9706956fdbd1daedbf0271520a626da3949891df",
+"2026-11-13",
 2
 ],
 "/bra-size-calculator/": [
-"f4b251f88fc5f63b75534a65adcec36e23502752",
-"2026-11-09",
+"285d7a7456229f77b2ea8ee4fd0a9c9010bb9f61",
+"2026-11-13",
 2
 ],
 "/calorie-calculator/": [
-"6e75242107621e4af8edfc955d7566d4cd9fc553",
-"2026-11-09",
+"5e5a0cc2a14bf96cd9a02b61f2f15388d9a0066d",
+"2026-11-13",
 2
 ],
 "/calorie-deficit-calculator/": [
-"e47a7b1d762df2282ef9f6969cfe39526fb7d0d4",
-"2026-11-09",
+"1b854f8e4c33b4129fcdb5e6f203a28ec814e3b2",
+"2026-11-13",
 2
 ],
 "/car-lease-calculator/": [
-"d1bb3f0f98c4e534e8491011d9679f40c4725108",
-"2026-11-11",
+"fb7ca6bef4d6947f611874f9198a932343da0c6d",
+"2026-11-13",
 2
 ],
 "/cd-calculator/": [
-"3ca2feba8b504a6d54a29720d62870bd94baa452",
-"2026-11-09",
+"efa7e490caaa48b15264eea26691ab2376644f26",
+"2026-11-13",
 2
 ],
 "/character-counter/": [
-"879c2df704f2dc31549d98097167c00a95f96a09",
-"2026-11-11",
+"25a80be03134786ba0fea4bfb57c9571140e77a3",
+"2026-11-13",
 2
 ],
 "/coin-flip/": [
-"f39c618b120af5e79d2d685793125793fe23ae7e",
-"2026-11-09",
+"6a360b0e8757c7e08e8c49835cf0b0586ddc8b21",
+"2026-11-13",
 2
 ],
 "/compound-interest-calculator/": [
-"23ff82a03f48e5f97c5dbd76b8b85dae8c21d66e",
-"2026-11-09",
+"27c82d4574231dfde2d1d4454673555d02ae4116",
+"2026-11-13",
 2
 ],
 "/concrete-calculator/": [
-"8f74d80d15ef1fc23fab672ae78023b848e5a584",
-"2026-11-09",
+"d5249ed465f69a99f766c099196259c031599f89",
+"2026-11-13",
 2
 ],
 "/contact/": [
@@ -335,8 +335,8 @@
 2
 ],
 "/crypto-tax-calculator/": [
-"d8a06d5daf47a18f250a68498f5d75db7259fbe1",
-"2026-11-12",
+"8d0a67fa019a58db9428801053c91a523019a1ad",
+"2026-11-13",
 2
 ],
 "/date-and-time-calculators/": [
@@ -345,13 +345,13 @@
 2
 ],
 "/date-calculator/": [
-"4c32f98980258ca273d47f71158109e74a5b1a5b",
-"2026-11-09",
+"08e77c374373ab35151be5a77e1b3ded26500ac9",
+"2026-11-13",
 2
 ],
 "/days-between-dates/": [
-"05a36579c03043e9f3a4771dc15104da2d8c3ba2",
-"2026-11-09",
+"eceecacddeb9027470c26275535a2a223bd98560",
+"2026-11-13",
 2
 ],
 "/days-from-today/": [
@@ -400,58 +400,58 @@
 2
 ],
 "/dice-roller/": [
-"1ecb59d7a02abb3635a85ff42356f408b10c1007",
-"2026-11-09",
+"12d54fb22eb833d0ee63d71e305e617f33f28c86",
+"2026-11-13",
 2
 ],
 "/discount-calculator/": [
-"26f2cd4c801e7bc23574492b7d027803d69d9d75",
-"2026-11-09",
+"228c119b56dd0b25f22887b2e884b15e1a9af08b",
+"2026-11-13",
 2
 ],
 "/due-date-calculator/": [
-"cb092dc120af1a4f98d626aa7e80b4e77ca50952",
-"2026-11-09",
+"006597816b957d4b370391c1784808acbc3d060c",
+"2026-11-13",
 2
 ],
 "/final-grade-calculator/": [
-"c33123b81fd737870f16e286e7f4e945a448e2d0",
-"2026-11-09",
+"c92db7eee5bfc6fd8c34bbb50f4b26fde80f4095",
+"2026-11-13",
 2
 ],
 "/fraction-calculator/": [
-"0699c81aded4170b990f6412e93b41e3ade3340a",
-"2026-11-09",
+"de9cd96a755f9b431c5d6abe70f20c507ff5cffa",
+"2026-11-13",
 2
 ],
 "/gas-cost-calculator/": [
-"7da1a439c34fa065327d44d05defc41767f6e6be",
-"2026-11-09",
+"469918207f6d777d9c36b9aa48536e43d792e214",
+"2026-11-13",
 2
 ],
 "/gcf-calculator/": [
-"215cc36682a137739be26ffcf4a2d47b18ea2e2e",
-"2026-11-09",
+"37234f566f85ab1c5def0f3ac7a0bcb50ac670a6",
+"2026-11-13",
 2
 ],
 "/gpa-calculator/": [
-"85f2c602eaacba7d1ac9f072562b2bc54dd13d6a",
-"2026-11-09",
+"d15f699ee2406a89f54b3e5bea216db048c774d5",
+"2026-11-13",
 2
 ],
 "/grade-calculator/": [
-"f0a4c761a2b91a885708d8f6992ed54cc1066f3b",
-"2026-11-09",
+"2ee31739ff6b48db15ee597e555a03fdbeaba78c",
+"2026-11-13",
 2
 ],
 "/gravel-calculator/": [
-"8f4fa7a7b53199143f6bb6e8eb5f37047a23445d",
-"2026-11-09",
+"3b41a20ff7ba996a2534f2966c11620e9c842a62",
+"2026-11-13",
 2
 ],
 "/half-birthday-calculator/": [
-"c09f4c9e7d69df3bcc77ef6195298dd875e4e9c6",
-"2026-11-09",
+"b825f57435f6c4124289ad37e8c5f39d4e81b70e",
+"2026-11-13",
 2
 ],
 "/health-calculators/": [
@@ -460,8 +460,8 @@
 2
 ],
 "/height-calculator/": [
-"751fc5f3ed51c3083817bc44c4493a83450ecba0",
-"2026-11-09",
+"1a789414c0c8ed1d65cfb760019b370a79dcc2c7",
+"2026-11-13",
 2
 ],
 "/home-project-calculators/": [
@@ -470,58 +470,58 @@
 2
 ],
 "/hourly-to-salary-calculator/": [
-"47f21bee5f4a7810e0c840502e9b42ffbc1a86a5",
-"2026-11-09",
+"f919ec440f9846b363167ef3caf76533629f2aa9",
+"2026-11-13",
 2
 ],
 "/hours-calculator/": [
-"986842433c735ae8675bde0b6c4fa2bf6bd89063",
-"2026-11-09",
+"6c926db5b3f8d1c86676a04fb8ad07b2c9e4c72b",
+"2026-11-13",
 2
 ],
 "/house-affordability-calculator/": [
-"6703c33bf422dfd8027aeb575ce4bad3d6c9dd9a",
-"2026-11-09",
+"0df6b8ee4a177f0e07aa8d45d7240f8d6e520d8f",
+"2026-11-13",
 2
 ],
 "/ideal-weight-calculator/": [
-"a09b800d2d510f744386b5a34ad44e3298ddaa1e",
-"2026-11-09",
+"f473f3d037d329931f9960c7e3bfca7d826a47ad",
+"2026-11-13",
 2
 ],
 "/lcm-calculator/": [
-"9884bad05ed444bbf0331b693aa1b7644d95485e",
-"2026-11-09",
+"4d5882fba216bbe0327df71d1f9af7edb1b602b3",
+"2026-11-13",
 2
 ],
 "/life-path-number-calculator/": [
-"dc499d36c851398e5c5a28d6666138cd5f2375e9",
-"2026-11-09",
+"082e715bae0330551a6dc6ef2f98ed319feceb50",
+"2026-11-13",
 2
 ],
 "/loan-calculator/": [
-"a426deac903050c04ac63daa4f3eb39fa2e41501",
-"2026-11-09",
+"99bcd8b542d281e4f20582edbaab4d32b93a4907",
+"2026-11-13",
 2
 ],
 "/long-division-calculator/": [
-"deddf58074a1dc18d3e5c1348b035a317a753d4f",
-"2026-11-09",
+"bffa18a83770273bf956671dec393ae71361b98a",
+"2026-11-13",
 2
 ],
 "/love-calculator/": [
-"d418805f0ac5098268856efdcad82323cfc528b0",
-"2026-11-09",
+"38c7c432235174db2b5fda6d14cb0a8b8bfbf080",
+"2026-11-13",
 2
 ],
 "/macro-calculator/": [
-"6930a89e8674a3b362ef9a5edf20327b3dc808a4",
-"2026-11-09",
+"2c27dc1b690252a83f25720705fdcd40bffd1ffc",
+"2026-11-13",
 2
 ],
 "/margin-calculator/": [
-"3b9dcd2cdda7449dd19a478adcc040fc38a671af",
-"2026-11-09",
+"0b51398fd055aaa83dc64c3c734fc4b8f35577d1",
+"2026-11-13",
 2
 ],
 "/math-calculators/": [
@@ -530,8 +530,8 @@
 2
 ],
 "/military-time-converter/": [
-"288257f980f43f174475c04fb8f5b8abdc90bd61",
-"2026-11-09",
+"94f10c22c6e3dcc5250dd84cf1be99d2645bcda1",
+"2026-11-13",
 2
 ],
 "/money-calculators/": [
@@ -540,53 +540,53 @@
 2
 ],
 "/mortgage-calculator/": [
-"bb5eb10afd8724c8f9f118581cb32c1b030a54d0",
-"2026-11-09",
+"0ac97f6fab3c96063825ccd40f1551a1b790a063",
+"2026-11-13",
 2
 ],
 "/mulch-calculator/": [
-"d3c7fb9adab353c1af6b110d529b1c2847c1615b",
-"2026-11-09",
+"398ed62d38bc8c616e9154630beb5fd1e31ddec1",
+"2026-11-13",
 2
 ],
 "/one-rep-max-calculator/": [
-"a5941ff08ac3f750a41dd36342d9a31db8187fb7",
-"2026-11-09",
+"bfe43c4f6aaece202fb0c937aa7aa2fab36b2271",
+"2026-11-13",
 2
 ],
 "/pace-calculator/": [
-"1535906282a4a233c0ea49a6b65610665d6e8f14",
-"2026-11-09",
+"d244a6fd8cf82541da9495700059cf6dcaa1e3f6",
+"2026-11-13",
 2
 ],
 "/paint-calculator/": [
-"3c1cff1c1fe4e1c25eedfe1f9e64f80a10681949",
-"2026-11-09",
+"d074f00907302714a870633118e6e454aad5c769",
+"2026-11-13",
 2
 ],
 "/password-generator/": [
-"f30e8001a56dc8385bfdceba7ee075b742d18f56",
-"2026-11-09",
+"e6109ff3c6e649f2b7eb1f2ce96b87142d1396ed",
+"2026-11-13",
 2
 ],
 "/pay-raise-calculator/": [
-"4e6b0157cac173cb19b4b717e2069927732230bb",
-"2026-11-09",
+"3800a6a1d6d3e419d2f5edd595a769cdab336542",
+"2026-11-13",
 2
 ],
 "/percent-change-calculator/": [
-"5724fbd16f2261f7281bddfed1197323e2836153",
-"2026-11-11",
+"e89c118a35ee0eeed23948bb2fed7341fc90ba67",
+"2026-11-13",
 2
 ],
 "/percentage-calculator/": [
-"077c040de2bf94089c278b8ee6eb09a7de0340e8",
-"2026-11-09",
+"8b41326c22de4dc6daa5fd6b52a49d3ab3b522e4",
+"2026-11-13",
 2
 ],
 "/period-calculator/": [
-"da45b19dc6d7dc8c50d13e573fce6f90ed021fd4",
-"2026-11-09",
+"c02ceef5340a41b62235d43d397fed21be7e5bca",
+"2026-11-13",
 2
 ],
 "/privacy-policy/": [
@@ -595,13 +595,13 @@
 2
 ],
 "/protein-calculator/": [
-"a0c5197dd71eadacbbe03365dbb23cc5ff1c936f",
-"2026-11-09",
+"2dd10f05e12db1313af6df05fc81020939edd78e",
+"2026-11-13",
 2
 ],
 "/quadratic-formula-calculator/": [
-"143b15296fe9c39b736ec1c1205a7595272e4f74",
-"2026-11-09",
+"27269bc8913fbccfbdd1cd36a6e6dd7fad7cbff3",
+"2026-11-13",
 2
 ],
 "/random-and-game-tools/": [
@@ -610,43 +610,43 @@
 2
 ],
 "/random-number-generator/": [
-"d280ca5232c7255a65b7a13494279cf422bf09c4",
-"2026-11-09",
+"c8d5658102844a7ced744217bdcf0589357c620b",
+"2026-11-13",
 2
 ],
 "/ratio-calculator/": [
-"5e37205eb5cb9aedbba2c50f36ef3d69a6b28d9f",
-"2026-11-09",
+"a4bd2511ec8446ebb26c0e498bd55acd7ae5881b",
+"2026-11-13",
 2
 ],
 "/rent-vs-buy-calculator/": [
-"c4edb9b3da1e7f1ce1bc5c8c02df3037a508db7e",
-"2026-11-11",
+"68e344607d904ec1cde0e9d31398be1a8eb2ace1",
+"2026-11-13",
 2
 ],
 "/retirement-calculator/": [
-"fdf07d6bca3848c05503b2c233a1c66db707dcde",
-"2026-11-11",
+"c66ac918abb51d3bda48f675da5feba6b7bbcba9",
+"2026-11-13",
 2
 ],
 "/right-triangle-calculator/": [
-"eb73f9acc5d3f98dc09d2788cefa86553064bbc8",
-"2026-11-09",
+"8ee785c5fb6e7d5c9a831a2599b7e3ac8aa1369b",
+"2026-11-13",
 2
 ],
 "/rmd-calculator/": [
-"5b10546011cb4f32f2e255a94f6e2548c1bdffba",
-"2026-11-09",
+"40d5f54b244e567765eb7c56546e375796a66c05",
+"2026-11-13",
 2
 ],
 "/roman-numeral-converter/": [
-"0c87194e33f80cb46c6c91c6f32bba1cbc6b5715",
-"2026-11-09",
+"b146d1fcf873c1c6f52c93a9156c8a0a913fe922",
+"2026-11-13",
 2
 ],
 "/rounding-calculator/": [
-"1a781e3730c3ee6effd1860ef085b1e06f02fbba",
-"2026-11-09",
+"c7f29b181b914ec023b618d5305f5f77e3df7204",
+"2026-11-13",
 2
 ],
 "/salary-conversions/": [
@@ -655,33 +655,33 @@
 2
 ],
 "/sales-tax-calculator/": [
-"403bf11a407495bd9e1c5fbdc14f8a5586a750c7",
-"2026-11-11",
+"5f6f04637433cd7183325587f250246e52a3ed8f",
+"2026-11-13",
 2
 ],
 "/save-our-homes-calculator/": [
-"339274128acb92a8291e248dc3495c1d4e5aad8d",
-"2026-11-09",
+"63f96c7a3d0bd1f81ae7512eeb41c5e73e6ec284",
+"2026-11-13",
 2
 ],
 "/savings-calculator/": [
-"9bb6586865a23b1888534d888f08684fd90fb2e9",
-"2026-11-11",
+"c8d5f97d8e0bd57f515697404e35b54dee45a02a",
+"2026-11-13",
 2
 ],
 "/scientific-calculator/": [
-"71e381f66eb63cc04cda6045c2007a89d67bf59b",
-"2026-11-09",
+"0aa673de8c786ca39c1104a5605ac29fdf0dffaf",
+"2026-11-13",
 2
 ],
 "/shoe-size-converter/": [
-"0c640cd8496d1dbe99971d9e22a6d2dabcac7e0f",
-"2026-11-09",
+"6e253291aafadfa162b285870ffa3a559be10aaf",
+"2026-11-13",
 2
 ],
 "/simple-interest-calculator/": [
-"cb67556af937c86e029084384fa5f4b34a707f52",
-"2026-11-09",
+"b382660192609e31445708dada88fa4f8b2959ca",
+"2026-11-13",
 2
 ],
 "/sitemap/": [
@@ -690,28 +690,28 @@
 2
 ],
 "/sleep-calculator/": [
-"42cda95ec7fbdd1db87d3b6237210287d616aef1",
-"2026-11-09",
+"b6272d728170a6451ccb97b2908c49fcf0073815",
+"2026-11-13",
 2
 ],
 "/slope-calculator/": [
-"db8f2a9efafcb63c6dab40a481e224aad2f75c93",
-"2026-11-09",
+"f06500114dd1df5df449b308191a22d62803b47f",
+"2026-11-13",
 2
 ],
 "/square-footage-calculator/": [
-"4e2bdf076a5e9377fd84f7cb83c96d0b77923c0c",
-"2026-11-09",
+"7e4dcb41d8ff256d8f2febf27546c5ac60e21c03",
+"2026-11-13",
 2
 ],
 "/stair-calculator/": [
-"314aa0a959e8af50f845aa30b82099d493ac447f",
-"2026-11-09",
+"88fd2332b022846d7238fcd6eb6676f6b89c3dda",
+"2026-11-13",
 2
 ],
 "/standard-deviation-calculator/": [
-"5e28ded4ec400b89a16f916f6becfc5f2af5d6c0",
-"2026-11-09",
+"3412db23a8a988ea52baddee6259ba23a9246d48",
+"2026-11-13",
 2
 ],
 "/student-calculators/": [
@@ -720,18 +720,18 @@
 2
 ],
 "/student-loan-calculator/": [
-"c170b3c2ec4b219ee0dc8656ca5c0120077b8b64",
-"2026-11-11",
+"877e5e0725f3b977526b957bd98accd9320ff87b",
+"2026-11-13",
 2
 ],
 "/take-home-pay-calculator/": [
-"b69e3ee8ba34c5dd95f23e5ceb7881622bcebeda",
-"2026-11-09",
+"22ac53523cd9f527a97a008d17a6ad8599011167",
+"2026-11-13",
 2
 ],
 "/tdee-calculator/": [
-"b3079e94eeb2771ea93e54d3f996427bcbcf2ab4",
-"2026-11-09",
+"c8f265ca9aa59dc98c1d3990ee3f23ea1ff90b96",
+"2026-11-13",
 2
 ],
 "/terms/": [
@@ -740,48 +740,48 @@
 2
 ],
 "/tile-calculator/": [
-"f851d7f798125c1cb5eb3e1c9bb2d0fbafd001fd",
-"2026-11-09",
+"cc2dd06f03e0f765ffb9457f0bc28173ea2adc20",
+"2026-11-13",
 2
 ],
 "/time-card-calculator/": [
-"dad8fec0a23344039a2de3e9723d1a5bdd093dea",
-"2026-11-09",
+"32bfa018215b6b541a2f42bfa984c427bf2cc4af",
+"2026-11-13",
 2
 ],
 "/time-to-decimal-calculator/": [
-"99153f8184e1b9271d6ed1d052d51eeec840b6cc",
-"2026-11-11",
+"6f7b749c9aa41ed7a442eae1a1b117e11c287198",
+"2026-11-13",
 2
 ],
 "/time-zone-converter/": [
-"f458b6329fac0f04bcf623685ccf1ccf8ec9d983",
-"2026-11-09",
+"1abc6f38ef9acf5d1a7e07934ac63d101205c92b",
+"2026-11-13",
 2
 ],
 "/tip-calculator/": [
-"62ab6fd9b570090ddd0dfe5eca03f78f91983c64",
-"2026-11-09",
+"18f2d393fc7aea798e80c7861217d2542bc4d81f",
+"2026-11-13",
 2
 ],
 "/turkey-calculator/": [
-"a170b400962fcd5e7bd8b82128657e2f93578865",
-"2026-11-09",
+"16849b70fce2d7609fe08dfcc8095491cb4f1c2a",
+"2026-11-13",
 2
 ],
 "/unit-converter/": [
-"a0b7c3c3edf4eb1ebed1d3df0ee23cf91bc1d8ad",
-"2026-11-09",
+"168386a19aa56c296dc4df4c79dc7dd1a26318df",
+"2026-11-13",
 2
 ],
 "/water-intake-calculator/": [
-"38774b11d7881d4dc5e5fb0a102e2c21adc55330",
-"2026-11-09",
+"307b7d07cc94143d57a4530359730c02a1687aea",
+"2026-11-13",
 2
 ],
 "/word-counter/": [
-"1efd4212d7bd6937a0c406d7f61be1a7a74d6fd2",
-"2026-11-11",
+"d84f98bcc1295ca9dc60ce4ce5f483817c87a5b4",
+"2026-11-13",
 2
 ],
 "/work-and-pay-calculators/": [
@@ -790,13 +790,13 @@
 2
 ],
 "/working-days-calculator/": [
-"9698446583924a7affce5f3b68d4029a83b21928",
-"2026-11-09",
+"97fe1ac9979f435965dfdd6df4f7da5ba1e17a13",
+"2026-11-13",
 2
 ],
 "/z-score-calculator/": [
-"6806a4e42c19a2af55e9b06e4ec810143da88538",
-"2026-11-09",
+"127f455368dba776403c1cb64495b5fd8607c0b4",
+"2026-11-13",
 2
 ]
 }
