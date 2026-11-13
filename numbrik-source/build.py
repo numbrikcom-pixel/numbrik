@@ -17,6 +17,7 @@ import content13
 import content14
 import content15
 import content16
+import de
 from more import MORE
 import extra
 import cats
@@ -31,6 +32,15 @@ V = "15"  # asset version for cache busting
 LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="var(--accent-ink)" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="var(--accent-ink)"/></svg>'
 FAVICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2340C9"/><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.5"/><path d="M9.5 23V9h3l7 9.2V9h3v14h-3l-7-9.2V23z" fill="#fff"/></svg>'
 
+# hreflang pairs: English page <-> German page (de.py)
+HREFL = {"/": {"en": "/", "de": "/de/"}, "/de/": {"en": "/", "de": "/de/"}}
+for _i, _p in de.PAGES.items():
+    _pair = {"en": f"/{BYID[_i]['slug']}/", "de": f"/de/{_p['slug']}/"}
+    HREFL[_pair["en"]] = HREFL[_pair["de"]] = _pair
+def hreflang(path):
+    p = HREFL.get(path)
+    if not p: return ""
+    return "".join(f'<link rel="alternate" hreflang="{l}" href="{DOMAIN}{u}">\n' for l, u in p.items()) + f'<link rel="alternate" hreflang="x-default" href="{DOMAIN}{p["en"]}">\n'
 OGIMG = {}  # path -> per-page social image, filled before tool pages are written
 def head(title, desc, path, extra_ld=None, noindex=False):
     url = DOMAIN + path
@@ -55,6 +65,7 @@ def head(title, desc, path, extra_ld=None, noindex=False):
 <title>{E(title)}</title>
 <meta name="description" content="{E(desc)}">
 {'<meta name="robots" content="noindex">' if noindex else f'<link rel="canonical" href="{url}">'}
+{"" if noindex else hreflang(path)}<meta property="og:locale" content="{'de_DE' if path.startswith('/de/') else 'en_US'}">
 <meta name="theme-color" content="#2340C9">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -113,7 +124,7 @@ def footer():
   <div class="wrap">
     {cols}
     <div><h4>Quick answers</h4><ul><li><a href="/salary-conversions/">Hourly wage to salary chart</a></li><li><a href="/25-an-hour-is-how-much-a-year/">$25 an hour per year</a></li><li><a href="/50000-a-year-is-how-much-an-hour/">$50,000 a year per hour</a></li><li><a href="/countdowns/">Holiday countdowns</a></li><li><a href="/days-until-christmas/">Days until Christmas</a></li><li><a href="/days-from-today/">Days from today</a></li></ul></div>
-    <div><h4>Numbrik</h4><ul><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/sitemap/">All pages</a></li></ul></div>
+    <div><h4>Numbrik</h4><ul><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/sitemap/">All pages</a></li><li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li></ul></div>
     <p class="legal">© 2026 Numbrik. Results are estimates for planning and are not financial, medical or legal advice.</p>
   </div>
 </footer>
@@ -340,7 +351,7 @@ write("/404.html", head("Page not found | Numbrik", "This page doesn't exist.", 
 <div class="cards">{"".join(card(BYID[i]) for i in ["timecard","gpa","loan","calorie"])}</div><p><a href="/">Go to the homepage</a></p></main>""" + footer())
 
 # sitemap & robots & headers
-EXTRA_URLS = cats.build_cats(globals()) + extra.build(globals()) + extra.build_countdowns(globals()) + days.build_days(globals())
+EXTRA_URLS = cats.build_cats(globals()) + extra.build(globals()) + extra.build_countdowns(globals()) + days.build_days(globals()) + de.build(globals())
 urls = ["/"] + [f"/{t['slug']}/" for t in T] + EXTRA_URLS + ["/about/", "/contact/", "/privacy-policy/", "/terms/"]
 # ---------------- HTML site map ----------------
 def _ul(items): return '<ul class="linklist">' + "".join(f'<li><a href="{u}">{E(n)}</a></li>' for u, n in items) + "</ul>"
@@ -387,7 +398,7 @@ for u in urls:
         LASTMOD[u] = _lm[u][1]; _lm[u] = [hv, LASTMOD[u], 2]; continue
     if u in _lm and _lm[u][0] == hv: LASTMOD[u] = _lm[u][1]
     elif u in _lm: LASTMOD[u] = _today
-    else: LASTMOD[u] = _seed.get(u, "2026-10-31")
+    else: LASTMOD[u] = _seed.get(u, _today)
     _lm[u] = [hv, LASTMOD[u], 2]
 json.dump(_lm, open(_LM_FILE, "w"), indent=0, sort_keys=True)
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
@@ -474,8 +485,10 @@ for f in _gl.glob(os.path.join(OUT, "**/*.html"), recursive=True):
 for u in urls:
     f = os.path.join(OUT, u.strip("/"), "index.html") if u != "/" else os.path.join(OUT, "index.html")
     d = LASTMOD[u]; dt = datetime.date.fromisoformat(d); txt = dt.strftime("%B ") + str(dt.day) + dt.strftime(", %Y")
+    if u.startswith("/de/"): txt = f"{dt.day}. {['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'][dt.month-1]} {dt.year}"
     h = open(f).read()
     h2 = re.sub(r'<time datetime="[0-9-]+">[^<]*</time>', f'<time datetime="{d}">{txt}</time>', h)
     h2 = re.sub(r'"dateModified": "[0-9-]+"', f'"dateModified": "{d}"', h2)
     h2 = re.sub(r"Last reviewed [A-Z][a-z]+ \d+, \d{4}\.", f"Last reviewed {txt}.", h2)
+    h2 = re.sub(r"Zuletzt geprüft am \d+\. [A-Za-zä]+ \d{4}\.", f"Zuletzt geprüft am {txt}.", h2)
     if h2 != h: open(f, "w").write(h2)
