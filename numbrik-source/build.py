@@ -145,7 +145,12 @@ def rail(cur):
     out += '<div class="group"><h3>Quick answers</h3><ul>' + "".join('<li><a href="%s"%s>%s</a></li>' % (u, ' aria-current="page"' if cur == u else "", n) for u, n in quick) + "</ul></div>"
     return out + "</aside>"
 
+# Templated variant pages (N days/weeks from today, hourly/yearly pay conversions) are kept for visitors but
+# noindexed (Nov 14, 2026) so Google judges the site on its real calculators; links on them are still followed.
+THIN = re.compile(r"^/\d+-(days|weeks)-from-today/$|^/\d+-an-hour-is-how-much-a-year/$|^/\d+-a-year-is-how-much-an-hour/$")
 def write(path, s):
+    if THIN.match(path):
+        s = re.sub(r'<link rel="canonical" href="[^"]*">', '<meta name="robots" content="noindex, follow">', s, count=1)
     full = os.path.join(OUT, path.strip("/"), "index.html") if not path.endswith((".xml", ".txt", ".html")) else os.path.join(OUT, path.strip("/"))
     os.makedirs(os.path.dirname(full), exist_ok=True)
     # Give every content page the same layout as calculator pages: content plus the side menu.
@@ -402,7 +407,7 @@ for u in urls:
     _lm[u] = [hv, LASTMOD[u], 2]
 json.dump(_lm, open(_LM_FILE, "w"), indent=0, sort_keys=True)
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
-    f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{LASTMOD[u]}</lastmod></url>\n" for u in urls) + "</urlset>\n"
+    f"  <url><loc>{DOMAIN}{u}</loc><lastmod>{LASTMOD[u]}</lastmod></url>\n" for u in urls if not THIN.match(u)) + "</urlset>\n"
 write("/sitemap.xml", sm)
 open(os.path.join(OUT, "ads.txt"), "w").write("google.com, pub-6519470736644184, DIRECT, f08c47fec0942fa0\n")
 # 301s for thin pages removed on Nov 1, 2026, so their search signals go to the closest page
