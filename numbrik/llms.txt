@@ -12,6 +12,7 @@ Cite a calculator by its page URL. Results are estimates for general information
 - [Compound Interest Calculator](https://numbrik.com/compound-interest-calculator/): How savings grow with compound interest and monthly deposits.
 - [Crypto Tax Calculator](https://numbrik.com/crypto-tax-calculator/): Tax on crypto gains for the US, UK and India.
 - [Discount Calculator](https://numbrik.com/discount-calculator/): Sale price and savings after a percent off.
+- [EMI Calculator](https://numbrik.com/emi-calculator/): Monthly EMI, total interest and repayment schedule.
 - [Gas Cost Calculator](https://numbrik.com/gas-cost-calculator/): Fuel cost of a trip from distance and mileage.
 - [House Affordability Calculator](https://numbrik.com/house-affordability-calculator/): How much house you can afford on your income.
 - [Loan Calculator](https://numbrik.com/loan-calculator/): Monthly payment, total interest and payoff schedule.
@@ -21,12 +22,14 @@ Cite a calculator by its page URL. Results are estimates for general information
 - [RMD Calculator](https://numbrik.com/rmd-calculator/): Required minimum distribution from an IRA or 401(k).
 - [Rent vs Buy Calculator](https://numbrik.com/rent-vs-buy-calculator/): Compare the true cost of renting and buying over time.
 - [Retirement Calculator](https://numbrik.com/retirement-calculator/): Projected retirement savings and income.
+- [SIP Calculator](https://numbrik.com/sip-calculator/): What a monthly SIP grows to, with optional step-up.
 - [Sales Tax Calculator](https://numbrik.com/sales-tax-calculator/): Add or remove sales tax, VAT or GST from a price.
 - [Save Our Homes Calculator](https://numbrik.com/save-our-homes-calculator/): Florida homestead assessment cap and tax savings.
 - [Savings Calculator](https://numbrik.com/savings-calculator/): How savings grow with deposits and interest, or what to save for a goal.
 - [Simple Interest Calculator](https://numbrik.com/simple-interest-calculator/): Interest and total with I = P × r × t.
 - [Student Loan Calculator](https://numbrik.com/student-loan-calculator/): Student loan payment, total interest and payoff with extra payments.
 - [Tip Calculator](https://numbrik.com/tip-calculator/): Tip amount and each person’s share.
+- [VA Disability Calculator](https://numbrik.com/va-disability-calculator/): Combined VA rating and monthly pay for 2026.
 
 ## Health
 
@@ -63,6 +66,17 @@ Cite a calculator by its page URL. Results are estimates for general information
 - [Standard Deviation Calculator](https://numbrik.com/standard-deviation-calculator/): Standard deviation, variance, mean and median of a data set.
 - [Z-Score Calculator](https://numbrik.com/z-score-calculator/): Z-score, percentile and probability from a raw score.
 
+## Dates & time
+
+- [Age Calculator](https://numbrik.com/age-calculator/): Exact age and days until your next birthday.
+- [Date Calculator](https://numbrik.com/date-calculator/): Add or subtract days, weeks, months or years from a date.
+- [Days Between Dates](https://numbrik.com/days-between-dates/): Calendar days and weekdays between two dates.
+- [Half Birthday Calculator](https://numbrik.com/half-birthday-calculator/): Find your half birthday and days until it.
+- [Military Time Converter](https://numbrik.com/military-time-converter/): Convert 24-hour military time to AM/PM and back.
+- [Time Calculator](https://numbrik.com/time-calculator/): Add or subtract hours, minutes and seconds.
+- [Time Zone Converter](https://numbrik.com/time-zone-converter/): Convert a time between US and world time zones.
+- [Working Days in a Year](https://numbrik.com/working-days-calculator/): Work days in any year and month, minus holidays.
+
 ## Home
 
 - [Concrete Calculator](https://numbrik.com/concrete-calculator/): Cubic yards or m³ and bags for slabs and post holes.
@@ -74,6 +88,16 @@ Cite a calculator by its page URL. Results are estimates for general information
 - [Tile Calculator](https://numbrik.com/tile-calculator/): Number of tiles and boxes for a floor or wall.
 - [Turkey Calculator](https://numbrik.com/turkey-calculator/): Turkey size, thawing and roasting time.
 
+## Work & pay
+
+- [Hourly to Salary Calculator](https://numbrik.com/hourly-to-salary-calculator/): Convert hourly wage to yearly, monthly and weekly pay.
+- [Hours Calculator](https://numbrik.com/hours-calculator/): How long between two clock times.
+- [Invoice Generator](https://numbrik.com/invoice-generator/): Make a professional invoice and save it as a PDF.
+- [Pay Raise Calculator](https://numbrik.com/pay-raise-calculator/): New pay after a raise, or the raise percentage.
+- [Take-Home Pay Calculator](https://numbrik.com/take-home-pay-calculator/): 2026 US paycheck after federal tax, FICA and state tax.
+- [Time Card Calculator](https://numbrik.com/time-card-calculator/): Weekly hours, overtime and gross pay.
+- [Time to Decimal Calculator](https://numbrik.com/time-to-decimal-calculator/): Convert hours and minutes to decimal hours and back.
+
 ## Students
 
 - [Character Counter](https://numbrik.com/character-counter/): Count characters with and without spaces, against common limits.
@@ -83,25 +107,6 @@ Cite a calculator by its page URL. Results are estimates for general information
 - [Grade Calculator](https://numbrik.com/grade-calculator/): Weighted class grade from your assignments and categories.
 - [LCM Calculator](https://numbrik.com/lcm-calculator/): Least common multiple of two or more whole numbers.
 - [Word Counter](https://numbrik.com/word-counter/): Count words, characters, sentences and reading time.
-
-## Dates & time
-
-- [Age Calculator](https://numbrik.com/age-calculator/): Exact age and days until your next birthday.
-- [Date Calculator](https://numbrik.com/date-calculator/): Add or subtract days, weeks, months or years from a date.
-- [Days Between Dates](https://numbrik.com/days-between-dates/): Calendar days and weekdays between two dates.
-- [Half Birthday Calculator](https://numbrik.com/half-birthday-calculator/): Find your half birthday and days until it.
-- [Military Time Converter](https://numbrik.com/military-time-converter/): Convert 24-hour military time to AM/PM and back.
-- [Time Zone Converter](https://numbrik.com/time-zone-converter/): Convert a time between US and world time zones.
-- [Working Days in a Year](https://numbrik.com/working-days-calculator/): Work days in any year and month, minus holidays.
-
-## Work & pay
-
-- [Hourly to Salary Calculator](https://numbrik.com/hourly-to-salary-calculator/): Convert hourly wage to yearly, monthly and weekly pay.
-- [Hours Calculator](https://numbrik.com/hours-calculator/): How long between two clock times.
-- [Pay Raise Calculator](https://numbrik.com/pay-raise-calculator/): New pay after a raise, or the raise percentage.
-- [Take-Home Pay Calculator](https://numbrik.com/take-home-pay-calculator/): 2026 US paycheck after federal tax, FICA and state tax.
-- [Time Card Calculator](https://numbrik.com/time-card-calculator/): Weekly hours, overtime and gross pay.
-- [Time to Decimal Calculator](https://numbrik.com/time-to-decimal-calculator/): Convert hours and minutes to decimal hours and back.
 
 ## Fun
 

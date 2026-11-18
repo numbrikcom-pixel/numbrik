@@ -1,7 +1,7 @@
 {
 "/": [
-"c3fc8511e0b51df5dd050d9615aa066ecb0c3641",
-"2026-11-12",
+"08043d45268919cdb16844bc442f788955f0f6ed",
+"2026-11-18",
 2
 ],
 "/10-days-from-today/": [
@@ -340,8 +340,8 @@
 2
 ],
 "/date-and-time-calculators/": [
-"1e00d2a0a85fc2932cab58034303584e3c0e414f",
-"2026-11-08",
+"36f7481de0a5d17060fffb5cf54d75a264ee8a1f",
+"2026-11-18",
 2
 ],
 "/date-calculator/": [
@@ -405,53 +405,53 @@
 2
 ],
 "/de/altersrechner/": [
-"676272f4b959988fdc195172dc2df62a292c742e",
-"2026-11-14",
+"09670f7ea48fc017c9941dc66146d63033928809",
+"2026-11-18",
 2
 ],
 "/de/bmi-rechner/": [
-"4c1c2ddb967d7b0e1f750b3d11a5eabbc75d91c2",
-"2026-11-14",
+"64f283992a27af855608f5f62a53e9bc58ad73c4",
+"2026-11-18",
 2
 ],
 "/de/dreisatz-rechner/": [
-"30e465a55343b90d2c88ab30fdf136cfc64224aa",
-"2026-11-14",
+"76330297bec7834db7db33f8c34ba9c9b28bf1c0",
+"2026-11-18",
 2
 ],
 "/de/durchschnitt-berechnen/": [
-"c9c13c50a81f1e6c137a3e656635affcb8424d8c",
-"2026-11-14",
+"44943d7f15a872920e4a20ef1ec085c021afb892",
+"2026-11-18",
 2
 ],
 "/de/kalorienrechner/": [
-"56f0ab78fd0c7b8bec325fde7e56dcbd597afd0b",
-"2026-11-14",
+"45eaca3f222be635bdbc8c71e1a6229643034806",
+"2026-11-18",
 2
 ],
 "/de/prozentrechner/": [
-"75f994d46c1bda7034d82eff33b0bf137801a61f",
-"2026-11-14",
+"459a7fa869887ad900c6edb73ae1c9a64c15cefa",
+"2026-11-18",
 2
 ],
 "/de/rabattrechner/": [
-"dbf53b464deb449d0ff7ae87e9667e5f8ddfa259",
-"2026-11-14",
+"9895b4236d154b21a61bc721b78f03c847461319",
+"2026-11-18",
 2
 ],
 "/de/tage-zwischen-zwei-daten/": [
-"f16d2647e4fa83b936f7334151f748c71c9fed0f",
-"2026-11-14",
+"1b98bb3e181b19418824d61645cb53b8919a7e10",
+"2026-11-18",
 2
 ],
 "/de/woerter-zaehlen/": [
-"97c0ecfb61a019b9117efb8e07eb5d474a9c8414",
-"2026-11-14",
+"3f0697fd4d525e20d8b3ffc43a41afcbc36bbebc",
+"2026-11-18",
 2
 ],
 "/de/zinseszinsrechner/": [
-"83da48ed33af8c6fc52ce3d0631b83c6f2712283",
-"2026-11-14",
+"c4d45c893a164ef7105232d509c62869aadd17fa",
+"2026-11-18",
 2
 ],
 "/dice-roller/": [
@@ -467,6 +467,11 @@
 "/due-date-calculator/": [
 "006597816b957d4b370391c1784808acbc3d060c",
 "2026-11-13",
+2
+],
+"/emi-calculator/": [
+"c7d71379ec423c3b9659dafc2d59b0f99486fcbf",
+"2026-11-18",
 2
 ],
 "/final-grade-calculator/": [
@@ -544,6 +549,11 @@
 "2026-11-13",
 2
 ],
+"/invoice-generator/": [
+"6d6fb1eb04d83c82204909ec2df4a271c28ebccb",
+"2026-11-18",
+2
+],
 "/lcm-calculator/": [
 "4d5882fba216bbe0327df71d1f9af7edb1b602b3",
 "2026-11-13",
@@ -590,8 +600,8 @@
 2
 ],
 "/money-calculators/": [
-"12fb9aca34c1ba6189a1f0f0ea184af4658641da",
-"2026-11-12",
+"ac6395b8229c372904def9bbcf1080a48fd301fb",
+"2026-11-18",
 2
 ],
 "/mortgage-calculator/": [
@@ -739,9 +749,14 @@
 "2026-11-13",
 2
 ],
+"/sip-calculator/": [
+"030a72dc5b01e1643c19d5b55bd819257d4ae437",
+"2026-11-18",
+2
+],
 "/sitemap/": [
-"7e0a67d973d90ce22b9ec82c8fffa5324a923d2f",
-"2026-11-12",
+"606bfd291e084818ac13decd4adc86b6d35593fa",
+"2026-11-18",
 2
 ],
 "/sleep-calculator/": [
@@ -799,6 +814,11 @@
 "2026-11-13",
 2
 ],
+"/time-calculator/": [
+"afe8a28205bc6d373ad179b78e395e11c452ba09",
+"2026-11-18",
+2
+],
 "/time-card-calculator/": [
 "32bfa018215b6b541a2f42bfa984c427bf2cc4af",
 "2026-11-13",
@@ -829,6 +849,11 @@
 "2026-11-13",
 2
 ],
+"/va-disability-calculator/": [
+"59ecbe5d3cd6b01c44cc7bb52c68fdc0cd6f4520",
+"2026-11-18",
+2
+],
 "/water-intake-calculator/": [
 "307b7d07cc94143d57a4530359730c02a1687aea",
 "2026-11-13",
@@ -840,8 +865,8 @@
 2
 ],
 "/work-and-pay-calculators/": [
-"8514fc6653f96f34f492c703e8f15bf2a4499aae",
-"2026-11-11",
+"d33c1aefd08d89c2da7391491bc20b6296528520",
+"2026-11-18",
 2
 ],
 "/working-days-calculator/": [

@@ -109,6 +109,23 @@ You save = price − sale price
 
 Example: A jacket tagged $80 is 25% off, with an extra 10% off at checkout. First discount: $80 × 0.75 = $60. Extra discount: $60 × 0.90 = $54. You save $26, which is 32.5% off.
 
+### EMI Calculator
+URL: https://numbrik.com/emi-calculator/
+
+Work out the EMI (equated monthly instalment) on any loan: home, car, personal or education. Enter the amount, interest rate and tenure to see your EMI, the total interest and how the balance falls each year.
+
+Q: How is EMI calculated?
+A: EMI = P × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ − 1), with r the monthly rate and n the months. A ₹25 lakh loan at 8.5% for 20 years has an EMI of ₹21,696.
+
+Formula:
+```
+EMI = P × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ − 1)
+P = loan amount, r = annual rate ÷ 12 ÷ 100, n = months
+Total interest = EMI × n − P
+```
+
+Example: A ₹25,00,000 home loan at 8.5% for 20 years (240 months) has an EMI of ₹21,696. Over 20 years you pay ₹52,06,939, of which ₹27,06,939 is interest.
+
 ### Gas Cost Calculator
 URL: https://numbrik.com/gas-cost-calculator/
 
@@ -265,6 +282,23 @@ Income = balance × withdrawal rate
 
 Example: A 35-year-old with $50,000 saved who invests $800 a month (raised 2% a year) at a 6% return could have about $1,449,000 at 67. With 2.5% inflation that's about $658,000 in today's money, supporting roughly $26,300 a year at 4%.
 
+### SIP Calculator
+URL: https://numbrik.com/sip-calculator/
+
+See what a monthly SIP (systematic investment plan) in a mutual fund could grow to. Enter your monthly amount, expected return and time period, and optionally raise the SIP each year, to see total invested, estimated returns and the final value.
+
+Q: How much will my SIP grow?
+A: At 12% a year, ₹10,000 a month for 15 years grows to about ₹50,45,760 on ₹18,00,000 invested. The formula is FV = P × [((1 + i)ⁿ − 1) ÷ i] × (1 + i).
+
+Formula:
+```
+FV = P × [((1 + i)ⁿ − 1) ÷ i] × (1 + i)
+P = monthly SIP, i = annual return ÷ 12 ÷ 100, n = months
+Returns = FV − total invested
+```
+
+Example: A ₹10,000 SIP for 15 years at 12% a year grows to about ₹50,45,760: ₹18,00,000 invested and ₹32,45,760 in returns. With a 10% yearly step-up, it grows to about ₹86,83,849 on ₹38,12,698 invested.
+
 ### Sales Tax Calculator
 URL: https://numbrik.com/sales-tax-calculator/
 
@@ -366,6 +400,25 @@ Each person = (bill + tip) ÷ people
 ```
 
 Example: A $86.40 bill with an 18% tip is $15.55 in tip and $101.95 in total. Split three ways, each person pays $33.98.
+
+### VA Disability Calculator
+URL: https://numbrik.com/va-disability-calculator/
+
+Enter your individual VA disability ratings to see how VA combines them, the rating it rounds to, and your 2026 monthly compensation, including extra pay for a spouse and children. VA doesn't add ratings together, which is why 50% and 30% don't make 80%.
+
+Q: How is a combined VA disability rating calculated?
+A: VA combines ratings highest first, each applied to the remaining able percentage, then rounds to the nearest 10. 50%, 30% and 10% make 69%, rounded to 70%, which pays $1,808.45 a month for a veteran alone in 2026.
+
+Formula:
+```
+Remaining = 100
+For each rating, highest first:
+  combined = combined + remaining × rating ÷ 100
+  remaining = 100 − combined
+Final rating = combined rounded to the nearest 10
+```
+
+Example: Ratings of 50%, 30% and 10% combine to 69%, which VA rounds to 70%. A single veteran with no dependents at 70% receives $1,808.45 a month in 2026. Married with one child, the same veteran receives $2,074.45.
 
 ## Health
 
@@ -864,6 +917,139 @@ Two-tailed p = 2 × (1 − Φ(|z|))
 
 Example: A test has a mean of 70 and a standard deviation of 10. A score of 85 has z = (85 − 70) ÷ 10 = 1.5. That's higher than about 93.32% of test takers (the 93rd percentile).
 
+## Dates & time
+
+### Age Calculator
+URL: https://numbrik.com/age-calculator/
+
+Find your exact age in years, months and days, your age in total days and weeks, and how long until your next birthday.
+
+Q: How do you calculate your exact age?
+A: Subtract your birth year from the current year, then take off one if your birthday hasn't happened yet this year. For the exact age, count the full months since your last birthday and then the remaining days.
+
+Formula:
+```
+Age = full years + full months + remaining days between the two dates
+```
+
+Example: Someone born on March 17, 1994 is 32 years, 7 months and 3 days old on October 20, 2026. That is 11,905 days, or about 1,700 weeks.
+
+### Date Calculator
+URL: https://numbrik.com/date-calculator/
+
+Add days, weeks, months or years to a date, or subtract them, and get the exact date and day of the week. Use it for deadlines, notice periods, contract dates, warranties and “90 days from” questions.
+
+Q: How do you add days to a date?
+A: Count forward that many calendar days from the start date, including weekends. 90 days after November 8, 2026 is February 6, 2027. Adding months keeps the same day of the month, or the last day if that date doesn't exist.
+
+Formula:
+```
+Result = start date + years + months (calendar) + weeks × 7 + days
+If the day doesn't exist in the new month, use the month's last day
+```
+
+Example: From November 8, 2026, adding 90 days gives Saturday, February 6, 2027. Adding 3 months instead gives Monday, February 8, 2027, because months have different lengths.
+
+### Days Between Dates
+URL: https://numbrik.com/days-between-dates/
+
+Count the days, weeks and weekdays between two dates, or count down to a holiday, deadline or trip.
+
+Q: How do you count the days between two dates?
+A: Subtract the earlier date from the later one. By convention the start date isn't counted and the end date is, so Monday to Friday of the same week is 4 days. Add 1 if you want to include both dates.
+
+Formula:
+```
+Days = end date − start date
+Weeks = days ÷ 7
+```
+
+Example: From October 20, 2026 to Christmas Day is 66 days, which includes 48 weekdays and is about 9.4 weeks.
+
+### Half Birthday Calculator
+URL: https://numbrik.com/half-birthday-calculator/
+
+Your half birthday is the day exactly six months after your birthday. Enter your date of birth to see when your next half birthday is, how many days are left, and how old you'll be (and a half).
+
+Q: When is my half birthday?
+A: The calculator adds six calendar months to your birthday. Someone born on March 10 has a half birthday on September 10.
+
+Formula:
+```
+Half birthday = birthday + 6 calendar months
+If that day doesn't exist, use the last day of the month
+```
+
+Example: Born on March 10, your half birthday is September 10. Born on August 31, your half birthday is February 28 (February 29 in a leap year such as 2028).
+
+### Military Time Converter
+URL: https://numbrik.com/military-time-converter/
+
+Convert military time (the 24-hour clock) to standard 12-hour time with AM and PM, or the other way round. Type a time in either box, or use the 24-hour chart below.
+
+Q: How do you convert military time to standard time?
+A: For hours 13 to 23, subtract 12 and add PM: 1730 is 5:30 PM. 0000 is 12:00 AM (midnight), 1200 is noon, and hours 01 to 11 are the same in the morning, so 0845 is 8:45 AM.
+
+Formula:
+```
+PM hours (1–11 PM):  military = hour + 12
+Military 1300–2359:   standard = hour − 12, PM
+12:00 AM = 0000      12:00 PM = 1200
+```
+
+Example: 6:30 PM is 6 + 12 = 18, so it's 1830. Military 0545 is 5:45 AM, and 2215 is 22 − 12 = 10:15 PM.
+
+### Time Calculator
+URL: https://numbrik.com/time-calculator/
+
+Add up a list of times like 2:45 + 1:30 + 0:50, subtract time, or find the clock time a number of hours and minutes from now. Results come as hours:minutes, decimal hours and total minutes.
+
+Q: How do you add hours and minutes?
+A: Convert to minutes, add, and convert back: 2:45 + 1:30 = 165 + 90 = 255 minutes = 4 hours 15 minutes. For every 60 minutes, carry 1 hour.
+
+Formula:
+```
+Seconds = hours × 3,600 + minutes × 60 + seconds
+Total = sum of all times in seconds
+Hours = total ÷ 3,600 (whole part)
+Minutes = (remainder) ÷ 60
+```
+
+Example: 2:45 + 1:30 + 0:50 − 0:20 = 165 + 90 + 50 − 20 = 285 minutes = 4 hours 45 minutes (4.75 hours). 9:30 AM + 8 h 45 min = 6:15 PM.
+
+### Time Zone Converter
+URL: https://numbrik.com/time-zone-converter/
+
+Convert a time from one time zone to another, for meetings, calls, flights and live events. Pick a date and time, choose the two zones, and get the converted time, the difference, and the time in eight major cities.
+
+Q: How do you convert between time zones?
+A: Find each zone's offset from UTC on that date and add the difference. Eastern Standard Time is UTC−5 and India is UTC+5:30, so India is 10½ hours ahead: 9:00 AM EST is 7:30 PM IST.
+
+Formula:
+```
+UTC time = local time − zone offset
+Target time = UTC time + target offset
+Example offsets: EST = UTC−5, PST = UTC−8, IST = UTC+5:30
+```
+
+Example: A call at 9:00 AM Pacific on Monday, November 9, 2026 is 12:00 PM Eastern, 5:00 PM in London and 10:30 PM in India. In summer, while the US is on daylight time, the same 9:00 AM PDT call would be 9:30 PM in India.
+
+### Working Days in a Year
+URL: https://numbrik.com/working-days-calculator/
+
+Count the working days in any year or month. There are 261 weekdays in 2026, and 250 working days after the 11 US federal holidays. Choose a year and add your own vacation days to see the days you'll actually work.
+
+Q: How many working days are in a year?
+A: Most years have 260 or 261 weekdays. Take off the 11 US federal holidays that fall on weekdays and a typical US year has about 250 working days, or roughly 2,000 working hours.
+
+Formula:
+```
+Working days = weekdays − weekday holidays − PTO days
+Work hours = working days × 8
+```
+
+Example: 2026 has 261 weekdays. All 11 federal holidays fall on or are observed on a weekday, leaving 250 working days, or 2,000 hours at 8 hours a day. With 15 days of vacation you'd work 235 days. In 2027, New Year's Day 2028 falls on a Saturday and is observed on Friday, December 31, 2027, so 2027 has 249 working days.
+
 ## Home
 
 ### Concrete Calculator
@@ -1006,6 +1192,128 @@ Done at 165°F (74°C) · rest 20–30 min
 
 Example: For 12 guests with leftovers, buy a turkey of about 12 × 1.5 = 18 lb. Thawing it in the fridge takes 4 to 5 days, so for Thursday dinner put it in the fridge by Saturday or Sunday. Unstuffed, an 18 lb turkey roasts for about 4¼ to 4½ hours at 325°F, so for dinner at 5:00 PM it goes in the oven at about 12:00 PM.
 
+## Work & pay
+
+### Hourly to Salary Calculator
+URL: https://numbrik.com/hourly-to-salary-calculator/
+
+Convert an hourly wage into yearly, monthly, biweekly and weekly pay, or work backwards from a salary to an hourly rate.
+
+Q: How do you convert an hourly wage to a yearly salary?
+A: Multiply the hourly rate by the hours you work each week, then by 52 weeks. A full-time US year is 40 × 52 = 2,080 hours, so $25 an hour is about $52,000 a year before tax. Divide a salary by 2,080 to go the other way.
+
+Formula:
+```
+Annual pay  = hourly rate × hours per week × paid weeks
+Hourly rate = annual pay ÷ (hours per week × paid weeks)
+```
+
+Example: $25 an hour at 40 hours a week for 52 weeks is $52,000 a year, $4,333.33 a month and $2,000 every two weeks, before tax.
+
+### Hours Calculator
+URL: https://numbrik.com/hours-calculator/
+
+Find how many hours are between two times. Enter a start and end time, such as 8 AM and 5 PM, and the hours calculator shows the total in hours and minutes, decimal hours and minutes, minus any unpaid break. It handles overnight shifts like 7 PM to 7 AM, counts hours between two dates, and adds hours to a time. The charts below answer the most common shifts at a glance.
+
+Q: How do you calculate hours between two times?
+A: Convert both times to minutes after midnight, subtract the start from the end, and take off any break. If the end time is earlier than the start, the period crosses midnight, so add 24 hours. Divide the minutes by 60 for decimal hours.
+
+Formula:
+```
+Minutes = end − start − break   (add 1,440 if end is before start)
+Decimal hours = minutes ÷ 60
+```
+
+Example: From 8:00 AM to 5:00 PM is 9 hours (540 minutes, 9.00 decimal hours). Take off a 30-minute unpaid lunch and the time worked is 8 hours 30 minutes, or 8.50 decimal hours. Overnight, 7:00 PM to 7:00 AM is 12 hours.
+
+### Invoice Generator
+URL: https://numbrik.com/invoice-generator/
+
+Create a clean, professional invoice in a minute. Fill in your details and your client's, add line items, tax and discount, and download it as a PDF. It's free, needs no account, and everything stays in your browser.
+
+Q: How do I create an invoice for free?
+A: Enter your details, your client's, an invoice number, dates and each item with quantity and price, then add tax or a discount. Numbrik's invoice generator totals it and saves it as a PDF, free and without sign-up.
+
+Formula:
+```
+Line amount = quantity × price
+Subtotal = sum of line amounts
+Discount = subtotal × discount %
+Tax = (subtotal − discount) × tax %
+Total due = subtotal − discount + tax
+```
+
+Example: A freelancer bills 10 hours of design at $50 and 1 month of hosting at $20: subtotal $520. With a 10% discount ($52) and 8% sales tax on the rest ($37.44), the total due is $505.44.
+
+### Pay Raise Calculator
+URL: https://numbrik.com/pay-raise-calculator/
+
+See your new pay after a raise. Enter your current hourly wage or salary and the raise as a percentage or an amount, or enter your old and new pay to find the raise percentage.
+
+Q: How do you calculate a pay raise?
+A: A percentage raise multiplies your pay by one plus the percentage: a 4% raise on $50,000 is $50,000 × 1.04 = $52,000.
+
+Formula:
+```
+New pay = old pay × (1 + raise% ÷ 100)
+Raise % = (new pay − old pay) ÷ old pay × 100
+Yearly = hourly × 2,080
+```
+
+Example: A 5% raise on $24.00 an hour gives $25.20 an hour, which is $52,416 a year, or $2,496 more than before. Going from $50,000 to $53,000 is a raise of 3,000 ÷ 50,000 = 6%.
+
+### Take-Home Pay Calculator
+URL: https://numbrik.com/take-home-pay-calculator/
+
+Estimate your take-home pay per paycheck in the United States for 2026, after federal income tax, Social Security, Medicare, an estimated state tax and pre-tax deductions such as a 401(k).
+
+Q: How do you calculate take-home pay?
+A: Start with gross pay, subtract pre-tax deductions such as 401(k) contributions, then subtract federal income tax, Social Security (6.2%), Medicare (1.45%) and any state income tax. What's left is your net pay.
+
+Formula:
+```
+Taxable income = salary − pre-tax deductions − standard deduction
+Federal tax    = sum of each bracket slice × its rate
+Social Security = 6.2% × min(salary, $184,500)
+Medicare       = 1.45% × salary (+0.9% above $200,000 single / $250,000 joint)
+Take-home      = salary − pre-tax − federal − Social Security − Medicare − state
+```
+
+Example: A single filer earning $65,000 with no pre-tax deductions in a state with no income tax pays about $5,620 in federal income tax, $4,030 in Social Security and $942 in Medicare. Take-home pay is about $54,408 a year, or $2,092.60 every two weeks. A married couple earning $100,000 together, putting $6,000 into a 401(k) and paying an estimated 5% state tax, takes home about $74,730 a year.
+
+### Time Card Calculator
+URL: https://numbrik.com/time-card-calculator/
+
+Enter start and end times for each day, take off unpaid breaks, and get total hours, overtime and gross pay for the week. Overtime rules follow the region you pick at the top of the page.
+
+Q: How do you calculate hours on a time card?
+A: For each day, subtract the clock-in time from the clock-out time, then subtract unpaid breaks. Add the days together for the weekly total. Under the US federal rule, hours over 40 in a workweek are overtime, paid at 1.5 times the regular rate.
+
+Formula:
+```
+Daily hours   = (end − start − break minutes) ÷ 60
+Overtime      = max(0, weekly hours − threshold)
+Gross pay     = regular hours × rate + overtime × rate × multiplier
+```
+
+Example: The calculator opens with an example week: five weekday shifts and a short Saturday, totalling 43.25 hours. At $22.50 an hour with overtime after 40 hours at 1.5×, that is 40 regular hours ($900.00) plus 3.25 overtime hours at $33.75 ($109.69), for gross pay of $1,009.69.
+
+### Time to Decimal Calculator
+URL: https://numbrik.com/time-to-decimal-calculator/
+
+Convert time in hours and minutes to decimal hours for payroll, invoices and timesheets, or turn decimal hours back into hours and minutes. A chart of every minute from 1 to 59 is below.
+
+Q: How do you convert minutes to decimal hours?
+A: Divide the minutes by 60 and add them to the hours. 7 hours 45 minutes is 7 + 45 ÷ 60 = 7.75 hours. To go back, multiply the decimal part by 60: 0.3 hours is 18 minutes.
+
+Formula:
+```
+Decimal hours = hours + minutes ÷ 60 + seconds ÷ 3,600
+Minutes = (decimal hours − whole hours) × 60
+```
+
+Example: A shift of 8 hours 20 minutes is 8 + 20 ÷ 60 = 8.33 hours (8.333…). At $22 an hour that's 8.333 × $22 = $183.33.
+
 ## Students
 
 ### Character Counter
@@ -1118,224 +1426,6 @@ Average word length = letters ÷ words
 ```
 
 Example: A 1,500-word blog post takes about 6 minutes 18 seconds to read (1,500 ÷ 238) and about 10 minutes 43 seconds to read aloud (1,500 ÷ 140).
-
-## Dates & time
-
-### Age Calculator
-URL: https://numbrik.com/age-calculator/
-
-Find your exact age in years, months and days, your age in total days and weeks, and how long until your next birthday.
-
-Q: How do you calculate your exact age?
-A: Subtract your birth year from the current year, then take off one if your birthday hasn't happened yet this year. For the exact age, count the full months since your last birthday and then the remaining days.
-
-Formula:
-```
-Age = full years + full months + remaining days between the two dates
-```
-
-Example: Someone born on March 17, 1994 is 32 years, 7 months and 3 days old on October 20, 2026. That is 11,905 days, or about 1,700 weeks.
-
-### Date Calculator
-URL: https://numbrik.com/date-calculator/
-
-Add days, weeks, months or years to a date, or subtract them, and get the exact date and day of the week. Use it for deadlines, notice periods, contract dates, warranties and “90 days from” questions.
-
-Q: How do you add days to a date?
-A: Count forward that many calendar days from the start date, including weekends. 90 days after November 8, 2026 is February 6, 2027. Adding months keeps the same day of the month, or the last day if that date doesn't exist.
-
-Formula:
-```
-Result = start date + years + months (calendar) + weeks × 7 + days
-If the day doesn't exist in the new month, use the month's last day
-```
-
-Example: From November 8, 2026, adding 90 days gives Saturday, February 6, 2027. Adding 3 months instead gives Monday, February 8, 2027, because months have different lengths.
-
-### Days Between Dates
-URL: https://numbrik.com/days-between-dates/
-
-Count the days, weeks and weekdays between two dates, or count down to a holiday, deadline or trip.
-
-Q: How do you count the days between two dates?
-A: Subtract the earlier date from the later one. By convention the start date isn't counted and the end date is, so Monday to Friday of the same week is 4 days. Add 1 if you want to include both dates.
-
-Formula:
-```
-Days = end date − start date
-Weeks = days ÷ 7
-```
-
-Example: From October 20, 2026 to Christmas Day is 66 days, which includes 48 weekdays and is about 9.4 weeks.
-
-### Half Birthday Calculator
-URL: https://numbrik.com/half-birthday-calculator/
-
-Your half birthday is the day exactly six months after your birthday. Enter your date of birth to see when your next half birthday is, how many days are left, and how old you'll be (and a half).
-
-Q: When is my half birthday?
-A: The calculator adds six calendar months to your birthday. Someone born on March 10 has a half birthday on September 10.
-
-Formula:
-```
-Half birthday = birthday + 6 calendar months
-If that day doesn't exist, use the last day of the month
-```
-
-Example: Born on March 10, your half birthday is September 10. Born on August 31, your half birthday is February 28 (February 29 in a leap year such as 2028).
-
-### Military Time Converter
-URL: https://numbrik.com/military-time-converter/
-
-Convert military time (the 24-hour clock) to standard 12-hour time with AM and PM, or the other way round. Type a time in either box, or use the 24-hour chart below.
-
-Q: How do you convert military time to standard time?
-A: For hours 13 to 23, subtract 12 and add PM: 1730 is 5:30 PM. 0000 is 12:00 AM (midnight), 1200 is noon, and hours 01 to 11 are the same in the morning, so 0845 is 8:45 AM.
-
-Formula:
-```
-PM hours (1–11 PM):  military = hour + 12
-Military 1300–2359:   standard = hour − 12, PM
-12:00 AM = 0000      12:00 PM = 1200
-```
-
-Example: 6:30 PM is 6 + 12 = 18, so it's 1830. Military 0545 is 5:45 AM, and 2215 is 22 − 12 = 10:15 PM.
-
-### Time Zone Converter
-URL: https://numbrik.com/time-zone-converter/
-
-Convert a time from one time zone to another, for meetings, calls, flights and live events. Pick a date and time, choose the two zones, and get the converted time, the difference, and the time in eight major cities.
-
-Q: How do you convert between time zones?
-A: Find each zone's offset from UTC on that date and add the difference. Eastern Standard Time is UTC−5 and India is UTC+5:30, so India is 10½ hours ahead: 9:00 AM EST is 7:30 PM IST.
-
-Formula:
-```
-UTC time = local time − zone offset
-Target time = UTC time + target offset
-Example offsets: EST = UTC−5, PST = UTC−8, IST = UTC+5:30
-```
-
-Example: A call at 9:00 AM Pacific on Monday, November 9, 2026 is 12:00 PM Eastern, 5:00 PM in London and 10:30 PM in India. In summer, while the US is on daylight time, the same 9:00 AM PDT call would be 9:30 PM in India.
-
-### Working Days in a Year
-URL: https://numbrik.com/working-days-calculator/
-
-Count the working days in any year or month. There are 261 weekdays in 2026, and 250 working days after the 11 US federal holidays. Choose a year and add your own vacation days to see the days you'll actually work.
-
-Q: How many working days are in a year?
-A: Most years have 260 or 261 weekdays. Take off the 11 US federal holidays that fall on weekdays and a typical US year has about 250 working days, or roughly 2,000 working hours.
-
-Formula:
-```
-Working days = weekdays − weekday holidays − PTO days
-Work hours = working days × 8
-```
-
-Example: 2026 has 261 weekdays. All 11 federal holidays fall on or are observed on a weekday, leaving 250 working days, or 2,000 hours at 8 hours a day. With 15 days of vacation you'd work 235 days. In 2027, New Year's Day 2028 falls on a Saturday and is observed on Friday, December 31, 2027, so 2027 has 249 working days.
-
-## Work & pay
-
-### Hourly to Salary Calculator
-URL: https://numbrik.com/hourly-to-salary-calculator/
-
-Convert an hourly wage into yearly, monthly, biweekly and weekly pay, or work backwards from a salary to an hourly rate.
-
-Q: How do you convert an hourly wage to a yearly salary?
-A: Multiply the hourly rate by the hours you work each week, then by 52 weeks. A full-time US year is 40 × 52 = 2,080 hours, so $25 an hour is about $52,000 a year before tax. Divide a salary by 2,080 to go the other way.
-
-Formula:
-```
-Annual pay  = hourly rate × hours per week × paid weeks
-Hourly rate = annual pay ÷ (hours per week × paid weeks)
-```
-
-Example: $25 an hour at 40 hours a week for 52 weeks is $52,000 a year, $4,333.33 a month and $2,000 every two weeks, before tax.
-
-### Hours Calculator
-URL: https://numbrik.com/hours-calculator/
-
-Find how many hours are between two times. Enter a start and end time, such as 8 AM and 5 PM, and the hours calculator shows the total in hours and minutes, decimal hours and minutes, minus any unpaid break. It handles overnight shifts like 7 PM to 7 AM, counts hours between two dates, and adds hours to a time. The charts below answer the most common shifts at a glance.
-
-Q: How do you calculate hours between two times?
-A: Convert both times to minutes after midnight, subtract the start from the end, and take off any break. If the end time is earlier than the start, the period crosses midnight, so add 24 hours. Divide the minutes by 60 for decimal hours.
-
-Formula:
-```
-Minutes = end − start − break   (add 1,440 if end is before start)
-Decimal hours = minutes ÷ 60
-```
-
-Example: From 8:00 AM to 5:00 PM is 9 hours (540 minutes, 9.00 decimal hours). Take off a 30-minute unpaid lunch and the time worked is 8 hours 30 minutes, or 8.50 decimal hours. Overnight, 7:00 PM to 7:00 AM is 12 hours.
-
-### Pay Raise Calculator
-URL: https://numbrik.com/pay-raise-calculator/
-
-See your new pay after a raise. Enter your current hourly wage or salary and the raise as a percentage or an amount, or enter your old and new pay to find the raise percentage.
-
-Q: How do you calculate a pay raise?
-A: A percentage raise multiplies your pay by one plus the percentage: a 4% raise on $50,000 is $50,000 × 1.04 = $52,000.
-
-Formula:
-```
-New pay = old pay × (1 + raise% ÷ 100)
-Raise % = (new pay − old pay) ÷ old pay × 100
-Yearly = hourly × 2,080
-```
-
-Example: A 5% raise on $24.00 an hour gives $25.20 an hour, which is $52,416 a year, or $2,496 more than before. Going from $50,000 to $53,000 is a raise of 3,000 ÷ 50,000 = 6%.
-
-### Take-Home Pay Calculator
-URL: https://numbrik.com/take-home-pay-calculator/
-
-Estimate your take-home pay per paycheck in the United States for 2026, after federal income tax, Social Security, Medicare, an estimated state tax and pre-tax deductions such as a 401(k).
-
-Q: How do you calculate take-home pay?
-A: Start with gross pay, subtract pre-tax deductions such as 401(k) contributions, then subtract federal income tax, Social Security (6.2%), Medicare (1.45%) and any state income tax. What's left is your net pay.
-
-Formula:
-```
-Taxable income = salary − pre-tax deductions − standard deduction
-Federal tax    = sum of each bracket slice × its rate
-Social Security = 6.2% × min(salary, $184,500)
-Medicare       = 1.45% × salary (+0.9% above $200,000 single / $250,000 joint)
-Take-home      = salary − pre-tax − federal − Social Security − Medicare − state
-```
-
-Example: A single filer earning $65,000 with no pre-tax deductions in a state with no income tax pays about $5,620 in federal income tax, $4,030 in Social Security and $942 in Medicare. Take-home pay is about $54,408 a year, or $2,092.60 every two weeks. A married couple earning $100,000 together, putting $6,000 into a 401(k) and paying an estimated 5% state tax, takes home about $74,730 a year.
-
-### Time Card Calculator
-URL: https://numbrik.com/time-card-calculator/
-
-Enter start and end times for each day, take off unpaid breaks, and get total hours, overtime and gross pay for the week. Overtime rules follow the region you pick at the top of the page.
-
-Q: How do you calculate hours on a time card?
-A: For each day, subtract the clock-in time from the clock-out time, then subtract unpaid breaks. Add the days together for the weekly total. Under the US federal rule, hours over 40 in a workweek are overtime, paid at 1.5 times the regular rate.
-
-Formula:
-```
-Daily hours   = (end − start − break minutes) ÷ 60
-Overtime      = max(0, weekly hours − threshold)
-Gross pay     = regular hours × rate + overtime × rate × multiplier
-```
-
-Example: The calculator opens with an example week: five weekday shifts and a short Saturday, totalling 43.25 hours. At $22.50 an hour with overtime after 40 hours at 1.5×, that is 40 regular hours ($900.00) plus 3.25 overtime hours at $33.75 ($109.69), for gross pay of $1,009.69.
-
-### Time to Decimal Calculator
-URL: https://numbrik.com/time-to-decimal-calculator/
-
-Convert time in hours and minutes to decimal hours for payroll, invoices and timesheets, or turn decimal hours back into hours and minutes. A chart of every minute from 1 to 59 is below.
-
-Q: How do you convert minutes to decimal hours?
-A: Divide the minutes by 60 and add them to the hours. 7 hours 45 minutes is 7 + 45 ÷ 60 = 7.75 hours. To go back, multiply the decimal part by 60: 0.3 hours is 18 minutes.
-
-Formula:
-```
-Decimal hours = hours + minutes ÷ 60 + seconds ÷ 3,600
-Minutes = (decimal hours − whole hours) × 60
-```
-
-Example: A shift of 8 hours 20 minutes is 8 + 20 ÷ 60 = 8.33 hours (8.333…). At $22 an hour that's 8.333 × $22 = $183.33.
 
 ## Fun
 
