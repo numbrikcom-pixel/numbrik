@@ -1,7 +1,7 @@
 {
 "/": [
-"08043d45268919cdb16844bc442f788955f0f6ed",
-"2026-11-18",
+"441b84d05fdda0d04fc89eb811a1da0317358b2f",
+"2026-11-21",
 2
 ],
 "/10-days-from-today/": [
@@ -294,6 +294,11 @@
 "2026-11-13",
 2
 ],
+"/car-insurance-calculator/": [
+"9d10bbc457ccbed35b86cdb24d6df7ea51364ec9",
+"2026-11-21",
+2
+],
 "/car-lease-calculator/": [
 "fb7ca6bef4d6947f611874f9198a932343da0c6d",
 "2026-11-13",
@@ -340,8 +345,8 @@
 2
 ],
 "/date-and-time-calculators/": [
-"36f7481de0a5d17060fffb5cf54d75a264ee8a1f",
-"2026-11-18",
+"6095f2c640de8640fe42c634095afc0553135d51",
+"2026-11-21",
 2
 ],
 "/date-calculator/": [
@@ -405,53 +410,53 @@
 2
 ],
 "/de/altersrechner/": [
-"09670f7ea48fc017c9941dc66146d63033928809",
-"2026-11-18",
+"11581a5f5b344d94719abd4e48f77a8971316112",
+"2026-11-21",
 2
 ],
 "/de/bmi-rechner/": [
-"64f283992a27af855608f5f62a53e9bc58ad73c4",
-"2026-11-18",
+"60aa649413b4ad4041e7dbabab775dbcc20216b3",
+"2026-11-21",
 2
 ],
 "/de/dreisatz-rechner/": [
-"76330297bec7834db7db33f8c34ba9c9b28bf1c0",
-"2026-11-18",
+"ae74a1012119caaac736d2c4769351a8b109a883",
+"2026-11-21",
 2
 ],
 "/de/durchschnitt-berechnen/": [
-"44943d7f15a872920e4a20ef1ec085c021afb892",
-"2026-11-18",
+"512e90c622c54737bdd3a390cffedf5156c79c5b",
+"2026-11-21",
 2
 ],
 "/de/kalorienrechner/": [
-"45eaca3f222be635bdbc8c71e1a6229643034806",
-"2026-11-18",
+"8ae5d29a0a7dcdcc799bd0d2e68a60ef557559f4",
+"2026-11-21",
 2
 ],
 "/de/prozentrechner/": [
-"459a7fa869887ad900c6edb73ae1c9a64c15cefa",
-"2026-11-18",
+"de78eda729b71536b0ff2aa1237c34df3bb5d508",
+"2026-11-21",
 2
 ],
 "/de/rabattrechner/": [
-"9895b4236d154b21a61bc721b78f03c847461319",
-"2026-11-18",
+"37efa25d58b7e50ef22ec4b6a0ae070d053cd282",
+"2026-11-21",
 2
 ],
 "/de/tage-zwischen-zwei-daten/": [
-"1b98bb3e181b19418824d61645cb53b8919a7e10",
-"2026-11-18",
+"0d6898f681cc3b8ad18bdf9db99b13b201c558c1",
+"2026-11-21",
 2
 ],
 "/de/woerter-zaehlen/": [
-"3f0697fd4d525e20d8b3ffc43a41afcbc36bbebc",
-"2026-11-18",
+"eda78c99f62306d654f05ca8c7aa9de13fb848ed",
+"2026-11-21",
 2
 ],
 "/de/zinseszinsrechner/": [
-"c4d45c893a164ef7105232d509c62869aadd17fa",
-"2026-11-18",
+"04c66d1d8d69608e5a443a1df0a82fa83ef76429",
+"2026-11-21",
 2
 ],
 "/dice-roller/": [
@@ -515,8 +520,8 @@
 2
 ],
 "/health-calculators/": [
-"848f64bcce6f52c249389757818a565e6e33db46",
-"2026-11-08",
+"892aa1712dea667711ea57a0299cf52ce7f82e5a",
+"2026-11-21",
 2
 ],
 "/height-calculator/": [
@@ -524,9 +529,14 @@
 "2026-11-13",
 2
 ],
+"/home-insurance-calculator/": [
+"9f840dfbff8e9e7f1b74bff733af2b8c61176e4f",
+"2026-11-21",
+2
+],
 "/home-project-calculators/": [
-"e69121eaab5658f931970efc34689789dc587200",
-"2026-11-08",
+"468f55dc0cd90b85a485ce860e2a9e2beb0b002d",
+"2026-11-21",
 2
 ],
 "/hourly-to-salary-calculator/": [
@@ -549,6 +559,11 @@
 "2026-11-13",
 2
 ],
+"/insurance-calculators/": [
+"da38405a086bb37ff3a67e59e14fc19ee3b9b868",
+"2026-11-21",
+2
+],
 "/invoice-generator/": [
 "6d6fb1eb04d83c82204909ec2df4a271c28ebccb",
 "2026-11-18",
@@ -557,6 +572,11 @@
 "/lcm-calculator/": [
 "4d5882fba216bbe0327df71d1f9af7edb1b602b3",
 "2026-11-13",
+2
+],
+"/life-insurance-calculator/": [
+"cf3bd607384ae6c2ab31b1198befb7e5e92236ac",
+"2026-11-21",
 2
 ],
 "/life-path-number-calculator/": [
@@ -590,8 +610,8 @@
 2
 ],
 "/math-calculators/": [
-"584a2e892a40d303987dd54a1bc8d34e4a599bb7",
-"2026-11-11",
+"bf0b25b65357c420305ba3e629e5a55d3b196740",
+"2026-11-21",
 2
 ],
 "/military-time-converter/": [
@@ -600,8 +620,8 @@
 2
 ],
 "/money-calculators/": [
-"ac6395b8229c372904def9bbcf1080a48fd301fb",
-"2026-11-18",
+"94a60640edd9052f0db3b57416a85198c0f1a9d2",
+"2026-11-21",
 2
 ],
 "/mortgage-calculator/": [
@@ -670,8 +690,8 @@
 2
 ],
 "/random-and-game-tools/": [
-"1784db918f35460cb04f319c96b7ded51b47932c",
-"2026-11-08",
+"f36cdbdc23e90a33e6a63728181a6e4a911bf775",
+"2026-11-21",
 2
 ],
 "/random-number-generator/": [
@@ -755,8 +775,8 @@
 2
 ],
 "/sitemap/": [
-"606bfd291e084818ac13decd4adc86b6d35593fa",
-"2026-11-18",
+"3314b7e48c5a763ada2cba67c33af06867661e3c",
+"2026-11-21",
 2
 ],
 "/sleep-calculator/": [
@@ -785,8 +805,8 @@
 2
 ],
 "/student-calculators/": [
-"3765ce5f7b4250e18578cf4b4557cd2b29fe5004",
-"2026-11-11",
+"c669fe118da31ad33d532866c816e74b4d1fd008",
+"2026-11-21",
 2
 ],
 "/student-loan-calculator/": [
@@ -865,8 +885,8 @@
 2
 ],
 "/work-and-pay-calculators/": [
-"d33c1aefd08d89c2da7391491bc20b6296528520",
-"2026-11-18",
+"e97541440eb85067775ca487ea0defb301ddf19b",
+"2026-11-21",
 2
 ],
 "/working-days-calculator/": [

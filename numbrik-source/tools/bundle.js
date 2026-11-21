@@ -14,5 +14,5 @@ if(!core.includes('return s?TOOLS.filter('))throw new Error('search hook missing
 core=core.replace('return s?TOOLS.filter(','return s?IDX.filter(').replace('const TOOLS=__TOOLS__','const IDX='+JSON.stringify(tools.map(t=>t.idx))+';const TOOLS=__TOOLS__');
 fs.mkdirSync(outDir,{recursive:true});
 (async()=>{let total=0;
-  for(const t of [{id:'core',code:''},...tools]){const js=core.replace('__TOOLS__','['+t.code+']');const r=await minify(js,{compress:true,mangle:true});if(!r.code)throw new Error('minify '+t.id);fs.writeFileSync(path.join(outDir,t.id+'.js'),r.code);total+=r.code.length}
+  for(const t of [{id:'core',code:''},...tools]){const js=core.replace('__TOOLS__',()=>'['+t.code+']');const r=await minify(js,{compress:true,mangle:true});if(!r.code)throw new Error('minify '+t.id);fs.writeFileSync(path.join(outDir,t.id+'.js'),r.code);total+=r.code.length}
   console.log('bundles',tools.length+1,'avg',Math.round(total/(tools.length+1)),'bytes');})().catch(e=>{console.error(e);process.exit(1)});

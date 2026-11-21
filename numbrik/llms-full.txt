@@ -1596,3 +1596,56 @@ K  = °C + 273.15
 ```
 
 Example: 1.5 US cups is 354.9 ml. An oven at 350°F is 176.7°C, which recipes usually round to 180°C (gas mark 4).
+
+## Insurance
+
+### Car Insurance Calculator
+URL: https://numbrik.com/car-insurance-calculator/
+
+Estimate what car insurance should cost you before you shop. Pick your state, age, coverage level, driving record and credit, and see an estimated yearly and monthly premium, how each factor moves it, and the state average it starts from. UK drivers see the latest national average price paid.
+
+Q: How much is car insurance?
+A: The US average for a 35-year-old with a clean record and good credit is about $2,357 a year for full coverage and $650 for minimum coverage in 2026. An at-fault accident adds about 49%, and a 20-year-old pays about twice as much.
+
+Formula:
+```
+Estimate = state average × age factor × driving record factor × credit factor
+Record (full coverage): ticket ×1.28, accident ×1.49, DUI ×1.88
+Poor credit: ×1.67 (not used in CA, HI, MA, MI)
+```
+
+Example: A 35-year-old in Texas with a clean record and good credit pays about $3,640 a year for full coverage, or $303 a month. After one at-fault accident, that rises to about $5,427; at age 20 with a clean record, about $7,280.
+
+### Home Insurance Calculator
+URL: https://numbrik.com/home-insurance-calculator/
+
+Estimate what homeowners insurance should cost before you get quotes. Choose your state, enter the cost to rebuild your home, pick a deductible and your claims history, and see an estimated yearly and monthly premium. UK homeowners see the latest average prices for buildings and contents cover.
+
+Q: How much is homeowners insurance?
+A: About $2,772 a year on average in the US for $300,000 of dwelling coverage with a $1,000 deductible in 2026, from $948 in Vermont to $6,324 in Florida. In the UK, combined buildings and contents averaged £389 a year.
+
+Formula:
+```
+Estimate = state average ($300k) × coverage factor × deductible factor × claims factor
+Coverage factor: $200k ×0.75, $400k ×1.25, $600k ×1.73, $1M ×2.68
+Deductible: $500 ×1.07, $2,500 ×0.91, $5,000 ×0.80 · One claim ×1.10
+```
+
+Example: A home in Texas with $400,000 of dwelling coverage and a $1,000 deductible costs about $4,452 × 1.25 = $5,547 a year, or $462 a month. Raising the deductible to $2,500 cuts that to about $5,048.
+
+### Life Insurance Calculator
+URL: https://numbrik.com/life-insurance-calculator/
+
+Work out how much term life insurance would protect your family if you died, and which term length fits. Add your income, debts and what your children will need, subtract what you already have, and see a coverage amount, a suggested term and, in the US, what that policy typically costs at your age.
+
+Q: How much life insurance do I need?
+A: Add your income for the years your family would need it, your mortgage and debts, children's education and final costs, then subtract savings and existing cover. A $75,000 earner supporting a family for 15 years with a $220,000 mortgage often needs about $1.5 million.
+
+Formula:
+```
+Need = income × years + mortgage + other debts + (children × college cost) + final expenses
+Cover = need − savings − existing life insurance (rounded up to $50,000)
+Term = shortest of 10/15/20/25/30 years that covers the years needed
+```
+
+Example: A 35-year-old earning $75,000 wants to support the family for 15 years, has a $220,000 mortgage, $15,000 of other debt, two children ($60,000 each for college) and $15,000 for final costs. That's $1,495,000. Minus $40,000 of savings and existing cover, the need is $1,455,000, so a $1,500,000, 15-year term policy fits. For a healthy nonsmoking man, a 20-year, $1 million policy averages about $65 a month at 35.

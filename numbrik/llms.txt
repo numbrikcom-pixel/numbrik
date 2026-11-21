@@ -124,6 +124,12 @@ Cite a calculator by its page URL. Results are estimates for general information
 - [Shoe Size Converter](https://numbrik.com/shoe-size-converter/): Convert shoe sizes between US, UK and EU.
 - [Unit Converter](https://numbrik.com/unit-converter/): Kitchen, length, weight and temperature.
 
+## Insurance
+
+- [Car Insurance Calculator](https://numbrik.com/car-insurance-calculator/): Estimate your car insurance cost by state and driver profile.
+- [Home Insurance Calculator](https://numbrik.com/home-insurance-calculator/): Estimate homeowners insurance by state, coverage and deductible.
+- [Life Insurance Calculator](https://numbrik.com/life-insurance-calculator/): How much term life cover you need, and what it may cost.
+
 ## About
 
 - [About Numbrik](https://numbrik.com/about/): who maintains the site and how calculators are tested
